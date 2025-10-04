@@ -17,12 +17,13 @@ const Header = () => {
   }, []);
 
   const menuItems = [
-    { label: "Cases", href: "#cases" },
+    { label: "Início", href: "#hero" },
+    { label: "Sistema", href: "#sistema" },
+    { label: "Como trabalhamos", href: "#como-trabalhamos" },
     { label: "Funil", href: "#funil" },
     { label: "Serviços", href: "#servicos" },
-    { label: "Como decidimos", href: "#decisao" },
+    { label: "Cases", href: "#cases" },
     { label: "FAQ", href: "#faq" },
-    { label: "Contato", href: "#contato" },
   ];
 
   const handleCTAClick = () => {
