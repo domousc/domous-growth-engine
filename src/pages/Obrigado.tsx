@@ -57,7 +57,11 @@ const Obrigado = () => {
             <Button
               size="lg"
               className="w-full gradient-domous text-white hover:opacity-90 shadow-domous"
-              onClick={() => window.open('https://wa.me/5583999999999?text=' + encodeURIComponent('Acabei de preencher o formulário'), '_blank')}
+              onClick={() => {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'click_whatsapp' });
+                window.open('https://wa.me/5583981195186?text=' + encodeURIComponent('Acabei de preencher o formulário'), '_blank');
+              }}
             >
               <MessageCircle className="mr-2 w-5 h-5" />
               Falar no WhatsApp agora

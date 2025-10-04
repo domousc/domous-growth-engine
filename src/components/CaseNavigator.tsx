@@ -112,7 +112,9 @@ const CaseNavigator = ({ isOpen, onClose, caseData }: CaseNavigatorProps) => {
             className="flex-1 gradient-domous text-white hover:opacity-90"
             onClick={() => {
               handleCTA('whatsapp');
-              window.open('https://wa.me/5583999999999?text=' + encodeURIComponent(`Quero resultados como o case ${caseData.cliente}`), '_blank');
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: 'click_whatsapp' });
+              window.open('https://wa.me/5583981195186?text=' + encodeURIComponent(`Quero resultados como o case ${caseData.cliente}`), '_blank');
             }}
           >
             <MessageCircle className="mr-2 w-4 h-4" />

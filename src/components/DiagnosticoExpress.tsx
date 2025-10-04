@@ -50,7 +50,7 @@ const DiagnosticoExpress = () => {
     const utmTerm = urlParams.get("utm_term") || "";
     
     return encodeURIComponent(
-      `Quero diagnóstico Domous — objetivo:${objetivo} | ticket:${ticket} | crm:${usaCRM} | utm:${utmSource}/${utmCampaign}/${utmTerm}`
+      `Quero diagnóstico — objetivo:${objetivo} | ticket:${ticket} | crm:${usaCRM} | utm:${utmSource}/${utmCampaign}/${utmTerm}`
     );
   };
 
@@ -136,7 +136,11 @@ const DiagnosticoExpress = () => {
 
           <Button 
             className="w-full gradient-domous text-white hover:opacity-90"
-            onClick={() => window.open(`https://wa.me/5583999999999?text=${getWhatsAppMessage()}`, '_blank')}
+            onClick={() => {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: 'click_whatsapp' });
+              window.open(`https://wa.me/5583981195186?text=${getWhatsAppMessage()}`, '_blank');
+            }}
           >
             <MessageCircle className="mr-2 w-4 h-4" />
             Continuar no WhatsApp

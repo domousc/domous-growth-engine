@@ -23,6 +23,7 @@ import VideoComoTrabalhamos from "@/components/VideoComoTrabalhamos";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import CookieBanner from "@/components/CookieBanner";
 import DarkModeToggle from "@/components/DarkModeToggle";
+import MobileBottomBar from "@/components/MobileBottomBar";
 import { useState, useEffect } from "react";
 import type { Industria } from "@/components/IndustriaSelector";
 
@@ -55,6 +56,7 @@ const Index = () => {
       <ReadingProgressBar />
       <Header />
       <WhatsAppButton />
+      <MobileBottomBar />
       <DarkModeToggle />
       <CookieBanner />
       

@@ -15,6 +15,18 @@ const FAQSection = () => {
 
   const faqs = [
     {
+      pergunta: "Por que fidelidade?",
+      resposta: "Para garantir tempo de implantação (LP/Tray/CRM), testes de hipóteses criativas e ramp-up de mídia. Sem esse horizonte, o risco é validar superficialmente e encarecer CAC. Alinhamos marcos semanais e entregáveis claros.",
+    },
+    {
+      pergunta: "Qual é o prazo de fidelidade?",
+      resposta: "Alinhamos o prazo mínimo necessário para implementar e escalar com segurança. Trabalhamos com marcos semanais: setup 0–14d, testes 15–30d, otimizações 31–60d. O prazo específico é definido no diagnóstico, de acordo com seu negócio.",
+    },
+    {
+      pergunta: "Como medimos o avanço?",
+      resposta: "Marcos semanais + painel CAC/AOV/LTV/Conversão. Você acompanha cada etapa e sabe exatamente o que está sendo feito e quais resultados esperar em cada fase do processo.",
+    },
+    {
       pergunta: "Quando vejo os primeiros sinais?",
       resposta: "Entre semanas 2–4, dependendo do seu ciclo de venda. Negócios com ticket baixo e ciclo curto podem ver resultados já na primeira semana. Para tickets mais altos ou ciclos B2B, costuma levar 3-4 semanas para os primeiros sinais consistentes.",
     },

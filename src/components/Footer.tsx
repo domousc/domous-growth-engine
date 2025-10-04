@@ -31,7 +31,16 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>(83) 9999-9999</span>
+                <a 
+                  href="tel:+5583981195186" 
+                  className="hover:text-primary transition-smooth"
+                  onClick={() => {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({ event: 'call_click' });
+                  }}
+                >
+                  83 98119-5186
+                </a>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Mail className="w-4 h-4 text-primary" />

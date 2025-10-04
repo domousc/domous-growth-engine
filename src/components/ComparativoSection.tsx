@@ -25,7 +25,7 @@ const ComparativoSection = () => {
       agencia: false,
     },
     {
-      criterio: "Sem fidelidade",
+      criterio: "Fidelidade transparente com marcos",
       domous: true,
       agencia: false,
     },

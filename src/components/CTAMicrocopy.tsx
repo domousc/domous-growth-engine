@@ -10,7 +10,7 @@ const CTAMicrocopy = () => {
       <span className="hidden sm:inline">•</span>
       <span className="flex items-center gap-1.5">
         <Shield className="w-4 h-4 text-primary" />
-        Sem fidelidade
+        Fidelidade transparente
       </span>
     </div>
   );

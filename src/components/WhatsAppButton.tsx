@@ -2,8 +2,12 @@ import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton = () => {
   const handleClick = () => {
-    const message = encodeURIComponent("Quero diagnóstico Domous");
-    const phoneNumber = "5583999999999"; // Placeholder - substituir pelo número real
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmSource = urlParams.get("utm_source") || "";
+    const utmCampaign = urlParams.get("utm_campaign") || "";
+    const utmTerm = urlParams.get("utm_term") || "";
+    const message = encodeURIComponent(`Quero diagnóstico Domous utm:${utmSource}/${utmCampaign}/${utmTerm}`);
+    const phoneNumber = "5583981195186";
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
     
     const event = new CustomEvent('click_whatsapp');

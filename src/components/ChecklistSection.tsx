@@ -13,7 +13,7 @@ const ChecklistSection = () => {
     "Entrega Primeiros 30 dias com marcos?",
     "Revisão semanal e painel claro?",
     "SLA de resposta e canal direto?",
-    "Sem fidelidade?",
+    "Fidelidade alinhada com marcos claros?",
   ];
 
   const handleCheck = (index: number) => {

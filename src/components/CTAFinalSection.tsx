@@ -4,7 +4,7 @@ import CTAMicrocopy from "./CTAMicrocopy";
 
 const CTAFinalSection = () => {
   const trustBadges = [
-    { icon: Award, text: "Sem fidelidade" },
+    { icon: Award, text: "Fidelidade transparente" },
     { icon: Award, text: "Parceiros Google/Meta/Tray" },
     { icon: Award, text: "João Pessoa e Brasil" },
   ];

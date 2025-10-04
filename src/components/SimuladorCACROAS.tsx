@@ -36,8 +36,11 @@ const SimuladorCACROAS = () => {
 
   const handleSubmit = () => {
     const urlParams = new URLSearchParams(window.location.search);
+    const utmSource = urlParams.get("utm_source") || "";
+    const utmCampaign = urlParams.get("utm_campaign") || "";
+    const utmTerm = urlParams.get("utm_term") || "";
     const message = encodeURIComponent(
-      `Quero plano Domous — Orçamento: R$ ${orcamento[0]} | Ticket: R$ ${ticketMedio[0]} | utm:${urlParams.get("utm_source")}/${urlParams.get("utm_campaign")}`
+      `Quero diagnóstico — objetivo:plano | ticket:${ticketMedio[0]} | estimativa:${cacEstimado}/${roasEstimado}x | utm:${utmSource}/${utmCampaign}/${utmTerm}`
     );
     
     window.dataLayer = window.dataLayer || [];
@@ -48,8 +51,9 @@ const SimuladorCACROAS = () => {
       sim_cvr_lp: cvrLP[0],
       sim_cvr_venda: cvrVenda[0]
     });
+    window.dataLayer.push({ event: 'click_whatsapp' });
     
-    window.open(`https://wa.me/5583999999999?text=${message}`, '_blank');
+    window.open(`https://wa.me/5583981195186?text=${message}`, '_blank');
   };
 
   return (
