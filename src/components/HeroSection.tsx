@@ -10,7 +10,6 @@ import IndustriaSelector, { Industria } from "./IndustriaSelector";
 import { HeroVariant } from "@/hooks/useUTMParams";
 import heroPipelineDesktop from "@/assets/hero-pipeline-desktop.webp";
 import heroPipelineMobile from "@/assets/hero-pipeline-mobile.webp";
-import bgCurvesCorner from "@/assets/bg-curves-corner.webp";
 import clientesGrid from "@/assets/clientes-grid.png";
 import CTAButton from "./CTAButton";
 import { useEffect, useRef, useState } from "react";
@@ -85,11 +84,6 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
 
   return (
     <section id="hero" className="section-dark pt-32 pb-28 md:pb-32 lg:pb-40 relative overflow-hidden purple-glow">
-      {/* Decorative corner curves - hidden on mobile */}
-      <div className="absolute top-0 right-0 w-80 h-80 opacity-20 pointer-events-none hidden md:block">
-        <img src={bgCurvesCorner} alt="Linhas curvas decorativas em roxo" className="w-full h-full object-contain" />
-      </div>
-      
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Content */}
