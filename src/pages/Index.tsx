@@ -24,6 +24,11 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import CookieBanner from "@/components/CookieBanner";
 import DarkModeToggle from "@/components/DarkModeToggle";
 import MobileBottomBar from "@/components/MobileBottomBar";
+import CalculadoraVazamento from "@/components/CalculadoraVazamento";
+import ObjectionArena from "@/components/ObjectionArena";
+import CommandPalette from "@/components/CommandPalette";
+import StickyROIRadar from "@/components/StickyROIRadar";
+import WhatsAppSimulator from "@/components/WhatsAppSimulator";
 import { useState, useEffect } from "react";
 import type { Industria } from "@/components/IndustriaSelector";
 
@@ -54,6 +59,8 @@ const Index = () => {
       <SchemaMarkup />
       <GTMScript />
       <ReadingProgressBar />
+      <StickyROIRadar />
+      <CommandPalette />
       <Header />
       <WhatsAppButton />
       <MobileBottomBar />
@@ -61,7 +68,11 @@ const Index = () => {
       <CookieBanner />
       
       <main>
-        <HeroSection variant={variant} />
+        <HeroSection 
+          variant={variant}
+          selectedIndustria={selectedIndustria}
+          onSelectIndustria={setSelectedIndustria}
+        />
         <ClientsSection />
         {geotext && (
           <div className="py-4 bg-primary/5 text-center">
@@ -72,7 +83,7 @@ const Index = () => {
         <SistemaDomousSection />
         
         {/* Vídeo "Como trabalhamos" */}
-        <section className="py-16 md:py-24 bg-secondary/30">
+        <section id="como-trabalhamos" className="py-16 md:py-24 bg-secondary/30">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -85,6 +96,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+        
+        {/* Calculadora de Vazamento */}
+        <CalculadoraVazamento />
         
         <FunilSection />
         
@@ -103,6 +117,22 @@ const Index = () => {
           </div>
         </section>
         <ServicosSection />
+        
+        {/* CRM com WhatsApp Simulator */}
+        <section id="crm" className="py-16 md:py-24 bg-secondary/30">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="mb-6">CRM com IA + WhatsApp</h2>
+                <p className="text-xl text-muted-foreground">
+                  Veja como a IA responde seus clientes 24/7 e aumenta conversão
+                </p>
+              </div>
+              <WhatsAppSimulator />
+            </div>
+          </div>
+        </section>
+        
         <CasesSection 
           selectedIndustria={selectedIndustria}
           onSelectIndustria={setSelectedIndustria}
@@ -111,6 +141,10 @@ const Index = () => {
         <Primeiros30DiasSection />
         <ComparativoSection />
         <ChecklistSection />
+        
+        {/* Objection Arena */}
+        <ObjectionArena />
+        
         <FAQSection />
         <GarantiaSection />
         <CTAFinalSection />

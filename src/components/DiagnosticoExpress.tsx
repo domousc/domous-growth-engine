@@ -31,15 +31,15 @@ const DiagnosticoExpress = () => {
     });
   };
 
-  const getRecomendacao = () => {
+  const getPrioridade = (): { area: string; anchor: string; texto: string } => {
     if (objetivo === "leads" && usaCRM === "nao") {
-      return "Recomendamos começar com CRM WhatsApp + IA para não perder leads, depois escalar com Tráfego Pago.";
+      return { area: "CRM", anchor: "#crm", texto: "Começar com CRM WhatsApp + IA para não perder leads" };
     } else if (objetivo === "vender-online" && ticket === "0-100") {
-      return "Para tickets baixos, foque em volume: Tráfego Pago + Loja Tray otimizada + automações de remarketing.";
+      return { area: "LP/Loja", anchor: "#servicos", texto: "Loja Tray otimizada + Tráfego Pago para volume" };
     } else if (objetivo === "aumentar-ticket" && usaCRM === "sim") {
-      return "Com CRM ativo, trabalhe upsell/cross-sell via funis conversacionais e ofertas direcionadas.";
+      return { area: "Criativo", anchor: "#servicos", texto: "Upsell/cross-sell via funis conversacionais" };
     } else {
-      return "Análise completa do seu funil + estruturação de camadas (Social, LP, CRM, Mídia) é o melhor caminho.";
+      return { area: "Funil completo", anchor: "#funil", texto: "Estruturação de todas as camadas do funil" };
     }
   };
 
@@ -130,21 +130,31 @@ const DiagnosticoExpress = () => {
       ) : (
         <div className="space-y-4 animate-fade-in">
           <div className="bg-primary/5 rounded-xl p-4 border border-primary/20">
-            <p className="text-sm font-semibold text-primary mb-2">✨ Recomendação de caminho</p>
-            <p className="text-sm">{getRecomendacao()}</p>
+            <p className="text-sm font-semibold text-primary mb-2">🎯 Prioridade: {getPrioridade().area}</p>
+            <p className="text-sm">{getPrioridade().texto}</p>
           </div>
 
-          <Button 
-            className="w-full gradient-domous text-white hover:opacity-90"
-            onClick={() => {
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({ event: 'click_whatsapp' });
-              window.open(`https://wa.me/5583981195186?text=${getWhatsAppMessage()}`, '_blank');
-            }}
-          >
-            <MessageCircle className="mr-2 w-4 h-4" />
-            Continuar no WhatsApp
-          </Button>
+          <div className="flex flex-col gap-3">
+            <Button 
+              variant="outline"
+              className="w-full border-primary text-primary hover:bg-primary/5"
+              onClick={() => window.location.href = getPrioridade().anchor}
+            >
+              Ver seção recomendada
+            </Button>
+
+            <Button 
+              className="w-full gradient-domous text-white hover:opacity-90"
+              onClick={() => {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'click_whatsapp' });
+                window.open(`https://wa.me/5583981195186?text=${getWhatsAppMessage()}`, '_blank');
+              }}
+            >
+              <MessageCircle className="mr-2 w-4 h-4" />
+              Continuar no WhatsApp
+            </Button>
+          </div>
 
           <button
             onClick={() => {

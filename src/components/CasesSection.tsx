@@ -23,13 +23,15 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
   const cases = {
     saude: [
       {
-        resultado: "40 vendas nos primeiros 30 dias",
+        resultado: "CAC R$ 42 | ROAS 8.2x — Clínica de Estética",
+        metricaDestaque: "ROAS 8.2x em 30 dias",
         cliente: "Clínica de Estética",
         descricao: "Estruturação completa do produto + funil de captação + mídia",
         metricas: ["CAC: R$ 42", "Ticket: R$ 890", "ROAS: 8.2x"],
       },
       {
-        resultado: "Agenda lotada em 15 dias",
+        resultado: "Show-up 87% — Dentista",
+        metricaDestaque: "Show-up 87% em 15 dias",
         cliente: "Dentista",
         descricao: "Google Perfil + anúncios locais + CRM WhatsApp",
         metricas: ["Custo/agendamento: R$ 18", "Show-up: 87%"],
@@ -37,13 +39,15 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
     ],
     ecommerce: [
       {
-        resultado: "AOV +18% e CAC –28% em 60 dias",
+        resultado: "AOV +18% em 60 dias — Moda",
+        metricaDestaque: "AOV +18% e CAC –28%",
         cliente: "Loja de Moda (Tray)",
         descricao: "Loja Tray + CRM + Ads otimizados",
         metricas: ["Conversão: 2.1% → 3.4%", "AOV: R$ 187 → R$ 221"],
       },
       {
-        resultado: "R$ 127k no primeiro mês",
+        resultado: "R$ 127k no 1º mês — Casa",
+        metricaDestaque: "R$ 127k em faturamento",
         cliente: "E-commerce de Casa",
         descricao: "Lançamento completo com mídia integrada",
         metricas: ["ROAS: 6.8x", "Pedidos: 580"],
@@ -51,7 +55,8 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
     ],
     servicos: [
       {
-        resultado: "Pipeline +340% em 90 dias",
+        resultado: "Pipeline +340% em 90 dias — B2B",
+        metricaDestaque: "Pipeline +340%",
         cliente: "Consultoria B2B",
         descricao: "LinkedIn + CRM com IA + SDR automatizado",
         metricas: ["Leads/mês: 45 → 198", "Win rate: 23%"],
@@ -59,7 +64,8 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
     ],
     alimentacao: [
       {
-        resultado: "Ticket médio +22% e recorrência ↑",
+        resultado: "LTV +38% — Restaurante",
+        metricaDestaque: "Ticket médio +22%",
         cliente: "Restaurante",
         descricao: "CRM/IA + ofertas sazonais + remarketing",
         metricas: ["Recompra: 31% → 49%", "LTV: +38%"],
@@ -100,12 +106,11 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
               {casesArray.map((caso, index) => (
                 <div 
                   key={index}
-                  className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card hover:shadow-domous transition-smooth"
+                  className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card hover:shadow-domous transition-smooth hover-tilt"
                 >
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="md:col-span-2">
                       <h3 className="text-2xl font-bold mb-2 text-primary">{caso.resultado}</h3>
-                      <p className="text-lg font-semibold mb-3">{caso.cliente}</p>
                       <p className="text-muted-foreground mb-4">{caso.descricao}</p>
                       <Button 
                         variant="outline" 

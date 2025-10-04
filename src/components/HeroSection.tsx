@@ -1,18 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, Users, DollarSign } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, DollarSign, Phone } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CTAMicrocopy from "./CTAMicrocopy";
 import LeadForm from "./LeadForm";
 import DiagnosticoExpress from "./DiagnosticoExpress";
+import SimuladorCACROAS from "./SimuladorCACROAS";
 import AnimatedCounter from "./AnimatedCounter";
+import IndustriaSelector, { Industria } from "./IndustriaSelector";
 import { HeroVariant } from "@/hooks/useUTMParams";
 import heroImage from "@/assets/hero-3d-sphere.jpg";
 import { useEffect, useRef, useState } from "react";
 
 interface HeroSectionProps {
   variant: HeroVariant;
+  selectedIndustria?: Industria;
+  onSelectIndustria?: (industria: Industria) => void;
 }
 
-const HeroSection = ({ variant }: HeroSectionProps) => {
+const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }: HeroSectionProps) => {
   const [scrollY, setScrollY] = useState(0);
   const imageRef = useRef<HTMLDivElement>(null);
 
@@ -114,15 +119,41 @@ const HeroSection = ({ variant }: HeroSectionProps) => {
                 Receber diagnóstico no WhatsApp
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-primary text-primary hover:bg-primary/5 text-lg h-14 px-8"
-                onClick={() => handleCTAClick('secondary')}
+              <a
+                href="tel:+5583981195186"
+                onClick={() => {
+                  window.dataLayer = window.dataLayer || [];
+                  window.dataLayer.push({ event: 'call_click', location: 'hero' });
+                }}
               >
-                Agendar uma call
-              </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-primary text-primary hover:bg-primary/5 text-lg h-14 px-8 w-full"
+                >
+                  <Phone className="mr-2 w-5 h-5" />
+                  Ligar agora
+                </Button>
+              </a>
             </div>
+
+            {/* Microcopy abaixo dos CTAs */}
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+              <span>✅ Diagnóstico em 5 min</span>
+              <span>✅ Resposta em minutos</span>
+              <span>✅ Fidelidade transparente</span>
+            </div>
+
+            {/* Industry Selector */}
+            {onSelectIndustria && (
+              <div className="pt-4">
+                <p className="text-sm font-medium mb-3">Escolha sua indústria:</p>
+                <IndustriaSelector 
+                  selectedIndustria={selectedIndustria}
+                  onSelectIndustria={onSelectIndustria}
+                />
+              </div>
+            )}
 
             <CTAMicrocopy />
           </div>
@@ -145,8 +176,21 @@ const HeroSection = ({ variant }: HeroSectionProps) => {
               />
             </div>
             
-            {/* Diagnóstico Express */}
-            <DiagnosticoExpress />
+            {/* Widget Tabs */}
+            <Tabs defaultValue="dxp" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 mb-4">
+                <TabsTrigger value="dxp">Diagnóstico Express</TabsTrigger>
+                <TabsTrigger value="sim">Simulador CAC/ROAS</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="dxp">
+                <DiagnosticoExpress />
+              </TabsContent>
+              
+              <TabsContent value="sim">
+                <SimuladorCACROAS />
+              </TabsContent>
+            </Tabs>
             
             {/* Form Principal */}
             <div className="bg-card rounded-2xl shadow-card p-6 md:p-8 border border-border">

@@ -55,6 +55,17 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-4">
+            <a
+              href="tel:+5583981195186"
+              onClick={() => {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'call_click', location: 'header' });
+              }}
+              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 transition-smooth font-medium"
+            >
+              <span className="text-sm">📞 Ligar agora</span>
+            </a>
+            
             <Button
               onClick={handleCTAClick}
               className="hidden md:flex gradient-domous text-white hover:opacity-90 transition-smooth shadow-domous"
