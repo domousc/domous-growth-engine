@@ -85,8 +85,8 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
 
   return (
     <section id="hero" className="section-dark pt-32 pb-28 md:pb-32 lg:pb-40 relative overflow-hidden purple-glow">
-      {/* Decorative corner curves */}
-      <div className="absolute top-0 right-0 w-80 h-80 opacity-20 pointer-events-none">
+      {/* Decorative corner curves - hidden on mobile */}
+      <div className="absolute top-0 right-0 w-80 h-80 opacity-20 pointer-events-none hidden md:block">
         <img src={bgCurvesCorner} alt="Linhas curvas decorativas em roxo" className="w-full h-full object-contain" />
       </div>
       
@@ -183,11 +183,19 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
                 <img 
                   src={heroPipelineDesktop} 
                   alt="Representação minimalista do funil: tráfego, landing page, Whats/CRM e venda" 
-                  className="w-full h-auto rounded-3xl"
+                  className="w-full h-auto rounded-3xl hidden md:block"
                   loading="eager"
                   fetchPriority="high"
                 />
               </picture>
+              
+              {/* Mobile image */}
+              <img 
+                src={heroPipelineMobile}
+                alt="Representação minimalista do funil: tráfego, landing page, Whats/CRM e venda" 
+                className="w-full h-auto rounded-3xl md:hidden"
+                loading="eager"
+              />
             </div>
             
             {/* Widget Tabs */}
