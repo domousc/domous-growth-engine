@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoDomous from "@/assets/logo-domous-black.png";
+import logoDomousBlack from "@/assets/logo-domous-black.png";
+import logoDomousWhite from "@/assets/logo-domous-white.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,13 +33,24 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-        isScrolled ? "bg-background/95 backdrop-blur-lg shadow-card" : "bg-transparent"
+        isScrolled 
+          ? "bg-background/95 backdrop-blur-lg shadow-card" 
+          : "bg-white/95 backdrop-blur-sm shadow-sm md:bg-transparent md:shadow-none"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <a href="/" className="flex items-center">
-            <img src={logoDomous} alt="DOMOUS Business Performance" className="h-8 md:h-10" />
+            <img 
+              src={isScrolled ? logoDomousBlack : logoDomousBlack} 
+              alt="DOMOUS Business Performance" 
+              className={`h-8 md:h-10 transition-opacity ${!isScrolled ? 'md:hidden' : ''}`}
+            />
+            <img 
+              src={logoDomousWhite} 
+              alt="DOMOUS Business Performance" 
+              className={`h-8 md:h-10 transition-opacity hidden ${!isScrolled ? 'md:block' : ''}`}
+            />
           </a>
 
           {/* Desktop Menu */}
@@ -47,7 +59,11 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-smooth"
+                className={`text-sm font-medium transition-smooth ${
+                  isScrolled 
+                    ? 'text-foreground/80 hover:text-primary' 
+                    : 'text-white/90 hover:text-white'
+                }`}
               >
                 {item.label}
               </a>
@@ -77,7 +93,9 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2"
+              className={`lg:hidden p-2 transition-colors ${
+                isScrolled ? 'text-foreground' : 'text-foreground md:text-white'
+              }`}
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
