@@ -52,11 +52,11 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
   // Mapeamento de sub-prova por indústria
   const industriaProva: Record<Industria, string> = {
     todas: "+10 mi em vendas • +50 empresas • +12k acompanhando",
-    moda: "Ex.: loja com +18% AOV em 60 dias (Tray + CRM + Ads).",
-    saude: "Ex.: 40 agendamentos nos 30 primeiros dias (Whats + Funis).",
-    servicos: "Ex.: CPA −32% com oferta e CRM revisados.",
-    alimentacao: "Ex.: ticket médio +22% com upsell e mídia local.",
-    arquitetura: "Ex.: leads qualificados +55% com pré-brief no Whats.",
+    moda: "Loja com +18% AOV em 60 dias (Tray + CRM + Ads).",
+    saude: "40 agendamentos nos 30 primeiros dias (Whats + Funis).",
+    servicos: "CPA −32% com oferta e CRM revisados.",
+    alimentacao: "Ticket médio +22% com upsell e mídia local.",
+    arquitetura: "Leads qualificados +55% com pré-brief no Whats.",
   };
 
   const content = {
