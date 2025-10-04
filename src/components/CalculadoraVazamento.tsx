@@ -77,9 +77,9 @@ const CalculadoraVazamento = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="mb-6">Calculadora de Vazamento de Funil</h2>
+            <h2 className="mb-6">Descubra onde seu dinheiro está vazando.</h2>
             <p className="text-xl text-muted-foreground">
-              Descubra onde você está perdendo dinheiro e quanto poderia faturar corrigindo
+              Identifique o maior gargalo no seu funil e corrija isso primeiro
             </p>
           </div>
 
@@ -214,10 +214,10 @@ const CalculadoraVazamento = () => {
             <div className="bg-destructive/5 rounded-xl p-4 mb-6 border border-destructive/20">
               <div className="flex items-center gap-2 mb-2">
                 <AlertTriangle className="w-5 h-5 text-destructive" />
-                <p className="font-semibold text-destructive">Maior vazamento detectado</p>
+                <p className="font-semibold text-destructive">Maior vazamento</p>
               </div>
               <p className="text-sm mb-1">
-                <strong>{vazamento.etapa}</strong> está em {vazamento.valor}% (ideal: {vazamento.ideal}%+)
+                <strong>{vazamento.etapa}</strong> está em {vazamento.valor}% (ideal: {vazamento.ideal}%+). Corrija isso primeiro.
               </p>
               <p className="text-xs text-muted-foreground">
                 Corrigir essa etapa pode aumentar drasticamente sua receita

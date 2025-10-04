@@ -65,7 +65,7 @@ const ObjectionArena = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="mb-6">Suas dúvidas, respondidas</h2>
+            <h2 className="mb-6">Fale a verdade: o que te trava hoje?</h2>
             <p className="text-xl text-muted-foreground">
               Selecione a objeção que mais faz sentido para você
             </p>

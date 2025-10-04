@@ -71,7 +71,7 @@ const DiagnosticoExpress = () => {
     <Card className="p-6 border-2 border-primary/20 shadow-domous">
       <div className="flex items-center gap-2 mb-4">
         <Sparkles className="w-5 h-5 text-primary" />
-        <h3 className="text-lg font-bold">Diagnóstico Express</h3>
+        <h3 className="text-lg font-bold">Diagnóstico Express (3 perguntas)</h3>
       </div>
 
       {!showRecomendacao ? (

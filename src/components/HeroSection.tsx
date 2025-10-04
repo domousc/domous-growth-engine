@@ -38,7 +38,7 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
     "trafego-pago": {
       keyword: "Agência de Tráfego Pago",
       h1: "que começa pelo funil, não pelo botão.",
-      sub: "Ajustamos estratégia, oferta e funil para seu negócio vender — aí sim escalamos mídia.",
+      sub: "Se o lead tá caro, o problema não é o botão. É a estratégia, a oferta e o funil. A gente arruma isso — e só então escala mídia.",
       badge: null,
     },
     "loja-tray": {
