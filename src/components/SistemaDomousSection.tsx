@@ -58,12 +58,7 @@ const SistemaDomousSection = () => {
   return (
     <section id="sistema" className="py-28 md:py-32 lg:py-40 bg-gradient-to-b from-background to-secondary/30 relative">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-16 relative">
-          {/* Decorative orbs */}
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-24 opacity-30 pointer-events-none">
-            <img src={decorativeOrbs} alt="Orbs decorativos lilás" className="w-full h-full object-contain" />
-          </div>
-          
+        <div className="text-center mb-16">
           <h2 className="mb-6">Sistema Domous de Vendas</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             As 6 camadas integradas que transformam seu negócio em uma máquina de vendas
