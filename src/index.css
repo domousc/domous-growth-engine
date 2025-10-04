@@ -104,4 +104,15 @@ All colors MUST be HSL.
   .transition-smooth {
     transition: var(--transition-smooth);
   }
+  
+  /* Hover tilt effect - respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .hover-tilt {
+      transition: transform 0.3s ease;
+    }
+    
+    .hover-tilt:hover {
+      transform: perspective(1000px) rotateX(3deg) rotateY(4deg);
+    }
+  }
 }

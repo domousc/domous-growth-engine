@@ -2,9 +2,23 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight } from "lucide-react";
+import IndustriaSelector, { Industria } from "./IndustriaSelector";
+import CaseNavigator from "./CaseNavigator";
 
-const CasesSection = () => {
-  const [activeTab, setActiveTab] = useState("saude");
+interface CasesSectionProps {
+  selectedIndustria?: Industria;
+  onSelectIndustria?: (industria: Industria) => void;
+}
+
+const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesSectionProps) => {
+  const [activeTab, setActiveTab] = useState(selectedIndustria === "todas" ? "saude" : selectedIndustria);
+  const [selectedCase, setSelectedCase] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenCase = (caseData: any) => {
+    setSelectedCase(caseData);
+    setIsModalOpen(true);
+  };
 
   const cases = {
     saude: [
@@ -58,12 +72,22 @@ const CasesSection = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="mb-6">Nossos cases por indústria</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Resultados reais de clientes reais. Escolha sua indústria e veja o que é possível.
           </p>
+          
+          {onSelectIndustria && (
+            <IndustriaSelector 
+              selectedIndustria={selectedIndustria}
+              onSelectIndustria={(industria) => {
+                onSelectIndustria(industria);
+                if (industria !== "todas") setActiveTab(industria);
+              }}
+            />
+          )}
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-5xl mx-auto">
+        <Tabs value={activeTab} onValueChange={(val) => setActiveTab(val as any)} className="max-w-5xl mx-auto">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
             <TabsTrigger value="saude">Saúde</TabsTrigger>
             <TabsTrigger value="ecommerce">E-commerce</TabsTrigger>
@@ -83,7 +107,20 @@ const CasesSection = () => {
                       <h3 className="text-2xl font-bold mb-2 text-primary">{caso.resultado}</h3>
                       <p className="text-lg font-semibold mb-3">{caso.cliente}</p>
                       <p className="text-muted-foreground mb-4">{caso.descricao}</p>
-                      <Button variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                      <Button 
+                        variant="outline" 
+                        className="border-primary text-primary hover:bg-primary/5 hover-tilt"
+                        onClick={() => handleOpenCase({
+                          cliente: caso.cliente,
+                          industria: key,
+                          brief: caso.descricao,
+                          gargalo: "Análise detalhada do gargalo principal identificado",
+                          acao: "Implementação estratégica personalizada conforme Sistema Domous",
+                          resultado: caso.resultado,
+                          proximoPasso: "Escalar resultados e otimizar processos contínuos",
+                          lpFluxoLink: "#servicos"
+                        })}
+                      >
                         Ver planejamento
                         <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
@@ -116,6 +153,15 @@ const CasesSection = () => {
             ))}
           </div>
         </div>
+
+        {/* Case Navigator Modal */}
+        {selectedCase && (
+          <CaseNavigator 
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            caseData={selectedCase}
+          />
+        )}
       </div>
     </section>
   );

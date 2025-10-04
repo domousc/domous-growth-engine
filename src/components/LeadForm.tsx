@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
 import { HeroVariant } from "@/hooks/useUTMParams";
@@ -16,6 +18,10 @@ const formSchema = z.object({
   tipo_negocio: z.string().min(1, "Selecione o tipo de negócio"),
   faturamento: z.string().min(1, "Selecione a faixa de faturamento"),
   objetivo: z.string().min(1, "Selecione o objetivo principal"),
+  lgpd_consent: z.boolean().refine((val) => val === true, {
+    message: "Você precisa aceitar a política de privacidade",
+  }),
+  honeypot: z.string().max(0), // Anti-spam
 });
 
 interface LeadFormProps {
@@ -24,6 +30,7 @@ interface LeadFormProps {
 
 const LeadForm = ({ variant }: LeadFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,26 +41,47 @@ const LeadForm = ({ variant }: LeadFormProps) => {
       tipo_negocio: "",
       faturamento: "",
       objetivo: "",
+      lgpd_consent: false,
+      honeypot: "",
     },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    // Honeypot check
+    if (values.honeypot) {
+      console.log("Spam detected");
+      return;
+    }
+
     setIsSubmitting(true);
+    
+    // Capturar UTMs
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmData = {
+      utm_source: urlParams.get("utm_source") || "",
+      utm_medium: urlParams.get("utm_medium") || "",
+      utm_campaign: urlParams.get("utm_campaign") || "",
+      utm_term: urlParams.get("utm_term") || "",
+      utm_content: urlParams.get("utm_content") || "",
+    };
     
     // Simular envio
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    console.log("Form submitted:", { ...values, variant });
+    console.log("Form submitted:", { ...values, variant, ...utmData });
     
-    const event = new CustomEvent('lead_submit', { detail: { ...values, variant } });
+    const event = new CustomEvent('lead_submit', { detail: { ...values, variant, ...utmData } });
     window.dispatchEvent(event);
     
-    toast.success("Recebido! Vamos te responder em minutos.", {
-      description: "Nossa equipe já está analisando seu caso.",
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 
+      event: 'lead_submit',
+      form_variant: variant,
+      ...utmData
     });
     
-    form.reset();
     setIsSubmitting(false);
+    navigate("/obrigado");
   };
 
   const formatWhatsApp = (value: string) => {
@@ -187,6 +215,45 @@ const LeadForm = ({ variant }: LeadFormProps) => {
                 </SelectContent>
               </Select>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* LGPD Consent */}
+        <FormField
+          control={form.control}
+          name="lgpd_consent"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel className="text-sm">
+                  Aceito a{" "}
+                  <a href="/privacidade" target="_blank" className="text-primary hover:underline">
+                    Política de Privacidade
+                  </a>{" "}
+                  e autorizo o uso dos meus dados conforme LGPD
+                </FormLabel>
+                <FormMessage />
+              </div>
+            </FormItem>
+          )}
+        />
+
+        {/* Honeypot (hidden) */}
+        <FormField
+          control={form.control}
+          name="honeypot"
+          render={({ field }) => (
+            <FormItem className="hidden">
+              <FormControl>
+                <Input {...field} tabIndex={-1} autoComplete="off" />
+              </FormControl>
             </FormItem>
           )}
         />

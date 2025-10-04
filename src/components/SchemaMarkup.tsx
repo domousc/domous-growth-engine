@@ -109,10 +109,48 @@ const SchemaMarkup = () => {
     script3.text = JSON.stringify(serviceSchema);
     document.head.appendChild(script3);
 
+    // FAQPage Schema
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quando vejo os primeiros sinais?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entre semanas 2–4, dependendo do seu ciclo de venda. Negócios com ticket baixo e ciclo curto podem ver resultados já na primeira semana."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Atendem só em João Pessoa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não! Atendemos Brasil inteiro de forma 100% remota. Nossa equipe já trabalhou com clientes em mais de 15 estados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fazem 'só tráfego'?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não fazemos 'só tráfego'. Fazemos marketing que vende. Tráfego é uma tática dentro do Sistema Domous."
+          }
+        }
+      ]
+    };
+
+    const script4 = document.createElement('script');
+    script4.type = 'application/ld+json';
+    script4.text = JSON.stringify(faqSchema);
+    document.head.appendChild(script4);
+
     return () => {
       document.head.removeChild(script1);
       document.head.removeChild(script2);
       document.head.removeChild(script3);
+      document.head.removeChild(script4);
     };
   }, []);
 

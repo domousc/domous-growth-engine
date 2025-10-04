@@ -2,14 +2,33 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Users, DollarSign } from "lucide-react";
 import CTAMicrocopy from "./CTAMicrocopy";
 import LeadForm from "./LeadForm";
+import DiagnosticoExpress from "./DiagnosticoExpress";
+import AnimatedCounter from "./AnimatedCounter";
 import { HeroVariant } from "@/hooks/useUTMParams";
 import heroImage from "@/assets/hero-3d-sphere.jpg";
+import { useEffect, useRef, useState } from "react";
 
 interface HeroSectionProps {
   variant: HeroVariant;
 }
 
 const HeroSection = ({ variant }: HeroSectionProps) => {
+  const [scrollY, setScrollY] = useState(0);
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  // Parallax effect
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) return;
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const content = {
     "trafego-pago": {
       keyword: "Agência de Tráfego Pago",
@@ -69,19 +88,19 @@ const HeroSection = ({ variant }: HeroSectionProps) => {
               </p>
             </div>
 
-            {/* Proof Line */}
+            {/* Proof Line with Animated Counters */}
             <div className="flex flex-wrap items-center gap-6 text-sm font-medium">
               <div className="flex items-center gap-2">
                 <DollarSign className="w-5 h-5 text-primary" />
-                <span>+10 milhões em vendas</span>
+                <span><AnimatedCounter end={10} prefix="+" suffix=" milhões em vendas" /></span>
               </div>
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-primary" />
-                <span>+50 empresas</span>
+                <span><AnimatedCounter end={50} prefix="+" suffix=" empresas" /></span>
               </div>
               <div className="flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-primary" />
-                <span>+12k acompanhando</span>
+                <span><AnimatedCounter end={12} prefix="+" suffix="k acompanhando" /></span>
               </div>
             </div>
 
@@ -108,9 +127,16 @@ const HeroSection = ({ variant }: HeroSectionProps) => {
             <CTAMicrocopy />
           </div>
 
-          {/* Right: Form + Image */}
+          {/* Right: Image + Forms */}
           <div className="space-y-6 animate-fade-in">
-            <div className="relative">
+            <div 
+              ref={imageRef}
+              className="relative"
+              style={{ 
+                transform: `translateY(${scrollY * 0.02}px)`,
+                transition: 'transform 0.1s ease-out'
+              }}
+            >
               <img 
                 src={heroImage} 
                 alt="Domous 3D Visual" 
@@ -119,8 +145,12 @@ const HeroSection = ({ variant }: HeroSectionProps) => {
               />
             </div>
             
+            {/* Diagnóstico Express */}
+            <DiagnosticoExpress />
+            
+            {/* Form Principal */}
             <div className="bg-card rounded-2xl shadow-card p-6 md:p-8 border border-border">
-              <h3 className="text-2xl font-bold mb-6">Diagnóstico gratuito em 5 minutos</h3>
+              <h3 className="text-2xl font-bold mb-6">Ou preencha o formulário completo</h3>
               <LeadForm variant={variant} />
             </div>
           </div>

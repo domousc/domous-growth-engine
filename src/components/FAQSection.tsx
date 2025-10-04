@@ -1,6 +1,18 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useState } from "react";
 
 const FAQSection = () => {
+  const [openItem, setOpenItem] = useState<string | undefined>();
+
+  const handleValueChange = (value: string) => {
+    setOpenItem(value);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 
+      event: 'faq_toggle',
+      faq_question: value
+    });
+  };
+
   const faqs = [
     {
       pergunta: "Quando vejo os primeiros sinais?",
@@ -35,7 +47,13 @@ const FAQSection = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion 
+            type="single" 
+            collapsible 
+            className="space-y-4"
+            value={openItem}
+            onValueChange={handleValueChange}
+          >
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
