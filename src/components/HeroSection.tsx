@@ -11,6 +11,7 @@ import { HeroVariant } from "@/hooks/useUTMParams";
 import heroPipelineDesktop from "@/assets/hero-pipeline-desktop.webp";
 import heroPipelineMobile from "@/assets/hero-pipeline-mobile.webp";
 import bgCurvesCorner from "@/assets/bg-curves-corner.webp";
+import clientesGrid from "@/assets/clientes-grid.png";
 import CTAButton from "./CTAButton";
 import { useEffect, useRef, useState } from "react";
 import { useCTAData } from "@/hooks/useCTAData";
@@ -155,6 +156,16 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             </div>
 
             <CTAMicrocopy />
+            
+            {/* Clientes Grid */}
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <p className="text-sm text-dark-muted mb-4 text-center">Alguns de nossos clientes:</p>
+              <img 
+                src={clientesGrid} 
+                alt="Logos de clientes Domous" 
+                className="w-full max-w-md mx-auto opacity-70"
+              />
+            </div>
           </div>
 
           {/* Right: Image + Forms */}

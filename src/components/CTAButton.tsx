@@ -109,7 +109,7 @@ const CTAButton = ({
   
   const buttonClasses = cn(
     type === 'whatsapp' && variant === 'default' && 'gradient-domous text-white hover:opacity-90 shadow-domous',
-    type === 'call' && variant === 'outline' && 'border-2 border-white/30 text-white hover:bg-white/10',
+    type === 'call' && variant === 'outline' && 'border-2 border-primary/50 bg-primary/10 text-primary hover:bg-primary/20',
     className
   );
   
