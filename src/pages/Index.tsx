@@ -29,6 +29,7 @@ import ObjectionArena from "@/components/ObjectionArena";
 import CommandPalette from "@/components/CommandPalette";
 import StickyROIRadar from "@/components/StickyROIRadar";
 import WhatsAppSimulator from "@/components/WhatsAppSimulator";
+import timelineOnboarding from "@/assets/timeline-onboarding.webp";
 import { useState, useEffect } from "react";
 import type { Industria } from "@/components/IndustriaSelector";
 
@@ -82,15 +83,23 @@ const Index = () => {
         <DiferencialSection />
         <SistemaDomousSection />
         
-        {/* Vídeo "Como trabalhamos" */}
-        <section id="como-trabalhamos" className="py-16 md:py-24 bg-secondary/30">
+        {/* Vídeo "Como trabalhamos" - Dark Section */}
+        <section id="como-trabalhamos" className="section-dark py-28 md:py-32 lg:py-40">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="mb-6">Como trabalhamos</h2>
-                <p className="text-xl text-muted-foreground">
+                <h2 className="mb-6 text-dark-foreground">Como trabalhamos</h2>
+                <p className="text-xl text-dark-muted">
                   Veja em 90 segundos nosso processo completo do diagnóstico aos resultados
                 </p>
+              </div>
+              <div className="relative mb-8">
+                <img 
+                  src={timelineOnboarding} 
+                  alt="Timeline do onboarding com marcos por semana" 
+                  className="w-full h-auto rounded-2xl"
+                  loading="lazy"
+                />
               </div>
               <VideoComoTrabalhamos />
             </div>
@@ -103,12 +112,20 @@ const Index = () => {
         <FunilSection />
         
         {/* Simulador CAC/ROAS */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
+        <section className="py-28 md:py-32 lg:py-40 relative">
+          {/* Subtle grid background */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+            style={{ 
+              backgroundImage: 'linear-gradient(hsl(280 85% 55% / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(280 85% 55% / 0.1) 1px, transparent 1px)',
+              backgroundSize: '12px 12px'
+            }}
+          />
+          
+          <div className="container mx-auto px-4 lg:px-8 relative">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="mb-6">Simule seus resultados</h2>
-                <p className="text-xl text-muted-foreground">
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto" style={{ maxWidth: '65ch' }}>
                   Calcule estimativas de CAC, ROAS e próximas ações baseadas no seu cenário
                 </p>
               </div>

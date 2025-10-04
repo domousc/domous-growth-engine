@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye, MousePointer, MessageCircle, CreditCard, RefreshCw } from "lucide-react";
+import decorativeOrbs from "@/assets/decorative-orbs.webp";
 
 const FunilSection = () => {
   const etapas = [
@@ -46,11 +47,16 @@ const FunilSection = () => {
   ];
 
   return (
-    <section id="funil" className="py-16 md:py-24">
+    <section id="funil" className="py-28 md:py-32 lg:py-40">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 relative">
+          {/* Decorative orbs */}
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-24 opacity-30 pointer-events-none">
+            <img src={decorativeOrbs} alt="Orbs decorativos lilás" className="w-full h-full object-contain" />
+          </div>
+          
           <h2 className="mb-6">Funil de Vendas</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground mx-auto" style={{ maxWidth: '65ch' }}>
             Mapa prático do caminho que seu cliente percorre — do primeiro contato ao fã da marca
           </p>
         </div>
@@ -63,10 +69,10 @@ const FunilSection = () => {
           <div className="grid md:grid-cols-5 gap-6 md:gap-4">
             {etapas.map((etapa, index) => (
               <div key={index} className="relative">
-                <div className="bg-card rounded-2xl p-6 border-2 border-border hover:border-primary/40 transition-smooth shadow-card hover:shadow-domous">
+                <div className="bg-card rounded-[20px] p-6 border-2 border-border hover:border-primary/40 transition-smooth shadow-card hover:shadow-domous">
                   {/* Icon */}
                   <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${etapa.color} flex items-center justify-center text-white`}>
-                    <etapa.icon className="w-8 h-8" />
+                    <etapa.icon className="w-8 h-8" strokeWidth={1.75} />
                   </div>
                   
                   {/* Fase */}

@@ -73,17 +73,25 @@ const CalculadoraVazamento = () => {
   };
 
   return (
-    <section id="leak" className="py-16 md:py-24 bg-secondary/30">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="leak" className="py-28 md:py-32 lg:py-40 relative">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+        style={{ 
+          backgroundImage: 'linear-gradient(hsl(280 85% 55% / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(280 85% 55% / 0.1) 1px, transparent 1px)',
+          backgroundSize: '12px 12px'
+        }}
+      />
+      
+      <div className="container mx-auto px-4 lg:px-8 relative">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="mb-6">Descubra onde seu dinheiro está vazando.</h2>
-            <p className="text-xl text-muted-foreground">
+            <h2 className="mb-6">Descubra onde seu dinheiro está vazando</h2>
+            <p className="text-xl text-muted-foreground" style={{ maxWidth: '65ch', margin: '0 auto' }}>
               Identifique o maior gargalo no seu funil e corrija isso primeiro
             </p>
           </div>
 
-          <Card className="p-6 md:p-8 border-2 border-primary/20 shadow-domous">
+          <Card className="p-6 md:p-8 border-2 border-primary/20 shadow-domous rounded-[20px]">
             <div className="space-y-6 mb-8">
               <div>
                 <div className="flex justify-between mb-2">

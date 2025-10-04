@@ -8,7 +8,9 @@ import SimuladorCACROAS from "./SimuladorCACROAS";
 import AnimatedCounter from "./AnimatedCounter";
 import IndustriaSelector, { Industria } from "./IndustriaSelector";
 import { HeroVariant } from "@/hooks/useUTMParams";
-import heroImage from "@/assets/hero-3d-sphere.jpg";
+import heroPipelineDesktop from "@/assets/hero-pipeline-desktop.webp";
+import heroPipelineMobile from "@/assets/hero-pipeline-mobile.webp";
+import bgCurvesCorner from "@/assets/bg-curves-corner.webp";
 import { useEffect, useRef, useState } from "react";
 
 interface HeroSectionProps {
@@ -166,12 +168,16 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
                 transition: 'transform 0.1s ease-out'
               }}
             >
-              <img 
-                src={heroImage} 
-                alt="Domous 3D Visual" 
-                className="w-full h-auto rounded-3xl shadow-domous"
-                loading="eager"
-              />
+              <picture>
+                <source media="(max-width: 768px)" srcSet={heroPipelineMobile} />
+                <img 
+                  src={heroPipelineDesktop} 
+                  alt="Representação minimalista do funil: tráfego, landing page, Whats/CRM e venda" 
+                  className="w-full h-auto rounded-3xl"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </picture>
             </div>
             
             {/* Widget Tabs */}

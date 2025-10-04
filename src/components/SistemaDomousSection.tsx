@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Target, Users, ShoppingCart, MessageSquare, TrendingUp, Repeat } from "lucide-react";
+import decorativeOrbs from "@/assets/decorative-orbs.webp";
 
 const SistemaDomousSection = () => {
   const camadas = [
@@ -54,9 +55,14 @@ const SistemaDomousSection = () => {
   ];
 
   return (
-    <section id="sistema" className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/30">
+    <section id="sistema" className="py-28 md:py-32 lg:py-40 bg-gradient-to-b from-background to-secondary/30 relative">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 relative">
+          {/* Decorative orbs */}
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-24 opacity-30 pointer-events-none">
+            <img src={decorativeOrbs} alt="Orbs decorativos lilás" className="w-full h-full object-contain" />
+          </div>
+          
           <h2 className="mb-6">Sistema Domous de Vendas</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             As 6 camadas integradas que transformam seu negócio em uma máquina de vendas
@@ -67,14 +73,14 @@ const SistemaDomousSection = () => {
           {camadas.map((camada) => (
             <div
               key={camada.numero}
-              className="bg-card rounded-2xl p-6 border border-border hover:border-primary/40 transition-smooth shadow-card hover:shadow-domous group"
+              className="bg-card rounded-[20px] p-6 border border-border hover:border-primary/40 transition-smooth shadow-card hover:shadow-domous group"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${camada.color} flex items-center justify-center text-white font-bold text-xl flex-shrink-0 group-hover:scale-110 transition-smooth`}>
                   {camada.numero}
                 </div>
                 <div className="flex-1">
-                  <camada.icon className="w-8 h-8 text-primary mb-2" />
+                  <camada.icon className="w-8 h-8 text-primary mb-2" strokeWidth={1.75} />
                   <h3 className="text-xl font-bold mb-2">{camada.titulo}</h3>
                 </div>
               </div>
