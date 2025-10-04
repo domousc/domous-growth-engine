@@ -5,6 +5,7 @@ import CTAMicrocopy from "./CTAMicrocopy";
 import LeadForm from "./LeadForm";
 import DiagnosticoExpress from "./DiagnosticoExpress";
 import SimuladorCACROAS from "./SimuladorCACROAS";
+import QuizDiagnostico from "./QuizDiagnostico";
 import AnimatedCounter from "./AnimatedCounter";
 import IndustriaSelector, { Industria } from "./IndustriaSelector";
 import { HeroVariant } from "@/hooks/useUTMParams";
@@ -127,19 +128,19 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               <CTAButton 
                 type="whatsapp"
-                size="lg"
-                className="text-lg h-14 px-8"
+                size="default"
+                className="text-base h-11 px-6"
               />
               
               <CTAButton 
                 type="whatsapp"
                 label="Contratar a Domous"
                 variant="outline"
-                size="lg"
-                className="border-2 border-primary bg-[#1a0b2e] text-white hover:bg-white hover:text-primary hover:border-primary text-lg h-14 px-8"
+                size="default"
+                className="border-2 border-primary bg-[#1a0b2e] text-white hover:bg-white hover:text-primary hover:border-primary text-base h-11 px-6"
                 showIcon={false}
               />
             </div>
@@ -163,42 +164,19 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             </div>
           </div>
 
-          {/* Right: Image + Forms */}
+          {/* Right: Forms */}
           <div className="space-y-6 animate-fade-in">
-            <div 
-              ref={imageRef}
-              className="relative"
-              style={{ 
-                transform: `translateY(${scrollY * 0.02}px)`,
-                transition: 'transform 0.1s ease-out'
-              }}
-            >
-              <picture>
-                <source media="(max-width: 768px)" srcSet={heroPipelineMobile} />
-                <img 
-                  src={heroPipelineDesktop} 
-                  alt="Representação minimalista do funil: tráfego, landing page, Whats/CRM e venda" 
-                  className="w-full h-auto rounded-3xl hidden md:block"
-                  loading="eager"
-                  fetchPriority="high"
-                />
-              </picture>
-              
-              {/* Mobile image */}
-              <img 
-                src={heroPipelineMobile}
-                alt="Representação minimalista do funil: tráfego, landing page, Whats/CRM e venda" 
-                className="w-full h-auto rounded-3xl md:hidden"
-                loading="eager"
-              />
-            </div>
-            
             {/* Widget Tabs */}
-            <Tabs defaultValue="dxp" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-4">
-                <TabsTrigger value="dxp">Diagnóstico Express</TabsTrigger>
-                <TabsTrigger value="sim">Simulador CAC/ROAS</TabsTrigger>
+            <Tabs defaultValue="quiz" className="w-full">
+              <TabsList className="grid w-full grid-cols-3 mb-4">
+                <TabsTrigger value="quiz" className="text-xs sm:text-sm">Quiz</TabsTrigger>
+                <TabsTrigger value="dxp" className="text-xs sm:text-sm">Diagnóstico</TabsTrigger>
+                <TabsTrigger value="sim" className="text-xs sm:text-sm">Simulador</TabsTrigger>
               </TabsList>
+              
+              <TabsContent value="quiz">
+                <QuizDiagnostico />
+              </TabsContent>
               
               <TabsContent value="dxp">
                 <DiagnosticoExpress />
