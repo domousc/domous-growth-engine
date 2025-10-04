@@ -102,21 +102,44 @@ const Index = () => {
         {/* Vídeo "Como trabalhamos" - Dark Section */}
         <section id="como-trabalhamos" className="section-dark py-28 md:py-32 lg:py-40">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="mb-6 text-dark-foreground">Como trabalhamos</h2>
                 <p className="text-xl text-dark-muted">
                   Veja em 90 segundos nosso processo completo do diagnóstico aos resultados
                 </p>
               </div>
-              <div className="relative mb-8">
-                <img 
-                  src={timelineOnboarding} 
-                  alt="Timeline do onboarding com marcos por semana" 
-                  className="w-full h-auto rounded-2xl"
-                  loading="lazy"
-                />
+              
+              {/* Timeline responsiva */}
+              <div className="mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+                  {[
+                    { semana: "WEEK 1", titulo: "Kickoff", desc: "Análise completa e definição de estratégia" },
+                    { semana: "WEEK 4", titulo: "Execução", desc: "Primeiros criativos e campanhas no ar" },
+                    { semana: "WEEK 4", titulo: "Otimização", desc: "Ajustes baseados em dados reais" },
+                    { semana: "WEEK 2", titulo: "Escala", desc: "Aumento de budget e expansão" },
+                    { semana: "WEEK 4", titulo: "Consolidação", desc: "Resultados consistentes" },
+                    { semana: "90 X 1", titulo: "Máquina", desc: "Sistema rodando sozinho" }
+                  ].map((marco, idx) => (
+                    <div key={idx} className="relative">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-3 relative z-10">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <p className="text-xs font-bold text-primary mb-1">{marco.semana}</p>
+                        <p className="text-sm font-semibold text-dark-foreground mb-1">{marco.titulo}</p>
+                        <p className="text-xs text-dark-muted leading-tight">{marco.desc}</p>
+                      </div>
+                      {idx < 5 && (
+                        <div className="hidden lg:block absolute top-6 left-1/2 w-full h-0.5 bg-primary/30 -z-0" />
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
+              
               <VideoComoTrabalhamos />
             </div>
           </div>
