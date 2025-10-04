@@ -8,53 +8,79 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Brand Colors - Domous Purple Gradient */
-    --domous-purple: 280 85% 55%;
-    --domous-purple-light: 285 80% 65%;
-    --domous-purple-dark: 275 90% 45%;
+    /* Brand Colors - Domous Purple (50-900 scale) */
+    --brand-50: 270 100% 97%;   /* #F5EEFF */
+    --brand-100: 270 100% 94%;  /* #E9DAFF */
+    --brand-200: 270 100% 86%;  /* #D0B7FF */
+    --brand-300: 270 100% 77%;  /* #B18AFF */
+    --brand-400: 270 100% 69%;  /* #9360FF */
+    --brand-500: 270 100% 62%;  /* #7A3BFF */
+    --brand-600: 270 69% 52%;   /* #652CDB */
+    --brand-700: 270 66% 41%;   /* #4F22AD */
+    --brand-800: 270 67% 30%;   /* #39187F */
+    --brand-900: 270 65% 21%;   /* #28105A */
+    
+    /* Accent & Feedback Colors */
+    --accent: 165 100% 45%;     /* #00E5A5 */
+    --success: 145 63% 49%;     /* #2ECC71 */
+    --warning: 38 91% 56%;      /* #F5A524 */
+    --danger: 0 100% 65%;       /* #FF4D4F */
+    
+    /* Neutrals - Light Mode */
+    --bg: 240 33% 99%;          /* #FAFAFE */
+    --card: 0 0% 100%;          /* #FFFFFF */
+    --muted: 240 20% 96%;       /* #F2F2F7 */
+    --line: 240 14% 92%;        /* #E9E9F0 */
+    --text: 240 12% 7%;         /* #111114 */
+    --text-2: 240 6% 25%;       /* #3D3E45 */
+    --text-3: 240 5% 45%;       /* #6A6B73 */
     
     /* Gradients */
-    --gradient-domous: linear-gradient(135deg, hsl(280 85% 55%), hsl(285 80% 65%));
-    --gradient-domous-reverse: linear-gradient(135deg, hsl(285 80% 65%), hsl(280 85% 55%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(280 40% 98%));
+    --grad-hero: linear-gradient(135deg, hsl(270 100% 62%) 0%, hsl(270 100% 77%) 50%, hsl(165 100% 45%) 100%);
+    --grad-orb: conic-gradient(from 0deg, hsl(270 100% 77%), hsl(270 100% 62%), hsl(165 100% 45%), hsl(270 100% 77%));
     
-    /* Core */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
-
-    --primary: 280 85% 55%;
+    /* Shadows / Elevation */
+    --elev-1: 0 2px 8px rgba(17, 17, 20, 0.06);
+    --elev-2: 0 6px 24px rgba(17, 17, 20, 0.08);
+    --elev-3: 0 12px 40px rgba(17, 17, 20, 0.10);
+    
+    /* Core Tokens (shadcn compatibility) */
+    --background: var(--bg);
+    --foreground: var(--text);
+    --primary: var(--brand-500);
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 280 40% 96%;
-    --secondary-foreground: 240 10% 10%;
-
-    --muted: 280 30% 96%;
-    --muted-foreground: 240 5% 50%;
-
-    --accent: 285 80% 65%;
+    --secondary: var(--brand-50);
+    --secondary-foreground: var(--brand-700);
+    --muted-foreground: var(--text-3);
     --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
+    --destructive: var(--danger);
     --destructive-foreground: 0 0% 100%;
-
-    --border: 280 20% 90%;
-    --input: 280 20% 90%;
-    --ring: 280 85% 55%;
-
-    --radius: 1rem;
+    --border: var(--line);
+    --input: var(--line);
+    --ring: var(--brand-300);
+    --popover: var(--card);
+    --popover-foreground: var(--text);
+    --card-foreground: var(--text);
     
-    /* Shadows */
-    --shadow-domous: 0 10px 40px -10px hsl(280 85% 55% / 0.25);
-    --shadow-card: 0 2px 8px hsl(240 10% 10% / 0.05);
+    /* Radius & Transitions */
+    --radius: 1.25rem;
+    --transition-smooth: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  [data-theme="dark"] {
+    /* Neutrals - Dark Mode */
+    --bg: 240 24% 6%;           /* #0E0F13 */
+    --card: 240 18% 10%;        /* #14161C */
+    --muted: 240 16% 13%;       /* #1B1E27 */
+    --line: 240 14% 18%;        /* #262A36 */
+    --text: 240 50% 97%;        /* #F4F6FA */
+    --text-2: 240 22% 85%;      /* #C9CEDA */
+    --text-3: 240 15% 66%;      /* #99A2B3 */
     
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Adjust shadows for dark */
+    --elev-1: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --elev-2: 0 6px 24px rgba(0, 0, 0, 0.4);
+    --elev-3: 0 12px 40px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -65,54 +91,175 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    @apply font-semibold tracking-tight;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
   }
   
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
+    font-size: clamp(2rem, 3vw, 3rem);
   }
   
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+  }
+  
+  h3 {
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  }
+  
+  p, body {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.6;
+  }
+  
+  small {
+    font-size: clamp(0.8125rem, 1vw, 0.875rem);
   }
 }
 
 @layer utilities {
   .gradient-domous {
-    background: var(--gradient-domous);
+    background: var(--grad-hero);
   }
   
   .gradient-domous-text {
-    background: var(--gradient-domous);
+    background: var(--grad-hero);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .shadow-domous {
-    box-shadow: var(--shadow-domous);
+    box-shadow: var(--elev-2);
   }
   
   .shadow-card {
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--elev-1);
   }
   
   .transition-smooth {
     transition: var(--transition-smooth);
   }
   
+  /* Hero glow effect */
+  .hero-glow::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10% 0 -10%;
+    background: var(--grad-hero);
+    filter: blur(90px);
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
   /* Hover tilt effect - respect prefers-reduced-motion */
   @media (prefers-reduced-motion: no-preference) {
     .hover-tilt {
-      transition: transform 0.3s ease;
+      transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     
     .hover-tilt:hover {
       transform: perspective(1000px) rotateX(3deg) rotateY(4deg);
     }
+  }
+  
+  /* Disable animations for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .hover-tilt:hover {
+      transform: none;
+    }
+  }
+}
+
+@layer components {
+  /* Primary Button */
+  .btn-primary {
+    background: hsl(var(--brand-500));
+    color: #fff;
+    border-radius: 1.25rem;
+    padding: 0.875rem 1.125rem;
+    box-shadow: var(--elev-1);
+    transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-weight: 500;
+  }
+  
+  .btn-primary:hover {
+    background: hsl(var(--brand-600));
+    box-shadow: var(--elev-2);
+  }
+  
+  .btn-primary:active {
+    background: hsl(var(--brand-700));
+  }
+  
+  .btn-primary:focus-visible {
+    outline: 2px solid hsl(var(--brand-200));
+    outline-offset: 2px;
+  }
+  
+  /* Secondary/Ghost Button */
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid hsl(var(--line));
+    color: hsl(var(--text));
+    border-radius: 1.25rem;
+    padding: 0.875rem 1.125rem;
+    transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-weight: 500;
+  }
+  
+  .btn-secondary:hover {
+    background: hsl(var(--muted));
+  }
+  
+  /* Chip (filters/objections/industry) */
+  .chip {
+    background: hsl(var(--muted));
+    color: hsl(var(--text-2));
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    transition: all 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .chip:hover {
+    background: hsl(var(--brand-50));
+  }
+  
+  .chip.active {
+    background: hsl(var(--brand-50));
+    border-color: hsl(var(--brand-300));
+    color: hsl(var(--brand-700));
+  }
+  
+  /* Card component */
+  .card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--line));
+    border-radius: 1.25rem;
+    box-shadow: var(--elev-1);
+    transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .card:hover {
+    box-shadow: var(--elev-2);
   }
 }
