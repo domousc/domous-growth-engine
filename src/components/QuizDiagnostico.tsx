@@ -25,6 +25,11 @@ interface QuizResult {
   creativesStatus: string;
   offerStatus: string;
   budget: string;
+  // Lead Scoring fields
+  lead_points: number;
+  lead_score: number;
+  lead_grade: 'A' | 'B' | 'C' | 'D';
+  lead_bucket: 'Hot' | 'Warm' | 'Cold';
 }
 
 const QuizDiagnostico = () => {
@@ -163,6 +168,130 @@ const QuizDiagnostico = () => {
       reativacao: 0
     };
 
+    // Lead scoring points
+    let lead_points = 0;
+
+    // Q1: Segmento (5 or 3 points)
+    const segmentValue = answers[0] || industry || "todas";
+    if (["moda", "saude", "servicos", "alimentacao", "arquitetura"].includes(segmentValue)) {
+      lead_points += 5;
+    } else if (segmentValue === "outro") {
+      lead_points += 3;
+    }
+
+    // Q2: Objetivo (10, 8, or 6 points)
+    const objectiveValue = answers[1] || "";
+    if (objectiveValue === "escalar") {
+      lead_points += 10;
+    } else if (objectiveValue === "reativar") {
+      lead_points += 8;
+    } else if (["leads", "vender", "ticket"].includes(objectiveValue)) {
+      lead_points += 6;
+    }
+
+    // Q3: LP/Loja (10, 6, 4, or 2 points)
+    const lpValue = answers[2] || "";
+    if (lpValue === "sim_2") {
+      lead_points += 10;
+    } else if (lpValue === "sim_baixo") {
+      lead_points += 6;
+    } else if (lpValue === "nao") {
+      lead_points += 4;
+    } else if (lpValue === "nao_sei") {
+      lead_points += 2;
+    }
+
+    // Q4: CRM/Atendimento (10, 6, 4, or 2 points)
+    const crmValue = answers[3] || "";
+    if (crmValue === "otimo") {
+      lead_points += 10;
+    } else if (crmValue === "sem_followup") {
+      lead_points += 6;
+    } else if (crmValue === "planilha") {
+      lead_points += 4;
+    } else if (crmValue === "nao_usa") {
+      lead_points += 2;
+    }
+
+    // Q5: Criativos (10, 6, 4, or 3 points)
+    const creativesValue = answers[4] || "";
+    if (creativesValue === "bom") {
+      lead_points += 10;
+    } else if (creativesValue === "ctr_baixo") {
+      lead_points += 6;
+    } else if (creativesValue === "saturacao") {
+      lead_points += 4;
+    } else if (creativesValue === "nunca_testou") {
+      lead_points += 3;
+    }
+
+    // Q6: Oferta (10, 6, 5, 4, or 2 points)
+    const offerValue = answers[5] || "";
+    if (offerValue === "clara") {
+      lead_points += 10;
+    } else if (offerValue === "sem_fechamento") {
+      lead_points += 6;
+    } else if (offerValue === "sazonal") {
+      lead_points += 5;
+    } else if (offerValue === "ticket_baixo") {
+      lead_points += 4;
+    } else if (offerValue === "nao_sei") {
+      lead_points += 2;
+    }
+
+    // Q7: Métricas (+3 per metric, max +12)
+    const metricsValue = answers[6] || "";
+    if (metricsValue !== "nenhum") {
+      const metricsList = metricsValue.split(",");
+      lead_points += Math.min(metricsList.length * 3, 12);
+    }
+
+    // Q8: Orçamento (12, 10, 6, 2, or 0 points)
+    const budgetValue = answers[7] || "";
+    if (budgetValue === "mais_30k") {
+      lead_points += 12;
+    } else if (budgetValue === "10_30k") {
+      lead_points += 10;
+    } else if (budgetValue === "3_10k") {
+      lead_points += 6;
+    } else if (budgetValue === "menos_3k") {
+      lead_points += 2;
+    }
+
+    // Q9: Velocidade (8 or 4 points)
+    const velocityValue = answers[8] || "";
+    if (velocityValue === "rapido") {
+      lead_points += 8;
+    } else if (velocityValue === "consistente") {
+      lead_points += 4;
+    }
+
+    // Convert to score 0-100 (max theoretical = 87)
+    const lead_score = Math.round((lead_points / 87) * 100);
+
+    // Determine bucket
+    let lead_bucket: 'Hot' | 'Warm' | 'Cold';
+    if (lead_score >= 75) {
+      lead_bucket = 'Hot';
+    } else if (lead_score >= 55) {
+      lead_bucket = 'Warm';
+    } else {
+      lead_bucket = 'Cold';
+    }
+
+    // Determine grade
+    let lead_grade: 'A' | 'B' | 'C' | 'D';
+    if (lead_score >= 85) {
+      lead_grade = 'A';
+    } else if (lead_score >= 75) {
+      lead_grade = 'B';
+    } else if (lead_score >= 65) {
+      lead_grade = 'C';
+    } else {
+      lead_grade = 'D';
+    }
+
+    // Priority scoring (existing logic)
     // Q4: CRM/Follow-up
     if (answers[3] !== "otimo") scores.crm++;
     
@@ -198,7 +327,11 @@ const QuizDiagnostico = () => {
       crmStatus: answers[3] || "",
       creativesStatus: answers[4] || "",
       offerStatus: answers[5] || "",
-      budget: answers[7] || ""
+      budget: answers[7] || "",
+      lead_points,
+      lead_score,
+      lead_grade,
+      lead_bucket
     };
   };
 
@@ -224,15 +357,27 @@ const QuizDiagnostico = () => {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ 
         event: 'quiz_submit',
+        lead_score: quizResult.lead_score,
+        lead_bucket: quizResult.lead_bucket,
+        lead_grade: quizResult.lead_grade,
         priority_1: quizResult.priority1,
         priority_2: quizResult.priority2,
-        segment: quizResult.segment,
+        industry: quizResult.segment,
         objective: quizResult.objective
       });
 
-      // Store in localStorage
+      // Send bucket-specific event
+      window.dataLayer.push({
+        event: `lead_score_${quizResult.lead_bucket.toLowerCase()}`
+      });
+
+      // Store in localStorage with all scoring data
       localStorage.setItem('quiz_result', JSON.stringify({
         ...quizResult,
+        lead_points: quizResult.lead_points,
+        lead_score: quizResult.lead_score,
+        lead_bucket: quizResult.lead_bucket,
+        lead_grade: quizResult.lead_grade,
         ...utmParams,
         pageTitle,
         currentUrl
@@ -342,15 +487,16 @@ const QuizDiagnostico = () => {
     
     const parts = [
       `Quero diagnóstico Domous —`,
+      `score:${result.lead_score}% (${result.lead_bucket}/${result.lead_grade})`,
       `indústria:${result.segment}`,
       `objetivo:${result.objective}`,
+      `orçamento:${result.budget}`,
       `LP:${result.lpStatus}`,
       `CRM:${result.crmStatus}`,
       `criativos:${result.creativesStatus}`,
       `oferta:${result.offerStatus}`,
       `prioridade:${result.priority1}${result.priority2 ? `, ${result.priority2}` : ''}`,
-      `orçamento:${result.budget}`,
-      `origem:${utmParams.utm_source || ''}/${utmParams.utm_campaign || ''}/${utmParams.utm_term || ''}`,
+      `origem:${utmParams.utm_source || 'direct'}/${utmParams.utm_campaign || 'none'}/${utmParams.utm_term || 'none'}`,
       `página:${pageTitle}`,
       `url:${currentUrl}`
     ];
@@ -363,11 +509,31 @@ const QuizDiagnostico = () => {
     window.dataLayer.push({ 
       event: 'click_whatsapp',
       cta_label: 'Quiz Result WhatsApp',
+      lead_score: result?.lead_score,
+      lead_bucket: result?.lead_bucket,
       priority_1: result?.priority1,
       segment: result?.segment
     });
     
     window.open(`https://wa.me/5583981195186?text=${getWhatsAppMessage()}`, "_blank", "noopener,noreferrer");
+  };
+
+  const getBucketMessage = (bucket: 'Hot' | 'Warm' | 'Cold'): string => {
+    const messages = {
+      Hot: "Base pronta para escala mantendo CAC.",
+      Warm: "Ajuste 1–2 frentes e acelera.",
+      Cold: "Implante o básico (LP/CRM) para destravar."
+    };
+    return messages[bucket];
+  };
+
+  const getBucketColor = (bucket: 'Hot' | 'Warm' | 'Cold'): string => {
+    const colors = {
+      Hot: "bg-red-500/20 text-red-300 border-red-500/30",
+      Warm: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
+      Cold: "bg-blue-500/20 text-blue-300 border-blue-500/30"
+    };
+    return colors[bucket];
   };
 
   if (currentStep === 0) {
@@ -391,10 +557,29 @@ const QuizDiagnostico = () => {
     const priority2Details = result.priority2 ? getPriorityDetails(result.priority2) : null;
     const Icon1 = priority1Details.icon;
     const Icon2 = priority2Details?.icon;
+    
+    const bucketMessage = getBucketMessage(result.lead_bucket);
+    const bucketColorClass = getBucketColor(result.lead_bucket);
+    
+    // CTA routing based on bucket
+    const isHot = result.lead_bucket === 'Hot';
+    const isWarm = result.lead_bucket === 'Warm';
+    const isCold = result.lead_bucket === 'Cold';
 
     return (
       <Card className="card-dark p-6 md:p-8">
         <div className="space-y-6">
+          {/* Score Badge */}
+          <div className="text-center space-y-3">
+            <div className={`inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 ${bucketColorClass}`}>
+              <span className="text-3xl font-bold">{result.lead_score}%</span>
+              <span className="text-lg">•</span>
+              <span className="text-xl font-semibold uppercase">{result.lead_bucket}</span>
+              <span className="text-sm opacity-75">({result.lead_grade})</span>
+            </div>
+            <p className="text-sm text-dark-muted italic">{bucketMessage}</p>
+          </div>
+
           <h3 className="text-2xl font-bold text-dark-foreground text-center">
             Diagnóstico pronto. Comece por aqui ⤵
           </h3>
@@ -434,15 +619,74 @@ const QuizDiagnostico = () => {
                   KPI-alvo: {priority1Details.kpi}
                 </p>
               </div>
+
+              {/* Quality recommendation highlights */}
+              {isCold && result.priority1 === 'lp' && (
+                <div className="bg-accent/10 border border-accent/30 rounded-lg p-3">
+                  <p className="text-sm font-semibold text-accent">
+                    💡 Destaque: Nova LP/CRO (meta ≥2–3%) é crucial para destravar conversão.
+                  </p>
+                </div>
+              )}
+              {isCold && result.priority1 === 'crm' && (
+                <div className="bg-accent/10 border border-accent/30 rounded-lg p-3">
+                  <p className="text-sm font-semibold text-accent">
+                    💡 Destaque: Fluxos Whats/CRM com follow-up 7/14/30 são fundamentais.
+                  </p>
+                </div>
+              )}
+              {isHot && result.priority1 === 'midia' && (
+                <div className="bg-accent/10 border border-accent/30 rounded-lg p-3">
+                  <p className="text-sm font-semibold text-accent">
+                    🚀 Pronto para escalar: Estrutura de campanhas e taxa de teste semanal.
+                  </p>
+                </div>
+              )}
             </div>
 
-            <Button 
-              onClick={handleWhatsAppClick}
-              className="gradient-domous text-white w-full h-12"
-            >
-              <MessageCircle className="mr-2 w-5 h-5" />
-              Receber plano no WhatsApp
-            </Button>
+            {/* CTA Routing */}
+            <div className="space-y-3 pt-2">
+              {isHot && (
+                <>
+                  <Button 
+                    onClick={handleWhatsAppClick}
+                    className="gradient-domous text-white w-full h-12"
+                  >
+                    <MessageCircle className="mr-2 w-5 h-5" />
+                    Receber diagnóstico no WhatsApp agora
+                  </Button>
+                  <p className="text-xs text-center text-accent font-semibold">⚡ Resposta em minutos</p>
+                </>
+              )}
+              
+              {isWarm && (
+                <Button 
+                  onClick={handleWhatsAppClick}
+                  className="gradient-domous text-white w-full h-12"
+                >
+                  <MessageCircle className="mr-2 w-5 h-5" />
+                  Receber plano no WhatsApp
+                </Button>
+              )}
+              
+              {isCold && (
+                <>
+                  <Button 
+                    onClick={handleWhatsAppClick}
+                    className="gradient-domous text-white w-full h-12"
+                  >
+                    <MessageCircle className="mr-2 w-5 h-5" />
+                    Falar sobre pré-setup (LP/CRM)
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    className="w-full border-primary text-primary hover:bg-primary/5"
+                  >
+                    📋 Baixar Checklist de Implantação
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Priority 2 (if exists) */}
@@ -461,14 +705,23 @@ const QuizDiagnostico = () => {
             </div>
           )}
 
+          {/* Secondary CTAs */}
           <div className="flex gap-3 pt-4">
             <Button 
               onClick={handleWhatsAppClick}
               variant="outline"
               className="flex-1 border-primary text-primary hover:bg-primary/5"
             >
-              Agendar uma call
+              📞 Agendar uma call
             </Button>
+            {isWarm && (
+              <Button 
+                variant="outline"
+                className="flex-1 border-accent text-accent hover:bg-accent/5"
+              >
+                📄 Plano de 14 dias
+              </Button>
+            )}
           </div>
         </div>
       </Card>
