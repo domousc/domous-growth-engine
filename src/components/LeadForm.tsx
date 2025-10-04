@@ -26,9 +26,10 @@ const formSchema = z.object({
 
 interface LeadFormProps {
   variant: HeroVariant;
+  selectedIndustria?: string;
 }
 
-const LeadForm = ({ variant }: LeadFormProps) => {
+const LeadForm = ({ variant, selectedIndustria = "todas" }: LeadFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
@@ -68,15 +69,16 @@ const LeadForm = ({ variant }: LeadFormProps) => {
     // Simular envio
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    console.log("Form submitted:", { ...values, variant, ...utmData });
+    console.log("Form submitted:", { ...values, variant, industria: selectedIndustria, ...utmData });
     
-    const event = new CustomEvent('lead_submit', { detail: { ...values, variant, ...utmData } });
+    const event = new CustomEvent('lead_submit', { detail: { ...values, variant, industria: selectedIndustria, ...utmData } });
     window.dispatchEvent(event);
     
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ 
       event: 'lead_submit',
       form_variant: variant,
+      form_industria: selectedIndustria,
       ...utmData
     });
     

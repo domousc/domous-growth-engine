@@ -34,6 +34,16 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Mapeamento de sub-prova por indústria
+  const industriaProva: Record<Industria, string> = {
+    todas: "+10 mi em vendas • +50 empresas • +12k acompanhando",
+    moda: "Ex.: loja com +18% AOV em 60 dias (Tray + CRM + Ads).",
+    saude: "Ex.: 40 agendamentos nos 30 primeiros dias (Whats + Funis).",
+    servicos: "Ex.: CPA −32% com oferta e CRM revisados.",
+    alimentacao: "Ex.: ticket médio +22% com upsell e mídia local.",
+    arquitetura: "Ex.: leads qualificados +55% com pré-brief no Whats.",
+  };
+
   const content = {
     "trafego-pago": {
       keyword: "Agência de Tráfego Pago",
@@ -93,20 +103,22 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
               </p>
             </div>
 
-            {/* Proof Line with Animated Counters */}
-            <div className="flex flex-wrap items-center gap-6 text-sm font-medium">
-              <div className="flex items-center gap-2">
-                <DollarSign className="w-5 h-5 text-primary" />
-                <span><AnimatedCounter end={10} prefix="+" suffix=" milhões em vendas" /></span>
+            {/* Industry Selector */}
+            {onSelectIndustria && (
+              <div className="pt-2">
+                <p className="text-sm font-medium mb-3">Escolha sua indústria:</p>
+                <IndustriaSelector 
+                  selectedIndustria={selectedIndustria}
+                  onSelectIndustria={onSelectIndustria}
+                />
               </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-primary" />
-                <span><AnimatedCounter end={50} prefix="+" suffix=" empresas" /></span>
-              </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-primary" />
-                <span><AnimatedCounter end={12} prefix="+" suffix="k acompanhando" /></span>
-              </div>
+            )}
+
+            {/* Proof Line - Dynamic by Industry */}
+            <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
+              <p className="text-sm font-semibold text-primary">
+                {industriaProva[selectedIndustria]}
+              </p>
             </div>
 
             {/* CTAs */}
@@ -143,17 +155,6 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
               <span>✅ Resposta em minutos</span>
               <span>✅ Fidelidade transparente</span>
             </div>
-
-            {/* Industry Selector */}
-            {onSelectIndustria && (
-              <div className="pt-4">
-                <p className="text-sm font-medium mb-3">Escolha sua indústria:</p>
-                <IndustriaSelector 
-                  selectedIndustria={selectedIndustria}
-                  onSelectIndustria={onSelectIndustria}
-                />
-              </div>
-            )}
 
             <CTAMicrocopy />
           </div>
@@ -195,7 +196,7 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             {/* Form Principal */}
             <div className="bg-card rounded-2xl shadow-card p-6 md:p-8 border border-border">
               <h3 className="text-2xl font-bold mb-6">Ou preencha o formulário completo</h3>
-              <LeadForm variant={variant} />
+              <LeadForm variant={variant} selectedIndustria={selectedIndustria} />
             </div>
           </div>
         </div>
