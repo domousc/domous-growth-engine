@@ -109,7 +109,7 @@ const FunilSection = () => {
             size="lg" 
             className="gradient-domous text-white hover:opacity-90 shadow-domous text-lg h-14 px-8"
           >
-            Quero meu funil montado do zero ao lucro
+            Montar meu funil de vendas
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
