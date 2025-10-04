@@ -139,7 +139,7 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
                 label="Contratar a Domous"
                 variant="outline"
                 size="lg"
-                className="border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary hover:border-primary text-lg h-14 px-8"
+                className="border-2 border-primary bg-[#1a0b2e] text-white hover:bg-white hover:text-primary hover:border-primary text-lg h-14 px-8"
                 showIcon={false}
               />
             </div>
