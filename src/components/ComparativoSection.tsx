@@ -37,47 +37,47 @@ const ComparativoSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="section-dark py-28 md:py-32 lg:py-40">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="mb-6">Comparativo honesto</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="mb-6 text-dark-foreground">Comparativo honesto</h2>
+          <p className="text-xl text-dark-muted max-w-3xl mx-auto">
             Domous (Full-Funnel) vs Agência "vídeo + anúncio"
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden">
+          <div className="card-dark rounded-2xl border shadow-dark overflow-hidden">
             {/* Header */}
-            <div className="grid grid-cols-3 gap-4 p-6 bg-secondary/30 border-b border-border">
-              <div className="font-bold text-lg">Critério</div>
+            <div className="grid grid-cols-3 gap-4 p-6 bg-white/5 border-b border-white/10">
+              <div className="font-bold text-lg text-dark-foreground">Critério</div>
               <div className="font-bold text-lg text-center gradient-domous-text">Domous</div>
-              <div className="font-bold text-lg text-center text-muted-foreground">Agência tradicional</div>
+              <div className="font-bold text-lg text-center text-dark-muted">Agência tradicional</div>
             </div>
 
             {/* Rows */}
             {comparacao.map((item, index) => (
               <div 
                 key={index}
-                className={`grid grid-cols-3 gap-4 p-6 ${index !== comparacao.length - 1 ? 'border-b border-border' : ''}`}
+                className={`grid grid-cols-3 gap-4 p-6 ${index % 2 === 1 ? 'bg-white/5' : ''} ${index !== comparacao.length - 1 ? 'border-b border-white/10' : ''}`}
               >
                 <div className="flex items-center">
-                  <span className="font-medium">{item.criterio}</span>
+                  <span className="font-medium text-dark-foreground">{item.criterio}</span>
                 </div>
                 
                 <div className="flex items-center justify-center">
                   {item.domous ? (
-                    <Check className="w-6 h-6 text-green-500" />
+                    <Check className="w-6 h-6 text-green-500" strokeWidth={1.75} />
                   ) : (
-                    <X className="w-6 h-6 text-muted-foreground/30" />
+                    <X className="w-6 h-6 text-red-500/60" strokeWidth={1.75} />
                   )}
                 </div>
                 
                 <div className="flex items-center justify-center">
                   {item.agencia ? (
-                    <Check className="w-6 h-6 text-green-500" />
+                    <Check className="w-6 h-6 text-green-500" strokeWidth={1.75} />
                   ) : (
-                    <X className="w-6 h-6 text-muted-foreground/30" />
+                    <X className="w-6 h-6 text-red-500/60" strokeWidth={1.75} />
                   )}
                 </div>
               </div>

@@ -47,11 +47,19 @@ All colors MUST be HSL.
     --input: 280 20% 90%;
     --ring: 280 85% 55%;
 
-    --radius: 1rem;
+    --radius: 1.25rem;
+    
+    /* Dark Section Colors */
+    --dark-bg: 222 20% 8%;
+    --dark-card: 222 15% 12%;
+    --dark-border: 222 10% 22%;
+    --dark-foreground: 0 0% 95%;
+    --dark-muted-foreground: 220 10% 65%;
     
     /* Shadows */
     --shadow-domous: 0 10px 40px -10px hsl(280 85% 55% / 0.25);
     --shadow-card: 0 2px 8px hsl(240 10% 10% / 0.05);
+    --shadow-dark: 0 4px 16px hsl(0 0% 0% / 0.3);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -103,6 +111,44 @@ All colors MUST be HSL.
   
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+  
+  /* Dark sections */
+  .section-dark {
+    background: hsl(var(--dark-bg));
+    color: hsl(var(--dark-foreground));
+  }
+  
+  .card-dark {
+    background: hsl(var(--dark-card));
+    border-color: hsl(var(--dark-border));
+    color: hsl(var(--dark-foreground));
+  }
+  
+  .text-dark-muted {
+    color: hsl(var(--dark-muted-foreground));
+  }
+  
+  .shadow-dark {
+    box-shadow: var(--shadow-dark);
+  }
+  
+  /* Purple glow effect */
+  .purple-glow {
+    position: relative;
+  }
+  
+  .purple-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, hsl(280 85% 55% / 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
   }
   
   /* Hover tilt effect - respect prefers-reduced-motion */

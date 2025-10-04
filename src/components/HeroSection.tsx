@@ -75,11 +75,8 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
   };
 
   return (
-    <section id="hero" className="pt-32 pb-16 md:pb-24 relative overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 to-background -z-10" />
-      
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="hero" className="section-dark pt-32 pb-28 md:pb-32 lg:pb-40 relative overflow-hidden purple-glow">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Content */}
           <div className="space-y-8 animate-fade-in">
@@ -95,10 +92,10 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
               <h1 className="leading-tight">
                 <span className="gradient-domous-text">{keyword}</span>
                 <br />
-                <span className="text-foreground">{h1}</span>
+                <span className="text-dark-foreground">{h1}</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl">
+              <p className="text-xl md:text-2xl text-dark-muted max-w-2xl">
                 {sub}
               </p>
             </div>
@@ -115,7 +112,7 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             )}
 
             {/* Proof Line - Dynamic by Industry */}
-            <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
+            <div className="bg-primary/10 rounded-xl p-4 border border-primary/20">
               <p className="text-sm font-semibold text-primary">
                 {industriaProva[selectedIndustria]}
               </p>
@@ -141,7 +138,7 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-2 border-primary text-primary hover:bg-primary/5 text-lg h-14 px-8 w-full"
+                  className="border-2 border-white/30 text-white hover:bg-white/10 text-lg h-14 px-8 w-full"
                 >
                   <Phone className="mr-2 w-5 h-5" />
                   Ligar agora
@@ -150,7 +147,7 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             </div>
 
             {/* Microcopy abaixo dos CTAs */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-dark-muted">
               <span>✅ Diagnóstico em 5 min</span>
               <span>✅ Resposta em minutos</span>
               <span>✅ Fidelidade transparente</span>
@@ -194,8 +191,8 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             </Tabs>
             
             {/* Form Principal */}
-            <div className="bg-card rounded-2xl shadow-card p-6 md:p-8 border border-border">
-              <h3 className="text-2xl font-bold mb-6">Ou preencha o formulário completo</h3>
+            <div className="card-dark rounded-2xl shadow-dark p-6 md:p-8 border">
+              <h3 className="text-2xl font-bold mb-6 text-dark-foreground">Ou preencha o formulário completo</h3>
               <LeadForm variant={variant} selectedIndustria={selectedIndustria} />
             </div>
           </div>

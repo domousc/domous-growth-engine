@@ -21,23 +21,23 @@ const GarantiaSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5">
+    <section className="section-dark py-28 md:py-32 lg:py-40">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="mb-6">Compromisso com implantação e resultado</h2>
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <h2 className="mb-6 text-dark-foreground">Compromisso com implantação e resultado</h2>
+          <p className="text-xl text-dark-muted mb-12 max-w-2xl mx-auto">
             Fidelidade alinhada para cobrir o ciclo de setup, testes e ramp-up. 
             Sem esse horizonte, o risco é validar superficialmente e encarecer CAC.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {garantias.map((item, index) => (
-              <div key={index} className="bg-card rounded-2xl p-6 border border-border shadow-card">
+              <div key={index} className="card-dark rounded-2xl p-6 border shadow-dark">
                 <div className="w-14 h-14 rounded-xl gradient-domous flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-7 h-7 text-white" />
+                  <item.icon className="w-7 h-7 text-white" strokeWidth={1.75} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{item.titulo}</h3>
-                <p className="text-muted-foreground">{item.descricao}</p>
+                <h3 className="text-xl font-bold mb-2 text-dark-foreground">{item.titulo}</h3>
+                <p className="text-dark-muted">{item.descricao}</p>
               </div>
             ))}
           </div>
