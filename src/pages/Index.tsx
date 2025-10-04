@@ -100,43 +100,59 @@ const Index = () => {
         <SistemaDomousSection />
         
         {/* Vídeo "Como trabalhamos" - Dark Section */}
-        <section id="como-trabalhamos" className="section-dark py-28 md:py-32 lg:py-40">
-          <div className="container mx-auto px-4 lg:px-8">
+        <section id="como-trabalhamos" className="section-dark py-28 md:py-32 lg:py-40 relative overflow-hidden">
+          {/* Decorative gradient orbs */}
+          <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+          
+          <div className="container mx-auto px-4 lg:px-8 relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 rounded-full mb-4">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-sm font-semibold text-primary">Processo Completo</span>
+                </div>
+                
                 <h2 className="mb-6 text-dark-foreground">Como trabalhamos</h2>
                 <p className="text-xl text-dark-muted">
                   Veja em 90 segundos nosso processo completo do diagnóstico aos resultados
                 </p>
               </div>
               
-              {/* Timeline responsiva */}
+              {/* Timeline responsiva com design melhorado */}
               <div className="mb-12">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-                  {[
-                    { semana: "WEEK 1", titulo: "Kickoff", desc: "Análise completa e definição de estratégia" },
-                    { semana: "WEEK 4", titulo: "Execução", desc: "Primeiros criativos e campanhas no ar" },
-                    { semana: "WEEK 4", titulo: "Otimização", desc: "Ajustes baseados em dados reais" },
-                    { semana: "WEEK 2", titulo: "Escala", desc: "Aumento de budget e expansão" },
-                    { semana: "WEEK 4", titulo: "Consolidação", desc: "Resultados consistentes" },
-                    { semana: "90 X 1", titulo: "Máquina", desc: "Sistema rodando sozinho" }
-                  ].map((marco, idx) => (
-                    <div key={idx} className="relative">
-                      <div className="flex flex-col items-center text-center">
-                        <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-3 relative z-10">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+                <div className="relative">
+                  {/* Linha conectora gradiente */}
+                  <div className="hidden lg:block absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary to-primary opacity-30" />
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+                    {[
+                      { semana: "WEEK 1", titulo: "Kickoff", desc: "Análise completa e definição de estratégia", emoji: "🚀" },
+                      { semana: "WEEK 2", titulo: "Execução", desc: "Primeiros criativos e campanhas no ar", emoji: "⚡" },
+                      { semana: "WEEK 4", titulo: "Otimização", desc: "Ajustes baseados em dados reais", emoji: "📊" },
+                      { semana: "WEEK 8", titulo: "Escala", desc: "Aumento de budget e expansão", emoji: "📈" },
+                      { semana: "WEEK 12", titulo: "Consolidação", desc: "Resultados consistentes", emoji: "🎯" },
+                      { semana: "DIA 90", titulo: "Máquina", desc: "Sistema rodando sozinho", emoji: "🏆" }
+                    ].map((marco, idx) => (
+                      <div key={idx} className="relative group">
+                        <div className="flex flex-col items-center text-center">
+                          {/* Círculo com gradiente e efeito hover */}
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-3 relative z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <span className="text-2xl">{marco.emoji}</span>
+                          </div>
+                          
+                          {/* Badge de semana */}
+                          <div className="inline-block px-2 py-1 bg-primary/20 rounded-md mb-2">
+                            <p className="text-xs font-bold text-primary">{marco.semana}</p>
+                          </div>
+                          
+                          {/* Conteúdo */}
+                          <p className="text-sm font-semibold text-dark-foreground mb-1">{marco.titulo}</p>
+                          <p className="text-xs text-dark-muted leading-tight">{marco.desc}</p>
                         </div>
-                        <p className="text-xs font-bold text-primary mb-1">{marco.semana}</p>
-                        <p className="text-sm font-semibold text-dark-foreground mb-1">{marco.titulo}</p>
-                        <p className="text-xs text-dark-muted leading-tight">{marco.desc}</p>
                       </div>
-                      {idx < 5 && (
-                        <div className="hidden lg:block absolute top-6 left-1/2 w-full h-0.5 bg-primary/30 -z-0" />
-                      )}
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
               
