@@ -1,15 +1,17 @@
 import clients1 from "@/assets/clients-1.png";
 import clients2 from "@/assets/clients-2.png";
-import { SiGoogle, SiMeta, SiShopify, SiAmazon } from "react-icons/si";
+import logoDomousCRM from "@/assets/logo-domous-crm.png";
+import logoTray from "@/assets/logo-tray.svg";
+import logoBling from "@/assets/logo-bling.svg";
+import { SiGoogle, SiMeta } from "react-icons/si";
 
 const ClientsSection = () => {
   const partners = [
-    { name: "Tray", icon: "🛒" },
+    { name: "Domous CRM", image: logoDomousCRM, height: "h-10" },
+    { name: "Tray E-commerce", image: logoTray, height: "h-8", invert: true },
     { name: "Google Ads", Icon: SiGoogle },
-    { name: "Meta", Icon: SiMeta },
-    { name: "Bling", icon: "📊" },
-    { name: "Amazon", Icon: SiAmazon },
-    { name: "Shopify", Icon: SiShopify },
+    { name: "Meta Ads", Icon: SiMeta },
+    { name: "Bling ERP", image: logoBling, height: "h-7" },
   ];
 
   return (
@@ -48,14 +50,20 @@ const ClientsSection = () => {
           {partners.map((partner) => (
             <div 
               key={partner.name} 
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth"
+              className="flex items-center justify-center hover:opacity-100 transition-smooth opacity-70"
             >
-              {partner.Icon ? (
-                <partner.Icon className="w-6 h-6" />
-              ) : (
-                <span className="text-2xl">{partner.icon}</span>
-              )}
-              <span className="font-medium">{partner.name}</span>
+              {partner.image ? (
+                <img 
+                  src={partner.image} 
+                  alt={partner.name}
+                  className={`${partner.height || 'h-8'} w-auto ${partner.invert ? 'invert' : ''}`}
+                />
+              ) : partner.Icon ? (
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <partner.Icon className="w-6 h-6" />
+                  <span className="font-medium">{partner.name}</span>
+                </div>
+              ) : null}
             </div>
           ))}
         </div>
