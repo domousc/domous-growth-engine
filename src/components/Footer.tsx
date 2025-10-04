@@ -99,28 +99,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Parceiros e Integrações */}
-        <div className="py-8 border-t border-b border-background/20 mb-8">
-          <h3 className="font-bold text-lg mb-6 text-center">Parceiros e Integrações</h3>
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            <img 
-              src={logoDomousCRM} 
-              alt="Domous CRM com IA" 
-              className="h-12 opacity-80 hover:opacity-100 transition-smooth"
-            />
-            <img 
-              src={logoTray} 
-              alt="Tray E-commerce" 
-              className="h-10 opacity-80 hover:opacity-100 transition-smooth invert"
-            />
-            <img 
-              src={logoBling} 
-              alt="Bling ERP" 
-              className="h-8 opacity-80 hover:opacity-100 transition-smooth"
-            />
-          </div>
-        </div>
-
         {/* Bottom */}
         <div className="pt-8 text-center">
           <p className="text-sm text-background/60">
