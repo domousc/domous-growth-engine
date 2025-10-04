@@ -36,21 +36,16 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
         isScrolled 
           ? "bg-background/95 backdrop-blur-lg shadow-card" 
-          : "bg-white/95 backdrop-blur-sm shadow-sm md:bg-transparent md:shadow-none"
-      }`}
+          : "bg-transparent shadow-none md:bg-transparent md:shadow-none"
+      } ${!isScrolled ? 'md:block hidden' : ''}`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <a href="/" className="flex items-center">
             <img 
-              src={isScrolled ? logoDomousBlack : logoDomousBlack} 
+              src={isScrolled ? logoDomousBlack : logoDomousWhite} 
               alt="DOMOUS Business Performance" 
-              className={`h-8 md:h-10 transition-opacity ${!isScrolled ? 'md:hidden' : ''}`}
-            />
-            <img 
-              src={logoDomousWhite} 
-              alt="DOMOUS Business Performance" 
-              className={`h-8 md:h-10 transition-opacity hidden ${!isScrolled ? 'md:block' : ''}`}
+              className="h-8 md:h-10 transition-opacity"
             />
           </a>
 
