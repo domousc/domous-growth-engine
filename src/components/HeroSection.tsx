@@ -141,10 +141,12 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
               />
               
               <CTAButton 
-                type="call"
+                type="whatsapp"
+                label="Contratar a Domous"
                 variant="outline"
                 size="lg"
-                className="text-lg h-14 px-8"
+                className="border-2 border-primary/50 bg-white text-foreground hover:bg-primary/10 text-lg h-14 px-8"
+                showIcon={false}
               />
             </div>
 
