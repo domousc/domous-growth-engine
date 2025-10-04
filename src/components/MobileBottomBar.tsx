@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const MobileBottomBar = () => {
@@ -7,38 +7,22 @@ const MobileBottomBar = () => {
     const utmSource = urlParams.get("utm_source") || "";
     const utmCampaign = urlParams.get("utm_campaign") || "";
     const utmTerm = urlParams.get("utm_term") || "";
-    const message = encodeURIComponent(`Quero diagnóstico Domous utm:${utmSource}/${utmCampaign}/${utmTerm}`);
+    const message = encodeURIComponent(`Quero contratar a Domous utm:${utmSource}/${utmCampaign}/${utmTerm}`);
     
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'click_whatsapp', location: 'bottom_bar' });
     window.open(`https://wa.me/5583981195186?text=${message}`, '_blank');
   };
 
-  const handleCall = () => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'call_click', location: 'bottom_bar' });
-    window.location.href = 'tel:+5583981195186';
-  };
-
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-card border-t border-border shadow-lg">
-      <div className="grid grid-cols-2 gap-2 p-3">
+      <div className="p-2">
         <Button
           onClick={handleWhatsApp}
-          className="gradient-domous text-white hover:opacity-90 h-12"
-          size="lg"
+          className="gradient-domous text-white hover:opacity-90 w-full h-10 text-sm"
         >
-          <MessageCircle className="mr-2 w-5 h-5" />
-          WhatsApp
-        </Button>
-        <Button
-          onClick={handleCall}
-          variant="outline"
-          className="border-2 border-primary text-primary hover:bg-primary/5 h-12"
-          size="lg"
-        >
-          <Phone className="mr-2 w-5 h-5" />
-          Ligar
+          <MessageCircle className="mr-1.5 w-4 h-4" />
+          Contratar Agora
         </Button>
       </div>
     </div>

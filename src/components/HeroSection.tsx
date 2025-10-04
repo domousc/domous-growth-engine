@@ -155,11 +155,10 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             
             {/* Clientes Grid */}
             <div className="mt-8 pt-6 border-t border-white/10">
-              <p className="text-sm text-dark-muted mb-4 text-center">Alguns de nossos clientes:</p>
               <img 
                 src={clientesGrid} 
                 alt="Logos de clientes Domous" 
-                className="w-full max-w-md mx-auto opacity-70"
+                className="w-full max-w-xs mx-auto opacity-60"
               />
             </div>
           </div>
