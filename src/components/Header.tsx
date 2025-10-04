@@ -36,8 +36,8 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
         isScrolled 
           ? "bg-background/95 backdrop-blur-lg shadow-card" 
-          : "bg-transparent shadow-none md:bg-transparent md:shadow-none"
-      } ${!isScrolled ? 'md:block hidden' : ''}`}
+          : "bg-transparent shadow-none"
+      }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -90,7 +90,7 @@ const Header = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`lg:hidden p-2 transition-colors ${
-                isScrolled ? 'text-foreground' : 'text-foreground md:text-white'
+                isScrolled ? 'text-foreground' : 'text-white'
               }`}
               aria-label="Menu"
             >
