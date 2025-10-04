@@ -21,13 +21,13 @@ const ClientsSection = () => {
           <h2 className="mb-4">Empresas que confiam na Domous para escalar vendas</h2>
         </div>
 
-        {/* Client Logos */}
-        <div className="space-y-8 mb-16">
+        {/* Client Logos - Reduzido */}
+        <div className="space-y-6 mb-16">
           <div className="flex justify-center">
             <img 
               src={clients1} 
               alt="Clientes Domous - Parte 1" 
-              className="w-full max-w-5xl h-auto opacity-70 hover:opacity-100 transition-smooth"
+              className="w-full max-w-2xl h-auto opacity-60 hover:opacity-90 transition-smooth"
               loading="lazy"
             />
           </div>
@@ -35,7 +35,7 @@ const ClientsSection = () => {
             <img 
               src={clients2} 
               alt="Clientes Domous - Parte 2" 
-              className="w-full max-w-5xl h-auto opacity-70 hover:opacity-100 transition-smooth"
+              className="w-full max-w-2xl h-auto opacity-60 hover:opacity-90 transition-smooth"
               loading="lazy"
             />
           </div>
