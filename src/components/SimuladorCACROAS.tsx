@@ -3,12 +3,15 @@ import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Calculator, MessageCircle } from "lucide-react";
+import CTAButton from "./CTAButton";
+import { useCTAData } from "@/hooks/useCTAData";
 
 const SimuladorCACROAS = () => {
   const [orcamento, setOrcamento] = useState([5000]);
   const [ticketMedio, setTicketMedio] = useState([300]);
   const [cvrLP, setCvrLP] = useState([2]);
   const [cvrVenda, setCvrVenda] = useState([20]);
+  const { setSimulator } = useCTAData();
 
   const calcularMetricas = () => {
     const orcamentoMensal = orcamento[0];
@@ -29,20 +32,18 @@ const SimuladorCACROAS = () => {
 
   const { cacEstimado, roasEstimado, vendasEstimadas, leadsEstimados } = calcularMetricas();
 
+  // Update global store when values change
+  useEffect(() => {
+    const estimate = `CAC~R$${cacEstimado} / ROAS~${roasEstimado}x`;
+    setSimulator(estimate);
+  }, [cacEstimado, roasEstimado, setSimulator]);
+
   const handleSliderChange = () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'sim_change' });
   };
 
   const handleSubmit = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmSource = urlParams.get("utm_source") || "";
-    const utmCampaign = urlParams.get("utm_campaign") || "";
-    const utmTerm = urlParams.get("utm_term") || "";
-    const message = encodeURIComponent(
-      `Quero diagnóstico — objetivo:plano | ticket:${ticketMedio[0]} | estimativa:${cacEstimado}/${roasEstimado}x | utm:${utmSource}/${utmCampaign}/${utmTerm}`
-    );
-    
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ 
       event: 'sim_submit',
@@ -51,9 +52,6 @@ const SimuladorCACROAS = () => {
       sim_cvr_lp: cvrLP[0],
       sim_cvr_venda: cvrVenda[0]
     });
-    window.dataLayer.push({ event: 'click_whatsapp' });
-    
-    window.open(`https://wa.me/5583981195186?text=${message}`, '_blank');
   };
 
   return (
@@ -159,14 +157,13 @@ const SimuladorCACROAS = () => {
         </ul>
       </div>
 
-      <Button 
+      <CTAButton 
+        type="whatsapp"
+        label="Receber plano no WhatsApp"
         onClick={handleSubmit}
-        className="w-full gradient-domous text-white hover:opacity-90 shadow-domous"
         size="lg"
-      >
-        <MessageCircle className="mr-2 w-5 h-5" />
-        Receber plano no WhatsApp
-      </Button>
+        className="w-full"
+      />
     </Card>
   );
 };

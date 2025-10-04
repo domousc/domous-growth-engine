@@ -29,14 +29,29 @@ import ObjectionArena from "@/components/ObjectionArena";
 import CommandPalette from "@/components/CommandPalette";
 import StickyROIRadar from "@/components/StickyROIRadar";
 import WhatsAppSimulator from "@/components/WhatsAppSimulator";
+import CTAValidation from "@/components/CTAValidation";
 import timelineOnboarding from "@/assets/timeline-onboarding.webp";
 import { useState, useEffect } from "react";
 import type { Industria } from "@/components/IndustriaSelector";
+import { useCTAData } from "@/hooks/useCTAData";
 
 const Index = () => {
   const { variant } = useUTMParams();
   const [selectedIndustria, setSelectedIndustria] = useState<Industria>("todas");
   const [geotext, setGeotext] = useState("");
+  const { setUTMs, updatePageInfo } = useCTAData();
+
+  useEffect(() => {
+    // Initialize UTMs from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('utm_source') || 'direct';
+    const campaign = urlParams.get('utm_campaign') || 'none';
+    const term = urlParams.get('utm_term') || 'none';
+    setUTMs(source, campaign, term);
+    
+    // Update page info
+    updatePageInfo();
+  }, [setUTMs, updatePageInfo]);
 
   useEffect(() => {
     // Geolocation detection (simplified - can use IP API for production)
@@ -62,6 +77,7 @@ const Index = () => {
       <ReadingProgressBar />
       <StickyROIRadar />
       <CommandPalette />
+      <CTAValidation />
       <Header />
       <WhatsAppButton />
       <MobileBottomBar />

@@ -1,6 +1,7 @@
 import { Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import CTAButton from "./CTAButton";
 
 const ComparativoSection = () => {
   const comparacao = [
@@ -85,13 +86,13 @@ const ComparativoSection = () => {
           </div>
 
           <div className="mt-8 text-center">
-            <Button 
-              size="lg" 
-              className="gradient-domous text-white hover:opacity-90 shadow-domous text-lg h-14 px-8"
-            >
-              Quero sair do enfeite e ir para o caixa
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <CTAButton 
+              type="whatsapp"
+              label="Quero sair do enfeite e ir para o caixa"
+              size="lg"
+              className="text-lg h-14 px-8"
+              showIcon={false}
+            />
           </div>
         </div>
       </div>

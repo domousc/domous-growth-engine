@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, MessageCircle, TrendingUp } from "lucide-react";
+import CTAButton from "./CTAButton";
+import { useCTAData } from "@/hooks/useCTAData";
 
 const CalculadoraVazamento = () => {
   const [trafego, setTrafego] = useState([10000]);
@@ -11,6 +13,7 @@ const CalculadoraVazamento = () => {
   const [respostaWhats, setRespostaWhats] = useState([30]);
   const [fechamento, setFechamento] = useState([20]);
   const [aov, setAov] = useState([300]);
+  const { setLeak } = useCTAData();
 
   const calcular = () => {
     const cliques = Math.floor(trafego[0] * (ctr[0] / 100));
@@ -40,29 +43,23 @@ const CalculadoraVazamento = () => {
 
   const { cliques, leads, conversas, vendas, receita, cac, roas, vazamento } = calcular();
 
+  // Update global leak data
+  useEffect(() => {
+    setLeak(vazamento.etapa);
+  }, [vazamento.etapa, setLeak]);
+
   const handleSliderChange = () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'leak_change' });
   };
 
   const handleSubmit = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmSource = urlParams.get("utm_source") || "";
-    const utmCampaign = urlParams.get("utm_campaign") || "";
-    const utmTerm = urlParams.get("utm_term") || "";
-    const message = encodeURIComponent(
-      `Quero corrigir vazamento — etapa:${vazamento.etapa} | receita estimada:R$${receita} | utm:${utmSource}/${utmCampaign}/${utmTerm}`
-    );
-    
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ 
       event: 'leak_submit',
       leak_maior_vazamento: vazamento.etapa,
       leak_receita_estimada: receita
     });
-    window.dataLayer.push({ event: 'click_whatsapp' });
-    
-    window.open(`https://wa.me/5583981195186?text=${message}`, '_blank');
   };
 
   const getAnchor = () => {
@@ -243,13 +240,12 @@ const CalculadoraVazamento = () => {
                 Corrigir essa etapa agora
               </Button>
               
-              <Button 
+              <CTAButton 
+                type="whatsapp"
+                label="Receber plano no WhatsApp"
                 onClick={handleSubmit}
-                className="flex-1 gradient-domous text-white hover:opacity-90 shadow-domous"
-              >
-                <MessageCircle className="mr-2 w-4 h-4" />
-                Receber plano no WhatsApp
-              </Button>
+                className="flex-1"
+              />
             </div>
           </Card>
         </div>

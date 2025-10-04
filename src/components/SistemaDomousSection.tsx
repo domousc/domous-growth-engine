@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Target, Users, ShoppingCart, MessageSquare, TrendingUp, Repeat } from "lucide-react";
 import decorativeOrbs from "@/assets/decorative-orbs.webp";
+import CTAButton from "./CTAButton";
 
 const SistemaDomousSection = () => {
   const camadas = [
@@ -92,13 +93,13 @@ const SistemaDomousSection = () => {
         </div>
 
         <div className="text-center">
-          <Button 
-            size="lg" 
-            className="gradient-domous text-white hover:opacity-90 shadow-domous text-lg h-14 px-8"
-          >
-            Quero o Sistema Domous no meu negócio
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <CTAButton 
+            type="whatsapp"
+            label="Quero o Sistema Domous no meu negócio"
+            size="lg"
+            className="text-lg h-14 px-8"
+            showIcon={false}
+          />
         </div>
       </div>
     </section>

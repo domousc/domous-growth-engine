@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Calendar, Award } from "lucide-react";
 import CTAMicrocopy from "./CTAMicrocopy";
+import CTAButton from "./CTAButton";
 
 const CTAFinalSection = () => {
   const trustBadges = [
@@ -22,22 +23,21 @@ const CTAFinalSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button 
-              size="lg" 
-              className="gradient-domous text-white hover:opacity-90 shadow-domous text-lg h-16 px-10"
-            >
-              <MessageCircle className="mr-2 w-5 h-5" />
-              Receber diagnóstico no WhatsApp
-            </Button>
+            <CTAButton 
+              type="whatsapp"
+              size="lg"
+              className="text-lg h-16 px-10"
+            />
             
-            <Button 
-              size="lg" 
+            <CTAButton 
+              type="custom"
+              label="Agendar uma call"
               variant="outline"
+              size="lg"
+              customHref="#"
               className="border-2 border-primary text-primary hover:bg-primary/5 text-lg h-16 px-10"
-            >
-              <Calendar className="mr-2 w-5 h-5" />
-              Agendar uma call
-            </Button>
+              showIcon={false}
+            />
           </div>
 
           <CTAMicrocopy />

@@ -1,17 +1,18 @@
 import { MessageCircle } from "lucide-react";
+import { useCTAData } from "@/hooks/useCTAData";
 
 const WhatsAppButton = () => {
+  const { getWhatsAppURL, industry } = useCTAData();
+
   const handleClick = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmSource = urlParams.get("utm_source") || "";
-    const utmCampaign = urlParams.get("utm_campaign") || "";
-    const utmTerm = urlParams.get("utm_term") || "";
-    const message = encodeURIComponent(`Quero diagnóstico Domous utm:${utmSource}/${utmCampaign}/${utmTerm}`);
-    const phoneNumber = "5583981195186";
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 
+      event: 'click_whatsapp',
+      cta_label: 'WhatsApp Floating Button',
+      industry: industry
+    });
     
-    const event = new CustomEvent('click_whatsapp');
-    window.dispatchEvent(event);
+    window.open(getWhatsAppURL(), "_blank", "noopener,noreferrer");
   };
 
   return (

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Zap, BarChart3 } from "lucide-react";
+import CTAButton from "./CTAButton";
 
 const GarantiaSection = () => {
   const garantias = [
@@ -42,12 +43,13 @@ const GarantiaSection = () => {
             ))}
           </div>
 
-          <Button 
-            size="lg" 
-            className="gradient-domous text-white hover:opacity-90 shadow-domous text-lg h-14 px-8"
-          >
-            Agendar sua garantia
-          </Button>
+          <CTAButton 
+            type="whatsapp"
+            label="Agendar sua garantia"
+            size="lg"
+            className="text-lg h-14 px-8"
+            showIcon={false}
+          />
         </div>
       </div>
     </section>

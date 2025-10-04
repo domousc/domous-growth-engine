@@ -11,7 +11,9 @@ import { HeroVariant } from "@/hooks/useUTMParams";
 import heroPipelineDesktop from "@/assets/hero-pipeline-desktop.webp";
 import heroPipelineMobile from "@/assets/hero-pipeline-mobile.webp";
 import bgCurvesCorner from "@/assets/bg-curves-corner.webp";
+import CTAButton from "./CTAButton";
 import { useEffect, useRef, useState } from "react";
+import { useCTAData } from "@/hooks/useCTAData";
 
 interface HeroSectionProps {
   variant: HeroVariant;
@@ -22,6 +24,17 @@ interface HeroSectionProps {
 const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }: HeroSectionProps) => {
   const [scrollY, setScrollY] = useState(0);
   const imageRef = useRef<HTMLDivElement>(null);
+  const { setIndustry, updatePageInfo } = useCTAData();
+
+  // Update industry in global store
+  useEffect(() => {
+    setIndustry(selectedIndustria);
+  }, [selectedIndustria, setIndustry]);
+
+  // Update page info on mount
+  useEffect(() => {
+    updatePageInfo();
+  }, [updatePageInfo]);
 
   // Parallax effect
   useEffect(() => {
@@ -69,15 +82,13 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
 
   const { keyword, h1, sub, badge } = content[variant];
 
-  const handleCTAClick = (type: string) => {
-    const event = new CustomEvent(type === 'primary' ? 'lead_submit' : 'call_click', { 
-      detail: { location: 'hero', variant } 
-    });
-    window.dispatchEvent(event);
-  };
-
   return (
     <section id="hero" className="section-dark pt-32 pb-28 md:pb-32 lg:pb-40 relative overflow-hidden purple-glow">
+      {/* Decorative corner curves */}
+      <div className="absolute top-0 right-0 w-80 h-80 opacity-20 pointer-events-none">
+        <img src={bgCurvesCorner} alt="Linhas curvas decorativas em roxo" className="w-full h-full object-contain" />
+      </div>
+      
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Content */}
@@ -122,30 +133,18 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                className="gradient-domous text-white hover:opacity-90 shadow-domous text-lg h-14 px-8"
-                onClick={() => handleCTAClick('primary')}
-              >
-                Receber diagnóstico no WhatsApp
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <a
-                href="tel:+5583981195186"
-                onClick={() => {
-                  window.dataLayer = window.dataLayer || [];
-                  window.dataLayer.push({ event: 'call_click', location: 'hero' });
-                }}
-              >
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-2 border-white/30 text-white hover:bg-white/10 text-lg h-14 px-8 w-full"
-                >
-                  <Phone className="mr-2 w-5 h-5" />
-                  Ligar agora
-                </Button>
-              </a>
+              <CTAButton 
+                type="whatsapp"
+                size="lg"
+                className="text-lg h-14 px-8"
+              />
+              
+              <CTAButton 
+                type="call"
+                variant="outline"
+                size="lg"
+                className="text-lg h-14 px-8"
+              />
             </div>
 
             {/* Microcopy abaixo dos CTAs */}

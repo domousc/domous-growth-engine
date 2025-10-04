@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { MessageCircle, Sparkles } from "lucide-react";
+import CTAButton from "./CTAButton";
+import { useCTAData } from "@/hooks/useCTAData";
 
 const DiagnosticoExpress = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +12,7 @@ const DiagnosticoExpress = () => {
   const [ticket, setTicket] = useState("");
   const [usaCRM, setUsaCRM] = useState("");
   const [showRecomendacao, setShowRecomendacao] = useState(false);
+  const { setDXP } = useCTAData();
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -20,6 +23,11 @@ const DiagnosticoExpress = () => {
   const handleSubmit = () => {
     if (!objetivo || !ticket || !usaCRM) return;
     
+    const prioridade = getPrioridade().area;
+    
+    // Update global CTA data
+    setDXP(objetivo, ticket, usaCRM, prioridade);
+    
     setShowRecomendacao(true);
     
     window.dataLayer = window.dataLayer || [];
@@ -27,7 +35,8 @@ const DiagnosticoExpress = () => {
       event: 'dxp_submit',
       dxp_objetivo: objetivo,
       dxp_ticket: ticket,
-      dxp_crm: usaCRM
+      dxp_crm: usaCRM,
+      dxp_prioridade: prioridade
     });
   };
 
@@ -41,17 +50,6 @@ const DiagnosticoExpress = () => {
     } else {
       return { area: "Funil completo", anchor: "#funil", texto: "Estruturação de todas as camadas do funil" };
     }
-  };
-
-  const getWhatsAppMessage = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmSource = urlParams.get("utm_source") || "";
-    const utmCampaign = urlParams.get("utm_campaign") || "";
-    const utmTerm = urlParams.get("utm_term") || "";
-    
-    return encodeURIComponent(
-      `Quero diagnóstico — objetivo:${objetivo} | ticket:${ticket} | crm:${usaCRM} | utm:${utmSource}/${utmCampaign}/${utmTerm}`
-    );
   };
 
   if (!isOpen) {
@@ -143,17 +141,11 @@ const DiagnosticoExpress = () => {
               Ver seção recomendada
             </Button>
 
-            <Button 
-              className="w-full gradient-domous text-white hover:opacity-90"
-              onClick={() => {
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({ event: 'click_whatsapp' });
-                window.open(`https://wa.me/5583981195186?text=${getWhatsAppMessage()}`, '_blank');
-              }}
-            >
-              <MessageCircle className="mr-2 w-4 h-4" />
-              Continuar no WhatsApp
-            </Button>
+            <CTAButton 
+              type="whatsapp"
+              label="Continuar no WhatsApp"
+              className="w-full"
+            />
           </div>
 
           <button
