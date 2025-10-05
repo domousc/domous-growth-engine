@@ -30,11 +30,10 @@ const CTAFinalSection = () => {
             />
             
             <CTAButton 
-              type="custom"
+              type="whatsapp"
               label="Agendar uma call"
               variant="outline"
               size="lg"
-              customHref="#"
               className="border-2 border-primary text-primary hover:bg-primary/5 text-lg h-16 px-10"
               showIcon={false}
             />

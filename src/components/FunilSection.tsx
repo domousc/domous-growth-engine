@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye, MousePointer, MessageCircle, CreditCard, RefreshCw } from "lucide-react";
 import decorativeOrbs from "@/assets/decorative-orbs.webp";
+import CTAButton from "./CTAButton";
 
 const FunilSection = () => {
   const etapas = [
@@ -105,13 +106,13 @@ const FunilSection = () => {
         </div>
 
         <div className="text-center">
-          <Button 
-            size="lg" 
-            className="gradient-domous text-white hover:opacity-90 shadow-domous text-lg h-14 px-8"
-          >
-            Montar meu funil de vendas
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <CTAButton 
+            type="whatsapp"
+            label="Montar meu funil de vendas"
+            size="lg"
+            className="text-lg h-14 px-8"
+            showIcon={false}
+          />
         </div>
       </div>
     </section>

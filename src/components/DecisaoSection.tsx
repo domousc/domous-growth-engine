@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText, Target, Zap } from "lucide-react";
 import CTAMicrocopy from "./CTAMicrocopy";
+import CTAButton from "./CTAButton";
 
 const DecisaoSection = () => {
   const passos = [
@@ -71,13 +72,13 @@ const DecisaoSection = () => {
         </div>
 
         <div className="text-center space-y-6">
-          <Button 
-            size="lg" 
-            className="gradient-domous text-white hover:opacity-90 shadow-domous text-lg h-14 px-8"
-          >
-            Receber diagnóstico no WhatsApp
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <CTAButton 
+            type="whatsapp"
+            label="Receber diagnóstico no WhatsApp"
+            size="lg"
+            className="text-lg h-14 px-8"
+            showIcon={false}
+          />
           
           <CTAMicrocopy />
         </div>

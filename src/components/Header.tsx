@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logoDomousBlack from "@/assets/logo-domous-black.png";
 import logoDomousWhite from "@/assets/logo-domous-white.png";
+import CTAButton from "./CTAButton";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -78,13 +79,14 @@ const Header = () => {
               <span className="text-sm">📞 Ligar agora</span>
             </a>
             
-            <Button
-              onClick={handleCTAClick}
-              className="hidden md:flex gradient-domous text-white hover:opacity-90 transition-smooth shadow-domous"
+            <CTAButton 
+              type="whatsapp"
+              label="Fale com um estrategista"
               size="lg"
-            >
-              Falar com um Estrategista
-            </Button>
+              className="hidden md:flex"
+              showIcon={false}
+              onClick={handleCTAClick}
+            />
 
             {/* Mobile Menu Button */}
             <button
@@ -113,15 +115,16 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button
+              <CTAButton 
+                type="whatsapp"
+                label="Fale com um estrategista"
+                className="mt-2"
+                showIcon={false}
                 onClick={() => {
                   handleCTAClick();
                   setIsMobileMenuOpen(false);
                 }}
-                className="gradient-domous text-white hover:opacity-90 transition-smooth shadow-domous mt-2"
-              >
-                Falar com um Estrategista
-              </Button>
+              />
             </nav>
           </div>
         )}
