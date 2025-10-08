@@ -1,11 +1,32 @@
-import clients1 from "@/assets/clients-1.png";
-import clients2 from "@/assets/clients-2.png";
+import logoEletropolo from "@/assets/logo-eletropolo.png";
+import logoRutra from "@/assets/logo-rutra.png";
+import logoVerona from "@/assets/logo-verona.png";
+import logoHLAdvocacia from "@/assets/logo-hl-advocacia.png";
+import logoBethaniaLuna from "@/assets/logo-bethania-luna.png";
+import logoInstitutoK from "@/assets/logo-instituto-k.png";
+import logoOdontogalerie from "@/assets/logo-odontogalerie.png";
+import logoNattaneLucena from "@/assets/logo-nattane-lucena.png";
+import logoArteMusical from "@/assets/logo-arte-musical.png";
+import logoCasatudo from "@/assets/logo-casatudo.png";
 import logoDomousCRM from "@/assets/logo-domous-crm.png";
 import logoTray from "@/assets/logo-tray.svg";
 import logoBling from "@/assets/logo-bling.svg";
 import { SiGoogle, SiMeta } from "react-icons/si";
 
 const ClientsSection = () => {
+  const clients = [
+    { name: "Eletropolo", image: logoEletropolo },
+    { name: "Rutra", image: logoRutra },
+    { name: "Verona", image: logoVerona },
+    { name: "HL Advocacia", image: logoHLAdvocacia },
+    { name: "Clínica Bethânia Luna", image: logoBethaniaLuna },
+    { name: "Instituto K", image: logoInstitutoK },
+    { name: "Odontogalerie", image: logoOdontogalerie },
+    { name: "Nattane Lucena", image: logoNattaneLucena },
+    { name: "Arte Musical", image: logoArteMusical },
+    { name: "Casatudo", image: logoCasatudo },
+  ];
+
   const partners = [
     { name: "Domous CRM", image: logoDomousCRM, height: "h-10" },
     { name: "Tray E-commerce", image: logoTray, height: "h-8", invert: true },
@@ -21,23 +42,22 @@ const ClientsSection = () => {
           <h2 className="mb-4">Empresas que confiam na Domous para escalar vendas</h2>
         </div>
 
-        {/* Client Logos - Reduzido */}
-        <div className="space-y-6 mb-16">
-          <div className="flex justify-center">
-            <img 
-              src={clients1} 
-              alt="Clientes Domous - Parte 1" 
-              className="w-full max-w-2xl h-auto opacity-60 hover:opacity-90 transition-smooth"
-              loading="lazy"
-            />
-          </div>
-          <div className="flex justify-center">
-            <img 
-              src={clients2} 
-              alt="Clientes Domous - Parte 2" 
-              className="w-full max-w-2xl h-auto opacity-60 hover:opacity-90 transition-smooth"
-              loading="lazy"
-            />
+        {/* Client Logos */}
+        <div className="mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+            {clients.map((client) => (
+              <div 
+                key={client.name}
+                className="flex items-center justify-center p-4 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-smooth"
+              >
+                <img 
+                  src={client.image} 
+                  alt={client.name}
+                  className="w-full h-auto max-h-12 object-contain opacity-70 hover:opacity-100 transition-smooth"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
