@@ -90,7 +90,7 @@ const Footer = () => {
             </ul>
             
             <div className="mt-6 text-xs text-background/60">
-              <p>CNPJ: 00.000.000/0001-00</p>
+              <p>CNPJ: 49.327.016/0001-00</p>
               <p className="mt-2">
                 * Oferta de 1º mês por R$ 97 válida apenas para CRM com IA. 
                 Sujeito a análise de compatibilidade.
