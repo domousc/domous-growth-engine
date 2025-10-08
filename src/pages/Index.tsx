@@ -199,8 +199,6 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              
-              <VideoComoTrabalhamos />
             </div>
           </div>
         </section>
