@@ -99,14 +99,14 @@ const Index = () => {
         <DiferencialSection />
         <SistemaDomousSection />
         
-        {/* Como trabalhamos - 5 Fases */}
+        {/* Como trabalhamos */}
         <section id="como-trabalhamos" className="section-dark py-28 md:py-32 lg:py-40 relative overflow-hidden">
           {/* Decorative gradient orbs */}
           <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
           
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 rounded-full mb-4">
                   <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -115,123 +115,84 @@ const Index = () => {
                 
                 <h2 className="mb-6 text-dark-foreground">Como trabalhamos</h2>
                 <p className="text-xl text-dark-muted">
-                  Nosso processo em 5 fases: do onboarding aos resultados recorrentes
+                  Do onboarding até sua máquina de vendas funcionando no automático
                 </p>
               </div>
               
-              {/* Timeline das 5 Fases */}
-              <div className="mb-16">
-                <div className="relative">
-                  {/* Linha conectora */}
-                  <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-30" />
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-4">
-                    {[
-                      { 
-                        fase: "FASE 1", 
-                        titulo: "Onboarding", 
-                        duracao: "Semana 1",
-                        desc: "Kickoff, análise completa e alinhamento de expectativas",
-                        emoji: "🚀",
-                        itens: 6
-                      },
-                      { 
-                        fase: "FASE 2", 
-                        titulo: "Estruturação Técnica", 
-                        duracao: "Semana 2",
-                        desc: "Setup de tracking, pixels, integrações e ferramentas",
-                        emoji: "⚙️",
-                        itens: 8
-                      },
-                      { 
-                        fase: "FASE 3", 
-                        titulo: "Estratégia & Conteúdo", 
-                        duracao: "Semana 3",
-                        desc: "Planejamento de campanhas, criativos e mensagens",
-                        emoji: "🎯",
-                        itens: 9
-                      },
-                      { 
-                        fase: "FASE 4", 
-                        titulo: "Tráfego (Lançamento)", 
-                        duracao: "Semana 4",
-                        desc: "Campanhas no ar, primeiros testes e coleta de dados",
-                        emoji: "🚀",
-                        itens: 6
-                      },
-                      { 
-                        fase: "FASE 5", 
-                        titulo: "Performance (Recorrência)", 
-                        duracao: "Contínuo",
-                        desc: "Otimização constante, escala e maximização de resultados",
-                        emoji: "📈",
-                        itens: 6
-                      }
-                    ].map((fase, idx) => (
-                      <div key={idx} className="relative group">
-                        <div className="flex flex-col items-center text-center">
-                          {/* Círculo numerado com gradiente */}
-                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-4 relative z-10 shadow-domous group-hover:scale-110 transition-smooth">
-                            <div className="flex flex-col items-center">
-                              <span className="text-2xl mb-0">{fase.emoji}</span>
-                            </div>
-                          </div>
-                          
-                          {/* Badge de fase */}
-                          <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/20 rounded-full mb-2">
-                            <span className="text-xs font-bold text-primary">{fase.fase}</span>
-                            <span className="text-xs text-primary/60">•</span>
-                            <span className="text-xs text-primary/80">{fase.itens} itens</span>
-                          </div>
-                          
-                          {/* Conteúdo */}
-                          <h3 className="text-base font-bold text-dark-foreground mb-1 leading-tight">{fase.titulo}</h3>
-                          <p className="text-xs text-primary mb-2 font-medium">{fase.duracao}</p>
-                          <p className="text-xs text-dark-muted leading-relaxed">{fase.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Divisor visual */}
-              <div className="flex items-center gap-4 mb-16">
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-                <span className="text-sm text-dark-muted">Evolução dos resultados</span>
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-              </div>
-
-              {/* Timeline de progressão até a máquina */}
+              {/* Timeline unificada */}
               <div className="mb-12">
                 <div className="relative">
                   {/* Linha conectora gradiente */}
-                  <div className="hidden lg:block absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary to-primary opacity-30" />
+                  <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-30" />
                   
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-3">
                     {[
-                      { semana: "WEEK 1", titulo: "Kickoff", desc: "Análise completa e definição de estratégia", emoji: "🚀" },
-                      { semana: "WEEK 2", titulo: "Execução", desc: "Primeiros criativos e campanhas no ar", emoji: "⚡" },
-                      { semana: "WEEK 4", titulo: "Otimização", desc: "Ajustes baseados em dados reais", emoji: "📊" },
-                      { semana: "WEEK 8", titulo: "Escala", desc: "Aumento de budget e expansão", emoji: "📈" },
-                      { semana: "WEEK 12", titulo: "Consolidação", desc: "Resultados consistentes", emoji: "🎯" },
-                      { semana: "DIA 90", titulo: "Máquina", desc: "Sistema rodando sozinho", emoji: "🏆" }
-                    ].map((marco, idx) => (
+                      { 
+                        label: "FASE 1", 
+                        titulo: "Onboarding", 
+                        duracao: "Semana 1",
+                        desc: "Kickoff, análise completa e alinhamento",
+                        emoji: "🚀"
+                      },
+                      { 
+                        label: "FASE 2", 
+                        titulo: "Setup Técnico", 
+                        duracao: "Semana 2",
+                        desc: "Tracking, pixels e integrações",
+                        emoji: "⚙️"
+                      },
+                      { 
+                        label: "FASE 3", 
+                        titulo: "Estratégia", 
+                        duracao: "Semana 3",
+                        desc: "Campanhas, criativos e conteúdo",
+                        emoji: "🎯"
+                      },
+                      { 
+                        label: "FASE 4", 
+                        titulo: "Lançamento", 
+                        duracao: "Semana 4",
+                        desc: "Campanhas no ar e primeiros testes",
+                        emoji: "🚀"
+                      },
+                      { 
+                        label: "FASE 5", 
+                        titulo: "Performance", 
+                        duracao: "Semana 5-8",
+                        desc: "Otimização e escalada de resultados",
+                        emoji: "📈"
+                      },
+                      { 
+                        label: "WEEK 12", 
+                        titulo: "Consolidação", 
+                        duracao: "Semana 9-12",
+                        desc: "Resultados consistentes e previsíveis",
+                        emoji: "🎯"
+                      },
+                      { 
+                        label: "DIA 90", 
+                        titulo: "Máquina", 
+                        duracao: "Em diante",
+                        desc: "Sistema rodando no automático",
+                        emoji: "🏆"
+                      }
+                    ].map((etapa, idx) => (
                       <div key={idx} className="relative group">
                         <div className="flex flex-col items-center text-center">
                           {/* Círculo com gradiente e efeito hover */}
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-3 relative z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <span className="text-2xl">{marco.emoji}</span>
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-3 relative z-10 shadow-domous group-hover:scale-110 transition-smooth">
+                            <span className="text-2xl">{etapa.emoji}</span>
                           </div>
                           
-                          {/* Badge de semana */}
-                          <div className="inline-block px-2 py-1 bg-primary/20 rounded-md mb-2">
-                            <p className="text-xs font-bold text-primary">{marco.semana}</p>
+                          {/* Badge */}
+                          <div className="inline-block px-2.5 py-1 bg-primary/20 rounded-full mb-2">
+                            <p className="text-xs font-bold text-primary">{etapa.label}</p>
                           </div>
                           
                           {/* Conteúdo */}
-                          <p className="text-sm font-semibold text-dark-foreground mb-1">{marco.titulo}</p>
-                          <p className="text-xs text-dark-muted leading-tight">{marco.desc}</p>
+                          <h3 className="text-sm font-bold text-dark-foreground mb-1 leading-tight">{etapa.titulo}</h3>
+                          <p className="text-xs text-primary/80 mb-1.5 font-medium">{etapa.duracao}</p>
+                          <p className="text-xs text-dark-muted leading-relaxed">{etapa.desc}</p>
                         </div>
                       </div>
                     ))}
