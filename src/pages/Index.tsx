@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import ClientsSection from "@/components/ClientsSection";
 import DiferencialSection from "@/components/DiferencialSection";
 import SistemaDomousSection from "@/components/SistemaDomousSection";
+import MetodologiaDomousSection from "@/components/MetodologiaDomousSection";
 import FunilSection from "@/components/FunilSection";
 import ServicosSection from "@/components/ServicosSection";
 import CasesSection from "@/components/CasesSection";
@@ -98,6 +99,7 @@ const Index = () => {
         )}
         <DiferencialSection />
         <SistemaDomousSection />
+        <MetodologiaDomousSection />
         
         {/* Como trabalhamos */}
         <section id="como-trabalhamos" className="section-dark py-28 md:py-32 lg:py-40 relative overflow-hidden">
