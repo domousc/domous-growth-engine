@@ -194,6 +194,50 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Divisor visual */}
+              <div className="flex items-center gap-4 mb-16">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                <span className="text-sm text-dark-muted">Evolução dos resultados</span>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+              </div>
+
+              {/* Timeline de progressão até a máquina */}
+              <div className="mb-12">
+                <div className="relative">
+                  {/* Linha conectora gradiente */}
+                  <div className="hidden lg:block absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary to-primary opacity-30" />
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+                    {[
+                      { semana: "WEEK 1", titulo: "Kickoff", desc: "Análise completa e definição de estratégia", emoji: "🚀" },
+                      { semana: "WEEK 2", titulo: "Execução", desc: "Primeiros criativos e campanhas no ar", emoji: "⚡" },
+                      { semana: "WEEK 4", titulo: "Otimização", desc: "Ajustes baseados em dados reais", emoji: "📊" },
+                      { semana: "WEEK 8", titulo: "Escala", desc: "Aumento de budget e expansão", emoji: "📈" },
+                      { semana: "WEEK 12", titulo: "Consolidação", desc: "Resultados consistentes", emoji: "🎯" },
+                      { semana: "DIA 90", titulo: "Máquina", desc: "Sistema rodando sozinho", emoji: "🏆" }
+                    ].map((marco, idx) => (
+                      <div key={idx} className="relative group">
+                        <div className="flex flex-col items-center text-center">
+                          {/* Círculo com gradiente e efeito hover */}
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-3 relative z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <span className="text-2xl">{marco.emoji}</span>
+                          </div>
+                          
+                          {/* Badge de semana */}
+                          <div className="inline-block px-2 py-1 bg-primary/20 rounded-md mb-2">
+                            <p className="text-xs font-bold text-primary">{marco.semana}</p>
+                          </div>
+                          
+                          {/* Conteúdo */}
+                          <p className="text-sm font-semibold text-dark-foreground mb-1">{marco.titulo}</p>
+                          <p className="text-xs text-dark-muted leading-tight">{marco.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
               
               <VideoComoTrabalhamos />
             </div>
