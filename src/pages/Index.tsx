@@ -8,6 +8,8 @@ import SistemaDomousSection from "@/components/SistemaDomousSection";
 import MetodologiaDomousSection from "@/components/MetodologiaDomousSection";
 import FunilSection from "@/components/FunilSection";
 import ServicosSection from "@/components/ServicosSection";
+import KairoLucasSection from "@/components/KairoLucasSection";
+import TimeDomousSection from "@/components/TimeDomousSection";
 import CasesSection from "@/components/CasesSection";
 import DecisaoSection from "@/components/DecisaoSection";
 import Primeiros30DiasSection from "@/components/Primeiros30DiasSection";
@@ -233,6 +235,8 @@ const Index = () => {
           </div>
         </section>
         <ServicosSection />
+        <KairoLucasSection />
+        <TimeDomousSection />
         
         {/* CRM com WhatsApp Simulator */}
         <section id="crm" className="py-16 md:py-24 bg-secondary/30">

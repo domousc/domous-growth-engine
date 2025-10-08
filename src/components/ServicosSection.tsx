@@ -1,6 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import CTAButton from "./CTAButton";
 
 const ServicosSection = () => {
@@ -89,54 +87,54 @@ const ServicosSection = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {servicos.map((servico) => (
-              <AccordionItem 
-                key={servico.id} 
-                value={servico.id}
-                className="bg-card rounded-2xl border border-border shadow-card hover:shadow-domous transition-smooth overflow-hidden"
+              <div 
+                key={servico.id}
+                className="bg-card rounded-2xl border border-border shadow-card hover:shadow-domous transition-smooth p-6 flex flex-col"
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                  <div className="text-left">
-                    <h3 className="text-lg md:text-xl font-bold mb-1">{servico.titulo}</h3>
-                    <p className="text-sm text-primary font-medium">{servico.dor}</p>
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold mb-2">{servico.titulo}</h3>
+                  <p className="text-sm text-primary font-medium mb-3">{servico.dor}</p>
+                </div>
+                
+                <div className="space-y-4 flex-grow">
+                  <div>
+                    <p className="font-semibold text-accent text-sm mb-2">✓ Solução</p>
+                    <p className="text-muted-foreground text-sm">{servico.solucao}</p>
                   </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
-                  <div className="space-y-4 pt-4 border-t border-border">
-                    <div>
-                      <p className="font-semibold text-accent mb-2">✓ Solução</p>
-                      <p className="text-muted-foreground">{servico.solucao}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-semibold text-accent mb-2">📦 Entregáveis</p>
-                      <ul className="space-y-1">
-                        {servico.entregaveis.map((item, i) => (
-                          <li key={i} className="text-muted-foreground text-sm">• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-primary/5 rounded-lg p-3">
-                      <p className="font-semibold text-primary text-sm mb-1">🎯 KPI principal</p>
-                      <p className="text-sm">{servico.kpi}</p>
-                    </div>
+                  
+                  <div>
+                    <p className="font-semibold text-accent text-sm mb-2">📦 Entregáveis</p>
+                    <ul className="space-y-1">
+                      {servico.entregaveis.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                          <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                  
+                  <div className="bg-primary/5 rounded-lg p-3">
+                    <p className="font-semibold text-primary text-xs mb-1">🎯 KPI principal</p>
+                    <p className="text-sm">{servico.kpi}</p>
+                  </div>
+                </div>
 
-          <div className="text-center mt-12">
-            <CTAButton 
-              type="whatsapp"
-              label="Receber diagnóstico no WhatsApp"
-              size="lg"
-              className="text-lg h-14 px-8"
-              showIcon={false}
-            />
+                <div className="mt-6 pt-4 border-t border-border">
+                  <CTAButton 
+                    type="whatsapp"
+                    label="Solicitar orçamento"
+                    variant="outline"
+                    size="default"
+                    className="w-full"
+                    customMessage={`Olá! Gostaria de solicitar um orçamento para: ${servico.titulo}`}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
