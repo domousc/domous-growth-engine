@@ -160,7 +160,7 @@ const Index = () => {
                         titulo: "Performance", 
                         duracao: "Semana 5-8",
                         desc: "Otimização e escalada de resultados",
-                        emoji: "📈"
+                        emoji: "⚡"
                       },
                       { 
                         label: "WEEK 12", 
