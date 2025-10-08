@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Target, Megaphone } from "lucide-react";
+import CTAButton from "./CTAButton";
+import { Target, Megaphone } from "lucide-react";
 
 const DiferencialSection = () => {
   return (
@@ -33,14 +33,14 @@ const DiferencialSection = () => {
           </div>
 
           <div className="text-center">
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary/5 text-lg h-14 px-8"
-            >
-              Quero o Sistema Domous no meu negócio
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <CTAButton 
+              type="whatsapp"
+              label="Quero o Sistema Domous no meu negócio"
+              size="lg"
+              className="text-lg h-14 px-8"
+              showIcon={false}
+              customMessage="Olá! Quero implementar o Sistema Domous no meu negócio. Gostaria de falar com um estrategista."
+            />
           </div>
         </div>
       </div>
