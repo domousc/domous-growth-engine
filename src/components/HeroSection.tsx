@@ -1,12 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Users, DollarSign, Phone } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CTAMicrocopy from "./CTAMicrocopy";
 import LeadForm from "./LeadForm";
-import DiagnosticoExpress from "./DiagnosticoExpress";
-import SimuladorCACROAS from "./SimuladorCACROAS";
-import QuizDiagnostico from "./QuizDiagnostico";
-import AnimatedCounter from "./AnimatedCounter";
 import IndustriaSelector, { Industria } from "./IndustriaSelector";
 import { HeroVariant } from "@/hooks/useUTMParams";
 import heroPipelineDesktop from "@/assets/hero-pipeline-desktop.webp";
@@ -164,32 +159,10 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             </div>
           </div>
 
-          {/* Right: Forms */}
-          <div className="space-y-6 animate-fade-in">
-            {/* Widget Tabs */}
-            <Tabs defaultValue="quiz" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-4">
-                <TabsTrigger value="quiz" className="text-xs sm:text-sm">Quiz</TabsTrigger>
-                <TabsTrigger value="dxp" className="text-xs sm:text-sm">Diagnóstico</TabsTrigger>
-                <TabsTrigger value="sim" className="text-xs sm:text-sm">Simulador</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="quiz">
-                <QuizDiagnostico />
-              </TabsContent>
-              
-              <TabsContent value="dxp">
-                <DiagnosticoExpress />
-              </TabsContent>
-              
-              <TabsContent value="sim">
-                <SimuladorCACROAS />
-              </TabsContent>
-            </Tabs>
-            
-            {/* Form Principal */}
+          {/* Right: Form */}
+          <div className="animate-fade-in">
             <div className="card-dark rounded-2xl shadow-dark p-6 md:p-8 border">
-              <h3 className="text-2xl font-bold mb-6 text-dark-foreground">Ou preencha o formulário completo</h3>
+              <h3 className="text-2xl font-bold mb-6 text-dark-foreground">Fale com um especialista</h3>
               <LeadForm variant={variant} selectedIndustria={selectedIndustria} />
             </div>
           </div>
