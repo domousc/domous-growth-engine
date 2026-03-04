@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Users, DollarSign, Phone } from "lucide-react";
 import CTAMicrocopy from "./CTAMicrocopy";
-import LeadForm from "./LeadForm";
 import IndustriaSelector, { Industria } from "./IndustriaSelector";
 import { HeroVariant } from "@/hooks/useUTMParams";
 import heroPipelineDesktop from "@/assets/hero-pipeline-desktop.webp";
