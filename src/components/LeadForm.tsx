@@ -30,7 +30,6 @@ interface LeadFormProps {
 
 const LeadForm = ({ variant, selectedIndustria = "todas" }: LeadFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
