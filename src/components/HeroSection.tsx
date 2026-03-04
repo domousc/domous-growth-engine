@@ -3,7 +3,7 @@ import { ArrowRight, TrendingUp, Users, DollarSign, Phone } from "lucide-react";
 import CTAMicrocopy from "./CTAMicrocopy";
 import IndustriaSelector, { Industria } from "./IndustriaSelector";
 import { HeroVariant } from "@/hooks/useUTMParams";
-import kairoHero from "@/assets/kairo-hero.jpg";
+import kairoHero from "@/assets/kairo-hero-nobg.png";
 import clientesGrid from "@/assets/clientes-grid.png";
 import CTAButton from "./CTAButton";
 import { useEffect, useRef, useState } from "react";
