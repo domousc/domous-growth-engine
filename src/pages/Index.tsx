@@ -21,7 +21,7 @@ import CTAFinalSection from "@/components/CTAFinalSection";
 import Footer from "@/components/Footer";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import GTMScript from "@/components/GTMScript";
-import SimuladorCACROAS from "@/components/SimuladorCACROAS";
+import DiagnosticoSection from "@/components/DiagnosticoSection";
 import VideoComoTrabalhamos from "@/components/VideoComoTrabalhamos";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import CookieBanner from "@/components/CookieBanner";
@@ -212,28 +212,7 @@ const Index = () => {
         
         <FunilSection />
         
-        {/* Simulador CAC/ROAS */}
-        <section className="py-28 md:py-32 lg:py-40 relative">
-          {/* Subtle grid background */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-            style={{ 
-              backgroundImage: 'linear-gradient(hsl(280 85% 55% / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(280 85% 55% / 0.1) 1px, transparent 1px)',
-              backgroundSize: '12px 12px'
-            }}
-          />
-          
-          <div className="container mx-auto px-4 lg:px-8 relative">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="mb-6">Simule seus resultados</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto" style={{ maxWidth: '65ch' }}>
-                  Calcule estimativas de CAC, ROAS e próximas ações baseadas no seu cenário
-                </p>
-              </div>
-              <SimuladorCACROAS />
-            </div>
-          </div>
-        </section>
+        {/* Simulador CAC/ROAS removido - agora na seção de diagnóstico */}
         <ServicosSection />
         <KairoLucasSection />
         <TimeDomousSection />
@@ -258,6 +237,7 @@ const Index = () => {
           onSelectIndustria={setSelectedIndustria}
         />
         <DecisaoSection />
+        <DiagnosticoSection />
         <Primeiros30DiasSection />
         <ComparativoSection />
         <ChecklistSection />
