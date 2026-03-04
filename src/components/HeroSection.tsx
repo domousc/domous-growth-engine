@@ -3,8 +3,7 @@ import { ArrowRight, TrendingUp, Users, DollarSign, Phone } from "lucide-react";
 import CTAMicrocopy from "./CTAMicrocopy";
 import IndustriaSelector, { Industria } from "./IndustriaSelector";
 import { HeroVariant } from "@/hooks/useUTMParams";
-import heroPipelineDesktop from "@/assets/hero-pipeline-desktop.webp";
-import heroPipelineMobile from "@/assets/hero-pipeline-mobile.webp";
+import kairoHero from "@/assets/kairo-hero.jpg";
 import clientesGrid from "@/assets/clientes-grid.png";
 import CTAButton from "./CTAButton";
 import { useEffect, useRef, useState } from "react";
@@ -158,17 +157,12 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             </div>
           </div>
 
-          {/* Right: Pipeline Image */}
-          <div className="animate-fade-in">
+          {/* Right: Kairo photo */}
+          <div className="animate-fade-in flex justify-center">
             <img 
-              src={heroPipelineDesktop} 
-              alt="Pipeline de vendas Domous" 
-              className="w-full rounded-2xl shadow-dark hidden md:block"
-            />
-            <img 
-              src={heroPipelineMobile} 
-              alt="Pipeline de vendas Domous" 
-              className="w-full rounded-2xl shadow-dark md:hidden"
+              src={kairoHero} 
+              alt="Kairo Lucas - CEO Domous" 
+              className="w-full max-w-md rounded-2xl shadow-dark object-cover"
             />
           </div>
         </div>

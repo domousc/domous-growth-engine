@@ -1,5 +1,6 @@
 import { Users, TrendingUp, FolderKanban, Share2, Video, Code, Film, Palette, ShoppingCart } from "lucide-react";
 import CTAButton from "./CTAButton";
+import timeDomous from "@/assets/time-domous.jpg";
 
 const TimeDomousSection = () => {
   const team = [
@@ -85,6 +86,15 @@ const TimeDomousSection = () => {
                 </div>
               );
             })}
+          </div>
+
+          {/* Team photo */}
+          <div className="mb-8 rounded-2xl overflow-hidden border border-border shadow-card">
+            <img 
+              src={timeDomous} 
+              alt="Time Domous em ação" 
+              className="w-full h-64 md:h-80 object-cover object-top"
+            />
           </div>
 
           <div className="bg-card rounded-2xl p-8 border border-border shadow-card mb-8">
