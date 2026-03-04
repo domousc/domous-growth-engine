@@ -208,8 +208,7 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Calculadora de Vazamento */}
-        <CalculadoraVazamento />
+        
         
         <FunilSection />
         
