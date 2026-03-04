@@ -159,12 +159,18 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
             </div>
           </div>
 
-          {/* Right: Form */}
+          {/* Right: Pipeline Image */}
           <div className="animate-fade-in">
-            <div className="card-dark rounded-2xl shadow-dark p-6 md:p-8 border">
-              <h3 className="text-2xl font-bold mb-6 text-dark-foreground">Fale com um especialista</h3>
-              <LeadForm variant={variant} selectedIndustria={selectedIndustria} />
-            </div>
+            <img 
+              src={heroPipelineDesktop} 
+              alt="Pipeline de vendas Domous" 
+              className="w-full rounded-2xl shadow-dark hidden md:block"
+            />
+            <img 
+              src={heroPipelineMobile} 
+              alt="Pipeline de vendas Domous" 
+              className="w-full rounded-2xl shadow-dark md:hidden"
+            />
           </div>
         </div>
       </div>

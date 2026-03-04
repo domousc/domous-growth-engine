@@ -247,6 +247,24 @@ const Index = () => {
         
         <FAQSection />
         <GarantiaSection />
+        
+        {/* Formulário de contato */}
+        <section id="formulario" className="section-dark py-20 md:py-28 relative overflow-hidden">
+          <div className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+          <div className="container mx-auto px-4 lg:px-8 relative z-10">
+            <div className="max-w-xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="mb-4 text-dark-foreground">Fale com um especialista</h2>
+                <p className="text-lg text-dark-muted">Preencha e receba seu diagnóstico gratuito pelo WhatsApp</p>
+              </div>
+              <div className="card-dark rounded-2xl shadow-dark p-6 md:p-8 border">
+                <LeadForm variant={variant} selectedIndustria={selectedIndustria} />
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <CTAFinalSection />
       </main>
       
