@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -31,7 +30,6 @@ interface LeadFormProps {
 
 const LeadForm = ({ variant, selectedIndustria = "todas" }: LeadFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,43 +45,55 @@ const LeadForm = ({ variant, selectedIndustria = "todas" }: LeadFormProps) => {
     },
   });
 
+  const tipoNegocioLabels: Record<string, string> = {
+    ecommerce: "E-commerce",
+    saude: "Saúde e bem-estar",
+    servicos: "Serviços",
+    alimentacao: "Alimentação",
+    educacao: "Educação",
+    outro: "Outro",
+  };
+
+  const faturamentoLabels: Record<string, string> = {
+    "0-10k": "Até R$ 10 mil",
+    "10k-50k": "R$ 10 a 50 mil",
+    "50k-100k": "R$ 50 a 100 mil",
+    "100k-500k": "R$ 100 a 500 mil",
+    "500k+": "Acima de R$ 500 mil",
+  };
+
+  const objetivoLabels: Record<string, string> = {
+    "aumentar-vendas": "Aumentar vendas",
+    "reduzir-cac": "Reduzir CAC",
+    "estruturar-funil": "Estruturar funil de vendas",
+    "escalar-midia": "Escalar mídia paga",
+    "automatizar": "Automatizar processos",
+    "lancar": "Lançar negócio/produto",
+  };
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // Honeypot check
-    if (values.honeypot) {
-      console.log("Spam detected");
-      return;
-    }
+    if (values.honeypot) return;
 
     setIsSubmitting(true);
-    
-    // Capturar UTMs
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmData = {
-      utm_source: urlParams.get("utm_source") || "",
-      utm_medium: urlParams.get("utm_medium") || "",
-      utm_campaign: urlParams.get("utm_campaign") || "",
-      utm_term: urlParams.get("utm_term") || "",
-      utm_content: urlParams.get("utm_content") || "",
-    };
-    
-    // Simular envio
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    console.log("Form submitted:", { ...values, variant, industria: selectedIndustria, ...utmData });
-    
-    const event = new CustomEvent('lead_submit', { detail: { ...values, variant, industria: selectedIndustria, ...utmData } });
-    window.dispatchEvent(event);
-    
+
+    const tipoLabel = tipoNegocioLabels[values.tipo_negocio] || values.tipo_negocio;
+    const fatLabel = faturamentoLabels[values.faturamento] || values.faturamento;
+    const objLabel = objetivoLabels[values.objetivo] || values.objetivo;
+
+    const message = `Olá, quero saber mais sobre a assessoria da Domous. Vim do site. Meu nome é ${values.nome}, tenho um negócio no setor de ${tipoLabel}, o instagram é ${values.site_instagram}, minha faixa de faturamento mensal é ${fatLabel} e meu objetivo é ${objLabel}`;
+
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=5583981195186&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
+
+    // DataLayer tracking
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ 
+    window.dataLayer.push({
       event: 'lead_submit',
       form_variant: variant,
       form_industria: selectedIndustria,
-      ...utmData
     });
-    
+
     setIsSubmitting(false);
-    navigate("/obrigado");
+    window.open(whatsappUrl, '_blank');
   };
 
   const formatWhatsApp = (value: string) => {
