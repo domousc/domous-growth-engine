@@ -2,6 +2,7 @@ import { useUTMParams } from "@/hooks/useUTMParams";
 import Header from "@/components/Header";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/HeroSection";
+import LeadForm from "@/components/LeadForm";
 import ClientsSection from "@/components/ClientsSection";
 import DiferencialSection from "@/components/DiferencialSection";
 import SistemaDomousSection from "@/components/SistemaDomousSection";
