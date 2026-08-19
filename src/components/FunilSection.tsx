@@ -61,7 +61,7 @@ const FunilSection = () => {
           
           <h2 className="mb-6">Funil de Vendas</h2>
           <p className="text-xl text-muted-foreground mx-auto" style={{ maxWidth: '65ch' }}>
-            Mapa prático do caminho que seu cliente percorre — do primeiro contato ao fã da marca
+            Mapa prático do caminho que seu cliente percorre, do primeiro contato ao fã da marca
           </p>
         </div>
 

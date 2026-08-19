@@ -23,7 +23,7 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
   const cases = {
     saude: [
       {
-        titulo: "ROAS 8.2x em 30 dias — Saúde (LP + Ads + CRM)",
+        titulo: "ROAS 8.2x em 30 dias, Saúde (LP + Ads + CRM)",
         resultado: "CAC R$ 42 | ROAS 8.2x",
         cliente: "Clínica de Estética",
         descricao: "Estruturação completa do produto + funil de captação + mídia",
@@ -34,7 +34,7 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
         proximoPasso: "Escalar budget gradualmente mantendo CAC abaixo de R$ 60 e testar upsell de pacotes premium.",
       },
       {
-        titulo: "Show-up 87% em 15 dias — Saúde (Google + CRM)",
+        titulo: "Show-up 87% em 15 dias, Saúde (Google + CRM)",
         resultado: "Show-up 87%",
         cliente: "Dentista",
         descricao: "Google Perfil + anúncios locais + CRM WhatsApp",
@@ -47,7 +47,7 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
     ],
     moda: [
       {
-        titulo: "AOV +18% em 60 dias — Moda (Tray + CRM + Ads)",
+        titulo: "AOV +18% em 60 dias, Moda (Tray + CRM + Ads)",
         resultado: "AOV +18% e CAC –28%",
         cliente: "Loja de Moda (Tray)",
         descricao: "Loja Tray + CRM + Ads otimizados",
@@ -60,7 +60,7 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
     ],
     ecommerce: [
       {
-        titulo: "R$ 127k no 1º mês — E-commerce (Lançamento Completo)",
+        titulo: "R$ 127k no 1º mês, E-commerce (Lançamento Completo)",
         resultado: "R$ 127k em faturamento",
         cliente: "E-commerce de Casa",
         descricao: "Lançamento completo com mídia integrada",
@@ -73,7 +73,7 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
     ],
     servicos: [
       {
-        titulo: "Pipeline +340% em 90 dias — B2B (LinkedIn + CRM + IA)",
+        titulo: "Pipeline +340% em 90 dias, B2B (LinkedIn + CRM + IA)",
         resultado: "Pipeline +340%",
         cliente: "Consultoria B2B",
         descricao: "LinkedIn + CRM com IA + SDR automatizado",
@@ -86,7 +86,7 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
     ],
     alimentacao: [
       {
-        titulo: "Ticket médio +22% — Alimentação (CRM + Upsell + Mídia)",
+        titulo: "Ticket médio +22%, Alimentação (CRM + Upsell + Mídia)",
         resultado: "LTV +38%",
         cliente: "Restaurante",
         descricao: "CRM/IA + ofertas sazonais + remarketing",
@@ -97,7 +97,6 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
         proximoPasso: "Programa de fidelidade (cashback) e parcerias com apps de delivery para ampliar alcance.",
       },
     ],
-    arquitetura: [],
   };
 
   return (
@@ -167,7 +166,7 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
             ) : (
               <div className="text-center py-12 bg-card rounded-2xl border border-border">
                 <p className="text-muted-foreground">
-                  Sem case público neste nicho — mostramos em call.
+                  Sem case público neste nicho, mostramos em call.
                 </p>
               </div>
             )}
@@ -227,7 +226,7 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
                 ) : (
                   <div className="text-center py-12 bg-card rounded-2xl border border-border">
                     <p className="text-muted-foreground">
-                      Sem case público neste nicho — mostramos em call.
+                      Sem case público neste nicho, mostramos em call.
                     </p>
                   </div>
                 )}

@@ -39,7 +39,7 @@ const ClientsSection = () => {
     <section className="py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="mb-4">Empresas que confiam na Domous para escalar vendas</h2>
+          <h2 className="mb-4">Empresas que atendemos</h2>
         </div>
 
         {/* Client Logos */}

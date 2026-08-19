@@ -14,7 +14,7 @@ const KairoLucasSection = () => {
               <span className="text-sm font-bold text-primary">Founder</span>
             </div>
             
-            <h2 className="mb-4">Sobre Kairo Lucas — Funil Primeiro. Ads Depois.</h2>
+            <h2 className="mb-4">Sobre Kairo Lucas: Funil Primeiro. Ads Depois.</h2>
           </div>
 
           <div className="bg-card rounded-2xl p-8 md:p-10 border border-border shadow-card mb-8">

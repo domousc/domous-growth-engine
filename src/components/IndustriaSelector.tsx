@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export type Industria = "moda" | "saude" | "servicos" | "alimentacao" | "arquitetura" | "todas";
+export type Industria = "moda" | "saude" | "servicos" | "alimentacao" | "todas";
 
 interface IndustriaSelectorProps {
   selectedIndustria: Industria;
@@ -14,7 +14,6 @@ const IndustriaSelector = ({ selectedIndustria, onSelectIndustria }: IndustriaSe
     { id: "saude", label: "Saúde" },
     { id: "servicos", label: "Serviços" },
     { id: "alimentacao", label: "Alimentação" },
-    { id: "arquitetura", label: "Arquitetura" },
   ];
 
   const handleClick = (industria: Industria) => {

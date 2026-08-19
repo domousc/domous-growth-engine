@@ -57,7 +57,7 @@ const WhatsAppSimulator = () => {
     const utmCampaign = urlParams.get("utm_campaign") || "";
     const utmTerm = urlParams.get("utm_term") || "";
     const message = encodeURIComponent(
-      `Quero esse fluxo de IA — cenário:${scenarios[selectedScenario].label} | utm:${utmSource}/${utmCampaign}/${utmTerm}`
+      `Quero esse fluxo de IA, cenário:${scenarios[selectedScenario].label} | utm:${utmSource}/${utmCampaign}/${utmTerm}`
     );
     
     window.dataLayer = window.dataLayer || [];

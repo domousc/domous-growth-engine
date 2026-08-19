@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <img src={logoDomous} alt="DOMOUS" className="h-10 mb-6 invert" />
             <p className="text-background/80 mb-6 max-w-md">
-              Assessoria estratégica de marketing que começa pelo funil, não pelo botão. 
+              Assessoria estratégica de marketing. Funil primeiro, ads depois.
               Transformamos negócios em máquinas de vendas.
             </p>
             
@@ -90,7 +90,7 @@ const Footer = () => {
             </ul>
             
             <div className="mt-6 text-xs text-background/60">
-              <p>CNPJ: 49.327.016/0001-00</p>
+              <p>CNPJ: 66.244.263/0001-54</p>
               <p className="mt-2">
                 * Oferta de 1º mês por R$ 97 válida apenas para CRM com IA. 
                 Sujeito a análise de compatibilidade.

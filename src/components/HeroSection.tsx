@@ -50,19 +50,18 @@ const HeroSection = ({ variant, selectedIndustria = "todas", onSelectIndustria }
     saude: "40 agendamentos nos 30 primeiros dias (Whats + Funis).",
     servicos: "CPA −32% com oferta e CRM revisados.",
     alimentacao: "Ticket médio +22% com upsell e mídia local.",
-    arquitetura: "Leads qualificados +55% com pré-brief no Whats.",
   };
 
   const content = {
     "trafego-pago": {
       keyword: "Agência de Tráfego Pago",
       h1: "que começa pelo funil, não pelo botão.",
-      sub: "Se o lead tá caro, o problema não é o botão. É a estratégia, a oferta e o funil. A gente arruma isso — e só então escala mídia.",
+      sub: "Se o lead tá caro, o problema não é o botão. É a estratégia, a oferta e o funil. A gente arruma isso, e só então escala mídia.",
       badge: null,
     },
     "loja-tray": {
       keyword: "Implantação de Loja (Tray)",
-      h1: "pronta para vender — do zero ao primeiro pedido.",
+      h1: "pronta para vender: do zero ao primeiro pedido.",
       sub: "Integrações, UX de conversão, frete e pagamentos. Lançamos com mídia e automações para vender no dia 1.",
       badge: null,
     },

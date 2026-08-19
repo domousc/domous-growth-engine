@@ -425,7 +425,7 @@ const QuizDiagnostico = () => {
       lp: {
         icon: Target,
         title: "LP/Conversão",
-        why: "LP inexistente ou <2% — tráfego não tem onde converter bem.",
+        why: "LP inexistente ou <2%. Tráfego não tem onde converter bem.",
         actions: [
           "Nova LP com oferta/prova e CTA único",
           "Teste A/B de headline e formulário",
@@ -436,7 +436,7 @@ const QuizDiagnostico = () => {
       criativos: {
         icon: Zap,
         title: "Criativos/Ângulos",
-        why: "CTR baixo/saturação — ângulos não atacam dor/objeção.",
+        why: "CTR baixo/saturação: ângulos não atacam dor/objeção.",
         actions: [
           "3 ângulos (dor • prova • objeção)",
           "2 formatos por ângulo (UGC + motion)",
@@ -486,7 +486,7 @@ const QuizDiagnostico = () => {
     if (!result) return "";
     
     const parts = [
-      `Quero diagnóstico Domous —`,
+      `Quero diagnóstico Domous`,
       `score:${result.lead_score}% (${result.lead_bucket}/${result.lead_grade})`,
       `indústria:${result.segment}`,
       `objetivo:${result.objective}`,

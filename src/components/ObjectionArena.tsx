@@ -11,7 +11,7 @@ const ObjectionArena = () => {
     agencia: {
       label: "Já tenho agência",
       icon: Shield,
-      resposta: "Ótimo! Potencializamos agências com CRM/IA, Tray e otimização de funil — áreas que 90% das agências não dominam.",
+      resposta: "Ótimo! Potencializamos agências com CRM/IA, Tray e otimização de funil, áreas que 90% das agências não dominam.",
       evidencia: "Case: Agência + DOMOUS = CAC –34% e ROAS +2.8x mantendo mesma verba.",
       cta: "Ver como complementamos",
       anchor: "#servicos"
@@ -28,7 +28,7 @@ const ObjectionArena = () => {
       label: "Sem equipe",
       icon: Users,
       resposta: "Assumimos operação completa: criação, mídia, CRM, análise. Você só aprova e colhe resultados. Zero dependência de equipe interna.",
-      evidencia: "87% dos clientes não têm equipe de marketing — nós somos a equipe deles.",
+      evidencia: "87% dos clientes não têm equipe de marketing. Nós somos a equipe deles.",
       cta: "Ver nosso modelo",
       anchor: "#como-trabalhamos"
     },

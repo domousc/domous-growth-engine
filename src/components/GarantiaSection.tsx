@@ -45,7 +45,7 @@ const GarantiaSection = () => {
 
           <CTAButton 
             type="whatsapp"
-            label="Agendar sua garantia"
+            label="Ver como funciona a implantação"
             size="lg"
             className="text-lg h-14 px-8"
             showIcon={false}
