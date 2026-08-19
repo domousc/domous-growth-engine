@@ -235,18 +235,6 @@ const CasesSection = ({ selectedIndustria = "todas", onSelectIndustria }: CasesS
           </Tabs>
         )}
 
-        {/* Depoimentos em vídeo - Placeholder */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold mb-8">O que nossos clientes dizem</h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {["Dra. Bethânia", "Malibu", "Pizza do Paulista"].map((nome) => (
-              <div key={nome} className="bg-card rounded-2xl p-6 border border-border shadow-card aspect-video flex items-center justify-center">
-                <p className="text-muted-foreground">📹 Depoimento {nome}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Case Navigator Modal */}
         {selectedCase && (
           <CaseNavigator 

@@ -8,23 +8,23 @@ const StickyROIRadar = () => {
   const hints: Record<string, { icon: any; message: string }> = {
     hero: {
       icon: Target,
-      message: "Diagnóstico em 5 min pode desbloquear +30% de ROI"
+      message: "Diagnóstico em 5 min mostra onde seu funil perde dinheiro"
     },
     cases: {
       icon: TrendingUp,
-      message: "Cases reais: CAC –28%, ROAS 8.2x em 60 dias"
+      message: "Cases reais: ROAS 8.2x em 30 dias e CAC com queda de 28%"
     },
     funil: {
       icon: Zap,
-      message: "70% do vazamento está no meio do funil"
+      message: "O vazamento quase sempre está no meio do funil"
     },
     servicos: {
       icon: MessageCircle,
-      message: "CRM/IA aumenta conversão em até 40%"
+      message: "CRM com IA responde em segundos, antes do lead esfriar"
     },
     leak: {
       icon: TrendingUp,
-      message: "Corrigir 1 etapa pode dobrar sua receita"
+      message: "Corrigir a etapa certa muda o resultado do mês"
     },
     faq: {
       icon: Target,

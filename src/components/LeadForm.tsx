@@ -80,16 +80,50 @@ const LeadForm = ({ variant, selectedIndustria = "todas" }: LeadFormProps) => {
     const fatLabel = faturamentoLabels[values.faturamento] || values.faturamento;
     const objLabel = objetivoLabels[values.objetivo] || values.objetivo;
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const leadPayload = {
+      nome: values.nome,
+      whatsapp: values.whatsapp,
+      site_instagram: values.site_instagram,
+      tipo_negocio: tipoLabel,
+      faturamento: fatLabel,
+      objetivo: objLabel,
+      utm_source: urlParams.get('utm_source') || 'direct',
+      utm_campaign: urlParams.get('utm_campaign') || 'none',
+      utm_term: urlParams.get('utm_term') || 'none',
+      pagina: window.location.href,
+      criado_em: new Date().toISOString(),
+    };
+
+    // Salva o lead antes de abrir o WhatsApp: se ele não enviar a
+    // mensagem, o contato não se perde. Falha do webhook não bloqueia o fluxo.
+    const webhookUrl = import.meta.env.VITE_LEAD_WEBHOOK_URL;
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(leadPayload),
+          keepalive: true,
+        });
+      } catch {
+        // segue pro WhatsApp mesmo assim
+      }
+    }
+
     const message = `Olá, quero saber mais sobre a assessoria da Domous. Vim do site. Meu nome é ${values.nome}, tenho um negócio no setor de ${tipoLabel}, o instagram é ${values.site_instagram}, minha faixa de faturamento mensal é ${fatLabel} e meu objetivo é ${objLabel}`;
 
     const whatsappUrl = `https://api.whatsapp.com/send/?phone=5583981195186&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
 
-    // DataLayer tracking
+    // DataLayer tracking (só campos de qualificação, sem dados pessoais)
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'lead_submit',
       form_variant: variant,
       form_industria: selectedIndustria,
+      lead_tipo_negocio: values.tipo_negocio,
+      lead_faturamento: values.faturamento,
+      lead_objetivo: values.objetivo,
     });
 
     setIsSubmitting(false);

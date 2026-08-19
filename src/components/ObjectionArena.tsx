@@ -12,7 +12,7 @@ const ObjectionArena = () => {
       label: "Já tenho agência",
       icon: Shield,
       resposta: "Ótimo! Potencializamos agências com CRM/IA, Tray e otimização de funil, áreas que 90% das agências não dominam.",
-      evidencia: "Case: Agência + DOMOUS = CAC –34% e ROAS +2.8x mantendo mesma verba.",
+      evidencia: "Na prática: sua agência segue na mídia e a Domous cuida de funil, CRM e conversão.",
       cta: "Ver como complementamos",
       anchor: "#servicos"
     },
@@ -36,14 +36,14 @@ const ObjectionArena = () => {
       label: "Quero resultado rápido",
       icon: Zap,
       resposta: "Setup em 0–14 dias. Primeiros leads/vendas em 15–30 dias. Otimização contínua 31–60 dias. Transparência total nos marcos semanais.",
-      evidencia: "Média: primeiras vendas em 18 dias (cases de saúde e e-commerce).",
+      evidencia: "Primeiros sinais entre a semana 2 e 4, com marcos claros desde o kickoff.",
       cta: "Ver cronograma",
-      anchor: "#primeiros-30-dias"
+      anchor: "#como-trabalhamos"
     },
     mercado: {
       label: "Meu mercado é diferente",
       icon: Target,
-      resposta: "Atendemos 12+ nichos (saúde, moda, B2B, food, serviços). O Sistema Domous adapta-se ao seu funil, ticket e jornada específicos.",
+      resposta: "Atendemos múltiplos nichos (saúde, moda, B2B, food, serviços). O Sistema Domous adapta-se ao seu funil, ticket e jornada específicos.",
       evidencia: "Cases em clínica (CAC R$ 42), e-commerce (ROAS 8.2x), consultoria B2B (pipeline +340%).",
       cta: "Ver cases do meu setor",
       anchor: "#cases"

@@ -13,7 +13,6 @@ import KairoLucasSection from "@/components/KairoLucasSection";
 import TimeDomousSection from "@/components/TimeDomousSection";
 import CasesSection from "@/components/CasesSection";
 import DecisaoSection from "@/components/DecisaoSection";
-import Primeiros30DiasSection from "@/components/Primeiros30DiasSection";
 import ComparativoSection from "@/components/ComparativoSection";
 import ChecklistSection from "@/components/ChecklistSection";
 import FAQSection from "@/components/FAQSection";
@@ -103,7 +102,12 @@ const Index = () => {
         <DiferencialSection />
         <SistemaDomousSection />
         <MetodologiaDomousSection />
-        
+
+        <CasesSection
+          selectedIndustria={selectedIndustria}
+          onSelectIndustria={setSelectedIndustria}
+        />
+
         {/* Como trabalhamos */}
         <section id="como-trabalhamos" className="section-dark py-28 md:py-32 lg:py-40 relative overflow-hidden">
           {/* Decorative gradient orbs */}
@@ -232,13 +236,8 @@ const Index = () => {
           </div>
         </section>
         
-        <CasesSection 
-          selectedIndustria={selectedIndustria}
-          onSelectIndustria={setSelectedIndustria}
-        />
         <DecisaoSection />
         <DiagnosticoSection />
-        <Primeiros30DiasSection />
         <ComparativoSection />
         <ChecklistSection />
         

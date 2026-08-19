@@ -14,7 +14,7 @@ const CommandPalette = () => {
     { label: "Serviços", anchor: "#servicos" },
     { label: "CRM com IA", anchor: "#crm" },
     { label: "Como decidimos", anchor: "#decisao" },
-    { label: "Primeiros 30 dias", anchor: "#primeiros-30-dias" },
+    { label: "Como trabalhamos", anchor: "#como-trabalhamos" },
     { label: "FAQ", anchor: "#faq" },
     { label: "Contato", anchor: "#contato" },
     { label: "Calculadora de Vazamento", anchor: "#leak" },

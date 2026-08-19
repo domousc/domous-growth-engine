@@ -31,7 +31,7 @@ const CookieBanner = () => {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-card border-t-2 border-primary/20 shadow-domous animate-slide-in">
+    <div className="fixed bottom-14 md:bottom-0 left-0 right-0 z-50 p-4 bg-card border-t-2 border-primary/20 shadow-domous animate-slide-in">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex-1">
