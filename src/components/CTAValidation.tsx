@@ -15,7 +15,7 @@ const CTAValidation = () => {
   const { getWhatsAppMessage, utm_source, utm_campaign, utm_term } = useCTAData();
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.group('🔍 CTA Validation Check');
       
       // Check WhatsApp message
