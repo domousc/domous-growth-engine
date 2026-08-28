@@ -14,6 +14,7 @@ import logoNataliaFernandes from "@/assets/logo-natalia-fernandes.png";
 import logoManaPoke from "@/assets/logo-mana-poke.png";
 import logoBotoHarmony from "@/assets/logo-boto-harmony.png";
 import logoRenoveCasa from "@/assets/logo-renove-casa.png";
+import logoKallas from "@/assets/logo-kallas.png";
 import logoDomousCRM from "@/assets/logo-domous-crm.png";
 import logoTray from "@/assets/logo-tray.svg";
 import logoBling from "@/assets/logo-bling.svg";
@@ -37,6 +38,7 @@ const ClientsSection = () => {
     { name: "Mana Poke", image: logoManaPoke },
     { name: "botoHarmony", image: logoBotoHarmony },
     { name: "Renove Casa", image: logoRenoveCasa },
+    { name: "Kallas Mídia OOH", image: logoKallas },
   ];
 
 
