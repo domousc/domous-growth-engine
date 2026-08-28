@@ -1,13 +1,19 @@
 import logoEletropolo from "@/assets/logo-eletropolo.png";
 import logoRutra from "@/assets/logo-rutra.png";
 import logoVerona from "@/assets/logo-verona.png";
-import logoHLAdvocacia from "@/assets/logo-hl-advocacia.png";
+import logoNordife from "@/assets/logo-nordife.png";
 import logoBethaniaLuna from "@/assets/logo-bethania-luna.png";
 import logoInstitutoK from "@/assets/logo-instituto-k.png";
 import logoOdontogalerie from "@/assets/logo-odontogalerie.png";
 import logoNattaneLucena from "@/assets/logo-nattane-lucena.png";
 import logoArteMusical from "@/assets/logo-arte-musical.png";
 import logoCasatudo from "@/assets/logo-casatudo.png";
+import logoBlcMotors from "@/assets/logo-blc-motors.png";
+import logoItem3 from "@/assets/logo-item3.png";
+import logoNataliaFernandes from "@/assets/logo-natalia-fernandes.png";
+import logoManaPoke from "@/assets/logo-mana-poke.png";
+import logoBotoHarmony from "@/assets/logo-boto-harmony.png";
+import logoRenoveCasa from "@/assets/logo-renove-casa.png";
 import logoDomousCRM from "@/assets/logo-domous-crm.png";
 import logoTray from "@/assets/logo-tray.svg";
 import logoBling from "@/assets/logo-bling.svg";
@@ -18,14 +24,21 @@ const ClientsSection = () => {
     { name: "Eletropolo", image: logoEletropolo },
     { name: "Rutra", image: logoRutra },
     { name: "Verona", image: logoVerona },
-    { name: "HL Advocacia", image: logoHLAdvocacia },
+    { name: "Nordife", image: logoNordife },
     { name: "Clínica Bethânia Luna", image: logoBethaniaLuna },
     { name: "Instituto K", image: logoInstitutoK },
     { name: "Odontogalerie", image: logoOdontogalerie },
     { name: "Nattane Lucena", image: logoNattaneLucena },
     { name: "Arte Musical", image: logoArteMusical },
     { name: "Casatudo", image: logoCasatudo },
+    { name: "BLC Motors", image: logoBlcMotors },
+    { name: "Item 3", image: logoItem3 },
+    { name: "Dra. Natália Fernandes", image: logoNataliaFernandes },
+    { name: "Mana Poke", image: logoManaPoke },
+    { name: "botoHarmony", image: logoBotoHarmony },
+    { name: "Renove Casa", image: logoRenoveCasa },
   ];
+
 
   const partners = [
     { name: "Domous CRM", image: logoDomousCRM, height: "h-10" },
