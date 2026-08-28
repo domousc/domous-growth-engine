@@ -57,22 +57,33 @@ const ClientsSection = () => {
 
         {/* Client Logos */}
         <div className="mb-16">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {clients.map((client) => (
-              <div 
+              <div
                 key={client.name}
-                className="flex items-center justify-center p-4 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-smooth"
+                className="flex items-center justify-center h-24 px-6 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-smooth"
               >
-                <img 
-                  src={client.image} 
-                  alt={client.name}
-                  className="w-full h-auto max-h-12 object-contain opacity-70 hover:opacity-100 transition-smooth"
-                  loading="lazy"
+                <span
+                  role="img"
+                  aria-label={client.name}
+                  title={client.name}
+                  className="block w-full h-10 bg-foreground opacity-70 hover:opacity-100 transition-smooth"
+                  style={{
+                    maskImage: `url(${client.image})`,
+                    WebkitMaskImage: `url(${client.image})`,
+                    maskRepeat: "no-repeat",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskPosition: "center",
+                    WebkitMaskPosition: "center",
+                    maskSize: "contain",
+                    WebkitMaskSize: "contain",
+                  }}
                 />
               </div>
             ))}
           </div>
         </div>
+
 
         {/* Partners/Integrations */}
         <div className="text-center mb-8">
