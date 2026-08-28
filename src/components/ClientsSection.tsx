@@ -1,13 +1,19 @@
 import logoEletropolo from "@/assets/logo-eletropolo.png";
 import logoRutra from "@/assets/logo-rutra.png";
 import logoVerona from "@/assets/logo-verona.png";
-import logoHLAdvocacia from "@/assets/logo-hl-advocacia.png";
+import logoNordife from "@/assets/logo-nordife.png";
 import logoBethaniaLuna from "@/assets/logo-bethania-luna.png";
 import logoInstitutoK from "@/assets/logo-instituto-k.png";
 import logoOdontogalerie from "@/assets/logo-odontogalerie.png";
 import logoNattaneLucena from "@/assets/logo-nattane-lucena.png";
 import logoArteMusical from "@/assets/logo-arte-musical.png";
 import logoCasatudo from "@/assets/logo-casatudo.png";
+import logoBlcMotors from "@/assets/logo-blc-motors.png";
+import logoItem3 from "@/assets/logo-item3.png";
+import logoNataliaFernandes from "@/assets/logo-natalia-fernandes.png";
+import logoManaPoke from "@/assets/logo-mana-poke.png";
+import logoBotoHarmony from "@/assets/logo-boto-harmony.png";
+import logoRenoveCasa from "@/assets/logo-renove-casa.png";
 import logoDomousCRM from "@/assets/logo-domous-crm.png";
 import logoTray from "@/assets/logo-tray.svg";
 import logoBling from "@/assets/logo-bling.svg";
@@ -18,14 +24,21 @@ const ClientsSection = () => {
     { name: "Eletropolo", image: logoEletropolo },
     { name: "Rutra", image: logoRutra },
     { name: "Verona", image: logoVerona },
-    { name: "HL Advocacia", image: logoHLAdvocacia },
+    { name: "Nordife", image: logoNordife },
     { name: "Clínica Bethânia Luna", image: logoBethaniaLuna },
     { name: "Instituto K", image: logoInstitutoK },
     { name: "Odontogalerie", image: logoOdontogalerie },
     { name: "Nattane Lucena", image: logoNattaneLucena },
     { name: "Arte Musical", image: logoArteMusical },
     { name: "Casatudo", image: logoCasatudo },
+    { name: "BLC Motors", image: logoBlcMotors },
+    { name: "Item 3", image: logoItem3 },
+    { name: "Dra. Natália Fernandes", image: logoNataliaFernandes },
+    { name: "Mana Poke", image: logoManaPoke },
+    { name: "botoHarmony", image: logoBotoHarmony },
+    { name: "Renove Casa", image: logoRenoveCasa },
   ];
+
 
   const partners = [
     { name: "Domous CRM", image: logoDomousCRM, height: "h-10" },
@@ -44,22 +57,33 @@ const ClientsSection = () => {
 
         {/* Client Logos */}
         <div className="mb-16">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {clients.map((client) => (
-              <div 
+              <div
                 key={client.name}
-                className="flex items-center justify-center p-4 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-smooth"
+                className="flex items-center justify-center h-24 px-6 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-smooth"
               >
-                <img 
-                  src={client.image} 
-                  alt={client.name}
-                  className="w-full h-auto max-h-12 object-contain opacity-70 hover:opacity-100 transition-smooth"
-                  loading="lazy"
+                <span
+                  role="img"
+                  aria-label={client.name}
+                  title={client.name}
+                  className="block w-full h-10 bg-foreground opacity-70 hover:opacity-100 transition-smooth"
+                  style={{
+                    maskImage: `url(${client.image})`,
+                    WebkitMaskImage: `url(${client.image})`,
+                    maskRepeat: "no-repeat",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskPosition: "center",
+                    WebkitMaskPosition: "center",
+                    maskSize: "contain",
+                    WebkitMaskSize: "contain",
+                  }}
                 />
               </div>
             ))}
           </div>
         </div>
+
 
         {/* Partners/Integrations */}
         <div className="text-center mb-8">
