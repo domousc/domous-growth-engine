@@ -123,6 +123,10 @@ export const servicos: Pagina[] = [
         r: 'Não. A sede é em João Pessoa e a gente atende empresas da Paraíba e de outros estados. Pra quem é de João Pessoa dá pra fazer reunião presencial; com o resto, tudo funciona online.',
       },
       {
+        p: 'As contas de anúncio ficam no nome de quem?',
+        r: 'No nome da tua empresa. Conta de anúncio, pixel e dados são do cliente; a Domous trabalha com acesso de parceiro. Se um dia a parceria acabar, o histórico e as campanhas continuam contigo.',
+      },
+      {
         p: 'Como eu acompanho o que está acontecendo com meu dinheiro?',
         r: 'Você recebe o número toda semana, uma reunião mensal com relatório e um painel com link fixo mostrando investimento, receita e o desempenho de cada criativo e público. Métrica de vaidade não entra na conversa.',
       },

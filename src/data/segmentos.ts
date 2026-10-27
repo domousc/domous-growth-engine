@@ -56,6 +56,10 @@ export const segmentos: Pagina[] = [
         r: 'Com dado. Quando a origem e o andamento de cada lead ficam registrados, dá pra ver se o problema está na campanha (perfil errado) ou no atendimento (demora, falta de retorno). Os dois têm solução diferente.',
       },
       {
+        p: 'Minha empresa já tem time de marketing. Como a Domous trabalha junto?',
+        r: 'Com mais comunicação, não menos. O time interno participa de mais reuniões, tem acesso ao nosso sistema de gestão de tarefas, aos painéis, aos relatórios e às pautas das reuniões, e fica num grupo de WhatsApp com a Domous. Isso é padrão em todo cliente com time próprio.',
+      },
+      {
         p: 'A Domous faz fotografia e render do empreendimento?',
         r: 'Não. A Domous monta o book em cima das fotos, renders e plantas que a construtora já tem. Fotografia e render ficam com estúdio parceiro.',
       },
@@ -107,6 +111,10 @@ export const segmentos: Pagina[] = [
       {
         p: 'Vale anunciar pra profissional e empresa (PJ)?',
         r: 'Normalmente é o público que mais vale: compra com frequência, indica e tem ticket somado alto. Ele pede campanha, oferta e atendimento diferentes do consumidor final.',
+      },
+      {
+        p: 'Minha empresa já tem time de marketing. Como a Domous trabalha junto?',
+        r: 'Com mais comunicação, não menos. O time interno participa de mais reuniões, tem acesso ao nosso sistema de gestão de tarefas, aos painéis, aos relatórios e às pautas das reuniões, e fica num grupo de WhatsApp com a Domous. Isso é padrão em todo cliente com time próprio.',
       },
       {
         p: 'Distribuidor precisa de loja virtual?',

@@ -42,7 +42,7 @@ export const home = {
     },
     {
       titulo: 'Operação',
-      texto: 'Campanhas no ar, otimização toda semana, número toda semana e reunião de resultado todo mês.',
+      texto: 'Campanhas no ar, otimização toda semana, número toda semana, reunião de resultado todo mês e acesso ao nosso sistema de tarefas, painéis e pautas.',
     },
   ],
   faq: [
@@ -53,6 +53,18 @@ export const home = {
     {
       p: 'Já tive agência e não deu certo. O que muda?',
       r: 'Três coisas: você vê o plano e a meta de custo por cliente antes de fechar, a gente olha o atendimento no WhatsApp junto com o anúncio, e o relatório começa por venda e receita.',
+    },
+    {
+      p: 'As contas de anúncio ficam no nome de quem?',
+      r: 'No nome da tua empresa. Conta de anúncio, pixel e dados são do cliente; a Domous trabalha com acesso de parceiro. Se um dia a parceria acabar, o histórico e as campanhas continuam contigo.',
+    },
+    {
+      p: 'Minha empresa já tem time de marketing. Como a Domous trabalha junto?',
+      r: 'Com mais comunicação, não menos. O time interno participa de mais reuniões, tem acesso ao nosso sistema de gestão de tarefas, aos painéis, aos relatórios e às pautas das reuniões, e fica num grupo de WhatsApp com a Domous. Isso é padrão em todo cliente com time próprio.',
+    },
+    {
+      p: 'Tem prazo mínimo de contrato?',
+      r: 'Sim, de 3 a 6 meses, definido no plano conforme o escopo. É o tempo de estruturar a medição, testar ângulos de criativo e escalar o que vende, e você vê o plano antes de assinar.',
     },
     {
       p: 'Meu problema é o comercial, não o anúncio. A Domous ajuda?',
@@ -117,6 +129,14 @@ export const quantoCusta = {
     {
       p: 'Quanto investir em anúncio por mês?',
       r: 'Depende do ticket, da margem e da capacidade de atendimento. A conta parte da meta de custo por cliente: se cada venda deixa R$ X de margem, o custo pra conseguir essa venda precisa caber nesse número. A Domous faz essa conta no plano, antes de começar.',
+    },
+    {
+      p: 'Tem prazo mínimo de contrato?',
+      r: 'Sim, de 3 a 6 meses, definido no plano conforme o escopo. É o tempo de estruturar a medição, testar ângulos de criativo e escalar o que vende, e você vê o plano antes de assinar.',
+    },
+    {
+      p: 'As contas de anúncio ficam no nome de quem?',
+      r: 'No nome da tua empresa. Conta de anúncio, pixel e dados são do cliente; a Domous trabalha com acesso de parceiro. Se um dia a parceria acabar, o histórico e as campanhas continuam contigo.',
     },
     {
       p: 'Como pedir um orçamento?',
@@ -200,6 +220,12 @@ export const guia = {
       ],
     },
     {
+      titulo: '7. As contas ficam no nome da tua empresa?',
+      paragrafos: [
+        'Conta de anúncio, pixel e dados precisam ser da empresa, com a agência entrando como parceira. Se a conta é da agência, o histórico vai embora junto quando a parceria acaba.',
+      ],
+    },
+    {
       titulo: 'Sinais de alerta',
       paragrafos: [],
       itens: [
@@ -207,6 +233,7 @@ export const guia = {
         'Relatório só com alcance, impressão e curtida',
         'Nenhuma pergunta sobre ticket, margem ou atendimento',
         'Pressa pra fechar contrato sem mostrar plano',
+        'Conta de anúncio criada no nome da agência',
       ],
     },
   ] as Secao[],
