@@ -8,6 +8,7 @@ import BotaoWhatsApp from "@/components/site/BotaoWhatsApp";
 import Clientes from "@/components/site/Clientes";
 import PainelExemplo from "@/components/site/PainelExemplo";
 import ContaRapida from "@/components/site/ContaRapida";
+import IaAutomacao from "@/components/site/IaAutomacao";
 import QuemCuida from "@/components/site/QuemCuida";
 import MonteMensagem from "@/components/site/MonteMensagem";
 import { GradeCartoes, Perguntas, Resultados } from "@/components/site/Blocos";
@@ -112,6 +113,8 @@ const Index = () => (
     <Resultados ids={["imoveis-6-vendas", "loja-de-moveis", "clinica-de-estetica", "loja-de-moda", "consultorio-odontologico", "restaurante"]} />
 
     <PainelExemplo />
+
+    <IaAutomacao />
 
     <ContaRapida origem="home-conta" />
 
