@@ -24,7 +24,7 @@ const organizacao = {
   "@type": ["Organization", "ProfessionalService"],
   "@id": ORG_ID,
   name: "Domous",
-  alternateName: ["Domous Business Performance", "Domous Agência de Tráfego Pago"],
+  alternateName: ["Domous Business Performance", "Domous - Agência Marketing e Tráfego Pago"],
   slogan: "Business Performance",
   description: site.descricao,
   url: site.url,
@@ -68,7 +68,8 @@ const organizacao = {
     "Landing page",
     "Funil de vendas",
   ],
-  sameAs: [site.instagram, site.siteKairo],
+  sameAs: [site.instagram, site.siteKairo, site.entidadeGoogle, site.perfilGoogle],
+  hasMap: site.perfilGoogle,
   contactPoint: {
     "@type": "ContactPoint",
     telephone: site.telefoneE164,

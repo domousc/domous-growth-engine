@@ -17,6 +17,9 @@ export const site = {
   instagram: 'https://instagram.com/domousc',
   instagramKairo: 'https://instagram.com/kairolucas',
   siteKairo: 'https://kairolucas.com.br',
+  // Perfil da Empresa no Google: link de compartilhamento e entidade no Knowledge Graph.
+  perfilGoogle: 'https://share.google/3kNFDtsUK3zCNFAeR',
+  entidadeGoogle: 'https://www.google.com/search?kgmid=/g/11vjtwtvm2',
   areaAtendida: ['João Pessoa', 'Cabedelo', 'Bayeux', 'Santa Rita', 'Campina Grande', 'Paraíba', 'Brasil'],
   empresasAtendidas: '+70',
   vendasGeradas: '+R$ 50 milhões',
