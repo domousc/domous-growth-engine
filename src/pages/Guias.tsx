@@ -56,7 +56,7 @@ export const GuiaPagina = () => {
         origem={`guia-${g.slug}`}
       >
         <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-dark-muted">
-          <span className="inline-flex items-center gap-1.5"><BookOpen className="w-4 h-4" aria-hidden /> Por <a href="/sobre/" className="text-white hover:underline">Kairo Lucas</a>, Domous</span>
+          <span className="inline-flex items-center gap-1.5"><BookOpen className="w-4 h-4" aria-hidden /> Por <a href="/sobre/kairo-lucas/" className="text-white hover:underline">Kairo Lucas</a>, Domous</span>
           <span className="inline-flex items-center gap-1.5"><Clock className="w-4 h-4" aria-hidden /> {leitura} min de leitura</span>
           <span>Atualizado em <time dateTime={g.atualizado}>{dataBR(g.atualizado)}</time></span>
         </p>

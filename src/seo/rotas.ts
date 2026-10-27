@@ -4,7 +4,7 @@
 import { site } from "@/data/site";
 import { categorias, servicos, type Pagina } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
-import { guia, home, indices, quantoCusta, resultadosPagina, sobre } from "@/data/paginas";
+import { autor, guia, home, indices, quantoCusta, resultadosPagina, sobre } from "@/data/paginas";
 import { guias } from "@/data/guias";
 
 export type Rota = {
@@ -16,7 +16,7 @@ export type Rota = {
 };
 
 const ORG_ID = `${site.url}/#organizacao`;
-const KAIRO_ID = `${site.url}/sobre/#kairo-lucas`;
+const KAIRO_ID = `${site.url}/sobre/kairo-lucas/#pessoa`;
 const url = (path: string) => site.url + path;
 
 const organizacao = {
@@ -93,7 +93,11 @@ const kairoLd = {
   "@type": "Person",
   "@id": KAIRO_ID,
   name: "Kairo Lucas",
+  url: `${site.url}/sobre/kairo-lucas/`,
   jobTitle: "Fundador e CEO",
+  description: "Fundador e CEO da Domous, agência de tráfego pago e growth de João Pessoa.",
+  knowsAbout: ["Tráfego pago", "Meta Ads", "Google Ads", "E-commerce", "Funil de vendas", "Processo comercial", "Automação com inteligência artificial"],
+  nationality: { "@type": "Country", name: "Brasil" },
   worksFor: { "@id": ORG_ID },
   image: `${site.url}/kairo-lucas.jpg`,
   homeLocation: { "@type": "City", name: "João Pessoa" },
@@ -257,6 +261,24 @@ rotas.push(
     };
   }),
 );
+
+// Página de autor.
+rotas.push({
+  path: "/sobre/kairo-lucas/",
+  titulo: autor.titulo,
+  descricao: autor.descricao,
+  jsonLd: [
+    organizacao,
+    kairoLd,
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      url: url("/sobre/kairo-lucas/"),
+      mainEntity: { "@id": KAIRO_ID },
+    },
+    trilhaLd([["Início", "/"], ["Sobre", "/sobre/"], ["Kairo Lucas", "/sobre/kairo-lucas/"]]),
+  ],
+});
 
 // Landing pages de anúncio: fora do Google (noindex) e fora do sitemap.
 rotas.push(

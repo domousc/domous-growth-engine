@@ -10,6 +10,7 @@ import Indice from "./pages/Indices";
 import { Cases, Guia, QuantoCusta, Sobre } from "./pages/Avulsas";
 import { GuiaPagina, GuiasIndice } from "./pages/Guias";
 import LandingAnuncio from "./pages/LandingAnuncio";
+import Autor from "./pages/Autor";
 import NotFound from "./pages/NotFound";
 import { rotaPorPath } from "./seo/rotas";
 
@@ -40,6 +41,7 @@ export const Rotas = () => (
       <Route path="/quanto-custa/" element={<QuantoCusta />} />
       <Route path="/cases/" element={<Cases />} />
       <Route path="/sobre/" element={<Sobre />} />
+      <Route path="/sobre/kairo-lucas/" element={<Autor />} />
       <Route path="/como-escolher-agencia-de-trafego-pago/" element={<Guia />} />
       <Route path="/guias/" element={<GuiasIndice />} />
       <Route path="/guias/:slug/" element={<GuiaPagina />} />

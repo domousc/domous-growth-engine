@@ -2,7 +2,7 @@
 // o caminho do setor, ver prova (marcas, resultados, painel), tirar as objeções
 // (como funciona, quem cuida, perguntas) e chegar no WhatsApp com contexto.
 import { ChevronRight } from "lucide-react";
-import kairo from "@/assets/kairo-hero.jpg";
+import kairo from "@/assets/kairo-hero.webp";
 import Layout from "@/components/site/Layout";
 import BotaoWhatsApp from "@/components/site/BotaoWhatsApp";
 import Clientes from "@/components/site/Clientes";

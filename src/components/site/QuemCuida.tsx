@@ -1,4 +1,4 @@
-import kairo from "@/assets/kairo-hero.jpg";
+import kairo from "@/assets/kairo-hero.webp";
 import { site } from "@/data/site";
 
 const QuemCuida = () => (
@@ -24,6 +24,7 @@ const QuemCuida = () => (
           Pra empresa que já fatura alto, isso significa conversar direto com quem decide a estratégia.
         </p>
         <div className="flex flex-wrap gap-4 text-sm font-semibold">
+          <a href="/sobre/kairo-lucas/" className="text-primary hover:underline">Quem é Kairo Lucas</a>
           <a href="/sobre/" className="text-primary hover:underline">Conheça a Domous</a>
           <a href={site.instagramKairo} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
             @kairolucas no Instagram

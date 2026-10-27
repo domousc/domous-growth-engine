@@ -266,3 +266,33 @@ export const resultadosPagina = {
   resposta:
     "A Domous já atendeu mais de 70 empresas e gerou mais de R$ 50 milhões em vendas pros clientes. Abaixo estão resultados de operações reais, por segmento: de uma loja de móveis que passou a faturar R$ 300 mil a mais por mês em 3 meses a uma operação imobiliária que vendeu 6 imóveis em um mês com R$ 2.900 de verba.",
 };
+
+export const autor = {
+  titulo: 'Kairo Lucas, fundador e CEO da Domous | Tráfego pago e growth em João Pessoa',
+  descricao:
+    'Kairo Lucas é fundador e CEO da Domous, agência de tráfego pago e growth de João Pessoa. Trabalha com Meta Ads, Google Ads, e-commerce, processo comercial e automação com IA.',
+  h1: 'Kairo Lucas',
+  resposta:
+    'Kairo Lucas é fundador e CEO da Domous, agência de tráfego pago e crescimento de João Pessoa, na Paraíba. Trabalha direto na operação: estratégia e gestão de tráfego no Meta Ads e no Google Ads, e-commerce, funis, processo comercial e automações com inteligência artificial. É autor dos guias da Domous.',
+  secoes: [
+    {
+      titulo: 'O que faz na Domous',
+      paragrafos: [
+        'Desenha a estratégia das contas, acompanha os números de perto e participa das decisões de verba, criativo e atendimento. A Domous já atendeu mais de 70 empresas, de negócio local a empresa com várias unidades, e gerou mais de R$ 50 milhões em vendas pros clientes.',
+      ],
+    },
+    {
+      titulo: 'Como pensa marketing',
+      paragrafos: [
+        'Tráfego sozinho não resolve: antes do anúncio vêm a oferta, a página, a jornada do cliente, o atendimento no WhatsApp e a operação. As métricas que importam são custo por cliente (CAC) e receita atribuída a cada campanha.',
+        'No Meta Ads atual, o criativo virou a principal forma de segmentação, e a prova de cliente costuma vender mais do que a empresa falando de si mesma. Empresário quer ver resultado num negócio que ele conhece.',
+      ],
+    },
+    {
+      titulo: 'Conteúdo e entrevistas',
+      paragrafos: [
+        'No Instagram @kairolucas, fala de marketing e negócios pra empresários da Paraíba, com análises do marketing de empresas locais. Deu entrevista ao EFashion (TV Masterizando) sobre o erro de marketing que trava o crescimento das empresas.',
+      ],
+    },
+  ] as Secao[],
+};

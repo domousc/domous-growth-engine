@@ -1,6 +1,6 @@
 import { Users, TrendingUp, FolderKanban, Share2, Video, Code, Film, Palette, ShoppingCart } from "lucide-react";
 import CTAButton from "./CTAButton";
-import timeDomous from "@/assets/time-domous.jpg";
+import timeDomous from "@/assets/time-domous.webp";
 
 const TimeDomousSection = () => {
   const team = [

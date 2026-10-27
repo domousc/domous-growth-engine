@@ -1,6 +1,6 @@
 // Páginas avulsas: quanto custa, resultados, sobre e o guia.
-import time from "@/assets/time-domous.jpg";
-import kairo from "@/assets/kairo-hero.jpg";
+import time from "@/assets/time-domous.webp";
+import kairo from "@/assets/kairo-hero.webp";
 import Layout from "@/components/site/Layout";
 import Clientes from "@/components/site/Clientes";
 import { Perguntas, Resultados, Secoes, Topo } from "@/components/site/Blocos";
@@ -56,7 +56,7 @@ export const Sobre = () => (
         <figure>
           <img src={kairo} alt="Kairo Lucas, fundador e CEO da Domous" width={1279} height={1920} loading="lazy" className="w-full rounded-3xl object-cover aspect-[4/5]" />
           <figcaption className="mt-3 text-sm text-muted-foreground">
-            Kairo Lucas, fundador e CEO. <a className="text-primary font-semibold" href={site.instagramKairo}>@kairolucas</a>
+            <a className="text-primary font-semibold" href="/sobre/kairo-lucas/">Kairo Lucas</a>, fundador e CEO. <a className="text-primary font-semibold" href={site.instagramKairo}>@kairolucas</a>
           </figcaption>
         </figure>
         <figure>
