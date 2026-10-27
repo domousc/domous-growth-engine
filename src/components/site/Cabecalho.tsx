@@ -7,6 +7,7 @@ const menu = [
   { label: "Serviços", href: "/servicos/" },
   { label: "Segmentos", href: "/segmentos/" },
   { label: "Resultados", href: "/cases/" },
+  { label: "Guias", href: "/guias/" },
   { label: "Quanto custa", href: "/quanto-custa/" },
   { label: "Sobre", href: "/sobre/" },
 ];

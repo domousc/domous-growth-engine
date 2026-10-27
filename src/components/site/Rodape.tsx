@@ -60,6 +60,7 @@ const Rodape = () => (
             <li><a href="/cases/" className="text-dark-muted hover:text-white">Resultados</a></li>
             <li><a href="/quanto-custa/" className="text-dark-muted hover:text-white">Quanto custa</a></li>
             <li><a href="/sobre/" className="text-dark-muted hover:text-white">Sobre a Domous</a></li>
+            <li><a href="/guias/" className="text-dark-muted hover:text-white">Guias</a></li>
             <li><a href="/como-escolher-agencia-de-trafego-pago/" className="text-dark-muted hover:text-white">Como escolher uma agência</a></li>
             <li><a href={site.siteKairo} className="text-dark-muted hover:text-white">Kairo Lucas</a></li>
           </ul>

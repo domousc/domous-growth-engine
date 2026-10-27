@@ -5,6 +5,7 @@ import { site } from "@/data/site";
 import { categorias, servicos, type Pagina } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
 import { guia, home, indices, quantoCusta, resultadosPagina, sobre } from "@/data/paginas";
+import { guias } from "@/data/guias";
 
 export type Rota = {
   path: string;
@@ -206,6 +207,56 @@ export const rotas: Rota[] = [
     ],
   },
 ];
+
+// Central de guias e cada guia (Article + FAQ + trilha).
+rotas.push(
+  {
+    path: "/guias/",
+    titulo: "Guias de marketing e vendas pra empresários | Domous",
+    descricao:
+      "Guias da Domous sobre tráfego pago, medição de retorno, IA no WhatsApp, Google Maps e vendas pra empresas de João Pessoa e de todo o Brasil.",
+    jsonLd: [
+      organizacao,
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Guias da Domous",
+        url: url("/guias/"),
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: guias.map((g, i) => ({ "@type": "ListItem", position: i + 1, url: url(`/guias/${g.slug}/`), name: g.h1 })),
+        },
+      },
+      trilhaLd([["Início", "/"], ["Guias", "/guias/"]]),
+    ],
+  },
+  ...guias.map((g) => {
+    const path = `/guias/${g.slug}/`;
+    return {
+      path,
+      titulo: g.titulo,
+      descricao: g.descricao,
+      jsonLd: [
+        organizacao,
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: g.h1,
+          description: g.descricao,
+          inLanguage: "pt-BR",
+          author: { "@id": KAIRO_ID },
+          publisher: { "@id": ORG_ID },
+          datePublished: g.publicado,
+          dateModified: g.atualizado,
+          mainEntityOfPage: url(path),
+          about: g.servicos.map((s) => ({ "@id": `${url(`/servicos/${s}/`)}#servico` })),
+        },
+        trilhaLd([["Início", "/"], ["Guias", "/guias/"], [g.h1, path]]),
+        faqLd(g.faq),
+      ],
+    };
+  }),
+);
 
 export const rota404: Rota = {
   path: "/404",

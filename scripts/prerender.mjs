@@ -13,7 +13,7 @@ const distSsr = path.join(raiz, "dist-ssr");
 const SITE = "https://domous.com.br";
 const OG_IMAGEM = `${SITE}/og-domous.jpg`;
 
-const { render, rotas, rota404, servicos, segmentos, home, quantoCusta, sobre, guia, resultados } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
+const { render, rotas, rota404, servicos, segmentos, home, quantoCusta, sobre, guia, resultados, guias } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
 const modelo = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
 
 const attr = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
@@ -74,7 +74,7 @@ const secao = (titulo, prefixo) =>
     .filter((r) => r.path.startsWith(prefixo) && r.path !== prefixo)
     .map((r) => `- [${r.titulo.split(" | ")[0]}](${SITE}${r.path}): ${r.descricao}`)
     .join("\n");
-const avulsas = rotas.filter((r) => !/^\/(servicos|segmentos)\//.test(r.path) && r.path !== "/");
+const avulsas = rotas.filter((r) => !/^\/(servicos|segmentos|guias)\//.test(r.path) && r.path !== "/");
 fs.writeFileSync(
   path.join(dist, "llms.txt"),
   [
@@ -89,6 +89,8 @@ fs.writeFileSync(
     secao("Serviços", "/servicos/"),
     "",
     secao("Segmentos", "/segmentos/"),
+    "",
+    secao("Guias", "/guias/"),
     "",
     "## Mais",
     "",
@@ -117,6 +119,7 @@ for (const p of segmentos) blocoPagina(p.h1, `${SITE}/segmentos/${p.slug}/`, p);
 blocoPagina(quantoCusta.h1, `${SITE}/quanto-custa/`, quantoCusta);
 blocoPagina(sobre.h1, `${SITE}/sobre/`, sobre);
 blocoPagina(guia.h1, `${SITE}/como-escolher-agencia-de-trafego-pago/`, guia);
+for (const g of guias) blocoPagina(g.h1, `${SITE}/guias/${g.slug}/`, g);
 fs.writeFileSync(path.join(dist, "llms-full.txt"), md.join(String.fromCharCode(10)));
 
 fs.rmSync(distSsr, { recursive: true, force: true });
