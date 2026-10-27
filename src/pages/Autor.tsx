@@ -5,6 +5,7 @@ import Layout from "@/components/site/Layout";
 import { GradeCartoes, Secoes, Topo } from "@/components/site/Blocos";
 import MonteMensagem from "@/components/site/MonteMensagem";
 import { posts } from "@/content/posts";
+import { caminhoPost } from "@/content/tipos";
 import { autor } from "@/data/paginas";
 import { site } from "@/data/site";
 
@@ -39,7 +40,7 @@ const Autor = () => (
     <section className="pb-16 md:pb-24">
       <div className="container mx-auto px-4 lg:px-8">
         <h2 className="text-2xl md:text-3xl mb-8">Artigos escritos por Kairo Lucas</h2>
-        <GradeCartoes itens={posts.map((g) => ({ titulo: g.h1, texto: g.descricao, href: `/blog/${g.slug}/` }))} />
+        <GradeCartoes itens={posts.slice(0, 18).map((g) => ({ titulo: g.h1, texto: g.descricao, href: caminhoPost(g) }))} />
       </div>
     </section>
     <MonteMensagem origem="autor-final" />

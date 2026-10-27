@@ -87,7 +87,7 @@ const secao = (titulo, prefixo) =>
     .filter((r) => r.path.startsWith(prefixo) && r.path !== prefixo)
     .map((r) => `- [${r.titulo.split(" | ")[0]}](${SITE}${r.path}): ${r.descricao}`)
     .join("\n");
-const avulsas = rotas.filter((r) => !r.noindex && !/^\/(servicos|segmentos|blog)\//.test(r.path) && r.path !== "/");
+const avulsas = rotas.filter((r) => !r.noindex && !/^\/(servicos|segmentos|blog|news)\//.test(r.path) && r.path !== "/");
 fs.writeFileSync(
   path.join(dist, "llms.txt"),
   [
@@ -104,6 +104,8 @@ fs.writeFileSync(
     secao("Segmentos", "/segmentos/"),
     "",
     secao("Blog", "/blog/"),
+    "",
+    secao("Domous News", "/news/"),
     "",
     "## Mais",
     "",
@@ -132,7 +134,8 @@ for (const p of segmentos) blocoPagina(p.h1, `${SITE}/segmentos/${p.slug}/`, p);
 blocoPagina(quantoCusta.h1, `${SITE}/quanto-custa/`, quantoCusta);
 blocoPagina(sobre.h1, `${SITE}/sobre/`, sobre);
 blocoPagina(guia.h1, `${SITE}/como-escolher-agencia-de-trafego-pago/`, guia);
-for (const g of posts) blocoPagina(g.h1, `${SITE}/blog/${g.slug}/`, g);
+const caminho = (g) => (g.tipo === "noticia" ? `/news/${g.slug}/` : `/blog/${g.slug}/`);
+for (const g of posts) blocoPagina(g.h1, `${SITE}${caminho(g)}`, g);
 fs.writeFileSync(path.join(dist, "llms-full.txt"), md.join(String.fromCharCode(10)));
 
 // Feed RSS do blog.
@@ -142,8 +145,8 @@ const itens = [...posts]
   .sort((a, b) => (a.publicado < b.publicado ? 1 : -1))
   .map((g) => `    <item>
       <title>${xml(g.h1)}</title>
-      <link>${SITE}/blog/${g.slug}/</link>
-      <guid>${SITE}/blog/${g.slug}/</guid>
+      <link>${SITE}${caminho(g)}</link>
+      <guid>${SITE}${caminho(g)}</guid>
       <pubDate>${rfc(g.publicado)}</pubDate>
       <dc:creator>Kairo Lucas</dc:creator>
       <description>${xml(g.resposta)}</description>

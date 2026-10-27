@@ -44,7 +44,7 @@ const guiasDoSegmento: Record<string, string[]> = {
 
 const guiasDe = (tipo: string, slug: string) =>
   tipo === "servicos"
-    ? posts.filter((g) => g.servicos.includes(slug)).slice(0, 3)
+    ? posts.filter((g) => g.tipo !== "noticia" && g.servicos.includes(slug)).slice(0, 3)
     : (guiasDoSegmento[slug] ?? []).map((s) => posts.find((g) => g.slug === s)).filter((g): g is (typeof posts)[number] => !!g);
 
 const relacionadosDe = (pagina: Pagina, lista: Pagina[]) => {

@@ -2,7 +2,7 @@
 // exporta `default` um Post. A rotina diária cria um arquivo novo por dia.
 import type { Pergunta, Secao } from "@/data/servicos";
 
-export type TipoPost = "guia" | "estudo" | "analise" | "case" | "opiniao";
+export type TipoPost = "guia" | "estudo" | "analise" | "case" | "opiniao" | "noticia";
 export type NivelPost = "joao-pessoa" | "paraiba" | "brasil";
 
 export type Post = {
@@ -28,4 +28,9 @@ export const rotuloTipo: Record<TipoPost, string> = {
   analise: "Raio-X",
   case: "Case",
   opiniao: "Opinião",
+  noticia: "Domous News",
 };
+
+// Notícia mora em /news/ (Domous News); o resto em /blog/.
+export const ehNoticia = (p: Pick<Post, "tipo">) => p.tipo === "noticia";
+export const caminhoPost = (p: Pick<Post, "tipo" | "slug">) => (ehNoticia(p) ? `/news/${p.slug}/` : `/blog/${p.slug}/`);

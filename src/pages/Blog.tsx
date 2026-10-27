@@ -7,7 +7,7 @@ import Layout from "@/components/site/Layout";
 import { GradeCartoes, Perguntas, Secoes, Topo } from "@/components/site/Blocos";
 import MonteMensagem from "@/components/site/MonteMensagem";
 import { posts, postPorSlug } from "@/content/posts";
-import { rotuloTipo, type Post, type TipoPost } from "@/content/tipos";
+import { caminhoPost, ehNoticia, rotuloTipo, type Post, type TipoPost } from "@/content/tipos";
 import { guia as guiaAgencia } from "@/data/paginas";
 import { servicoPorSlug, type Pagina } from "@/data/servicos";
 import NotFound from "./NotFound";
@@ -16,12 +16,14 @@ const dataBR = (iso: string) => iso.split("-").reverse().join("/");
 const minutos = (p: Post) =>
   Math.max(2, Math.round([p.resposta, ...p.secoes.flatMap((s) => [...s.paragrafos, ...(s.itens ?? [])]), ...p.faq.map((f) => f.r)].join(" ").split(/\s+/).length / 200));
 
-const cartao = (p: Post) => ({ titulo: `${rotuloTipo[p.tipo]} · ${p.h1}`, texto: p.descricao, href: `/blog/${p.slug}/` });
+const cartao = (p: Post) => ({ titulo: `${rotuloTipo[p.tipo]} · ${p.h1}`, texto: p.descricao, href: caminhoPost(p) });
+const artigos = posts.filter((p) => !ehNoticia(p));
+const noticias = posts.filter(ehNoticia);
 
 export const BlogIndice = () => {
   const [filtro, setFiltro] = useState<TipoPost | "todos">("todos");
-  const tipos = (Object.keys(rotuloTipo) as TipoPost[]).filter((t) => posts.some((p) => p.tipo === t));
-  const lista = filtro === "todos" ? posts : posts.filter((p) => p.tipo === filtro);
+  const tipos = (Object.keys(rotuloTipo) as TipoPost[]).filter((t) => artigos.some((p) => p.tipo === t));
+  const lista = filtro === "todos" ? artigos : artigos.filter((p) => p.tipo === filtro);
   const itens = lista.map(cartao);
   if (filtro === "todos" || filtro === "guia") itens.push({ titulo: `Guia · ${guiaAgencia.h1}`, texto: guiaAgencia.descricao, href: "/como-escolher-agencia-de-trafego-pago/" });
 
@@ -51,15 +53,46 @@ export const BlogIndice = () => {
           <GradeCartoes itens={itens} />
         </div>
       </section>
+      {noticias.length > 0 && (
+        <section className="pb-16 md:pb-24">
+          <div className="container mx-auto px-4 lg:px-8">
+            <h2 className="text-2xl md:text-3xl mb-8">Domous News</h2>
+            <GradeCartoes itens={noticias.slice(0, 3).map(cartao)} />
+            <a href="/news/" className="inline-block mt-6 font-semibold text-primary hover:underline">Ver todas as notícias →</a>
+          </div>
+        </section>
+      )}
       <MonteMensagem origem="blog-final" />
     </Layout>
   );
 };
 
+export const NewsIndice = () => (
+  <Layout origem="news">
+    <Topo
+      trilha={[{ nome: "Início", href: "/" }, { nome: "Domous News", href: "/news/" }]}
+      h1="Domous News: o que muda em marketing, vendas, negócios e IA"
+      resposta="Todo dia, a notícia de marketing, vendas, negócios ou inteligência artificial que mais mexe com a receita das empresas, com a leitura da Domous: por que importa e o que fazer agora. Pra diretores de marketing, diretores comerciais e donos de empresa."
+      origem="news"
+    />
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4 lg:px-8">
+        {noticias.length ? (
+          <GradeCartoes itens={noticias.map((p) => ({ ...cartao(p), titulo: `${p.publicado.split("-").reverse().join("/")} · ${p.h1}` }))} />
+        ) : (
+          <p className="text-muted-foreground">A primeira edição sai em breve.</p>
+        )}
+      </div>
+    </section>
+    <MonteMensagem origem="news-final" />
+  </Layout>
+);
+
 export const PostPagina = () => {
   const { slug } = useParams();
   const p = slug ? postPorSlug(slug) : undefined;
   if (!p) return <NotFound />;
+  const secao = ehNoticia(p) ? { nome: "Domous News", href: "/news/" } : { nome: "Blog", href: "/blog/" };
   const servicos = p.servicos.map(servicoPorSlug).filter((s): s is Pagina => !!s);
   const outros = posts.filter((x) => x.slug !== p.slug && (x.tipo === p.tipo || x.servicos.some((s) => p.servicos.includes(s)))).slice(0, 3);
 
@@ -68,8 +101,8 @@ export const PostPagina = () => {
       <Topo
         trilha={[
           { nome: "Início", href: "/" },
-          { nome: "Blog", href: "/blog/" },
-          { nome: p.h1, href: `/blog/${p.slug}/` },
+          secao,
+          { nome: p.h1, href: caminhoPost(p) },
         ]}
         h1={p.h1}
         resposta={p.resposta}

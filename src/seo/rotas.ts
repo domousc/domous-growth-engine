@@ -6,6 +6,7 @@ import { categorias, servicos, type Pagina } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
 import { autor, guia, home, indices, quantoCusta, resultadosPagina, sobre } from "@/data/paginas";
 import { posts } from "@/content/posts";
+import { caminhoPost, ehNoticia } from "@/content/tipos";
 
 export type Rota = {
   path: string;
@@ -229,13 +230,36 @@ rotas.push(
         url: url("/blog/"),
         inLanguage: "pt-BR",
         publisher: { "@id": ORG_ID },
-        blogPost: posts.map((p) => ({ "@type": "BlogPosting", headline: p.h1, url: url(`/blog/${p.slug}/`), datePublished: p.publicado })),
+        blogPost: posts.filter((p) => !ehNoticia(p)).map((p) => ({ "@type": "BlogPosting", headline: p.h1, url: url(caminhoPost(p)), datePublished: p.publicado })),
       },
       trilhaLd([["Início", "/"], ["Blog", "/blog/"]]),
     ],
   },
+  {
+    path: "/news/",
+    titulo: "Domous News | Notícias de marketing, vendas, negócios e IA",
+    descricao:
+      "Todo dia, a notícia de marketing, vendas, negócios ou IA que mais mexe com a receita das empresas, com a leitura da Domous: por que importa e o que fazer.",
+    jsonLd: [
+      organizacao,
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Domous News",
+        url: url("/news/"),
+        inLanguage: "pt-BR",
+        publisher: { "@id": ORG_ID },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: posts.filter(ehNoticia).map((p, i) => ({ "@type": "ListItem", position: i + 1, url: url(caminhoPost(p)), name: p.h1 })),
+        },
+      },
+      trilhaLd([["Início", "/"], ["Domous News", "/news/"]]),
+    ],
+  },
   ...posts.map((p) => {
-    const path = `/blog/${p.slug}/`;
+    const path = caminhoPost(p);
+    const secao: [string, string] = ehNoticia(p) ? ["Domous News", "/news/"] : ["Blog", "/blog/"];
     return {
       path,
       titulo: p.titulo,
@@ -244,7 +268,7 @@ rotas.push(
         organizacao,
         {
           "@context": "https://schema.org",
-          "@type": "BlogPosting",
+          "@type": ehNoticia(p) ? "NewsArticle" : "BlogPosting",
           headline: p.h1,
           description: p.descricao,
           keywords: p.palavraChave,
@@ -259,7 +283,7 @@ rotas.push(
           about: p.servicos.map((s) => ({ "@id": `${url(`/servicos/${s}/`)}#servico` })),
           ...(p.fontes?.length ? { citation: p.fontes.map((f) => f.url) } : {}),
         },
-        trilhaLd([["Início", "/"], ["Blog", "/blog/"], [p.h1, path]]),
+        trilhaLd([["Início", "/"], secao, [p.h1, path]]),
         ...(p.faq.length ? [faqLd(p.faq)] : []),
       ],
     };

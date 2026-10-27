@@ -8,6 +8,7 @@ const menu = [
   { label: "Segmentos", href: "/segmentos/" },
   { label: "Resultados", href: "/cases/" },
   { label: "Blog", href: "/blog/" },
+  { label: "News", href: "/news/" },
   { label: "Quanto custa", href: "/quanto-custa/" },
   { label: "Sobre", href: "/sobre/" },
 ];
