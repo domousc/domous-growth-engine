@@ -414,6 +414,337 @@ export const guias: Guia[] = [
     publicado: "2026-10-26",
     atualizado: "2026-10-26",
   },
+  {
+    slug: "quanto-custa-gestao-de-trafego-pago",
+    titulo: "Quanto custa gestão de tráfego pago? Como as agências cobram | Guia Domous",
+    h1: "Quanto custa gestão de tráfego pago? Como as agências cobram",
+    descricao:
+      "Os modelos de cobrança de gestão de tráfego (mensalidade fixa, percentual da verba e misto), o que deve estar incluído e a diferença entre gestão e verba de anúncio.",
+    resposta:
+      "O custo de gestão de tráfego pago tem duas partes separadas: a remuneração da agência (a gestão) e a verba de anúncio, que vai pro Meta, pro Google ou pro TikTok. A gestão costuma ser cobrada de três jeitos: mensalidade fixa, percentual sobre a verba ou um modelo misto. O que muda o valor é a quantidade de canais, o volume de criativos, o que entra além da campanha (página, atendimento, painel) e o prazo de contrato.",
+    secoes: [
+      {
+        titulo: "Gestão e verba são coisas diferentes",
+        paragrafos: [
+          "A verba é o dinheiro que vai pra plataforma e compra a exibição do anúncio. A gestão é o trabalho de planejar, criar, medir e otimizar. Desconfie de proposta que mistura as duas sem deixar claro quanto vai pra mídia.",
+        ],
+      },
+      {
+        titulo: "Os três modelos de cobrança",
+        paragrafos: [],
+        itens: [
+          "Mensalidade fixa: valor mensal independente da verba. É previsível e não incentiva a agência a gastar mais",
+          "Percentual da verba: a agência ganha uma parte do que é investido em mídia. Escala junto com o investimento",
+          "Misto: um fixo mínimo mais percentual a partir de certa verba, ou fixo mais bônus por resultado",
+        ],
+      },
+      {
+        titulo: "O que deve estar incluído",
+        paragrafos: [],
+        itens: [
+          "Plano com estrutura de campanha e meta de custo por cliente",
+          "Configuração e conferência de rastreamento (pixel, API de Conversões, GA4)",
+          "Criativos novos todo mês, ou o briefing deles",
+          "Otimização semanal",
+          "Relatório que mostra venda e receita, e não só alcance",
+          "Reunião periódica de resultado",
+        ],
+      },
+      {
+        titulo: "O que faz o preço subir",
+        paragrafos: [],
+        itens: [
+          "Mais canais (Meta, Google, TikTok, LinkedIn)",
+          "Mais criativos por mês ou produção de vídeo",
+          "Landing page, CRM, agente de IA e automações",
+          "Mais de uma marca, unidade ou região",
+        ],
+      },
+      {
+        titulo: "Como a Domous cobra",
+        paragrafos: [
+          "Gestão por mensalidade, com a verba separada e indo inteira pra mídia. Projetos como loja virtual, landing page, consultoria e CRM com IA têm valor fechado por escopo. O contrato mínimo é de 3 a 6 meses, conforme o escopo, e o plano com o valor vem antes de você assinar. As contas de anúncio ficam no nome da tua empresa.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        p: "Quanto investir em anúncio por mês?",
+        r: "Depende do ticket, da margem e de quantos contatos o time consegue atender. A conta parte do custo por cliente que a empresa aguenta pagar e do número de vendas que quer no mês.",
+      },
+      {
+        p: "Gestor de tráfego freelancer ou agência?",
+        r: "O freelancer costuma custar menos e cuidar só da campanha. A agência tende a cobrir mais frentes (criativo, página, medição, atendimento) e ter continuidade se alguém sair. A escolha depende de quanto do funil a empresa já resolve internamente.",
+      },
+    ],
+    servicos: ["trafego-pago", "mensuracao-e-painel"],
+    publicado: "2026-10-27",
+    atualizado: "2026-10-27",
+  },
+  {
+    slug: "marketing-para-distribuidora",
+    titulo: "Marketing para distribuidora: como vender mais pra empresa e consumidor final | Guia Domous",
+    h1: "Marketing para distribuidora: como vender mais pra empresa e pro consumidor final",
+    descricao:
+      "Estratégia de marketing pra distribuidoras e atacado: separar PF e PJ, vendedor no WhatsApp com processo, Google pra demanda de busca e medição de quanto o digital vende.",
+    resposta:
+      "O marketing de uma distribuidora rende mais quando separa os dois públicos que quase todo mundo mistura: o consumidor final, que compra pouco e de vez em quando, e o profissional ou a empresa, que compra todo mês. Cada um precisa de campanha, oferta e atendimento próprios. Com isso, vendedor no WhatsApp com processo, Google pra quem já procura o produto e medição de pedido por campanha, a distribuidora sai da briga só por preço.",
+    secoes: [
+      {
+        titulo: "PF e PJ: campanhas separadas",
+        paragrafos: [
+          "Quem vai trocar um chuveiro procura preço e entrega rápida. O eletricista, o empreiteiro, a construtora e o condomínio procuram condição, prazo, estoque e um vendedor que resolva. Misturar os dois na mesma campanha faz o anúncio falar com ninguém e o vendedor tratar o cliente grande como pequeno.",
+        ],
+      },
+      {
+        titulo: "O vendedor como ativo de marketing",
+        paragrafos: [
+          "Vídeo curto do vendedor resolvendo um problema de obra, com o WhatsApp dele no botão, costuma render mais que post de oferta. É o que a distribuidora tem e o marketplace não tem: gente que entende do produto.",
+        ],
+      },
+      {
+        titulo: "Processo no WhatsApp",
+        paragrafos: [],
+        itens: [
+          "Distribuição das conversas entre vendedores",
+          "Orçamento pela foto da lista do cliente",
+          "Meta de tempo de resposta",
+          "Etiqueta de origem em cada conversa (campanha, unidade, PF ou PJ)",
+          "Retomada de orçamento que não fechou",
+        ],
+      },
+      {
+        titulo: "Atacado precisa de processo comercial ativo",
+        paragrafos: [
+          "Pro cliente empresa, anúncio ajuda, mas o que mais vende é processo: lista de empresas da região, cadência de contato, visita, proposta e CRM. O marketing alimenta e o comercial converte.",
+        ],
+      },
+      {
+        titulo: "Medir quanto o digital vende",
+        paragrafos: [
+          "Pedido que fecha no WhatsApp ou no balcão some do relatório se ninguém registra a origem. Cruzando conversa, orçamento e pedido do ERP com a campanha, dá pra saber o custo por cliente de cada público.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        p: "Distribuidora precisa de loja virtual?",
+        r: "Não necessariamente. Catálogo, WhatsApp com processo e Google costumam vir antes. A loja entra quando o mix e a logística permitem vender fora da região ou sem vendedor.",
+      },
+      {
+        p: "Como anunciar pra profissional de obra?",
+        r: "Com criativo que fala da rotina dele (obra, prazo, problema técnico), condição de profissional e atendimento rápido no WhatsApp, segmentando a região de entrega.",
+      },
+    ],
+    servicos: ["meta-ads", "google-ads", "consultoria-de-marketing-e-vendas"],
+    publicado: "2026-10-27",
+    atualizado: "2026-10-27",
+  },
+  {
+    slug: "api-de-conversoes-do-meta",
+    titulo: "API de Conversões do Meta: o que é e por que importa pra quem vende pelo WhatsApp | Guia Domous",
+    h1: "API de Conversões do Meta: o que é e por que importa pra quem vende pelo WhatsApp",
+    descricao:
+      "O que é a API de Conversões (CAPI) do Meta, a diferença pro pixel, como ela leva a venda do WhatsApp e do CRM de volta pro anúncio e quando vale implantar.",
+    resposta:
+      "A API de Conversões do Meta é uma forma de enviar os eventos de venda e de lead direto do servidor ou do sistema da empresa pro Meta, sem depender só do pixel no navegador. Pra quem vende pelo WhatsApp ou na loja, ela é o caminho pra contar ao Meta quais conversas viraram venda. Com essa informação, a campanha aprende a buscar mais gente parecida com quem compra, e não só com quem clica ou conversa.",
+    secoes: [
+      {
+        titulo: "Pixel x API de Conversões",
+        paragrafos: [
+          "O pixel roda no navegador do visitante e registra o que acontece no site. Bloqueadores, navegação privada e restrições de privacidade fazem parte desses eventos se perder. A API de Conversões manda os eventos pelo servidor ou pela integração com o sistema, e o recomendado é usar os dois juntos, com deduplicação.",
+        ],
+      },
+      {
+        titulo: "Por que importa pra venda no WhatsApp",
+        paragrafos: [
+          "Quando a venda fecha no WhatsApp, o pixel não vê nada: a pessoa nunca passou pelo site. Sem a API, o Meta só sabe que alguém iniciou uma conversa, e passa a otimizar pra gerar conversa, não venda. Com a venda voltando pela API, a otimização muda de alvo.",
+        ],
+      },
+      {
+        titulo: "O que precisa pra funcionar",
+        paragrafos: [],
+        itens: [
+          "Registrar a venda em algum lugar (CRM, planilha estruturada, ERP)",
+          "Guardar a origem do contato (de preferência pela API oficial do WhatsApp)",
+          "Integração que envie a venda pro Meta com os dados de correspondência",
+          "Conferência no Gerenciador de Eventos da qualidade da correspondência",
+        ],
+      },
+      {
+        titulo: "Quando vale implantar",
+        paragrafos: [
+          "Quando a empresa investe com frequência em campanha de mensagem ou de cadastro e a venda acontece fora do site. Quanto maior o ticket e mais longo o ciclo, mais a campanha ganha em aprender com a venda real.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        p: "A API de Conversões substitui o pixel?",
+        r: "Não. O recomendado é usar os dois, com o mesmo identificador de evento pra evitar contagem dupla.",
+      },
+      {
+        p: "Precisa de programador?",
+        r: "Depende da origem dos dados. Muitas integrações são feitas com ferramentas como Make ou n8n, ou pela integração nativa do CRM.",
+      },
+    ],
+    servicos: ["mensuracao-e-painel", "automacao-e-integracoes", "meta-ads"],
+    publicado: "2026-10-27",
+    atualizado: "2026-10-27",
+  },
+  {
+    slug: "performance-max-o-que-e",
+    titulo: "Performance Max: o que é, como funciona e quando usar | Guia Domous",
+    h1: "Performance Max: o que é, como funciona e quando usar",
+    descricao:
+      "O que é a campanha Performance Max do Google Ads, onde ela aparece, o que ela precisa pra funcionar e os cuidados pra não gastar com o público errado.",
+    resposta:
+      "Performance Max é um tipo de campanha do Google Ads que usa automação pra mostrar anúncios em vários canais do Google ao mesmo tempo (Pesquisa, Shopping, YouTube, Display, Gmail, Discover e Maps) a partir dos objetivos de conversão, do catálogo e dos materiais da empresa. Ela funciona bem quando as conversões estão bem configuradas e o catálogo está organizado; sem isso, a automação otimiza pro sinal errado.",
+    secoes: [
+      {
+        titulo: "Como funciona",
+        paragrafos: [
+          "Em vez de escolher palavra-chave e canal, a empresa entrega objetivos, verba, textos, imagens, vídeos, o catálogo do Merchant Center e sinais de público. O Google decide onde e pra quem mostrar, buscando o maior número de conversões ou de valor de conversão.",
+        ],
+      },
+      {
+        titulo: "Quando faz sentido",
+        paragrafos: [],
+        itens: [
+          "E-commerce com catálogo no Merchant Center",
+          "Negócio local que quer aparecer no Maps e na busca",
+          "Empresa com conversão bem medida e volume suficiente pra automação aprender",
+        ],
+      },
+      {
+        titulo: "Os cuidados",
+        paragrafos: [],
+        itens: [
+          "Conversão errada (clique em botão contando como venda) ensina a campanha a buscar clique",
+          "Sem exclusão de marca, a campanha pode gastar com quem já ia procurar a empresa",
+          "Materiais fracos derrubam o desempenho em YouTube e Display",
+          "Acompanhar os relatórios de termos e de canais pra saber o que ela está fazendo",
+        ],
+      },
+    ],
+    faq: [
+      {
+        p: "Performance Max substitui a campanha de Pesquisa?",
+        r: "Nem sempre. Muitas contas rodam as duas: Pesquisa pra termos de maior intenção, com controle, e Performance Max pra alcance e catálogo.",
+      },
+      {
+        p: "Precisa de vídeo pra rodar Performance Max?",
+        r: "Não é obrigatório, mas sem vídeo o Google pode gerar um automaticamente, quase sempre fraco. Vale subir vídeos próprios.",
+      },
+    ],
+    servicos: ["google-ads", "ecommerce"],
+    publicado: "2026-10-27",
+    atualizado: "2026-10-27",
+  },
+  {
+    slug: "como-anunciar-em-joao-pessoa",
+    titulo: "Como anunciar em João Pessoa: região, público e o que funciona | Guia Domous",
+    h1: "Como anunciar em João Pessoa: região, público e o que funciona",
+    descricao:
+      "Guia pra empresas que anunciam na Grande João Pessoa: recorte por região e CEP, Meta e Google pra público local, prova local e atendimento pelo WhatsApp.",
+    resposta:
+      "Pra anunciar bem em João Pessoa, a empresa precisa recortar o público pela região onde o cliente dela mora ou circula (bairros, raio da loja ou lista de CEPs), usar prova local que o paraibano reconhece e responder rápido no WhatsApp, que é onde a maior parte da venda acontece. Pra atender a Grande João Pessoa, vale incluir Cabedelo, Bayeux e Santa Rita na segmentação quando a entrega ou o atendimento chegam lá.",
+    secoes: [
+      {
+        titulo: "Recorte por região",
+        paragrafos: [
+          "Anunciar pra cidade inteira desperdiça verba com quem não compra. O recorte pode ser por raio a partir da loja, por bairros ou por lista de CEPs. Pra produto de ticket alto, a segmentação por CEP de alta renda costuma baixar o custo por cliente.",
+        ],
+      },
+      {
+        titulo: "Prova local",
+        paragrafos: [
+          "Empresário e consumidor paraibano confiam mais quando reconhecem o lugar, a rua e as empresas. Criativo gravado na cidade, com gente daqui e resultado em negócio que o público conhece, tende a performar melhor que peça genérica de banco de imagem.",
+        ],
+      },
+      {
+        titulo: "Google pra quem já procura",
+        paragrafos: [
+          "Buscas com \"em João Pessoa\" ou \"perto de mim\" mostram intenção de compra. Pesquisa no Google Ads e Perfil da Empresa no Google bem feito capturam essa demanda, inclusive no Maps.",
+        ],
+      },
+      {
+        titulo: "Atendimento é parte da campanha",
+        paragrafos: [
+          "Em João Pessoa, a venda acontece quase sempre no WhatsApp. Resposta rápida, roteiro de atendimento e retomada de quem não respondeu valem tanto quanto o anúncio.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        p: "Dá pra anunciar só pra um bairro?",
+        r: "Dá, por raio ou por CEP. O cuidado é não fechar tanto o público que a campanha fique sem volume pra aprender.",
+      },
+      {
+        p: "Agência local ou de fora?",
+        r: "Uma agência de João Pessoa conhece a cidade, os bairros e o comportamento do público, e consegue fazer reunião presencial. O que mais importa, de qualquer forma, é medir custo por cliente e receita.",
+      },
+    ],
+    servicos: ["trafego-pago", "negocios-locais", "meta-ads"],
+    publicado: "2026-10-27",
+    atualizado: "2026-10-27",
+  },
+  {
+    slug: "criativo-e-a-nova-segmentacao-meta-ads",
+    titulo: "O criativo virou a segmentação: o que mudou no Meta Ads | Guia Domous",
+    h1: "O criativo virou a segmentação: o que mudou no Meta Ads",
+    descricao:
+      "Por que no Meta Ads atual o criativo pesa mais que a escolha de público, como organizar criativos por ângulo e quantos testar por mês.",
+    resposta:
+      "No Meta Ads atual, o sistema de entrega usa o próprio criativo pra decidir pra quem mostrar o anúncio, com cada vez menos dependência dos interesses escolhidos à mão. Na prática, o criativo virou a principal forma de segmentação: um vídeo que fala com dono de loja encontra dono de loja. Por isso as contas que mais rendem trabalham com público mais aberto e muita variação de criativo, testando ângulos diferentes todo mês.",
+    secoes: [
+      {
+        titulo: "O que mudou",
+        paragrafos: [
+          "Os sistemas de entrega do Meta passaram a usar aprendizado de máquina pra escolher, entre milhões de anúncios, qual mostrar pra cada pessoa. O conteúdo do anúncio (imagem, texto, fala do vídeo) virou um dos sinais mais fortes dessa escolha. Empilhar interesses ajuda cada vez menos.",
+        ],
+      },
+      {
+        titulo: "Como organizar criativo por ângulo",
+        paragrafos: [],
+        itens: [
+          "Dor: o problema que o cliente sente",
+          "Prova: resultado, depoimento, número",
+          "Objeção: a dúvida que trava a compra, respondida",
+          "Desejo: o resultado que o cliente quer",
+        ],
+      },
+      {
+        titulo: "Quantos criativos por mês",
+        paragrafos: [
+          "A Domous trabalha com 6 a 12 criativos novos por mês, organizados em 3 a 5 ângulos, testando um ângulo de cada vez. Diversidade de persona e de formato (vídeo, carrossel, estático) ajuda o sistema a encontrar públicos diferentes.",
+        ],
+      },
+      {
+        titulo: "Como ler o resultado",
+        paragrafos: [],
+        itens: [
+          "Taxa de parada no vídeo (thumbstop) pra saber se o gancho funciona",
+          "CTR pra saber se a mensagem convence",
+          "Custo por conversa real e por venda, por criativo",
+          "Frequência e custo por mil impressões pra perceber desgaste",
+        ],
+      },
+    ],
+    faq: [
+      {
+        p: "Ainda vale segmentar por interesse?",
+        r: "Em alguns casos, como teste ou em contas pequenas, mas o ganho maior hoje vem de criativo bom com público mais aberto e boa medição de conversão.",
+      },
+      {
+        p: "Por que o custo do anúncio sobe com o tempo?",
+        r: "Entre outros motivos, porque o criativo cansa: a mesma peça mostrada muitas vezes perde eficiência. Renovar criativo com frequência segura o custo.",
+      },
+    ],
+    servicos: ["meta-ads", "conteudo-e-audiovisual"],
+    publicado: "2026-10-27",
+    atualizado: "2026-10-27",
+  },
 ];
 
 export const guiaPorSlug = (slug: string) => guias.find((g) => g.slug === slug);
