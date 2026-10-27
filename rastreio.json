@@ -1,6 +1,6 @@
 {
   "_leia": "IDs de rastreio. Vazio = script não entra no site. Depois de preencher: npm run publicar.",
-  "ga4": "",
-  "clarity": "",
-  "metaPixel": ""
+  "ga4": "G-8RKQEP06W1",
+  "clarity": "z4cz9xk393",
+  "metaPixel": "832956204737329"
 }
