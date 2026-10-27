@@ -6,7 +6,8 @@ Instruções pro agente que roda todo dia. Siga na ordem. Se algum passo falhar,
 - `git checkout main && git pull` (o Lovable também escreve neste repositório).
 - `npm install` se `node_modules` não existir.
 - Data de hoje no fuso de João Pessoa: `TZ=America/Fortaleza date +%F`. Use essa data em `publicado` e `atualizado`.
-- Se já existe post com `publicado` igual à data de hoje em `src/content/posts/`, pare: o post do dia já saiu.
+- Se já existe post **que não seja** `"tipo": "noticia"` com `publicado` igual à data de hoje em `src/content/posts/`, pare: o artigo do dia já saiu. (Notícias do Domous News têm rotina própria, `docs/blog/NEWS.md`, e não contam.)
+- Esta rotina nunca escreve notícia (`tipo: "noticia"`).
 
 ## 2. Escolher o tema
 - Leia `docs/blog/ESTRATEGIA.md` inteiro.

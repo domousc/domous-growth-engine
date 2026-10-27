@@ -6,7 +6,9 @@ Atualizado em 27/10/2026. Lido pela rotina diária antes de escrever cada post.
 Fazer a Domous ser encontrada e citada quando um empresário pergunta ao Google, ao ChatGPT, ao Gemini, ao Perplexity ou ao Claude sobre tráfego pago, vendas pelo WhatsApp, IA no atendimento e marketing pro setor dele. Cada post precisa: (1) responder uma pergunta real, (2) mostrar que a Domous entende do assunto, (3) levar pra uma página de serviço e pro WhatsApp.
 
 ## Público
-Dono, sócio ou gestor de empresa com produto validado que vende pelo WhatsApp. Foco principal: empresas acima de R$ 1 milhão/mês, sobretudo construtoras e incorporadoras, distribuidores e atacado, varejo de ticket alto (móveis), clínicas. Quem pesquisa costuma ser o filho, o gerente comercial ou o analista de marketing; quem decide é o dono.
+Artigos: dono, sócio ou gestor de empresa com produto validado que vende pelo WhatsApp. Foco principal: empresas acima de R$ 1 milhão/mês, sobretudo construtoras e incorporadoras, distribuidores e atacado, varejo de ticket alto (móveis), clínicas. Quem pesquisa costuma ser o filho, o gerente comercial ou o analista de marketing; quem decide é o dono.
+
+Domous News: diretores e gerentes de marketing, diretores comerciais e donos de empresas grandes, muitos com formação em marketing tradicional.
 
 ## Três níveis geográficos
 | Nível | Pra quê | Exemplo de palavra-chave | Proporção |
@@ -25,6 +27,7 @@ Mesmo no nível Brasil, o post usa exemplo e contexto de João Pessoa quando fiz
 | Opinião | Ponto de vista do Kairo, assinado por ele, a partir do que ele já defende (ver "O que o Kairo defende"). | 1 por semana |
 | Estudo | Dado original (ex.: levantamento na Biblioteca de Anúncios). Precisa de coleta local; a rotina não faz. | quando houver |
 | Case | História de resultado, sempre sem identificar o cliente. Só com insumo do Kairo. | quando houver |
+| Notícia (Domous News) | A notícia do dia de marketing, vendas, negócios ou IA que mexe com receita, com "por que importa" e "o que fazer agora". Rotina própria: `docs/blog/NEWS.md`. Mora em /news/. | 1 por dia |
 
 ## Grupos de tema (cada post aponta pra um pilar)
 | Grupo | Pilar no site (campo `servicos`) |
@@ -52,4 +55,4 @@ Mesmo no nível Brasil, o post usa exemplo e contexto de João Pessoa quando fiz
 - Plano e meta de custo por cliente antes de investir o primeiro real.
 
 ## Fora do blog
-Política e eleição, notícia do setor sem análise, conteúdo que cite cliente da Domous ou use dado de cliente, promessa de resultado, "diagnóstico gratuito".
+Política e eleição, notícia sem a leitura da Domous (por que importa e o que fazer), conteúdo que cite cliente da Domous ou use dado de cliente, promessa de resultado, "diagnóstico gratuito".
