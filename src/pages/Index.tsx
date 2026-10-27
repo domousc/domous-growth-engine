@@ -1,275 +1,131 @@
-import { useUTMParams } from "@/hooks/useUTMParams";
-import Header from "@/components/Header";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import HeroSection from "@/components/HeroSection";
-import LeadForm from "@/components/LeadForm";
-import ClientsSection from "@/components/ClientsSection";
-import DiferencialSection from "@/components/DiferencialSection";
-import SistemaDomousSection from "@/components/SistemaDomousSection";
-import MetodologiaDomousSection from "@/components/MetodologiaDomousSection";
-import FunilSection from "@/components/FunilSection";
-import ServicosSection from "@/components/ServicosSection";
-import KairoLucasSection from "@/components/KairoLucasSection";
-import TimeDomousSection from "@/components/TimeDomousSection";
-import CasesSection from "@/components/CasesSection";
-import DecisaoSection from "@/components/DecisaoSection";
-import ComparativoSection from "@/components/ComparativoSection";
-import ChecklistSection from "@/components/ChecklistSection";
-import FAQSection from "@/components/FAQSection";
-import GarantiaSection from "@/components/GarantiaSection";
-import CTAFinalSection from "@/components/CTAFinalSection";
-import Footer from "@/components/Footer";
-import SchemaMarkup from "@/components/SchemaMarkup";
-import GTMScript from "@/components/GTMScript";
-import DiagnosticoSection from "@/components/DiagnosticoSection";
-import VideoComoTrabalhamos from "@/components/VideoComoTrabalhamos";
-import ReadingProgressBar from "@/components/ReadingProgressBar";
-import CookieBanner from "@/components/CookieBanner";
-import DarkModeToggle from "@/components/DarkModeToggle";
-import MobileBottomBar from "@/components/MobileBottomBar";
-import CalculadoraVazamento from "@/components/CalculadoraVazamento";
-import ObjectionArena from "@/components/ObjectionArena";
-import CommandPalette from "@/components/CommandPalette";
-import StickyROIRadar from "@/components/StickyROIRadar";
-import WhatsAppSimulator from "@/components/WhatsAppSimulator";
-import CTAValidation from "@/components/CTAValidation";
-import timelineOnboarding from "@/assets/timeline-onboarding.webp";
-import { useState, useEffect } from "react";
-import type { Industria } from "@/components/IndustriaSelector";
-import { useCTAData } from "@/hooks/useCTAData";
+import kairo from "@/assets/kairo-hero.jpg";
+import Layout from "@/components/site/Layout";
+import BotaoWhatsApp from "@/components/site/BotaoWhatsApp";
+import Clientes from "@/components/site/Clientes";
+import { CtaFinal, GradeCartoes, Perguntas, Resultados } from "@/components/site/Blocos";
+import { home } from "@/data/paginas";
+import { servicos } from "@/data/servicos";
+import { segmentos } from "@/data/segmentos";
+import { site } from "@/data/site";
 
-const Index = () => {
-  const { variant } = useUTMParams();
-  const [selectedIndustria, setSelectedIndustria] = useState<Industria>("todas");
-  const [geotext, setGeotext] = useState("");
-  const { setUTMs, updatePageInfo } = useCTAData();
+const primeiraFrase = (texto: string) => texto.split(". ")[0] + ".";
 
-  useEffect(() => {
-    // Initialize UTMs from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const source = urlParams.get('utm_source') || 'direct';
-    const campaign = urlParams.get('utm_campaign') || 'none';
-    const term = urlParams.get('utm_term') || 'none';
-    setUTMs(source, campaign, term);
-    
-    // Update page info
-    updatePageInfo();
-  }, [setUTMs, updatePageInfo]);
-
-  useEffect(() => {
-    // Geolocation detection (simplified - can use IP API for production)
-    const checkGeolocation = async () => {
-      try {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-        if (data.region_code === "PB") {
-          setGeotext("Atendemos João Pessoa e todo o Brasil");
-        }
-      } catch (error) {
-        console.log("Geolocation check failed");
-      }
-    };
-    
-    checkGeolocation();
-  }, []);
-
-  return (
-    <div className="min-h-screen overflow-x-hidden">
-      <SchemaMarkup />
-      <GTMScript />
-      <ReadingProgressBar />
-      <StickyROIRadar />
-      <CommandPalette />
-      <CTAValidation />
-      <Header />
-      <WhatsAppButton />
-      <MobileBottomBar />
-      <DarkModeToggle />
-      <CookieBanner />
-      
-      <main>
-        <HeroSection 
-          variant={variant}
-          selectedIndustria={selectedIndustria}
-          onSelectIndustria={setSelectedIndustria}
-        />
-        <ClientsSection />
-        {geotext && (
-          <div className="py-4 bg-primary/5 text-center">
-            <p className="text-sm font-medium text-primary">📍 {geotext}</p>
-          </div>
-        )}
-        <DiferencialSection />
-        <SistemaDomousSection />
-        <MetodologiaDomousSection />
-
-        <CasesSection
-          selectedIndustria={selectedIndustria}
-          onSelectIndustria={setSelectedIndustria}
-        />
-
-        {/* Como trabalhamos */}
-        <section id="como-trabalhamos" className="section-dark py-28 md:py-32 lg:py-40 relative overflow-hidden">
-          {/* Decorative gradient orbs */}
-          <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-          
-          <div className="container mx-auto px-4 lg:px-8 relative z-10">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 rounded-full mb-4">
-                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm font-semibold text-primary">Processo Completo</span>
-                </div>
-                
-                <h2 className="mb-6 text-dark-foreground">Como trabalhamos</h2>
-                <p className="text-xl text-dark-muted">
-                  Do onboarding até sua máquina de vendas funcionando no automático
-                </p>
-              </div>
-              
-              {/* Timeline unificada */}
-              <div className="mb-12">
-                <div className="relative">
-                  {/* Linha conectora gradiente */}
-                  <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-30" />
-                  
-                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-3">
-                    {[
-                      { 
-                        label: "FASE 1", 
-                        titulo: "Onboarding", 
-                        duracao: "Semana 1",
-                        desc: "Kickoff, análise completa e alinhamento",
-                        emoji: "🚀"
-                      },
-                      { 
-                        label: "FASE 2", 
-                        titulo: "Setup Técnico", 
-                        duracao: "Semana 2",
-                        desc: "Tracking, pixels e integrações",
-                        emoji: "⚙️"
-                      },
-                      { 
-                        label: "FASE 3", 
-                        titulo: "Estratégia", 
-                        duracao: "Semana 3",
-                        desc: "Campanhas, criativos e conteúdo",
-                        emoji: "🎯"
-                      },
-                      { 
-                        label: "FASE 4", 
-                        titulo: "Lançamento", 
-                        duracao: "Semana 4",
-                        desc: "Campanhas no ar e primeiros testes",
-                        emoji: "🚀"
-                      },
-                      { 
-                        label: "FASE 5", 
-                        titulo: "Performance", 
-                        duracao: "Semana 5-8",
-                        desc: "Otimização e escalada de resultados",
-                        emoji: "⚡"
-                      },
-                      { 
-                        label: "WEEK 12", 
-                        titulo: "Consolidação", 
-                        duracao: "Semana 9-12",
-                        desc: "Resultados consistentes e previsíveis",
-                        emoji: "🎯"
-                      },
-                      { 
-                        label: "DIA 90", 
-                        titulo: "Máquina", 
-                        duracao: "Em diante",
-                        desc: "Sistema rodando no automático",
-                        emoji: "🏆"
-                      }
-                    ].map((etapa, idx) => (
-                      <div key={idx} className="relative group">
-                        <div className="flex flex-col items-center text-center">
-                          {/* Círculo com gradiente e efeito hover */}
-                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-3 relative z-10 shadow-domous group-hover:scale-110 transition-smooth">
-                            <span className="text-2xl">{etapa.emoji}</span>
-                          </div>
-                          
-                          {/* Badge */}
-                          <div className="inline-block px-2.5 py-1 bg-primary/20 rounded-full mb-2">
-                            <p className="text-xs font-bold text-primary">{etapa.label}</p>
-                          </div>
-                          
-                          {/* Conteúdo */}
-                          <h3 className="text-sm font-bold text-dark-foreground mb-1 leading-tight">{etapa.titulo}</h3>
-                          <p className="text-xs text-primary/80 mb-1.5 font-medium">{etapa.duracao}</p>
-                          <p className="text-xs text-dark-muted leading-relaxed">{etapa.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+const Index = () => (
+  <Layout origem="home">
+    <section className="section-dark purple-glow pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-[1.25fr_1fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <p className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 text-sm font-semibold text-accent mb-6">
+              Domous · Business Performance · João Pessoa, PB
+            </p>
+            <h1 className="mb-6 text-white">
+              Agência de tráfego pago <span className="gradient-domous-text">em João Pessoa</span>
+            </h1>
+            <p className="text-lg md:text-xl text-dark-muted leading-relaxed mb-8 max-w-2xl">{home.resposta}</p>
+            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+              <BotaoWhatsApp origem="home-hero" />
+              <a
+                href="/cases/"
+                className="inline-flex items-center justify-center rounded-full px-6 h-12 font-semibold border-2 border-white/20 text-white hover:border-primary hover:bg-primary/10 transition-smooth"
+              >
+                Ver resultados
+              </a>
             </div>
+            <ul className="grid grid-cols-3 gap-4 max-w-lg">
+              {[
+                { valor: site.empresasAtendidas, rotulo: "empresas atendidas" },
+                { valor: "+R$ 50 mi", rotulo: "em vendas geradas pros clientes" },
+                { valor: "JP", rotulo: "sede em João Pessoa, PB" },
+              ].map((n) => (
+                <li key={n.rotulo} className="border-l-2 border-primary pl-4">
+                  <strong className="block text-xl sm:text-2xl md:text-3xl font-bold text-white tabular-nums whitespace-nowrap">{n.valor}</strong>
+                  <span className="block text-xs md:text-sm text-dark-muted mt-1">{n.rotulo}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </section>
-        
-        
-        
-        <FunilSection />
-        
-        {/* Simulador CAC/ROAS removido - agora na seção de diagnóstico */}
-        <ServicosSection />
-        <KairoLucasSection />
-        <TimeDomousSection />
-        
-        {/* CRM com WhatsApp Simulator */}
-        <section id="crm" className="py-16 md:py-24 bg-secondary/30">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="mb-6">CRM com IA + WhatsApp</h2>
-                <p className="text-xl text-muted-foreground">
-                  Veja como a IA responde seus clientes 24/7 e aumenta conversão
-                </p>
-              </div>
-              <WhatsAppSimulator />
-            </div>
+          <div className="hidden lg:block">
+            <img
+              src={kairo}
+              alt="Kairo Lucas, fundador e CEO da Domous"
+              width={1279}
+              height={1920}
+              className="w-full max-w-md mx-auto rounded-3xl object-cover aspect-[4/5] shadow-dark border border-white/10"
+            />
           </div>
-        </section>
-        
-        <DecisaoSection />
-        <DiagnosticoSection />
-        <ComparativoSection />
-        <ChecklistSection />
-        
-        {/* Objection Arena */}
-        <ObjectionArena />
-        
-        <FAQSection />
-        <GarantiaSection />
-        
-        {/* Formulário de contato */}
-        <section id="formulario" className="section-dark py-20 md:py-28 relative overflow-hidden">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-          <div className="container mx-auto px-4 lg:px-8 relative z-10">
-            <div className="max-w-xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="mb-4 text-dark-foreground">Fale com um especialista</h2>
-                <p className="text-lg text-dark-muted">Preencha e receba seu diagnóstico gratuito pelo WhatsApp</p>
-              </div>
-              <div className="card-dark rounded-2xl shadow-dark p-6 md:p-8 border">
-                <LeadForm variant={variant} selectedIndustria={selectedIndustria} />
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        <CTAFinalSection />
-      </main>
-      
-      <Footer />
-    </div>
-  );
-};
+        </div>
+      </div>
+    </section>
+
+    <Clientes />
+
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4 lg:px-8">
+        <h2 className="mb-4">O que a Domous faz</h2>
+        <p className="text-lg text-muted-foreground mb-10 max-w-2xl">
+          Tráfego pago é o centro. Em volta dele, tudo que decide se o clique vira venda.
+        </p>
+        <GradeCartoes itens={servicos.map((s) => ({ titulo: s.nome, texto: primeiraFrase(s.resposta), href: `/servicos/${s.slug}/` }))} />
+      </div>
+    </section>
+
+    <section className="section-dark py-16 md:py-24">
+      <div className="container mx-auto px-4 lg:px-8">
+        <h2 className="mb-4 text-white">Pra quem a gente trabalha</h2>
+        <p className="text-lg text-dark-muted mb-10 max-w-2xl">
+          Empresas com produto validado que vendem pelo WhatsApp e querem crescer com previsibilidade.
+        </p>
+        <GradeCartoes escuro itens={segmentos.map((s) => ({ titulo: s.nome, texto: s.descricao, href: `/segmentos/${s.slug}/` }))} />
+      </div>
+    </section>
+
+    <Resultados />
+
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4 lg:px-8">
+        <h2 className="mb-4">Como funciona</h2>
+        <p className="text-lg text-muted-foreground mb-10">Três passos, sem contrato antes de você ver o plano.</p>
+        <ol className="grid gap-6 md:grid-cols-3">
+          {home.passos.map((p, i) => (
+            <li key={p.titulo} className="bg-card rounded-2xl border border-border p-6 shadow-card">
+              <span className="inline-flex w-10 h-10 items-center justify-center rounded-full gradient-domous text-white font-bold mb-4">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-xl font-bold mb-2">{p.titulo}</h3>
+              <p className="text-muted-foreground leading-relaxed">{p.texto}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section className="section-dark py-16 md:py-24">
+      <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 className="mb-5 text-white">Tráfego sozinho não resolve</h2>
+          <p className="text-lg text-dark-muted leading-relaxed mb-4">
+            Antes do anúncio vêm a oferta, a página, a jornada do cliente, o atendimento no WhatsApp e a operação. Quando um desses
+            trava, mais verba só deixa o problema mais caro.
+          </p>
+          <p className="text-lg text-dark-muted leading-relaxed mb-6">
+            Por isso a Domous mede custo por cliente e receita de cada campanha, e assume junto a landing page, a oferta e o script de
+            vendas quando são eles que seguram o resultado.
+          </p>
+          <a href="/sobre/" className="font-semibold text-accent hover:text-white">Conheça a Domous →</a>
+        </div>
+        <ul className="grid grid-cols-2 gap-4">
+          {["Oferta", "Página", "Atendimento no WhatsApp", "Anúncio", "Medição até a venda", "Operação"].map((etapa) => (
+            <li key={etapa} className="card-dark rounded-2xl border p-5 text-white font-semibold">{etapa}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <Perguntas faq={home.faq} />
+
+    <CtaFinal origem="home-final" />
+  </Layout>
+);
 
 export default Index;
