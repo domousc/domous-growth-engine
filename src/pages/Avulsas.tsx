@@ -3,7 +3,10 @@ import time from "@/assets/time-domous.jpg";
 import kairo from "@/assets/kairo-hero.jpg";
 import Layout from "@/components/site/Layout";
 import Clientes from "@/components/site/Clientes";
-import { CtaFinal, Perguntas, Resultados, Secoes, Topo } from "@/components/site/Blocos";
+import { Perguntas, Resultados, Secoes, Topo } from "@/components/site/Blocos";
+import ContaRapida from "@/components/site/ContaRapida";
+import MonteMensagem from "@/components/site/MonteMensagem";
+import PainelExemplo from "@/components/site/PainelExemplo";
 import { guia, quantoCusta, resultadosPagina, sobre } from "@/data/paginas";
 import { site } from "@/data/site";
 
@@ -18,12 +21,8 @@ export const QuantoCusta = () => (
     />
     <Secoes secoes={quantoCusta.secoes} />
     <Perguntas faq={quantoCusta.faq} />
-    <CtaFinal
-      origem="quanto-custa-final"
-      titulo="Quer o valor pro teu caso?"
-      texto="Chama no WhatsApp. A gente entende o momento da empresa e devolve o plano com o valor, antes de você fechar qualquer coisa."
-      waTexto="Oi! Quero entender quanto custa trabalhar com a Domous."
-    />
+    <ContaRapida origem="quanto-custa-conta" />
+    <MonteMensagem origem="quanto-custa-final" titulo="Quer o valor pro teu caso? Monta tua mensagem" />
   </Layout>
 );
 
@@ -38,7 +37,8 @@ export const Cases = () => (
     />
     <Resultados titulo="Números por segmento" />
     <Clientes titulo="Algumas empresas que já passaram pela Domous" />
-    <CtaFinal origem="cases-final" titulo="Quer um resultado desses no teu negócio?" />
+    <PainelExemplo />
+    <MonteMensagem origem="cases-final" titulo="Quer um resultado desses no teu negócio?" />
   </Layout>
 );
 
@@ -66,7 +66,7 @@ export const Sobre = () => (
       </div>
     </section>
     <Clientes />
-    <CtaFinal origem="sobre-final" />
+    <MonteMensagem origem="sobre-final" />
   </Layout>
 );
 
@@ -82,10 +82,6 @@ export const Guia = () => (
       origem="guia"
     />
     <Secoes secoes={guia.secoes} />
-    <CtaFinal
-      origem="guia-final"
-      titulo="Quer fazer essas perguntas pra Domous?"
-      texto="Chama no WhatsApp. A gente responde cada uma e mostra o plano antes de você decidir."
-    />
+    <MonteMensagem origem="guia-final" titulo="Quer fazer essas perguntas pra Domous?" />
   </Layout>
 );

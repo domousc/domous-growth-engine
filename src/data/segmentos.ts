@@ -1,7 +1,119 @@
 // Páginas de segmento do ICP. Mesmo formato das páginas de serviço.
+// As duas primeiras falam com o ICP principal (empresas acima de R$ 1 milhão/mês).
+// Regra: nenhum cliente é citado nem ligado a resultado. Case só por segmento.
 import type { Pagina } from './servicos';
 
 export const segmentos: Pagina[] = [
+  {
+    slug: 'construtoras-e-incorporadoras',
+    nome: 'Construtoras e incorporadoras',
+    titulo: 'Marketing para construtoras e incorporadoras em João Pessoa | Domous',
+    h1: 'Marketing e vendas para construtoras e incorporadoras',
+    descricao:
+      'Tráfego pago, atendimento do lead e medição até a venda pra lançamento e estoque: custo por venda, lead que vira visita e corretor que responde rápido.',
+    resposta:
+      'A Domous trabalha com construtoras e incorporadoras acompanhando o lead do anúncio até a assinatura: campanha por empreendimento e por perfil de comprador, lead entregue rápido pro corretor certo e medição de quantos contatos viraram visita, proposta e venda. A pergunta que guia o trabalho é quanto custa cada venda, e não quanto custa cada lead.',
+    waTexto: 'Oi! Sou de uma construtora e quero entender como a Domous mede o que o marketing vende.',
+    secoes: [
+      {
+        titulo: 'Onde o marketing de construtora costuma perder dinheiro',
+        paragrafos: [
+          'Lead imobiliário barato é fácil de conseguir e quase sempre vem cheio de curioso. O corretor diz que o lead é ruim, o marketing diz que o corretor não atende, e ninguém consegue provar nada porque o caminho entre o cadastro e a assinatura não é registrado.',
+          'No meio disso tem o comprador que mora fora da Paraíba, o investidor que decide pelo celular e o lead que chegou num sábado à noite e só foi respondido na segunda. Cada um desses é venda que a verba pagou e o processo deixou escapar.',
+        ],
+      },
+      {
+        titulo: 'O que a gente faz',
+        paragrafos: [],
+        itens: [
+          'Campanhas por empreendimento, por fase (pré-lançamento, lançamento e estoque) e por perfil de comprador: quem vai morar, quem vai investir e quem compra de outro estado',
+          'Segmentação por região e por CEP de alta renda quando o produto pede',
+          'Book do empreendimento: estrutura, curadoria das imagens que a construtora já tem, textos de venda e diagramação',
+          'Distribuição do lead e roteiro de qualificação no WhatsApp pro corretor: renda, entrada, prazo e interesse',
+          'Registro da origem de cada venda e envio da venda de volta pro Meta e pro Google, pra plataforma buscar mais gente parecida com quem comprou',
+          'Painel com custo por lead qualificado, por visita e por venda, separado por empreendimento',
+        ],
+      },
+      {
+        titulo: 'Os números que a gente acompanha com a construtora',
+        paragrafos: [
+          'Custo por lead qualificado, taxa de lead que vira visita, de visita que vira proposta e de proposta que vira venda, tempo de resposta do corretor e venda por canal (time próprio, imobiliária parceira e digital). Com isso dá pra saber onde a verba rende e onde o problema está no atendimento.',
+        ],
+      },
+    ],
+    resultados: ['imoveis-6-vendas'],
+    faq: [
+      {
+        p: 'Agência de tráfego pago serve pra construtora de grande porte?',
+        r: 'Serve quando ela trabalha junto com o processo de venda. Anúncio sozinho gera cadastro; o que gera venda é campanha certa pro perfil de comprador, lead entregue rápido pro corretor e medição até a assinatura. É assim que a Domous trabalha com construtora.',
+      },
+      {
+        p: 'Como saber quantas vendas de um lançamento vieram do marketing?',
+        r: 'Registrando a origem de cada lead e cruzando com as vendas. A Domous organiza esse registro com o time comercial e manda as vendas de volta pras plataformas de anúncio, o que também melhora a qualidade dos próximos leads.',
+      },
+      {
+        p: 'Como lidar com o lead que o corretor diz que é ruim?',
+        r: 'Com dado. Quando a origem e o andamento de cada lead ficam registrados, dá pra ver se o problema está na campanha (perfil errado) ou no atendimento (demora, falta de retorno). Os dois têm solução diferente.',
+      },
+      {
+        p: 'A Domous faz fotografia e render do empreendimento?',
+        r: 'Não. A Domous monta o book em cima das fotos, renders e plantas que a construtora já tem. Fotografia e render ficam com estúdio parceiro.',
+      },
+    ],
+  },
+  {
+    slug: 'distribuidores-e-atacado',
+    nome: 'Distribuidores e atacado',
+    titulo: 'Marketing para distribuidores, atacado e varejo de material de construção | Domous',
+    h1: 'Marketing e vendas para distribuidores e atacado',
+    descricao:
+      'Campanha separada pra consumidor final e pra profissional e empresa, vendedor no WhatsApp com processo e medição de quanto o digital vende de verdade.',
+    resposta:
+      'A Domous trabalha com distribuidores, atacadistas e varejo grande de material elétrico, hidráulico e de construção separando o que quase todo mundo mistura: o consumidor final que reforma a casa e o profissional ou a empresa que compra todo mês. Cada público ganha campanha, oferta e atendimento próprios no WhatsApp, e a medição mostra quanto do faturamento veio do digital.',
+    waTexto: 'Oi! Sou de um distribuidor e quero entender quanto o digital pode vender pra gente.',
+    secoes: [
+      {
+        titulo: 'Por que o marketing de distribuidor costuma render pouco',
+        paragrafos: [
+          'A mesma campanha fala com quem vai trocar um chuveiro e com o eletricista que compra toda semana. O vendedor responde por ordem de chegada, sem saber quem é cliente grande. A venda fecha no WhatsApp ou no balcão e desaparece do relatório. E a empresa com várias unidades aparece na internet como se fosse uma loja só, brigando por preço com home center e marketplace.',
+        ],
+      },
+      {
+        titulo: 'O que a gente faz',
+        paragrafos: [],
+        itens: [
+          'Campanhas separadas pra consumidor final e pra profissional e empresa (eletricista, instalador, empreiteiro, construtora, condomínio)',
+          'Google Ads pra quem procura produto, marca e categoria com intenção de compra na região',
+          'O vendedor como anúncio: vídeo curto resolvendo problema de obra, com o WhatsApp dele no botão',
+          'WhatsApp com distribuição entre vendedores, orçamento pela foto da lista e meta de tempo de resposta',
+          'Processo comercial pro atacado: lista de empresas, cadência de contato, CRM e proposta',
+          'Perfil da Empresa no Google por unidade e rotina de avaliações',
+          'Medição de conversas reais e pedidos por campanha, cruzando com o que o ERP registra',
+        ],
+      },
+      {
+        titulo: 'Preço não precisa ser o centro',
+        paragrafos: [
+          'Quem compete só por preço perde pro celular do cliente. O que um distribuidor tem e o marketplace não tem é vendedor que entende de obra, entrega rápida na região e condição pro profissional. A comunicação passa a vender isso, e a oferta de preço entra como apoio.',
+        ],
+      },
+    ],
+    resultados: [],
+    faq: [
+      {
+        p: 'Como saber quanto o anúncio vende se o pedido fecha no WhatsApp ou no balcão?',
+        r: 'Registrando a origem da conversa e do pedido. A Domous usa a API oficial do WhatsApp e a API de Conversões pra contar conversa real (e não só a que a plataforma reporta) e cruza com os pedidos pra chegar no custo por cliente.',
+      },
+      {
+        p: 'Vale anunciar pra profissional e empresa (PJ)?',
+        r: 'Normalmente é o público que mais vale: compra com frequência, indica e tem ticket somado alto. Ele pede campanha, oferta e atendimento diferentes do consumidor final.',
+      },
+      {
+        p: 'Distribuidor precisa de loja virtual?',
+        r: 'Não necessariamente. Muitos vendem bem com catálogo e WhatsApp. A loja virtual entra quando o mix e a logística permitem vender fora da região ou quando o cliente quer comprar sem falar com vendedor.',
+      },
+    ],
+  },
   {
     slug: 'lojas-de-moveis',
     nome: 'Lojas de móveis',
@@ -92,7 +204,7 @@ export const segmentos: Pagina[] = [
     descricao:
       'Tráfego pago pra corretor e imobiliária: lead qualificado por região e renda, book do empreendimento e atendimento no WhatsApp. Domous, João Pessoa.',
     resposta:
-      'A Domous faz anúncio pra corretores de imóveis, imobiliárias e lançamentos com foco em lead qualificado: segmentação por região e renda, criativo por empreendimento e um atendimento no WhatsApp que separa curioso de comprador. Um corretor de João Pessoa atendido pela Domous fechou uma venda com R$ 350 de verba de mídia.',
+      'A Domous faz anúncio pra corretores de imóveis, imobiliárias e lançamentos com foco em lead qualificado: segmentação por região e renda, criativo por empreendimento e um atendimento no WhatsApp que separa curioso de comprador. Numa operação imobiliária atendida pela Domous, foram 6 imóveis vendidos em um mês com R$ 2.900 de verba; num corretor de João Pessoa, uma venda saiu com R$ 350.',
     waTexto: 'Oi! Sou corretor e quero anunciar meus imóveis.',
     secoes: [
       {
@@ -113,11 +225,11 @@ export const segmentos: Pagina[] = [
         ],
       },
     ],
-    resultados: ['corretor-de-imoveis'],
+    resultados: ['imoveis-6-vendas', 'corretor-de-imoveis'],
     faq: [
       {
         p: 'Quanto um corretor precisa investir em anúncio?',
-        r: 'Depende do valor do imóvel e de quantos contatos o corretor consegue atender bem. Um corretor de João Pessoa atendido pela Domous fechou venda com R$ 350 de verba, o que mostra que verba pequena funciona quando a segmentação e o atendimento estão certos.',
+        r: 'Depende do valor do imóvel e de quantos contatos o corretor consegue atender bem. Numa operação imobiliária atendida pela Domous, R$ 2.900 de verba renderam 6 imóveis vendidos em um mês, o que mostra que a conta fecha quando a segmentação e o atendimento estão certos.',
       },
       {
         p: 'A Domous faz as fotos e renders do empreendimento?',

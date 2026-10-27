@@ -1,6 +1,7 @@
 // Páginas /servicos/ e /segmentos/: lista com link pra cada página.
 import Layout from "@/components/site/Layout";
-import { CtaFinal, GradeCartoes, Topo } from "@/components/site/Blocos";
+import { GradeCartoes, Topo } from "@/components/site/Blocos";
+import MonteMensagem from "@/components/site/MonteMensagem";
 import { servicos } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
 import { indices } from "@/data/paginas";
@@ -22,7 +23,7 @@ const Indice = ({ tipo }: { tipo: keyof typeof indices }) => {
           <GradeCartoes itens={lista.map((p) => ({ titulo: p.nome, texto: p.descricao, href: `/${tipo}/${p.slug}/` }))} />
         </div>
       </section>
-      <CtaFinal origem={`${tipo}-final`} />
+      <MonteMensagem origem={`${tipo}-final`} />
     </Layout>
   );
 };

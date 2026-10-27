@@ -11,6 +11,16 @@ export type Resultado = {
 
 export const resultados: Resultado[] = [
   {
+    id: 'imoveis-6-vendas',
+    segmento: 'Imobiliário',
+    titulo: '6 imóveis vendidos em 1 mês com R$ 2.900 de verba',
+    metricas: [
+      { rotulo: 'Imóveis vendidos', valor: '6' },
+      { rotulo: 'Prazo', valor: '1 mês' },
+      { rotulo: 'Verba de mídia', valor: 'R$ 2.900' },
+    ],
+  },
+  {
     id: 'loja-de-moveis',
     segmento: 'Loja de móveis',
     titulo: 'R$ 300 mil a mais por mês em 3 meses',

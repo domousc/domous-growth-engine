@@ -2,27 +2,62 @@
 import type { Pergunta, Secao } from './servicos';
 
 export const home = {
-  titulo: 'Domous | Agência de tráfego pago em João Pessoa',
+  titulo: 'Domous | Agência de tráfego pago e growth em João Pessoa',
   descricao:
-    'A Domous é uma agência de tráfego pago e growth de João Pessoa. Meta Ads, Google Ads, loja virtual, CRM com IA no WhatsApp e consultoria comercial. +70 empresas atendidas.',
-  h1: 'Agência de tráfego pago em João Pessoa',
+    'A Domous é uma agência de tráfego pago e growth de João Pessoa pra empresas que querem saber quanto o marketing vende. Meta Ads, Google Ads, processo comercial, CRM com IA no WhatsApp e painel de investimento x receita.',
+  h1: 'Tua empresa cresceu. Agora o marketing precisa mostrar quanto vende.',
   resposta:
-    'A Domous é uma agência de tráfego pago e crescimento de João Pessoa, na Paraíba. A gente cuida do anúncio no Meta Ads e no Google Ads e também do que vem depois dele: oferta, página, atendimento no WhatsApp e medição até a venda. Já são mais de 70 empresas atendidas e mais de R$ 50 milhões em vendas geradas pros clientes.',
+    'A Domous é uma agência de tráfego pago e crescimento de João Pessoa, na Paraíba. A gente cuida do anúncio no Meta Ads e no Google Ads e também do que vem depois dele: oferta, atendimento no WhatsApp, processo comercial e medição até a venda. Já são mais de 70 empresas atendidas e mais de R$ 50 milhões em vendas geradas pros clientes.',
+  // Frases que o dono de empresa fala. A resposta mostra o que a Domous faz com cada uma.
+  dores: [
+    {
+      frase: 'Invisto todo mês e não sei quanto volta.',
+      resposta: 'Cada campanha é amarrada à venda: conversa real, orçamento e pedido. Você recebe custo por cliente e receita, não alcance.',
+    },
+    {
+      frase: 'O lead chega e o vendedor não dá conta.',
+      resposta: 'Roteiro de atendimento, distribuição entre vendedores e tempo de resposta medido. Quando o volume pede, um agente de IA atende 24 horas.',
+    },
+    {
+      frase: 'Já tive agência. Relatório bonito, venda igual.',
+      resposta: 'O plano vem antes do contrato, com meta de custo por cliente no papel. O relatório começa pela venda.',
+    },
+    {
+      frase: 'Dependo de indicação e do balcão.',
+      resposta: 'Campanha pra cada público que compra, inclusive o profissional e a empresa que compram todo mês, com o WhatsApp do vendedor no botão.',
+    },
+  ],
   passos: [
     {
       titulo: 'Raio-X',
-      texto: 'A gente olha teu número atual, teu funil e o que dá pra destravar primeiro.',
+      texto: 'A gente olha teus números, tuas contas de anúncio, teu atendimento e o caminho do cliente até a venda.',
     },
     {
       titulo: 'Plano',
-      texto: 'Você recebe o plano de mídia, a estrutura de campanha e a meta de CAC antes de qualquer real ser investido.',
+      texto: 'Você recebe a estrutura de campanha, a verba por canal e a meta de custo por cliente antes de qualquer real investido.',
+    },
+    {
+      titulo: 'Estrutura',
+      texto: 'Rastreio de conversa e de venda, roteiro do WhatsApp e, quando faz sentido, página e CRM.',
     },
     {
       titulo: 'Operação',
-      texto: 'A gente sobe, otimiza toda semana e te manda o número. Sem relatório de vaidade.',
+      texto: 'Campanhas no ar, otimização toda semana, número toda semana e reunião de resultado todo mês.',
     },
   ],
   faq: [
+    {
+      p: 'A Domous atende empresa do meu porte?',
+      r: 'A carteira da Domous vai de negócio local a empresa com várias unidades. Pra empresa maior, o trabalho junta tráfego, processo comercial e medição de venda, com a estratégia pensada pelo fundador.',
+    },
+    {
+      p: 'Já tive agência e não deu certo. O que muda?',
+      r: 'Três coisas: você vê o plano e a meta de custo por cliente antes de fechar, a gente olha o atendimento no WhatsApp junto com o anúncio, e o relatório começa por venda e receita.',
+    },
+    {
+      p: 'Meu problema é o comercial, não o anúncio. A Domous ajuda?',
+      r: 'Sim. A consultoria de marketing e vendas monta oferta, matriz de objeções e roteiro de mensagens e treina o time, e o CRM com IA organiza o atendimento. Muitas vezes é o jeito mais barato de baixar o custo por cliente.',
+    },
     {
       p: 'O que a Domous faz?',
       r: 'Gestão de tráfego pago (Meta Ads, Google Ads e TikTok Ads), consultoria de marketing e vendas, assessoria pra negócios locais, criação de loja virtual e assessoria de e-commerce, CRM com IA no WhatsApp e produção de conteúdo e vídeo pra redes sociais e anúncios.',
@@ -33,7 +68,7 @@ export const home = {
     },
     {
       p: 'Que tipo de empresa a Domous atende?',
-      r: 'Empresas com produto validado que querem crescer, principalmente as que vendem pelo WhatsApp: lojas de móveis, clínicas de estética e consultórios, corretores e imobiliárias, lojas de material de construção e varejo que vende ou quer vender online.',
+      r: 'Empresas com produto validado que querem crescer, principalmente as que vendem pelo WhatsApp: construtoras e incorporadoras, distribuidores e atacado, lojas de móveis e varejo de ticket alto, clínicas e consultórios, corretores e e-commerce.',
     },
     {
       p: 'A Domous atende fora de João Pessoa?',
@@ -41,7 +76,7 @@ export const home = {
     },
     {
       p: 'Precisa assinar contrato antes de ver o plano?',
-      r: 'Não. Você vê o plano de mídia, a estrutura de campanha e a meta de CAC antes de fechar.',
+      r: 'Não. Você vê o plano de mídia, a estrutura de campanha e a meta de custo por cliente antes de fechar.',
     },
   ] as Pergunta[],
 };
@@ -202,5 +237,5 @@ export const resultadosPagina = {
     "Resultados reais de operações da Domous: lojas de móveis, clínicas de estética, consultórios, corretores, moda e restaurantes. +70 empresas atendidas.",
   h1: "Resultados de clientes da Domous",
   resposta:
-    "A Domous já atendeu mais de 70 empresas e gerou mais de R$ 50 milhões em vendas pros clientes. Abaixo estão resultados de operações reais, por segmento: de uma loja de móveis que passou a faturar R$ 300 mil a mais por mês em 3 meses a um corretor de João Pessoa que fechou venda com R$ 350 de verba.",
+    "A Domous já atendeu mais de 70 empresas e gerou mais de R$ 50 milhões em vendas pros clientes. Abaixo estão resultados de operações reais, por segmento: de uma loja de móveis que passou a faturar R$ 300 mil a mais por mês em 3 meses a uma operação imobiliária que vendeu 6 imóveis em um mês com R$ 2.900 de verba.",
 };

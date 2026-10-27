@@ -46,7 +46,15 @@ export const Topo = ({
         <Trilha itens={trilha} />
         <h1 className="mb-6 text-white">{h1}</h1>
         <p className="text-lg md:text-xl text-dark-muted leading-relaxed mb-8">{resposta}</p>
-        <BotaoWhatsApp origem={origem} texto={waTexto} />
+        <div className="flex flex-col sm:flex-row gap-3">
+          <BotaoWhatsApp origem={origem} texto={waTexto} />
+          <a
+            href="#conversa"
+            className="inline-flex items-center justify-center rounded-full px-6 h-12 font-semibold border-2 border-white/20 text-white hover:border-primary hover:bg-primary/10 transition-smooth"
+          >
+            Montar minha mensagem
+          </a>
+        </div>
         {children}
       </div>
     </div>
@@ -146,26 +154,6 @@ export const Perguntas = ({ faq, titulo = "Perguntas frequentes" }: { faq: Pergu
     </section>
   );
 };
-
-export const CtaFinal = ({
-  origem,
-  titulo = "Bora fazer teu mês virar?",
-  texto = "Chama no WhatsApp e a gente monta o plano pro teu caso, com a meta de custo por cliente antes de qualquer real investido.",
-  waTexto,
-}: {
-  origem: string;
-  titulo?: string;
-  texto?: string;
-  waTexto?: string;
-}) => (
-  <section className="section-dark purple-glow py-20 md:py-28 relative overflow-hidden">
-    <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center max-w-2xl">
-      <h2 className="mb-5 text-white">{titulo}</h2>
-      <p className="text-lg text-dark-muted mb-8">{texto}</p>
-      <BotaoWhatsApp origem={origem} texto={waTexto} label="Falar com a Domous" />
-    </div>
-  </section>
-);
 
 export type Cartao = { titulo: string; texto: string; href: string };
 
