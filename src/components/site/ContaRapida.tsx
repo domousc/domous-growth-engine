@@ -106,6 +106,7 @@ const ContaRapida = ({ origem }: { origem: string }) => {
             target="_blank"
             rel="noopener noreferrer"
             data-cta="whatsapp"
+            data-origem={origem}
             onClick={() => {
               window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({ event: "click_whatsapp", cta_label: "conta-rapida", origem, nao_sei: naoSei });

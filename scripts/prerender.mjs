@@ -16,6 +16,17 @@ const OG_IMAGEM = `${SITE}/og-domous.jpg`;
 const { render, rotas, rota404, servicos, segmentos, home, quantoCusta, sobre, guia, resultados, guias } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
 const modelo = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
 
+// Rastreio (rastreio.json). Só entra o script do ID preenchido. O clique em qualquer
+// link de WhatsApp (data-cta="whatsapp") vira evento de lead no GA4 e no pixel.
+const ids = JSON.parse(fs.readFileSync(path.join(raiz, "rastreio.json"), "utf-8"));
+const rastreio = [
+  ids.ga4 && `<script async src="https://www.googletagmanager.com/gtag/js?id=${ids.ga4}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${ids.ga4}");</script>`,
+  ids.clarity && `<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","${ids.clarity}");</script>`,
+  ids.metaPixel && `<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","${ids.metaPixel}");fbq("track","PageView");</script>`,
+  (ids.ga4 || ids.metaPixel) &&
+    `<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('[data-cta="whatsapp"]');if(!a)return;var o=a.getAttribute("data-origem")||location.pathname;if(window.gtag)gtag("event","generate_lead",{method:"whatsapp",origem:o,page_path:location.pathname});if(window.fbq)fbq("track","Contact",{origem:o});},true);</script>`,
+].filter(Boolean);
+
 const attr = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 const texto = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
 // JSON dentro de <script>: "<" escapado pra nenhum texto fechar a tag sem querer.
@@ -39,6 +50,7 @@ function cabecalho(rota) {
     `<meta name="twitter:description" content="${attr(rota.descricao)}" />`,
     `<meta name="twitter:image" content="${OG_IMAGEM}" />`,
     ...rota.jsonLd.map((ld) => `<script type="application/ld+json">${json(ld)}</script>`),
+    ...rastreio,
   ].join("\n    ");
 }
 

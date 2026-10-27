@@ -108,6 +108,7 @@ const MonteMensagem = ({
               target="_blank"
               rel="noopener noreferrer"
               data-cta="whatsapp"
+              data-origem={origem}
               onClick={() => {
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({ event: "click_whatsapp", cta_label: "monte-mensagem", origem, setor, faturamento, dor });
