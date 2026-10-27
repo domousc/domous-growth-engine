@@ -1,6 +1,6 @@
 # Rotina diária do Domous News (1 notícia por dia)
 
-Domous News é a seção de notícias do site (domous.com.br/news). Todo dia sai **uma** notícia de marketing, vendas, negócios ou inteligência artificial que mexe com a receita das empresas, com a leitura da Domous. Se algum passo falhar, **não publique**: registre em `docs/blog/registro.md`, faça commit só do registro e pare.
+Domous News é a seção de notícias do site (domous.com.br/news). Todo dia saem **uma ou duas** notícias de marketing, vendas, negócios ou inteligência artificial que mexe com a receita das empresas, com a leitura da Domous. Se algum passo falhar, **não publique**: registre em `docs/blog/registro.md`, faça commit só do registro e pare.
 
 ## Público
 Diretores e gerentes de marketing, diretores comerciais e donos de empresas grandes (acima de R$ 1 milhão/mês), muitos com formação em marketing tradicional. Querem saber o que mudou, se afeta a empresa deles e o que fazer. Não querem hype nem jargão de growth hacker.
@@ -8,7 +8,10 @@ Diretores e gerentes de marketing, diretores comerciais e donos de empresas gran
 ## 1. Preparar
 - `git checkout main && git pull`; `npm install` se faltar `node_modules`.
 - Data de hoje no fuso de João Pessoa: `TZ=America/Fortaleza date +%F`.
-- Se já existe post com `"tipo": "noticia"` e `publicado` igual a hoje em `src/content/posts/`, pare.
+- Conte as notícias (`"tipo": "noticia"`) com `publicado` igual a hoje em `src/content/posts/`:
+  - **0:** edição normal, siga o passo a passo.
+  - **1:** edição extra (a rotina roda de manhã e à tarde). Só publique se achar uma notícia com **nota 20 ou mais** no passo 3 e de **assunto diferente** da já publicada hoje. Se não achar, pare sem publicar e sem registrar (é normal sair só uma por dia).
+  - **2 ou mais:** pare.
 
 ## 2. Garimpar a pauta (ferramenta WebSearch)
 Procure o que saiu nas **últimas 48 horas**. Faça de 6 a 10 buscas cobrindo:
@@ -37,6 +40,7 @@ Fora: política partidária e eleição, fofoca de empresa, celebridade, cripto 
 
 ## 5. Escrever
 Arquivo `src/content/posts/<slug>.ts`, formato de `src/content/posts/meta-adia-novos-termos-comerciais-20-de-novembro.ts`:
+- `editoria`: uma de `marketing`, `vendas`, `negocios`, `ia`, `varejo` (a que o leitor procuraria).
 - `tipo: "noticia"`, `nivel: "brasil"` (ou `"joao-pessoa"`/`"paraiba"` se for local), `palavraChave`: como as pessoas vão buscar a notícia.
 - `titulo`: "<h1> | Domous News". O h1 diz o fato e o impacto: "<Quem> <fez o quê>: o que muda pra <quem>".
 - `resposta`: 2 a 4 frases com o fato, a data e por que importa.

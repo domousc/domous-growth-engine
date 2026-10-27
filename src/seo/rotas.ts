@@ -14,6 +14,7 @@ export type Rota = {
   descricao: string;
   jsonLd: Record<string, unknown>[];
   noindex?: boolean;
+  imagem?: string;
 };
 
 const ORG_ID = `${site.url}/#organizacao`;
@@ -264,6 +265,7 @@ rotas.push(
       path,
       titulo: p.titulo,
       descricao: p.descricao,
+      imagem: `${site.url}/img/posts/${p.slug}-og.png`,
       jsonLd: [
         organizacao,
         {
@@ -279,7 +281,7 @@ rotas.push(
           datePublished: p.publicado,
           dateModified: p.atualizado,
           mainEntityOfPage: url(path),
-          image: `${site.url}/og-domous.jpg`,
+          image: [`${site.url}/img/posts/${p.slug}-og.png`, `${site.url}/img/posts/${p.slug}-post.png`],
           about: p.servicos.map((s) => ({ "@id": `${url(`/servicos/${s}/`)}#servico` })),
           ...(p.fontes?.length ? { citation: p.fontes.map((f) => f.url) } : {}),
         },

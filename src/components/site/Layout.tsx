@@ -4,9 +4,9 @@ import Cabecalho from "./Cabecalho";
 import Rodape from "./Rodape";
 import { wa } from "@/data/site";
 
-const Layout = ({ children, origem }: { children: ReactNode; origem: string }) => (
+const Layout = ({ children, origem, cabecalhoSolido = false }: { children: ReactNode; origem: string; cabecalhoSolido?: boolean }) => (
   <div className="min-h-screen overflow-x-hidden">
-    <Cabecalho />
+    <Cabecalho solido={cabecalhoSolido} />
     <main>{children}</main>
     <Rodape />
     <a

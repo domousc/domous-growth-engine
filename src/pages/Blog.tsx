@@ -6,15 +6,12 @@ import { BookOpen, Clock, ExternalLink } from "lucide-react";
 import Layout from "@/components/site/Layout";
 import { GradeCartoes, Perguntas, Secoes, Topo } from "@/components/site/Blocos";
 import MonteMensagem from "@/components/site/MonteMensagem";
+import BaixarArtes from "@/components/site/BaixarArtes";
 import { posts, postPorSlug } from "@/content/posts";
-import { caminhoPost, ehNoticia, rotuloTipo, type Post, type TipoPost } from "@/content/tipos";
+import { caminhoPost, dataBR, ehNoticia, minutosLeitura, rotuloTipo, type Post, type TipoPost } from "@/content/tipos";
 import { guia as guiaAgencia } from "@/data/paginas";
 import { servicoPorSlug, type Pagina } from "@/data/servicos";
 import NotFound from "./NotFound";
-
-const dataBR = (iso: string) => iso.split("-").reverse().join("/");
-const minutos = (p: Post) =>
-  Math.max(2, Math.round([p.resposta, ...p.secoes.flatMap((s) => [...s.paragrafos, ...(s.itens ?? [])]), ...p.faq.map((f) => f.r)].join(" ").split(/\s+/).length / 200));
 
 const cartao = (p: Post) => ({ titulo: `${rotuloTipo[p.tipo]} · ${p.h1}`, texto: p.descricao, href: caminhoPost(p) });
 const artigos = posts.filter((p) => !ehNoticia(p));
@@ -67,27 +64,6 @@ export const BlogIndice = () => {
   );
 };
 
-export const NewsIndice = () => (
-  <Layout origem="news">
-    <Topo
-      trilha={[{ nome: "Início", href: "/" }, { nome: "Domous News", href: "/news/" }]}
-      h1="Domous News: o que muda em marketing, vendas, negócios e IA"
-      resposta="Todo dia, a notícia de marketing, vendas, negócios ou inteligência artificial que mais mexe com a receita das empresas, com a leitura da Domous: por que importa e o que fazer agora. Pra diretores de marketing, diretores comerciais e donos de empresa."
-      origem="news"
-    />
-    <section className="py-16 md:py-24">
-      <div className="container mx-auto px-4 lg:px-8">
-        {noticias.length ? (
-          <GradeCartoes itens={noticias.map((p) => ({ ...cartao(p), titulo: `${p.publicado.split("-").reverse().join("/")} · ${p.h1}` }))} />
-        ) : (
-          <p className="text-muted-foreground">A primeira edição sai em breve.</p>
-        )}
-      </div>
-    </section>
-    <MonteMensagem origem="news-final" />
-  </Layout>
-);
-
 export const PostPagina = () => {
   const { slug } = useParams();
   const p = slug ? postPorSlug(slug) : undefined;
@@ -111,7 +87,7 @@ export const PostPagina = () => {
         <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-dark-muted">
           <span className="rounded-full bg-primary/20 px-3 py-1 text-xs font-semibold text-accent">{rotuloTipo[p.tipo]}</span>
           <span className="inline-flex items-center gap-1.5"><BookOpen className="w-4 h-4" aria-hidden /> Por <a href="/sobre/kairo-lucas/" className="text-white hover:underline">Kairo Lucas</a>, Domous</span>
-          <span className="inline-flex items-center gap-1.5"><Clock className="w-4 h-4" aria-hidden /> {minutos(p)} min de leitura</span>
+          <span className="inline-flex items-center gap-1.5"><Clock className="w-4 h-4" aria-hidden /> {minutosLeitura(p)} min de leitura</span>
           <span>Atualizado em <time dateTime={p.atualizado}>{dataBR(p.atualizado)}</time></span>
         </p>
       </Topo>
@@ -133,6 +109,7 @@ export const PostPagina = () => {
         </section>
       ) : null}
       <Perguntas faq={p.faq} />
+      <BaixarArtes p={p} />
       {servicos.length > 0 && (
         <section className="py-16 md:py-20 border-t border-border">
           <div className="container mx-auto px-4 lg:px-8">

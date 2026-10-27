@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { gerarArtes } from "./artes.mjs";
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(raiz, "dist");
@@ -44,11 +45,11 @@ function cabecalho(rota) {
     `<meta property="og:title" content="${attr(rota.titulo)}" />`,
     `<meta property="og:description" content="${attr(rota.descricao)}" />`,
     `<meta property="og:url" content="${url}" />`,
-    `<meta property="og:image" content="${OG_IMAGEM}" />`,
+    `<meta property="og:image" content="${rota.imagem ?? OG_IMAGEM}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${attr(rota.titulo)}" />`,
     `<meta name="twitter:description" content="${attr(rota.descricao)}" />`,
-    `<meta name="twitter:image" content="${OG_IMAGEM}" />`,
+    `<meta name="twitter:image" content="${rota.imagem ?? OG_IMAGEM}" />`,
     `<link rel="alternate" type="application/rss+xml" title="Blog da Domous" href="${SITE}/blog/feed.xml" />`,
     ...rota.jsonLd.map((ld) => `<script type="application/ld+json">${json(ld)}</script>`),
     ...rastreio,
@@ -167,6 +168,10 @@ ${itens}
 </rss>
 `,
 );
+
+// Artes pra baixar e postar (feed, story) e imagem de compartilhamento de cada post.
+const artes = await gerarArtes(posts, { raiz, dist, logoPath: path.join(raiz, "src", "assets", "logo-domous-white.png") });
+console.log(`Artes geradas: ${artes}`);
 
 fs.rmSync(distSsr, { recursive: true, force: true });
 console.log(`Pré-renderizadas ${rotas.length} páginas + 404, sitemap.xml, llms.txt e llms-full.txt`);

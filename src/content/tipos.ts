@@ -4,6 +4,7 @@ import type { Pergunta, Secao } from "@/data/servicos";
 
 export type TipoPost = "guia" | "estudo" | "analise" | "case" | "opiniao" | "noticia";
 export type NivelPost = "joao-pessoa" | "paraiba" | "brasil";
+export type Editoria = "marketing" | "vendas" | "negocios" | "ia" | "varejo";
 
 export type Post = {
   slug: string;
@@ -20,7 +21,23 @@ export type Post = {
   publicado: string;
   atualizado: string;
   fontes?: { nome: string; url: string }[];
+  // Só notícias (Domous News).
+  editoria?: Editoria;
 };
+
+export const rotuloEditoria: Record<Editoria, string> = {
+  marketing: "Marketing",
+  vendas: "Vendas",
+  negocios: "Negócios",
+  ia: "Inteligência artificial",
+  varejo: "Varejo e consumo",
+};
+
+export const dataBR = (iso: string) => iso.split("-").reverse().join("/");
+
+// Minutos de leitura a ~200 palavras por minuto.
+export const minutosLeitura = (p: Post) =>
+  Math.max(2, Math.round([p.resposta, ...p.secoes.flatMap((s) => [...s.paragrafos, ...(s.itens ?? [])]), ...p.faq.map((f) => f.r)].join(" ").split(/\s+/).length / 200));
 
 export const rotuloTipo: Record<TipoPost, string> = {
   guia: "Guia",

@@ -3,6 +3,7 @@ import type { Post } from "../tipos";
 const post: Post = {
   slug: "meta-adia-novos-termos-comerciais-20-de-novembro",
   tipo: "noticia",
+  editoria: "marketing",
   nivel: "brasil",
   palavraChave: "novos termos comerciais meta",
   titulo: "Meta adia novos termos comerciais pra 20 de novembro: o que muda pra quem anuncia | Domous News",

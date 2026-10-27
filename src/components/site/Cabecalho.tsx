@@ -13,7 +13,8 @@ const menu = [
   { label: "Sobre", href: "/sobre/" },
 ];
 
-const Cabecalho = () => {
+// `solido`: fundo escuro desde o topo, pra páginas de fundo claro (ex.: Domous News).
+const Cabecalho = ({ solido = false }: { solido?: boolean }) => {
   const [rolou, setRolou] = useState(false);
   const [aberto, setAberto] = useState(false);
 
@@ -27,7 +28,7 @@ const Cabecalho = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-        rolou || aberto ? "bg-[hsl(var(--dark-bg))]/95 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
+        rolou || aberto || solido ? "bg-[hsl(var(--dark-bg))]/95 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
