@@ -21,8 +21,7 @@ const QuemCuida = () => (
           das entregas.
         </p>
         <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-          Pra empresa que já fatura alto, isso significa conversar com quem decide, e não com um atendimento que muda a cada três
-          meses.
+          Pra empresa que já fatura alto, isso significa conversar direto com quem decide a estratégia.
         </p>
         <div className="flex flex-wrap gap-4 text-sm font-semibold">
           <a href="/sobre/" className="text-primary hover:underline">Conheça a Domous</a>

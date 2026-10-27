@@ -171,7 +171,7 @@ export const servicos: Pagina[] = [
         ],
       },
       {
-        titulo: 'Medir conversa real, e não só conversa reportada',
+        titulo: 'Medir a conversa que chega de verdade',
         paragrafos: [
           'O número de conversas que o Meta mostra costuma ser maior do que o número de mensagens que chegam de verdade no WhatsApp da empresa. A Domous mede as duas coisas e, quando faz sentido, liga a API oficial do WhatsApp à API de Conversões, pra plataforma aprender com quem de fato conversou e comprou.',
         ],
@@ -216,7 +216,7 @@ export const servicos: Pagina[] = [
     descricao:
       'Anúncios no Google pra quem já está procurando o que você vende: Pesquisa, Performance Max, Shopping com Merchant Center e YouTube, medidos até a venda. Domous, João Pessoa.',
     resposta:
-      'A Domous gerencia Google Ads pra capturar quem já está procurando o que a empresa vende: campanhas de Pesquisa por palavra-chave, Performance Max, Shopping com Google Merchant Center e YouTube. O trabalho inclui pesquisa de palavras, lista de termos negativos, conversões configuradas no GA4 e no Tag Manager e leitura de custo por cliente, e não só de clique.',
+      'A Domous gerencia Google Ads pra capturar quem já está procurando o que a empresa vende: campanhas de Pesquisa por palavra-chave, Performance Max, Shopping com Google Merchant Center e YouTube. O trabalho inclui pesquisa de palavras, lista de termos negativos, conversões configuradas no GA4 e no Tag Manager e leitura de custo por cliente.',
     waTexto: 'Oi! Quero falar sobre Google Ads pra minha empresa.',
     paraQuem: [
       'Negócios com demanda de busca: quem procura "o teu produto + cidade"',
@@ -840,7 +840,7 @@ export const servicos: Pagina[] = [
     descricao:
       'Rastreamento do clique até a venda e um painel com link fixo: investimento, receita, custo por cliente e desempenho por criativo e público, atualizado automaticamente.',
     resposta:
-      'A Domous organiza a medição do marketing do clique até a venda e entrega um painel com link fixo, atualizado automaticamente: quanto foi investido, quantas conversas reais chegaram, quantas viraram venda, quanto voltou em receita e o desempenho de cada anúncio ativo, criativo, conjunto e público. É a base pra decidir onde colocar verba com dado, e não com achismo.',
+      'A Domous organiza a medição do marketing do clique até a venda e entrega um painel com link fixo, atualizado automaticamente: quanto foi investido, quantas conversas reais chegaram, quantas viraram venda, quanto voltou em receita e o desempenho de cada anúncio ativo, criativo, conjunto e público. É a base pra decidir onde colocar verba com dado.',
     waTexto: 'Oi! Quero saber quanto meu marketing vende de verdade.',
     paraQuem: ['Donos que querem ver o retorno sem pedir relatório', 'Empresas com mais de um canal de anúncio', 'Quem precisa mostrar resultado pros sócios'],
     sinais: [

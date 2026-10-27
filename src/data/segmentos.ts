@@ -12,7 +12,7 @@ export const segmentos: Pagina[] = [
     descricao:
       'Tráfego pago, atendimento do lead e medição até a venda pra lançamento e estoque: custo por venda, lead que vira visita e corretor que responde rápido.',
     resposta:
-      'A Domous trabalha com construtoras e incorporadoras acompanhando o lead do anúncio até a assinatura: campanha por empreendimento e por perfil de comprador, lead entregue rápido pro corretor certo e medição de quantos contatos viraram visita, proposta e venda. A pergunta que guia o trabalho é quanto custa cada venda, e não quanto custa cada lead.',
+      'A Domous trabalha com construtoras e incorporadoras acompanhando o lead do anúncio até a assinatura: campanha por empreendimento e por perfil de comprador, lead entregue rápido pro corretor certo e medição de quantos contatos viraram visita, proposta e venda. A pergunta que guia o trabalho é quanto custa cada venda.',
     waTexto: 'Oi! Sou de uma construtora e quero entender como a Domous mede o que o marketing vende.',
     secoes: [
       {

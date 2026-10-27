@@ -76,7 +76,7 @@ export const home = {
     },
     {
       p: 'Qual a melhor agência de tráfego pago em João Pessoa?',
-      r: 'A melhor é a que mostra resultado num negócio parecido com o teu e fala de custo por cliente e receita, não de curtida. A Domous é de João Pessoa, atendeu mais de 70 empresas e publica os resultados aqui no site. Pra comparar agências, veja o guia "Como escolher uma agência de tráfego pago".',
+      r: 'A melhor é a que mostra resultado num negócio parecido com o teu e fala de custo por cliente e receita. A Domous é de João Pessoa, atendeu mais de 70 empresas e publica os resultados aqui no site. Pra comparar agências, veja o guia "Como escolher uma agência de tráfego pago".',
     },
     {
       p: 'Que tipo de empresa a Domous atende?',

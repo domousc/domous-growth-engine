@@ -258,6 +258,24 @@ rotas.push(
   }),
 );
 
+// Landing pages de anúncio: fora do Google (noindex) e fora do sitemap.
+rotas.push(
+  {
+    path: "/lp/construtoras/",
+    titulo: "Marketing que mostra quanto vende | Domous para construtoras",
+    descricao: "Anúncio, atendimento do lead e custo por venda por empreendimento, num painel que você abre quando quiser.",
+    jsonLd: [],
+    noindex: true,
+  },
+  {
+    path: "/lp/distribuidores/",
+    titulo: "Quanto o teu digital vende? | Domous para distribuidores",
+    descricao: "Campanhas separadas pra consumidor final e profissional, vendedor com processo no WhatsApp e pedido ligado à campanha.",
+    jsonLd: [],
+    noindex: true,
+  },
+);
+
 export const rota404: Rota = {
   path: "/404",
   titulo: "Página não encontrada | Domous",

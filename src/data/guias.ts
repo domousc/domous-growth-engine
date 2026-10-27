@@ -56,7 +56,7 @@ export const guias: Guia[] = [
       {
         titulo: "Como dividir a verba entre os dois",
         paragrafos: [
-          "A divisão sai do custo por cliente, e não da preferência de ninguém. Um caminho prático: começar com o canal que combina mais com a forma de compra do teu cliente, medir conversa real e venda por canal por algumas semanas e mover verba pro que entrega cliente mais barato, sem zerar o outro. Os dois se ajudam: quem vê o anúncio no Instagram e depois pesquisa a marca no Google precisa encontrar a empresa lá.",
+          "A divisão sai do custo por cliente de cada canal. Um caminho prático: começar com o canal que combina mais com a forma de compra do teu cliente, medir conversa real e venda por canal por algumas semanas e mover verba pro que entrega cliente mais barato, sem zerar o outro. Os dois se ajudam: quem vê o anúncio no Instagram e depois pesquisa a marca no Google precisa encontrar a empresa lá.",
           "O que atrapalha essa decisão é medir cada canal de um jeito. O Meta conta conversas, o Google conta cliques no botão, e nenhum dos dois sabe da venda que fechou no WhatsApp. Por isso a Domous junta os dois num painel só, com custo por venda de cada canal.",
         ],
       },
@@ -221,7 +221,7 @@ export const guias: Guia[] = [
     descricao:
       "Guia pra construtoras e incorporadoras: campanha por fase do lançamento, perfil de comprador, atendimento do lead pelo corretor e medição do custo por venda.",
     resposta:
-      "Pra vender um lançamento imobiliário com tráfego pago, a construtora precisa de campanha diferente pra cada fase (pré-lançamento, lançamento e estoque) e pra cada perfil de comprador (quem vai morar, quem vai investir e quem compra de outro estado), lead entregue rápido pro corretor certo com roteiro de qualificação, e medição do caminho do lead até a assinatura. O número que importa é o custo por venda, e não o custo por lead.",
+      "Pra vender um lançamento imobiliário com tráfego pago, a construtora precisa de campanha diferente pra cada fase (pré-lançamento, lançamento e estoque) e pra cada perfil de comprador (quem vai morar, quem vai investir e quem compra de outro estado), lead entregue rápido pro corretor certo com roteiro de qualificação, e medição do caminho do lead até a assinatura. O número que importa é o custo por venda.",
     secoes: [
       {
         titulo: "Campanha por fase do lançamento",
@@ -547,7 +547,7 @@ export const guias: Guia[] = [
     descricao:
       "O que é a API de Conversões (CAPI) do Meta, a diferença pro pixel, como ela leva a venda do WhatsApp e do CRM de volta pro anúncio e quando vale implantar.",
     resposta:
-      "A API de Conversões do Meta é uma forma de enviar os eventos de venda e de lead direto do servidor ou do sistema da empresa pro Meta, sem depender só do pixel no navegador. Pra quem vende pelo WhatsApp ou na loja, ela é o caminho pra contar ao Meta quais conversas viraram venda. Com essa informação, a campanha aprende a buscar mais gente parecida com quem compra, e não só com quem clica ou conversa.",
+      "A API de Conversões do Meta é uma forma de enviar os eventos de venda e de lead direto do servidor ou do sistema da empresa pro Meta, sem depender só do pixel no navegador. Pra quem vende pelo WhatsApp ou na loja, ela é o caminho pra contar ao Meta quais conversas viraram venda. Com essa informação, a campanha aprende a buscar mais gente parecida com quem compra.",
     secoes: [
       {
         titulo: "Pixel x API de Conversões",

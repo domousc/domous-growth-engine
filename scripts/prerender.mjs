@@ -75,7 +75,7 @@ const hoje = new Date().toISOString().slice(0, 10);
 fs.writeFileSync(
   path.join(dist, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    rotas.map((r) => `  <url><loc>${SITE}${r.path}</loc><lastmod>${hoje}</lastmod></url>`).join("\n") +
+    rotas.filter((r) => !r.noindex).map((r) => `  <url><loc>${SITE}${r.path}</loc><lastmod>${hoje}</lastmod></url>`).join("\n") +
     `\n</urlset>\n`,
 );
 
@@ -86,7 +86,7 @@ const secao = (titulo, prefixo) =>
     .filter((r) => r.path.startsWith(prefixo) && r.path !== prefixo)
     .map((r) => `- [${r.titulo.split(" | ")[0]}](${SITE}${r.path}): ${r.descricao}`)
     .join("\n");
-const avulsas = rotas.filter((r) => !/^\/(servicos|segmentos|guias)\//.test(r.path) && r.path !== "/");
+const avulsas = rotas.filter((r) => !r.noindex && !/^\/(servicos|segmentos|guias)\//.test(r.path) && r.path !== "/");
 fs.writeFileSync(
   path.join(dist, "llms.txt"),
   [

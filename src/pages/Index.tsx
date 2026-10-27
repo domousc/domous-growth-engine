@@ -17,7 +17,7 @@ import { home } from "@/data/paginas";
 import { site } from "@/data/site";
 
 const caminhos = [
-  { titulo: "Construtora ou incorporadora", texto: "Lançamento, estoque e corretor: custo por venda, não por lead.", href: "/segmentos/construtoras-e-incorporadoras/" },
+  { titulo: "Construtora ou incorporadora", texto: "Lançamento, estoque e corretor, com custo por venda medido até a assinatura.", href: "/segmentos/construtoras-e-incorporadoras/" },
   { titulo: "Distribuidor ou atacado", texto: "Consumidor final e profissional em campanhas separadas, vendedor com processo.", href: "/segmentos/distribuidores-e-atacado/" },
   { titulo: "Loja de ticket alto", texto: "Móveis e varejo: criativo por produto, WhatsApp que leva até o pedido.", href: "/segmentos/lojas-de-moveis/" },
   { titulo: "Clínica ou consultório", texto: "Agenda cheia e paciente que comparece, dentro das regras do conselho.", href: "/segmentos/clinicas-de-estetica/" },
