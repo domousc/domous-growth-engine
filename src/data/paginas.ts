@@ -219,7 +219,7 @@ export const indices = {
       "Gestão de tráfego pago, consultoria de marketing e vendas, negócios locais, loja virtual, CRM com IA no WhatsApp e conteúdo. Domous, João Pessoa.",
     h1: "Serviços da Domous",
     resposta:
-      "A Domous faz gestão de tráfego pago no Meta Ads, Google Ads e TikTok Ads e cuida do que decide se o anúncio vira venda: oferta e roteiro comercial, presença local no Google, loja virtual, atendimento com IA no WhatsApp e conteúdo que vira criativo.",
+      "A Domous faz gestão de tráfego pago no Meta Ads, Google Ads e TikTok Ads e cuida do que decide se o anúncio vira venda: landing page, oferta e roteiro comercial, presença local no Google, loja virtual, agente de IA no WhatsApp, automação, painel de resultados e conteúdo que vira criativo.",
   },
   segmentos: {
     titulo: "Segmentos que a Domous atende | Móveis, clínicas, imóveis, construção e varejo",

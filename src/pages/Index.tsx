@@ -11,12 +11,10 @@ import ContaRapida from "@/components/site/ContaRapida";
 import IaAutomacao from "@/components/site/IaAutomacao";
 import QuemCuida from "@/components/site/QuemCuida";
 import MonteMensagem from "@/components/site/MonteMensagem";
-import { GradeCartoes, Perguntas, Resultados } from "@/components/site/Blocos";
+import { Perguntas, Resultados } from "@/components/site/Blocos";
+import ServicosPorCategoria from "@/components/site/ServicosPorCategoria";
 import { home } from "@/data/paginas";
-import { servicos } from "@/data/servicos";
 import { site } from "@/data/site";
-
-const primeiraFrase = (texto: string) => texto.split(". ")[0] + ".";
 
 const caminhos = [
   { titulo: "Construtora ou incorporadora", texto: "Lançamento, estoque e corretor: custo por venda, não por lead.", href: "/segmentos/construtoras-e-incorporadoras/" },
@@ -144,7 +142,7 @@ const Index = () => (
         <p className="text-lg text-muted-foreground mb-10 max-w-2xl">
           Tráfego pago é o centro. Em volta dele, tudo que decide se o clique vira venda.
         </p>
-        <GradeCartoes itens={servicos.map((s) => ({ titulo: s.nome, texto: primeiraFrase(s.resposta), href: `/servicos/${s.slug}/` }))} />
+        <ServicosPorCategoria />
       </div>
     </section>
 

@@ -176,3 +176,93 @@ export const GradeCartoes = ({ itens, escuro = false }: { itens: Cartao[]; escur
     ))}
   </div>
 );
+
+// ── Blocos das páginas de serviço completas ──
+
+export const ParaQuem = ({ paraQuem, sinais }: { paraQuem?: string[]; sinais?: string[] }) => {
+  if (!paraQuem?.length && !sinais?.length) return null;
+  return (
+    <section className="py-16 md:py-20 bg-secondary/40">
+      <div className="container mx-auto px-4 lg:px-8 grid gap-6 md:grid-cols-2">
+        {paraQuem?.length ? (
+          <div className="bg-card rounded-2xl border border-border p-6 md:p-8 shadow-card">
+            <h2 className="text-xl md:text-2xl mb-5">Pra quem é</h2>
+            <ul className="space-y-3">
+              {paraQuem.map((i) => (
+                <li key={i} className="flex gap-3 text-foreground/85 leading-relaxed">
+                  <span className="mt-2 w-2 h-2 rounded-full gradient-domous shrink-0" aria-hidden />
+                  {i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+        {sinais?.length ? (
+          <div className="bg-card rounded-2xl border border-border border-l-4 border-l-primary p-6 md:p-8 shadow-card">
+            <h2 className="text-xl md:text-2xl mb-5">Sinais de que tu precisa</h2>
+            <ul className="space-y-3">
+              {sinais.map((i) => (
+                <li key={i} className="flex gap-3 text-foreground/85 leading-relaxed">
+                  <span className="text-primary font-bold shrink-0" aria-hidden>✓</span>
+                  {i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+};
+
+export const Etapas = ({ etapas, titulo = "Como funciona" }: { etapas?: { titulo: string; texto: string }[]; titulo?: string }) => {
+  if (!etapas?.length) return null;
+  return (
+    <section className="py-16 md:py-20">
+      <div className="container mx-auto px-4 lg:px-8">
+        <h2 className="text-2xl md:text-3xl mb-8">{titulo}</h2>
+        <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {etapas.map((e, i) => (
+            <li key={e.titulo} className="bg-card rounded-2xl border border-border p-6 shadow-card">
+              <span className="inline-flex w-9 h-9 items-center justify-center rounded-full gradient-domous text-white text-sm font-bold mb-4">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-lg font-bold mb-2">{e.titulo}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{e.texto}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+};
+
+export const MetricasFerramentas = ({ metricas, ferramentas }: { metricas?: string[]; ferramentas?: string[] }) => {
+  if (!metricas?.length && !ferramentas?.length) return null;
+  return (
+    <section className="py-16 md:py-20 border-t border-border">
+      <div className="container mx-auto px-4 lg:px-8 grid gap-10 md:grid-cols-2">
+        {metricas?.length ? (
+          <div>
+            <h2 className="text-xl md:text-2xl mb-5">O que a gente mede</h2>
+            <ul className="flex flex-wrap gap-2">
+              {metricas.map((m) => (
+                <li key={m} className="rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-sm font-medium">{m}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+        {ferramentas?.length ? (
+          <div>
+            <h2 className="text-xl md:text-2xl mb-5">Ferramentas</h2>
+            <ul className="flex flex-wrap gap-2">
+              {ferramentas.map((f) => (
+                <li key={f} className="rounded-full border border-border bg-card px-4 py-2 text-sm">{f}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+};

@@ -127,7 +127,7 @@ const PainelDomous = () => (
         </div>
         <div className="text-right">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs font-semibold">
-            <CalendarDays className="w-3.5 h-3.5" aria-hidden /> 01 set — 30 set
+            <CalendarDays className="w-3.5 h-3.5" aria-hidden /> 01 a 30 set
           </span>
           <p className="text-[11px] text-[#8A8A96] mt-1.5">Atualizado automaticamente todo dia</p>
         </div>

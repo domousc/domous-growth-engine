@@ -1,16 +1,18 @@
 // Página de serviço ou de segmento: mesmo molde, muda a lista e a trilha.
+// Ordem pensada pra decisão: resposta direta, se é pra mim, o que entra, como
+// funciona, prova, painel, objeções, quem cuida e o caminho pro WhatsApp.
 import { useParams } from "react-router-dom";
 import Layout from "@/components/site/Layout";
-import { GradeCartoes, Perguntas, Resultados, Secoes, Topo } from "@/components/site/Blocos";
+import { Etapas, GradeCartoes, MetricasFerramentas, ParaQuem, Perguntas, Resultados, Secoes, Topo } from "@/components/site/Blocos";
 import PainelExemplo from "@/components/site/PainelExemplo";
 import QuemCuida from "@/components/site/QuemCuida";
 import MonteMensagem from "@/components/site/MonteMensagem";
-import { servicos } from "@/data/servicos";
+import { servicos, type Pagina } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
 import NotFound from "./NotFound";
 
 const tipos = {
-  servicos: { lista: servicos, nome: "Serviços", outros: "Outros serviços da Domous" },
+  servicos: { lista: servicos, nome: "Serviços", outros: "Serviços relacionados" },
   segmentos: { lista: segmentos, nome: "Segmentos", outros: "Outros segmentos que a Domous atende" },
 };
 
@@ -18,11 +20,19 @@ const tipos = {
 const setorDaPagina: Record<string, string> = {
   "construtoras-e-incorporadoras": "construtora",
   "corretores-de-imoveis": "imobiliaria",
+  "book-de-empreendimento": "construtora",
   "distribuidores-e-atacado": "distribuidor",
   "material-de-construcao": "distribuidor",
   "lojas-de-moveis": "loja",
   "varejo-e-ecommerce": "loja",
+  "criacao-de-loja-virtual": "loja",
+  ecommerce: "loja",
   "clinicas-de-estetica": "clinica",
+};
+
+const relacionadosDe = (pagina: Pagina, lista: Pagina[]) => {
+  const escolhidos = pagina.relacionados?.map((s) => lista.find((p) => p.slug === s)).filter((p): p is Pagina => !!p);
+  return escolhidos?.length ? escolhidos : lista.filter((p) => p.slug !== pagina.slug);
 };
 
 const PaginaDetalhe = ({ tipo }: { tipo: keyof typeof tipos }) => {
@@ -30,6 +40,7 @@ const PaginaDetalhe = ({ tipo }: { tipo: keyof typeof tipos }) => {
   const { lista, nome, outros } = tipos[tipo];
   const pagina = lista.find((p) => p.slug === slug);
   if (!pagina) return <NotFound />;
+  const painel = tipo === "segmentos" || pagina.mostrarPainel;
 
   return (
     <Layout origem={`${tipo}-${pagina.slug}`}>
@@ -44,18 +55,19 @@ const PaginaDetalhe = ({ tipo }: { tipo: keyof typeof tipos }) => {
         origem={`${tipo}-${pagina.slug}`}
         waTexto={pagina.waTexto}
       />
+      <ParaQuem paraQuem={pagina.paraQuem} sinais={pagina.sinais} />
       <Secoes secoes={pagina.secoes} />
+      <Etapas etapas={pagina.etapas} />
+      <MetricasFerramentas metricas={pagina.metricas} ferramentas={pagina.ferramentas} />
       <Resultados ids={pagina.resultados} titulo="Resultados em operações parecidas" />
-      {tipo === "segmentos" && <PainelExemplo titulo="O painel que a tua empresa recebe" />}
+      {painel && <PainelExemplo titulo={tipo === "segmentos" ? "O painel que a tua empresa recebe" : "O painel que tu recebe"} />}
       <Perguntas faq={pagina.faq} />
-      {tipo === "segmentos" && <QuemCuida />}
+      <QuemCuida />
       <section className="py-16 md:py-20 border-t border-border">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl md:text-3xl mb-8">{outros}</h2>
           <GradeCartoes
-            itens={lista
-              .filter((p) => p.slug !== pagina.slug)
-              .map((p) => ({ titulo: p.nome, texto: p.descricao, href: `/${tipo}/${p.slug}/` }))}
+            itens={relacionadosDe(pagina, lista).map((p) => ({ titulo: p.nome, texto: p.descricao, href: `/${tipo}/${p.slug}/` }))}
           />
         </div>
       </section>

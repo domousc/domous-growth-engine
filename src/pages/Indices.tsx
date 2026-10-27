@@ -2,6 +2,7 @@
 import Layout from "@/components/site/Layout";
 import { GradeCartoes, Topo } from "@/components/site/Blocos";
 import MonteMensagem from "@/components/site/MonteMensagem";
+import ServicosPorCategoria from "@/components/site/ServicosPorCategoria";
 import { servicos } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
 import { indices } from "@/data/paginas";
@@ -20,7 +21,11 @@ const Indice = ({ tipo }: { tipo: keyof typeof indices }) => {
       />
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
-          <GradeCartoes itens={lista.map((p) => ({ titulo: p.nome, texto: p.descricao, href: `/${tipo}/${p.slug}/` }))} />
+          {tipo === "servicos" ? (
+            <ServicosPorCategoria />
+          ) : (
+            <GradeCartoes itens={lista.map((p) => ({ titulo: p.nome, texto: p.descricao, href: `/${tipo}/${p.slug}/` }))} />
+          )}
         </div>
       </section>
       <MonteMensagem origem={`${tipo}-final`} />
