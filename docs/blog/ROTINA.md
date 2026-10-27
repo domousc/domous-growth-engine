@@ -12,7 +12,7 @@ Instruções pro agente que roda todo dia. Siga na ordem. Se algum passo falhar,
 - Leia `docs/blog/ESTRATEGIA.md` inteiro.
 - Abra `docs/blog/pauta.json` e pegue o **primeiro** item com `"status": "pendente"` e `"execucao": "rotina"`.
 - Equilíbrio da semana: se os últimos 6 posts publicados já têm um Raio-X e uma opinião, prefira o próximo guia da pauta; se faltam, prefira o próximo Raio-X ou opinião.
-- **Se restarem menos de 5 itens pendentes de rotina**, antes de escrever crie 10 itens novos no fim da pauta: escolha temas dos grupos da estratégia que ainda não têm post, confira a forma de busca no autocompletar do Google (URL na estratégia), não repita palavra-chave existente e siga o formato dos itens atuais.
+- **Se restarem menos de 5 itens pendentes de rotina**, antes de escrever crie 10 itens novos no fim da pauta: escolha temas dos grupos da estratégia que ainda não têm post, confira como as pessoas escrevem a busca (ferramenta WebSearch; o ambiente da nuvem bloqueia o acesso direto ao autocompletar do Google), não repita palavra-chave existente e siga o formato dos itens atuais.
 
 ## 3. Pesquisar
 - **Guia e opinião:** use o seu conhecimento e confira com busca na web todo fato que não for opinião (regras de plataforma, nomes de produto, como algo funciona). Se não conseguir conferir, não afirme: escreva no condicional ou tire.
@@ -26,7 +26,7 @@ Crie `src/content/posts/<slug>.ts` no mesmo formato de `src/content/posts/raio-x
 - `descricao`: 130 a 160 caracteres, com a palavra-chave.
 - `resposta`: 2 a 4 frases que respondem a pergunta do título de forma direta e completa (é o trecho que Google e IA citam). A palavra-chave aparece aqui.
 - `secoes`: 4 a 7 seções, subtítulos claros (de preferência em forma de pergunta ou de passo), parágrafos curtos, listas quando for passo a passo. Exemplo de João Pessoa quando couber.
-- `faq`: 2 a 4 perguntas que as pessoas realmente fazem sobre o tema (o autocompletar ajuda), respostas de 1 a 3 frases.
+- `faq`: 2 a 4 perguntas que as pessoas realmente fazem sobre o tema (use WebSearch pra ver as perguntas relacionadas), respostas de 1 a 3 frases.
 - `servicos`: 2 ou 3 slugs que existem em `src/data/servicos.ts`.
 - `tipo`, `nivel`, `palavraChave` iguais aos da pauta. `fontes` obrigatório em Raio-X e estudo; recomendado em guia que cite dado de terceiro.
 - Tamanho: 700 a 1.300 palavras somando tudo.

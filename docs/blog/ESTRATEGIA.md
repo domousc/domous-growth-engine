@@ -38,7 +38,7 @@ Mesmo no nível Brasil, o post usa exemplo e contexto de João Pessoa quando fiz
 | Negócio local e João Pessoa | negocios-locais, google-ads |
 
 ## Como escolher a palavra-chave
-- Uma palavra-chave principal por post, escrita como o empresário escreve. Fonte: autocompletar do Google (`https://suggestqueries.google.com/complete/search?client=firefox&hl=pt-BR&gl=br&q=TERMO`).
+- Uma palavra-chave principal por post, escrita como o empresário escreve. Fonte: autocompletar do Google (`https://suggestqueries.google.com/complete/search?client=firefox&hl=pt-BR&gl=br&q=TERMO`) quando rodando local; na nuvem, a ferramenta WebSearch.
 - Não repetir palavra-chave de post ou página que já existe (ver `src/content/posts/` e `src/data/servicos.ts`, `src/data/segmentos.ts`). Se o tema já tem página de serviço, o post ataca uma pergunta mais específica.
 - Título no formato da pergunta ou da promessa, com a palavra-chave no começo. Ex.: "Remarketing: como vender pra quem já conversou e não comprou".
 
