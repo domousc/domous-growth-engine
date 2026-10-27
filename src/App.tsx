@@ -12,6 +12,7 @@ import { BlogIndice, PostPagina } from "./pages/Blog";
 import NewsIndice from "./pages/News";
 import LandingAnuncio from "./pages/LandingAnuncio";
 import Autor from "./pages/Autor";
+import RaioX from "./pages/RaioX";
 import NotFound from "./pages/NotFound";
 import { rotaPorPath } from "./seo/rotas";
 
@@ -40,6 +41,7 @@ export const Rotas = () => (
       <Route path="/segmentos/" element={<Indice tipo="segmentos" />} />
       <Route path="/segmentos/:slug/" element={<PaginaDetalhe tipo="segmentos" />} />
       <Route path="/quanto-custa/" element={<QuantoCusta />} />
+      <Route path="/raio-x-domous/" element={<RaioX />} />
       <Route path="/cases/" element={<Cases />} />
       <Route path="/sobre/" element={<Sobre />} />
       <Route path="/sobre/kairo-lucas/" element={<Autor />} />

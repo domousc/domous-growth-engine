@@ -61,6 +61,7 @@ const Rodape = () => (
         <div>
           <h2 className="text-base font-bold mb-4">Domous</h2>
           <ul className="space-y-2 text-sm">
+            <li><a href="/raio-x-domous/" className="text-dark-muted hover:text-white">Raio-X Domous</a></li>
             <li><a href="/cases/" className="text-dark-muted hover:text-white">Resultados</a></li>
             <li><a href="/quanto-custa/" className="text-dark-muted hover:text-white">Quanto custa</a></li>
             <li><a href="/sobre/" className="text-dark-muted hover:text-white">Sobre a Domous</a></li>

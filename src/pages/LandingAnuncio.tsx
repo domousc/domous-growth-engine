@@ -69,9 +69,7 @@ const LandingAnuncio = () => {
             <p className="text-lg md:text-xl text-dark-muted leading-relaxed mb-8">{lp.sub}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <BotaoWhatsApp origem={`lp-${slug}-topo`} texto={lp.waTexto} label="Falar com a Domous" />
-              <a href="#conversa" className="inline-flex items-center justify-center rounded-full px-6 h-12 font-semibold border-2 border-white/20 text-white hover:border-primary">
-                Montar minha mensagem
-              </a>
+              <BotaoWhatsApp origem={`lp-${slug}-raio-x`} texto="Oi! Quero um Raio-X Domous da minha empresa." label="Quero um Raio-X Domous" variante="contorno" className="text-white" />
             </div>
           </div>
           <ul className="grid gap-4 md:grid-cols-3 mt-14">

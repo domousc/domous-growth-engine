@@ -39,10 +39,10 @@ const Index = () => (
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
               <BotaoWhatsApp origem="home-hero" label="Falar com a Domous" />
               <a
-                href="#conversa"
+                href="/raio-x-domous/"
                 className="inline-flex items-center justify-center rounded-full px-6 h-12 font-semibold border-2 border-white/20 text-white hover:border-primary hover:bg-primary/10 transition-smooth"
               >
-                Montar minha mensagem
+                Pedir um Raio-X Domous
               </a>
             </div>
             <ul className="grid grid-cols-3 gap-4 max-w-lg">
@@ -128,6 +128,7 @@ const Index = () => (
               </span>
               <h3 className="text-xl font-bold mb-2">{p.titulo}</h3>
               <p className="text-muted-foreground leading-relaxed">{p.texto}</p>
+              {i === 0 && <a href="/raio-x-domous/" className="inline-block mt-3 text-sm font-semibold text-primary hover:underline">Como é o Raio-X Domous →</a>}
             </li>
           ))}
         </ol>

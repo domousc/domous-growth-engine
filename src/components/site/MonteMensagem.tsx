@@ -21,6 +21,7 @@ const faturamentos = [
 ];
 
 const dores = [
+  { id: "raiox", rotulo: "Quero um Raio-X Domous", frase: "quero um Raio-X Domous da empresa" },
   { id: "medir", rotulo: "Não sei quanto o marketing vende", frase: "não sei quanto o marketing vende" },
   { id: "lead", rotulo: "O lead chega e não vira venda", frase: "o lead chega e não vira venda" },
   { id: "dependencia", rotulo: "Dependo de indicação e balcão", frase: "dependo de indicação e do balcão" },

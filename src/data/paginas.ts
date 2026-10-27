@@ -30,7 +30,7 @@ export const home = {
   passos: [
     {
       titulo: 'Raio-X',
-      texto: 'A gente olha teus números, tuas contas de anúncio, teu atendimento e o caminho do cliente até a venda.',
+      texto: 'O Raio-X Domous: a gente olha teus números, tuas contas de anúncio, teu atendimento e o caminho do cliente até a venda.',
     },
     {
       titulo: 'Plano',
@@ -295,4 +295,58 @@ export const autor = {
       ],
     },
   ] as Secao[],
+};
+
+// Oferta de entrada. Sem valor e sem prazo no site (decisão do Kairo, 27/10/2026):
+// condições combinadas na conversa.
+export const raioX = {
+  titulo: 'Raio-X Domous: análise do marketing e do comercial da tua empresa | Domous',
+  descricao:
+    'O primeiro passo com a Domous: análise das contas de anúncio, da medição, do atendimento no WhatsApp, da página e da concorrência, com plano e meta de custo por cliente.',
+  h1: 'Raio-X Domous: o retrato do teu marketing, do anúncio até a venda',
+  resposta:
+    'O Raio-X Domous é o primeiro passo pra trabalhar com a Domous. A gente analisa as contas de anúncio, a medição, o atendimento no WhatsApp, a página e a concorrência da tua empresa e apresenta numa reunião o que está funcionando, o que trava e o plano com meta de custo por cliente. Depois, você decide se segue com a gente.',
+  waTexto: 'Oi! Quero um Raio-X Domous da minha empresa.',
+  frentes: [
+    { titulo: 'Contas de anúncio', texto: 'Meta e Google: estrutura, criativos por ângulo, públicos, verba e custo por resultado dos últimos meses.' },
+    { titulo: 'Medição', texto: 'Pixel, API de Conversões, GA4, origem do lead e a diferença entre a conversa que a plataforma reporta e a que chega de verdade.' },
+    { titulo: 'Atendimento', texto: 'Teste como cliente no WhatsApp: tempo de resposta, roteiro, perguntas de qualificação e retomada de quem não respondeu.' },
+    { titulo: 'Página e oferta', texto: 'A página que recebe o anúncio: argumento, prova, velocidade e caminho até o contato.' },
+    { titulo: 'Concorrência', texto: 'O que os concorrentes anunciam hoje e como aparecem no Google e no Maps.' },
+  ],
+  entregas: [
+    'Reunião de apresentação, presencial em João Pessoa ou online',
+    'O que está funcionando, o que trava e o tamanho da oportunidade',
+    'Plano com estrutura de campanha, verba por canal, ângulos de criativo e meta de custo por cliente',
+    'Lista de correções em ordem de prioridade, pra fazer com a Domous ou com quem já cuida da conta',
+    'Prévia do Domous Dash com os números atuais, quando houver acesso às contas',
+  ],
+  passos: [
+    { titulo: 'Conversa', texto: 'Pelo WhatsApp ou por chamada, pra entender o momento da empresa.' },
+    { titulo: 'Acessos', texto: 'Acesso de leitura às contas de anúncio e ao GA4.' },
+    { titulo: 'Análise', texto: 'A gente passa pelas cinco frentes, do anúncio até a venda.' },
+    { titulo: 'Apresentação', texto: 'Reunião com o que a gente encontrou em cada frente e o plano. Daí você decide.' },
+  ],
+  faq: [
+    {
+      p: 'Pra quem é o Raio-X Domous?',
+      r: 'Pra empresa com produto validado que já investe em anúncio, ou vai investir, e vende pelo WhatsApp, pela loja ou pelo corretor. Principalmente construtoras e incorporadoras, distribuidores e atacado, varejo de ticket alto e clínicas.',
+    },
+    {
+      p: 'Quanto custa o Raio-X?',
+      r: 'O valor e as condições a gente passa na conversa, de acordo com o tamanho da operação.',
+    },
+    {
+      p: 'Depois do Raio-X eu sou obrigado a contratar a Domous?',
+      r: 'Não. Você sai com o plano e a lista de correções e decide se segue com a Domous, com o time interno ou com quem já cuida da conta.',
+    },
+    {
+      p: 'Já tenho agência. Faz sentido?',
+      r: 'Faz. O Raio-X é justamente um olhar de fora sobre o que está acontecendo, com número e plano.',
+    },
+    {
+      p: 'Preciso dar acesso às contas de anúncio?',
+      r: 'Pra análise completa, sim, com acesso de leitura. Sem acesso, a gente analisa o que é público (anúncios ativos, página, atendimento e concorrência).',
+    },
+  ] as Pergunta[],
 };

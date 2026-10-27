@@ -4,7 +4,7 @@
 import { site } from "@/data/site";
 import { categorias, servicos, type Pagina } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
-import { autor, guia, home, indices, quantoCusta, resultadosPagina, sobre } from "@/data/paginas";
+import { autor, guia, home, indices, quantoCusta, raioX, resultadosPagina, sobre } from "@/data/paginas";
 import { posts } from "@/content/posts";
 import { caminhoPost, ehNoticia } from "@/content/tipos";
 
@@ -292,6 +292,29 @@ rotas.push(
     };
   }),
 );
+
+// Oferta de entrada (sem preço no schema, como no site).
+rotas.push({
+  path: "/raio-x-domous/",
+  titulo: raioX.titulo,
+  descricao: raioX.descricao,
+  jsonLd: [
+    organizacao,
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${url("/raio-x-domous/")}#servico`,
+      name: "Raio-X Domous",
+      serviceType: "Análise de marketing e vendas",
+      description: raioX.resposta,
+      url: url("/raio-x-domous/"),
+      provider: { "@id": ORG_ID },
+      areaServed: [{ "@type": "City", name: "João Pessoa" }, { "@type": "Country", name: "Brasil" }],
+    },
+    trilhaLd([["Início", "/"], ["Raio-X Domous", "/raio-x-domous/"]]),
+    faqLd(raioX.faq),
+  ],
+});
 
 // Página de autor.
 rotas.push({

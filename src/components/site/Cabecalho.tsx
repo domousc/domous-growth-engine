@@ -46,7 +46,9 @@ const Cabecalho = ({ solido = false }: { solido?: boolean }) => {
           </nav>
 
           <div className="flex items-center gap-3">
-            <BotaoWhatsApp origem="topo" label="Falar com a Domous" className="hidden md:inline-flex h-11 text-sm" />
+            <a href="/raio-x-domous/" className="hidden md:inline-flex items-center justify-center rounded-full px-5 h-11 text-sm font-semibold gradient-domous text-white shadow-domous hover:opacity-90 transition-smooth">
+              Pedir um Raio-X
+            </a>
             <button
               onClick={() => setAberto(!aberto)}
               className="lg:hidden p-2 text-white"
@@ -65,7 +67,8 @@ const Cabecalho = ({ solido = false }: { solido?: boolean }) => {
                 {item.label}
               </a>
             ))}
-            <BotaoWhatsApp origem="menu-movel" label="Falar com a Domous" className="mt-4" />
+            <a href="/raio-x-domous/" className="mt-4 inline-flex items-center justify-center rounded-full h-12 font-semibold gradient-domous text-white">Pedir um Raio-X</a>
+            <BotaoWhatsApp origem="menu-movel" label="Falar com a Domous" variante="contorno" className="mt-3 text-white" />
           </nav>
         )}
       </div>
