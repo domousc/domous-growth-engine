@@ -6,6 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
+import { zipSync } from "fflate";
 
 const ROXO = "#8B00FF";
 const LILAS = "#B79CF7";
@@ -94,7 +95,73 @@ function arte(p, formato, logo) {
   );
 }
 
-export async function gerarArtes(posts, { raiz, dist, logoPath }) {
+// Lâmina de carrossel (1080x1350). `l` vem de src/content/carrossel.ts.
+function lamina(p, l, i, total, logo) {
+  const W = 1080, H = 1350, pad = 88, inner = W - 2 * pad;
+  const fundo = {
+    width: inner,
+    height: H - 2 * pad,
+    padding: `${pad}px`,
+    flexDirection: "column",
+    justifyContent: "space-between",
+    backgroundColor: "#0F0F14",
+    backgroundImage: i % 2
+      ? "radial-gradient(circle at 0% 0%, rgba(139,0,255,0.38) 0%, rgba(139,0,255,0) 55%)"
+      : "radial-gradient(circle at 100% 0%, rgba(139,0,255,0.42) 0%, rgba(139,0,255,0) 55%)",
+    color: "#F2F2F5",
+    fontFamily: "Inter",
+  };
+  const topo = h(
+    "div",
+    { width: inner, justifyContent: "space-between", alignItems: "center" },
+    img(logo, { height: 40 }),
+    h("div", { color: "#9A9AA6", fontSize: 26, fontWeight: 600 }, `${i + 1}/${total}`),
+  );
+  const base = h(
+    "div",
+    { width: inner, justifyContent: "space-between", alignItems: "center", borderTopWidth: 2, borderTopStyle: "solid", borderTopColor: "#2A2A33", paddingTop: 28, fontSize: 26 },
+    h("div", { color: "#C9C9D1", fontWeight: 500 }, rotulo[p.tipo] === "DOMOUS NEWS" ? "Domous News" : "Blog da Domous"),
+    h("div", { color: LILAS, fontWeight: 600 }, "@domousc"),
+  );
+
+  if (l.tipo === "capa") {
+    const fsT = tamanhoTitulo(l.titulo, 86, 74, 64);
+    return h("div", fundo, topo,
+      h("div", { width: inner, flexDirection: "column", gap: 36 },
+        h("div", { alignSelf: "flex-start", padding: "10px 22px", borderRadius: 999, backgroundColor: "rgba(139,0,255,0.22)", border: `2px solid ${ROXO}`, color: LILAS, fontSize: 24, fontWeight: 600, letterSpacing: 2 }, rotulo[p.tipo] ?? "DOMOUS"),
+        h("div", { width: inner, borderLeft: `10px solid ${ROXO}`, paddingLeft: 32 },
+          h("div", { width: inner - 42, flexWrap: "wrap", fontFamily: "Poppins", fontWeight: 700, fontSize: fsT, lineHeight: 1.1, letterSpacing: -1 }, l.titulo)),
+        h("div", { color: LILAS, fontSize: 32, fontWeight: 600 }, l.texto),
+      ),
+      base);
+  }
+  if (l.tipo === "final") {
+    return h("div", fundo, topo,
+      h("div", { width: inner, flexDirection: "column", gap: 40 },
+        h("div", { width: inner, flexWrap: "wrap", fontFamily: "Poppins", fontWeight: 700, fontSize: 68, lineHeight: 1.12, letterSpacing: -1 }, l.titulo),
+        h("div", { alignSelf: "flex-start", padding: "18px 34px", borderRadius: 999, backgroundImage: "linear-gradient(140deg, #9D33FF, #6A00D9)", fontSize: 36, fontWeight: 600 }, l.texto),
+        h("div", { width: inner, flexWrap: "wrap", color: "#C9C9D1", fontSize: 32, lineHeight: 1.4 }, "Salva esse post e manda pra quem decide o marketing e as vendas da tua empresa."),
+      ),
+      base);
+  }
+  // Conteúdo: título da seção + itens ou parágrafo
+  const corpo = l.itens?.length
+    ? h("div", { width: inner, flexDirection: "column", gap: 26 },
+        ...(l.texto ? [h("div", { width: inner, flexWrap: "wrap", color: "#C9C9D1", fontSize: 32, lineHeight: 1.4 }, l.texto)] : []),
+        ...l.itens.map((it, k) =>
+          h("div", { width: inner, alignItems: "flex-start", gap: 22 },
+            h("div", { width: 52, height: 52, borderRadius: 999, backgroundImage: "linear-gradient(140deg, #9D33FF, #6A00D9)", justifyContent: "center", alignItems: "center", fontSize: 26, fontWeight: 600, flexShrink: 0 }, String(k + 1)),
+            h("div", { width: inner - 74, flexWrap: "wrap", fontSize: 36, lineHeight: 1.32, fontWeight: 500 }, it))))
+    : h("div", { width: inner, flexWrap: "wrap", fontSize: 40, lineHeight: 1.45, color: "#E4E4EA" }, l.texto ?? "");
+  return h("div", fundo, topo,
+    h("div", { width: inner, flexDirection: "column", gap: 44 },
+      h("div", { width: inner, borderLeft: `10px solid ${ROXO}`, paddingLeft: 30 },
+        h("div", { width: inner - 40, flexWrap: "wrap", fontFamily: "Poppins", fontWeight: 700, fontSize: tamanhoTitulo(l.titulo, 64, 56, 50), lineHeight: 1.12, letterSpacing: -1 }, l.titulo)),
+      corpo),
+    base);
+}
+
+export async function gerarArtes(posts, { raiz, dist, logoPath, laminasCarrossel }) {
   const fontes = [
     { name: "Poppins", data: fonte(raiz, "poppins", "poppins-latin-700-normal.woff"), weight: 700, style: "normal" },
     { name: "Inter", data: fonte(raiz, "inter", "inter-latin-400-normal.woff"), weight: 400, style: "normal" },
@@ -114,6 +181,18 @@ export async function gerarArtes(posts, { raiz, dist, logoPath }) {
       fs.writeFileSync(path.join(pasta, `${p.slug}-${formato}.png`), png);
       total++;
     }
+    // Carrossel: uma imagem por lâmina + .zip com todas.
+    const laminas = laminasCarrossel(p);
+    const arquivos = {};
+    for (const [i, l] of laminas.entries()) {
+      const svg = await satori(lamina(p, l, i, laminas.length, logo), { width: 1080, height: 1350, fonts: fontes });
+      const png = new Resvg(svg, { fitTo: { mode: "width", value: 1080 } }).render().asPng();
+      const nome = `${p.slug}-carrossel-${String(i + 1).padStart(2, "0")}.png`;
+      fs.writeFileSync(path.join(pasta, nome), png);
+      arquivos[`domous-${p.slug}-${String(i + 1).padStart(2, "0")}.png`] = [png, { level: 0 }];
+      total++;
+    }
+    fs.writeFileSync(path.join(pasta, `${p.slug}-carrossel.zip`), zipSync(arquivos));
   }
   return total;
 }

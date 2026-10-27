@@ -1,4 +1,4 @@
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import logoBranco from "@/assets/logo-domous-white.png";
 import { site } from "@/data/site";
 import { servicos } from "@/data/servicos";
@@ -28,6 +28,10 @@ const Rodape = () => (
             <li className="flex items-center gap-2">
               <Instagram className="w-4 h-4 text-primary" aria-hidden />
               <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-primary">@domousc</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Linkedin className="w-4 h-4 text-primary" aria-hidden />
+              <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-primary">LinkedIn da Domous</a>
             </li>
           </ul>
         </div>

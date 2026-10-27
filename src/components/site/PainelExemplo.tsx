@@ -55,7 +55,7 @@ const automacoes = [
   "Venda registrada volta pro Meta e pro Google (API de Conversões)",
   "Confirmação e lembrete automáticos no WhatsApp",
   "Retomada de quem parou de responder em 24 horas",
-  "Painel atualizado sozinho todo dia",
+  "Domous Dash atualizado sozinho todo dia",
 ];
 
 const formata = (n: number) => n.toLocaleString("pt-BR");
@@ -122,7 +122,7 @@ const PainelDomous = () => (
           <span className="w-11 h-11 rounded-xl gradient-domous flex items-center justify-center font-extrabold text-lg">D</span>
           <div>
             <p className="font-bold text-lg leading-tight">Empresa exemplo</p>
-            <p className="text-xs text-[#9A9AA6]">Performance · Meta + Google · by Domous</p>
+            <p className="text-xs text-[#9A9AA6]">Domous Dash · Meta + Google</p>
           </div>
         </div>
         <div className="text-right">
@@ -331,13 +331,13 @@ const PainelDomous = () => (
   </figure>
 );
 
-const PainelExemplo = ({ titulo = "O painel que tu recebe" }: { titulo?: string }) => (
+const PainelExemplo = ({ titulo = "Domous Dash: o painel que tu recebe" }: { titulo?: string }) => (
   <section className="section-dark py-16 md:py-24 relative overflow-hidden">
     <div className="container mx-auto px-4 lg:px-8 relative z-10">
       <div className="max-w-3xl mb-10">
         <h2 className="mb-5 text-white">{titulo}</h2>
         <p className="text-lg text-dark-muted leading-relaxed">
-          Um link fixo, atualizado automaticamente, que você abre quando quiser e mostra pros sócios: quanto foi investido, quantas conversas
+          O Domous Dash é um link fixo, atualizado automaticamente, que você abre quando quiser e mostra pros sócios: quanto foi investido, quantas conversas
           viraram venda e quanto voltou em receita. Dá pra ver cada anúncio ativo com o criativo, quanto ele gastou e quanto custou cada
           conversa e cada venda, o mesmo recorte por conjunto e público, e o que a IA e as automações fizeram no atendimento. Assim fica
           claro onde colocar mais verba e o que desligar.

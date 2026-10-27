@@ -10,6 +10,7 @@ export { segmentos } from "./data/segmentos";
 export { home, quantoCusta, sobre, guia } from "./data/paginas";
 export { resultados } from "./data/resultados";
 export { posts } from "./content/posts";
+export { laminasCarrossel } from "./content/carrossel";
 
 export function render(url: string) {
   return renderToString(

@@ -69,8 +69,9 @@ const organizacao = {
     "Inteligência artificial no WhatsApp",
     "Landing page",
     "Funil de vendas",
+    "Domous Dash",
   ],
-  sameAs: [site.instagram, site.siteKairo, site.entidadeGoogle, site.perfilGoogle],
+  sameAs: [site.instagram, site.linkedin, site.siteKairo, site.entidadeGoogle, site.perfilGoogle],
   hasMap: site.perfilGoogle,
   contactPoint: {
     "@type": "ContactPoint",

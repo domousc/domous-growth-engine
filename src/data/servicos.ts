@@ -73,7 +73,7 @@ export const servicos: Pagina[] = [
           'Rastreamento configurado: pixel, API de Conversões, GA4 e Google Tag Manager',
           'Medição de conversa real no WhatsApp, separada da conversa que a plataforma reporta',
           'Segmentação por região e por CEP de alta renda quando o produto pede',
-          'Painel de investimento x receita com link fixo, com custo e venda por criativo e por público',
+          'Domous Dash: painel de investimento x receita com link fixo, com custo e venda por criativo e por público',
           'Reunião mensal de resultado e número toda semana',
         ],
       },
@@ -833,14 +833,14 @@ export const servicos: Pagina[] = [
   },
   {
     slug: 'mensuracao-e-painel',
-    nome: 'Mensuração e painel de resultados',
+    nome: 'Mensuração e Domous Dash',
     categoria: 'IA, automação e dados',
-    titulo: 'Mensuração de marketing e painel de resultados | Investimento x receita | Domous',
-    h1: 'Mensuração e painel de investimento x receita',
+    titulo: 'Domous Dash: mensuração de marketing e painel de investimento x receita | Domous',
+    h1: 'Domous Dash: mensuração e painel de investimento x receita',
     descricao:
       'Rastreamento do clique até a venda e um painel com link fixo: investimento, receita, custo por cliente e desempenho por criativo e público, atualizado automaticamente.',
     resposta:
-      'A Domous organiza a medição do marketing do clique até a venda e entrega um painel com link fixo, atualizado automaticamente: quanto foi investido, quantas conversas reais chegaram, quantas viraram venda, quanto voltou em receita e o desempenho de cada anúncio ativo, criativo, conjunto e público. É a base pra decidir onde colocar verba com dado.',
+      'A Domous organiza a medição do marketing do clique até a venda e entrega o Domous Dash, um painel com link fixo, atualizado automaticamente: quanto foi investido, quantas conversas reais chegaram, quantas viraram venda, quanto voltou em receita e o desempenho de cada anúncio ativo, criativo, conjunto e público. É a base pra decidir onde colocar verba com dado.',
     waTexto: 'Oi! Quero saber quanto meu marketing vende de verdade.',
     paraQuem: ['Donos que querem ver o retorno sem pedir relatório', 'Empresas com mais de um canal de anúncio', 'Quem precisa mostrar resultado pros sócios'],
     sinais: [
@@ -856,7 +856,7 @@ export const servicos: Pagina[] = [
           'Pixel, API de Conversões, GA4 e Google Tag Manager configurados e conferidos',
           'Medição de conversa real no WhatsApp',
           'Registro da origem do lead até a venda',
-          'Painel com investimento, receita, custo por cliente e retorno',
+          'Domous Dash com investimento, receita, custo por cliente e retorno',
           'Desempenho por anúncio ativo, criativo, conjunto e público',
           'Leitura em texto do que mudou e do que fazer',
         ],
@@ -865,7 +865,7 @@ export const servicos: Pagina[] = [
     etapas: [
       { titulo: 'Auditoria', texto: 'O que está medido, o que está quebrado e o que falta.' },
       { titulo: 'Rastreamento', texto: 'Pixels, eventos e origem do lead configurados.' },
-      { titulo: 'Painel', texto: 'Link fixo com os números que importam.' },
+      { titulo: 'Domous Dash', texto: 'Link fixo com os números que importam.' },
       { titulo: 'Rotina', texto: 'Atualização automática e leitura semanal.' },
     ],
     metricas: ['Investimento', 'Receita atribuída', 'Custo por cliente', 'Retorno', 'Custo e venda por criativo e público'],
@@ -874,12 +874,12 @@ export const servicos: Pagina[] = [
     resultados: [],
     faq: [
       {
-        p: 'O painel é em tempo real?',
+        p: 'O Domous Dash é em tempo real?',
         r: 'Ele é atualizado automaticamente em intervalos definidos e mostra a data da última atualização. Você abre o mesmo link sempre que quiser.',
       },
       {
         p: 'Dá pra ver o resultado de cada anúncio?',
-        r: 'Dá. O painel mostra cada anúncio ativo com o criativo, o gasto, as conversas, as vendas e o custo de cada uma, e o mesmo recorte por conjunto e público.',
+        r: 'Dá. O Domous Dash mostra cada anúncio ativo com o criativo, o gasto, as conversas, as vendas e o custo de cada uma, e o mesmo recorte por conjunto e público.',
       },
     ],
     relacionados: ['trafego-pago', 'automacao-e-integracoes', 'crm-ia-whatsapp'],

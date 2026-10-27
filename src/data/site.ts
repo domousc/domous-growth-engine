@@ -16,6 +16,7 @@ export const site = {
   cnpj: '66.244.263/0001-54',
   instagram: 'https://instagram.com/domousc',
   instagramKairo: 'https://instagram.com/kairolucas',
+  linkedin: 'https://www.linkedin.com/company/domous/',
   siteKairo: 'https://kairolucas.com.br',
   // Perfil da Empresa no Google: link de compartilhamento e entidade no Knowledge Graph.
   perfilGoogle: 'https://share.google/3kNFDtsUK3zCNFAeR',

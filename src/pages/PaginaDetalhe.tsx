@@ -77,7 +77,7 @@ const PaginaDetalhe = ({ tipo }: { tipo: keyof typeof tipos }) => {
       <Etapas etapas={pagina.etapas} />
       <MetricasFerramentas metricas={pagina.metricas} ferramentas={pagina.ferramentas} />
       <Resultados ids={pagina.resultados} titulo="Resultados em operações parecidas" />
-      {painel && <PainelExemplo titulo={tipo === "segmentos" ? "O painel que a tua empresa recebe" : "O painel que tu recebe"} />}
+      {painel && <PainelExemplo titulo={tipo === "segmentos" ? "Domous Dash: o painel que a tua empresa recebe" : "Domous Dash: o painel que tu recebe"} />}
       <Perguntas faq={pagina.faq} />
       {guiasDe(tipo, pagina.slug).length > 0 && (
         <section className="pb-16 md:pb-20">

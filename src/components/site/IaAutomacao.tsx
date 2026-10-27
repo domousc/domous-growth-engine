@@ -6,7 +6,7 @@ const itens = [
   { icone: Send, titulo: "Venda volta pra plataforma", texto: "A venda registrada é enviada pro Meta e pro Google, que passam a buscar mais gente parecida com quem comprou." },
   { icone: RefreshCw, titulo: "Lembrete e retomada", texto: "Confirmação de visita ou consulta, lembrete no dia e retomada automática de quem parou de responder." },
   { icone: Plug, titulo: "Integração com o que já existe", texto: "Conexão por API com ERP, CRM, agenda e as ferramentas que a operação já usa." },
-  { icone: Gauge, titulo: "Painel que se atualiza sozinho", texto: "Investimento, conversas, vendas e receita num link fixo, sem ninguém montar planilha no fim do mês." },
+  { icone: Gauge, titulo: "Domous Dash, o painel que se atualiza sozinho", texto: "Investimento, conversas, vendas e receita num link fixo, sem ninguém montar planilha no fim do mês." },
 ];
 
 const IaAutomacao = () => (

@@ -14,7 +14,7 @@ const distSsr = path.join(raiz, "dist-ssr");
 const SITE = "https://domous.com.br";
 const OG_IMAGEM = `${SITE}/og-domous.jpg`;
 
-const { render, rotas, rota404, servicos, segmentos, home, quantoCusta, sobre, guia, resultados, posts } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
+const { render, rotas, rota404, servicos, segmentos, home, quantoCusta, sobre, guia, resultados, posts, laminasCarrossel } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
 const modelo = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
 
 // Rastreio (rastreio.json). Só entra o script do ID preenchido. O clique em qualquer
@@ -170,7 +170,7 @@ ${itens}
 );
 
 // Artes pra baixar e postar (feed, story) e imagem de compartilhamento de cada post.
-const artes = await gerarArtes(posts, { raiz, dist, logoPath: path.join(raiz, "src", "assets", "logo-domous-white.png") });
+const artes = await gerarArtes(posts, { raiz, dist, laminasCarrossel, logoPath: path.join(raiz, "src", "assets", "logo-domous-white.png") });
 console.log(`Artes geradas: ${artes}`);
 
 fs.rmSync(distSsr, { recursive: true, force: true });
