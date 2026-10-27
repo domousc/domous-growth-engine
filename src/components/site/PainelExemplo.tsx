@@ -3,7 +3,7 @@
 // vendas = soma da série diária; custo por venda = investido / vendas;
 // receita = vendas x ticket (R$ 3.370); retorno = receita / investido.
 // Cores dos canais validadas (dataviz) no fundo #17171E: #9466F0 e #1FAE7A.
-import { Bot, CalendarDays, CircleDollarSign, LineChart, MessageCircle, Repeat, ShoppingBag, TrendingUp, Workflow, Zap } from "lucide-react";
+import { Bot, CalendarDays, CircleDollarSign, Image as ImagemIcone, Images, LineChart, MessageCircle, Play, Repeat, ShoppingBag, Tag, TrendingUp, Users, Workflow, Zap } from "lucide-react";
 import type { ComponentType } from "react";
 
 const ROXO = "#9466F0";
@@ -32,6 +32,22 @@ const funil = [
 const canais = [
   { nome: "Meta Ads", cor: ROXO, investido: "R$ 31.400", receita: "R$ 597,6 mil", retorno: "19,0x", parte: 62 },
   { nome: "Google Ads", cor: VERDE, investido: "R$ 16.800", receita: "R$ 366,2 mil", retorno: "21,8x", parte: 38 },
+];
+
+// Anúncios ativos do Meta (os 4 maiores de 12). Vendas somam 167 das 177 do Meta.
+const criativos = [
+  { id: "AD14", formato: "Vídeo 15s", icone: Play, gancho: "O vendedor resolve em 15 segundos", angulo: "Prova", gasto: "R$ 8.200", conversas: 520, custoConversa: "R$ 15,77", vendas: 78, custoVenda: "R$ 105,13", nota: "Melhor custo por venda", revisar: false },
+  { id: "AD09", formato: "Carrossel", icone: Images, gancho: "Antes e depois da obra", angulo: "Desejo", gasto: "R$ 6.400", conversas: 360, custoConversa: "R$ 17,78", vendas: 49, custoVenda: "R$ 130,61", nota: "", revisar: false },
+  { id: "AD17", formato: "Vídeo 20s", icone: Play, gancho: "Bastidor: o pedido saindo pra entrega", angulo: "Objeção", gasto: "R$ 5.300", conversas: 270, custoConversa: "R$ 19,63", vendas: 31, custoVenda: "R$ 170,97", nota: "", revisar: false },
+  { id: "AD03", formato: "Estático", icone: Tag, gancho: "Oferta da semana com preço", angulo: "Oferta", gasto: "R$ 4.200", conversas: 150, custoConversa: "R$ 28,00", vendas: 9, custoVenda: "R$ 466,67", nota: "", revisar: true },
+];
+
+// Conjuntos e públicos do Meta. Vendas somam 177 (total do Meta).
+const publicos = [
+  { nome: "Remarketing · interagiu em 30 dias", gasto: "R$ 3.100", conversas: 240, custoConversa: "R$ 12,92", vendas: 34, custoVenda: "R$ 91,18", revisar: false },
+  { nome: "Profissionais e empresas (PJ)", gasto: "R$ 7.400", conversas: 380, custoConversa: "R$ 19,47", vendas: 58, custoVenda: "R$ 127,59", revisar: false },
+  { nome: "Aberto · Grande João Pessoa", gasto: "R$ 9.800", conversas: 610, custoConversa: "R$ 16,07", vendas: 72, custoVenda: "R$ 136,11", revisar: false },
+  { nome: "CEP de alta renda", gasto: "R$ 6.900", conversas: 310, custoConversa: "R$ 22,26", vendas: 13, custoVenda: "R$ 530,77", revisar: true },
 ];
 
 const automacoes = [
@@ -201,6 +217,73 @@ const PainelDomous = () => (
         </div>
       </div>
 
+      <Titulo icone={ImagemIcone} texto="Anúncios ativos" />
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <p className="text-sm text-[#C9C9D1]">Cada criativo com quanto gastou, quantas conversas e vendas trouxe e quanto custou cada uma.</p>
+        <span className="rounded-full bg-[#3DD68C]/15 text-[#3DD68C] px-3 py-1 text-xs font-semibold">● 12 anúncios ativos</span>
+      </div>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+        {criativos.map((c) => (
+          <li key={c.id} className={`rounded-2xl border bg-[#17171E] overflow-hidden ${c.revisar ? "border-[#F0616A]/40" : "border-white/10"}`}>
+            <div className="relative aspect-[4/3] bg-gradient-to-br from-[#2A1650] via-[#1C1330] to-[#0F0F14] p-4 flex flex-col justify-between">
+              <span className="self-start inline-flex items-center gap-1 rounded-full bg-black/40 px-2.5 py-1 text-[10px] font-semibold">
+                <c.icone className="w-3 h-3" aria-hidden /> {c.formato}
+              </span>
+              <p className="font-bold leading-snug text-white pr-10">{c.gancho}</p>
+              {c.formato.startsWith("Vídeo") && (
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/15 flex items-center justify-center" aria-hidden>
+                  <Play className="w-4 h-4 fill-white" />
+                </span>
+              )}
+            </div>
+            <div className="p-4">
+              <p className="text-xs text-[#8A8A96] mb-3">{c.id} · ângulo {c.angulo}</p>
+              <dl className="grid grid-cols-2 gap-x-3 gap-y-2 text-sm">
+                <div><dt className="text-[10px] uppercase tracking-wider text-[#8A8A96]">Gasto</dt><dd className="font-semibold tabular-nums">{c.gasto}</dd></div>
+                <div><dt className="text-[10px] uppercase tracking-wider text-[#8A8A96]">Conversas</dt><dd className="font-semibold tabular-nums">{formata(c.conversas)}</dd></div>
+                <div><dt className="text-[10px] uppercase tracking-wider text-[#8A8A96]">Custo/conversa</dt><dd className="font-semibold tabular-nums">{c.custoConversa}</dd></div>
+                <div><dt className="text-[10px] uppercase tracking-wider text-[#8A8A96]">Vendas</dt><dd className="font-semibold tabular-nums">{c.vendas}</dd></div>
+                <div className="col-span-2"><dt className="text-[10px] uppercase tracking-wider text-[#8A8A96]">Custo por venda</dt><dd className="text-lg font-bold tabular-nums">{c.custoVenda}</dd></div>
+              </dl>
+              {c.nota && <p className="mt-3 text-[11px] font-semibold text-[#3DD68C]">▲ {c.nota}</p>}
+              {c.revisar && <p className="mt-3 text-[11px] font-semibold text-[#F0616A]">▼ Custo por venda alto: revisar</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <Titulo icone={Users} texto="Conjuntos e públicos" />
+      <div className="rounded-2xl border border-white/10 bg-[#17171E] p-4 sm:p-5 mb-8 overflow-x-auto">
+        <table className="w-full text-sm min-w-[560px]">
+          <thead>
+            <tr className="text-[10px] uppercase tracking-wider text-[#8A8A96]">
+              <th className="text-left font-semibold pb-3">Público</th>
+              <th className="text-right font-semibold pb-3">Gasto</th>
+              <th className="text-right font-semibold pb-3">Conversas</th>
+              <th className="text-right font-semibold pb-3">Custo/conversa</th>
+              <th className="text-right font-semibold pb-3">Vendas</th>
+              <th className="text-right font-semibold pb-3">Custo/venda</th>
+            </tr>
+          </thead>
+          <tbody>
+            {publicos.map((p) => (
+              <tr key={p.nome} className="border-t border-white/10">
+                <td className="py-3 pr-3">{p.nome}</td>
+                <td className="text-right tabular-nums">{p.gasto}</td>
+                <td className="text-right tabular-nums">{formata(p.conversas)}</td>
+                <td className="text-right tabular-nums">{p.custoConversa}</td>
+                <td className="text-right tabular-nums">{p.vendas}</td>
+                <td className={`text-right tabular-nums font-semibold ${p.revisar ? "text-[#F0616A]" : ""}`}>
+                  {p.custoVenda}
+                  {p.revisar ? " ▼" : ""}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="text-[11px] text-[#8A8A96] mt-3">Ordenado pelo custo por venda. O público mais barato por conversa nem sempre é o que mais vende.</p>
+      </div>
+
       <div className="grid lg:grid-cols-2 gap-6 mb-8">
         <div>
           <Titulo icone={Bot} texto="Atendimento com IA" />
@@ -236,7 +319,8 @@ const PainelDomous = () => (
         O investimento de <strong className="text-white">R$ 48.200</strong> trouxe <strong className="text-white">R$ 963,8 mil</strong> em receita
         atribuída, 20 vezes o valor investido. As vendas subiram 41% contra os 30 dias anteriores e o custo por venda caiu 21%, com o agente de
         IA respondendo em segundos as conversas que antes esperavam até o dia seguinte. O Google tem o melhor retorno do mês (21,8x) e é o
-        primeiro candidato a receber mais verba.
+        primeiro candidato a receber mais verba. No Meta, o vídeo do vendedor (AD14) vende a R$ 105 cada; a oferta com preço (AD03) e o
+        público de CEP de alta renda passam de R$ 450 por venda e são os próximos a revisar.
       </div>
 
       <figcaption className="flex flex-wrap justify-between gap-2 mt-5 text-[11px] text-[#8A8A96]">
@@ -254,8 +338,9 @@ const PainelExemplo = ({ titulo = "O painel que tu recebe" }: { titulo?: string 
         <h2 className="mb-5 text-white">{titulo}</h2>
         <p className="text-lg text-dark-muted leading-relaxed">
           Um link fixo, atualizado automaticamente, que você abre quando quiser e mostra pros sócios: quanto foi investido, quantas conversas
-          viraram venda, quanto voltou em receita e o que a IA e as automações fizeram no atendimento. Repara na diferença entre a conversa
-          que o Meta reporta e a que chega de verdade: medir isso é uma das primeiras coisas que a gente faz.
+          viraram venda e quanto voltou em receita. Dá pra ver cada anúncio ativo com o criativo, quanto ele gastou e quanto custou cada
+          conversa e cada venda, o mesmo recorte por conjunto e público, e o que a IA e as automações fizeram no atendimento. Assim fica
+          claro onde colocar mais verba e o que desligar.
         </p>
       </div>
       <div className="max-w-5xl mx-auto">
