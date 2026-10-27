@@ -13,7 +13,7 @@ const distSsr = path.join(raiz, "dist-ssr");
 const SITE = "https://domous.com.br";
 const OG_IMAGEM = `${SITE}/og-domous.jpg`;
 
-const { render, rotas, rota404 } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
+const { render, rotas, rota404, servicos, segmentos, home, quantoCusta, sobre, guia, resultados } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
 const modelo = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
 
 const attr = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
@@ -84,6 +84,7 @@ fs.writeFileSync(
     "",
     "Contato: WhatsApp +55 83 98119-5186 · domousc@gmail.com · Instagram @domousc · CNPJ 66.244.263/0001-54.",
     "Atende João Pessoa, Paraíba e outros estados do Brasil (presencial em João Pessoa, online no resto).",
+    `Texto completo do site em Markdown: ${SITE}/llms-full.txt`,
     "",
     secao("Serviços", "/servicos/"),
     "",
@@ -96,5 +97,27 @@ fs.writeFileSync(
   ].join("\n"),
 );
 
+// llms-full.txt: o texto completo de cada página em Markdown, pra IA ler o site inteiro de uma vez.
+const md = [];
+const blocoPagina = (titulo, url, p) => {
+  md.push(`# ${titulo}`, "", `URL: ${url}`, "", p.resposta, "");
+  for (const [rotulo, lista] of [["Pra quem é", p.paraQuem], ["Sinais de que precisa", p.sinais], ["O que a gente mede", p.metricas], ["Ferramentas", p.ferramentas]]) {
+    if (lista?.length) md.push(`## ${rotulo}`, "", ...lista.map((i) => `- ${i}`), "");
+  }
+  for (const s of p.secoes ?? []) md.push(`## ${s.titulo}`, "", ...s.paragrafos.flatMap((x) => [x, ""]), ...(s.itens ?? []).map((i) => `- ${i}`), "");
+  if (p.etapas?.length) md.push("## Como funciona", "", ...p.etapas.map((e, i) => `${i + 1}. ${e.titulo}: ${e.texto}`), "");
+  if (p.faq?.length) md.push("## Perguntas frequentes", "", ...p.faq.flatMap((f) => [`### ${f.p}`, "", f.r, ""]));
+};
+md.push("# Domous: agência de tráfego pago e growth em João Pessoa", "", home.resposta, "");
+md.push("## Resultados (por segmento; clientes não são identificados)", "", ...resultados.map((r) => `- ${r.segmento}: ${r.titulo}`), "");
+md.push("## Como funciona", "", ...home.passos.map((p, i) => `${i + 1}. ${p.titulo}: ${p.texto}`), "");
+md.push("## Perguntas frequentes", "", ...home.faq.flatMap((f) => [`### ${f.p}`, "", f.r, ""]));
+for (const p of servicos) blocoPagina(p.h1, `${SITE}/servicos/${p.slug}/`, p);
+for (const p of segmentos) blocoPagina(p.h1, `${SITE}/segmentos/${p.slug}/`, p);
+blocoPagina(quantoCusta.h1, `${SITE}/quanto-custa/`, quantoCusta);
+blocoPagina(sobre.h1, `${SITE}/sobre/`, sobre);
+blocoPagina(guia.h1, `${SITE}/como-escolher-agencia-de-trafego-pago/`, guia);
+fs.writeFileSync(path.join(dist, "llms-full.txt"), md.join(String.fromCharCode(10)));
+
 fs.rmSync(distSsr, { recursive: true, force: true });
-console.log(`Pré-renderizadas ${rotas.length} páginas + 404, sitemap.xml e llms.txt`);
+console.log(`Pré-renderizadas ${rotas.length} páginas + 404, sitemap.xml, llms.txt e llms-full.txt`);

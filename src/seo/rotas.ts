@@ -2,7 +2,7 @@
 // O script de pré-renderização (scripts/prerender.mjs) usa esta lista pra gerar
 // o HTML de cada página e o sitemap. Página nova = entrada nova aqui.
 import { site } from "@/data/site";
-import { servicos, type Pagina } from "@/data/servicos";
+import { categorias, servicos, type Pagina } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
 import { guia, home, indices, quantoCusta, resultadosPagina, sobre } from "@/data/paginas";
 
@@ -42,6 +42,17 @@ const organizacao = {
     nome === "Brasil" ? { "@type": "Country", name: nome } : nome === "Paraíba" ? { "@type": "State", name: nome } : { "@type": "City", name: nome },
   ),
   founder: { "@id": KAIRO_ID },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Serviços da Domous",
+    itemListElement: categorias.map((cat) => ({
+      "@type": "OfferCatalog",
+      name: cat,
+      itemListElement: servicos
+        .filter((s) => s.categoria === cat)
+        .map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.nome, url: `${site.url}/servicos/${s.slug}/` } })),
+    })),
+  },
   knowsAbout: [
     "Tráfego pago",
     "Meta Ads",

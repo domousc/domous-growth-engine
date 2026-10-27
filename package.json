@@ -9,7 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "publicar": "npm run build && wrangler deploy"
+    "publicar": "npm run build && wrangler deploy && node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.3.0",
