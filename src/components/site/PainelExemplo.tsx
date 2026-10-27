@@ -81,9 +81,7 @@ const GraficoDiario = () => {
             <path
               d={`M${x},${base} V${y(v) + 3} Q${x},${y(v)} ${x + 3},${y(v)} H${x + largura - 3} Q${x + largura},${y(v)} ${x + largura},${y(v) + 3} V${base} Z`}
               fill={ROXO}
-            >
-              <title>{`${data(i)}: ${v} vendas`}</title>
-            </path>
+            />
             <rect x={x - 2} y={topo} width={passo} height={base - topo} fill="transparent">
               <title>{`${data(i)}: ${v} vendas`}</title>
             </rect>
