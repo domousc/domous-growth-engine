@@ -1,10 +1,10 @@
-// Página de autor do Kairo (/sobre/kairo-lucas/): dá rosto e credencial aos guias.
+// Página de autor do Kairo (/sobre/kairo-lucas/): dá rosto e credencial aos artigos do blog.
 // Google e IAs pesam quem escreve (experiência e autoridade do autor).
 import kairo from "@/assets/kairo-hero.webp";
 import Layout from "@/components/site/Layout";
 import { GradeCartoes, Secoes, Topo } from "@/components/site/Blocos";
 import MonteMensagem from "@/components/site/MonteMensagem";
-import { guias } from "@/data/guias";
+import { posts } from "@/content/posts";
 import { autor } from "@/data/paginas";
 import { site } from "@/data/site";
 
@@ -38,8 +38,8 @@ const Autor = () => (
     <Secoes secoes={autor.secoes} />
     <section className="pb-16 md:pb-24">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-2xl md:text-3xl mb-8">Guias escritos por Kairo Lucas</h2>
-        <GradeCartoes itens={guias.map((g) => ({ titulo: g.h1, texto: g.descricao, href: `/guias/${g.slug}/` }))} />
+        <h2 className="text-2xl md:text-3xl mb-8">Artigos escritos por Kairo Lucas</h2>
+        <GradeCartoes itens={posts.map((g) => ({ titulo: g.h1, texto: g.descricao, href: `/blog/${g.slug}/` }))} />
       </div>
     </section>
     <MonteMensagem origem="autor-final" />

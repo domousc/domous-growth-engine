@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import PaginaDetalhe from "./pages/PaginaDetalhe";
 import Indice from "./pages/Indices";
 import { Cases, Guia, QuantoCusta, Sobre } from "./pages/Avulsas";
-import { GuiaPagina, GuiasIndice } from "./pages/Guias";
+import { BlogIndice, PostPagina } from "./pages/Blog";
 import LandingAnuncio from "./pages/LandingAnuncio";
 import Autor from "./pages/Autor";
 import NotFound from "./pages/NotFound";
@@ -43,8 +43,8 @@ export const Rotas = () => (
       <Route path="/sobre/" element={<Sobre />} />
       <Route path="/sobre/kairo-lucas/" element={<Autor />} />
       <Route path="/como-escolher-agencia-de-trafego-pago/" element={<Guia />} />
-      <Route path="/guias/" element={<GuiasIndice />} />
-      <Route path="/guias/:slug/" element={<GuiaPagina />} />
+      <Route path="/blog/" element={<BlogIndice />} />
+      <Route path="/blog/:slug/" element={<PostPagina />} />
       <Route path="/lp/:slug/" element={<LandingAnuncio />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />

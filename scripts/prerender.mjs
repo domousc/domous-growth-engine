@@ -13,7 +13,7 @@ const distSsr = path.join(raiz, "dist-ssr");
 const SITE = "https://domous.com.br";
 const OG_IMAGEM = `${SITE}/og-domous.jpg`;
 
-const { render, rotas, rota404, servicos, segmentos, home, quantoCusta, sobre, guia, resultados, guias } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
+const { render, rotas, rota404, servicos, segmentos, home, quantoCusta, sobre, guia, resultados, posts } = await import(pathToFileURL(path.join(distSsr, "entry-server.js")).href);
 const modelo = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
 
 // Rastreio (rastreio.json). Só entra o script do ID preenchido. O clique em qualquer
@@ -49,7 +49,7 @@ function cabecalho(rota) {
     `<meta name="twitter:title" content="${attr(rota.titulo)}" />`,
     `<meta name="twitter:description" content="${attr(rota.descricao)}" />`,
     `<meta name="twitter:image" content="${OG_IMAGEM}" />`,
-    `<link rel="alternate" type="application/rss+xml" title="Guias da Domous" href="${SITE}/guias/feed.xml" />`,
+    `<link rel="alternate" type="application/rss+xml" title="Blog da Domous" href="${SITE}/blog/feed.xml" />`,
     ...rota.jsonLd.map((ld) => `<script type="application/ld+json">${json(ld)}</script>`),
     ...rastreio,
   ].join("\n    ");
@@ -87,7 +87,7 @@ const secao = (titulo, prefixo) =>
     .filter((r) => r.path.startsWith(prefixo) && r.path !== prefixo)
     .map((r) => `- [${r.titulo.split(" | ")[0]}](${SITE}${r.path}): ${r.descricao}`)
     .join("\n");
-const avulsas = rotas.filter((r) => !r.noindex && !/^\/(servicos|segmentos|guias)\//.test(r.path) && r.path !== "/");
+const avulsas = rotas.filter((r) => !r.noindex && !/^\/(servicos|segmentos|blog)\//.test(r.path) && r.path !== "/");
 fs.writeFileSync(
   path.join(dist, "llms.txt"),
   [
@@ -103,7 +103,7 @@ fs.writeFileSync(
     "",
     secao("Segmentos", "/segmentos/"),
     "",
-    secao("Guias", "/guias/"),
+    secao("Blog", "/blog/"),
     "",
     "## Mais",
     "",
@@ -132,32 +132,32 @@ for (const p of segmentos) blocoPagina(p.h1, `${SITE}/segmentos/${p.slug}/`, p);
 blocoPagina(quantoCusta.h1, `${SITE}/quanto-custa/`, quantoCusta);
 blocoPagina(sobre.h1, `${SITE}/sobre/`, sobre);
 blocoPagina(guia.h1, `${SITE}/como-escolher-agencia-de-trafego-pago/`, guia);
-for (const g of guias) blocoPagina(g.h1, `${SITE}/guias/${g.slug}/`, g);
+for (const g of posts) blocoPagina(g.h1, `${SITE}/blog/${g.slug}/`, g);
 fs.writeFileSync(path.join(dist, "llms-full.txt"), md.join(String.fromCharCode(10)));
 
-// Feed RSS dos guias.
+// Feed RSS do blog.
 const xml = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const rfc = (iso) => new Date(iso + "T12:00:00-03:00").toUTCString();
-const itens = [...guias]
+const itens = [...posts]
   .sort((a, b) => (a.publicado < b.publicado ? 1 : -1))
   .map((g) => `    <item>
       <title>${xml(g.h1)}</title>
-      <link>${SITE}/guias/${g.slug}/</link>
-      <guid>${SITE}/guias/${g.slug}/</guid>
+      <link>${SITE}/blog/${g.slug}/</link>
+      <guid>${SITE}/blog/${g.slug}/</guid>
       <pubDate>${rfc(g.publicado)}</pubDate>
       <dc:creator>Kairo Lucas</dc:creator>
       <description>${xml(g.resposta)}</description>
     </item>`)
   .join(String.fromCharCode(10));
 fs.writeFileSync(
-  path.join(dist, "guias", "feed.xml"),
+  path.join(dist, "blog", "feed.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Guias da Domous</title>
-    <link>${SITE}/guias/</link>
-    <atom:link href="${SITE}/guias/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Guias de marketing, tráfego pago e vendas pra empresários, pela Domous (João Pessoa).</description>
+    <title>Blog da Domous</title>
+    <link>${SITE}/blog/</link>
+    <atom:link href="${SITE}/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Marketing, tráfego pago e vendas pra empresários, pela Domous (João Pessoa).</description>
     <language>pt-BR</language>
 ${itens}
   </channel>

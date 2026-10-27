@@ -9,7 +9,7 @@ import QuemCuida from "@/components/site/QuemCuida";
 import MonteMensagem from "@/components/site/MonteMensagem";
 import { servicos, type Pagina } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
-import { guias } from "@/data/guias";
+import { posts } from "@/content/posts";
 import NotFound from "./NotFound";
 
 const tipos = {
@@ -31,7 +31,7 @@ const setorDaPagina: Record<string, string> = {
   "clinicas-de-estetica": "clinica",
 };
 
-// Guias ligados a cada página: serviços pelo campo `servicos` do guia; segmentos por tema.
+// Posts do blog ligados a cada página: serviços pelo campo `servicos` do post; segmentos por tema.
 const guiasDoSegmento: Record<string, string[]> = {
   "construtoras-e-incorporadoras": ["como-vender-lancamento-imobiliario-com-trafego-pago", "como-calcular-cac-roas-e-ltv", "conversas-meta-ads-x-whatsapp"],
   "corretores-de-imoveis": ["como-vender-lancamento-imobiliario-com-trafego-pago", "conversas-meta-ads-x-whatsapp"],
@@ -44,8 +44,8 @@ const guiasDoSegmento: Record<string, string[]> = {
 
 const guiasDe = (tipo: string, slug: string) =>
   tipo === "servicos"
-    ? guias.filter((g) => g.servicos.includes(slug)).slice(0, 3)
-    : (guiasDoSegmento[slug] ?? []).map((s) => guias.find((g) => g.slug === s)).filter((g): g is (typeof guias)[number] => !!g);
+    ? posts.filter((g) => g.servicos.includes(slug)).slice(0, 3)
+    : (guiasDoSegmento[slug] ?? []).map((s) => posts.find((g) => g.slug === s)).filter((g): g is (typeof posts)[number] => !!g);
 
 const relacionadosDe = (pagina: Pagina, lista: Pagina[]) => {
   const escolhidos = pagina.relacionados?.map((s) => lista.find((p) => p.slug === s)).filter((p): p is Pagina => !!p);
@@ -82,8 +82,8 @@ const PaginaDetalhe = ({ tipo }: { tipo: keyof typeof tipos }) => {
       {guiasDe(tipo, pagina.slug).length > 0 && (
         <section className="pb-16 md:pb-20">
           <div className="container mx-auto px-4 lg:px-8">
-            <h2 className="text-2xl md:text-3xl mb-8">Guias pra aprofundar</h2>
-            <GradeCartoes itens={guiasDe(tipo, pagina.slug).map((g) => ({ titulo: g.h1, texto: g.descricao, href: `/guias/${g.slug}/` }))} />
+            <h2 className="text-2xl md:text-3xl mb-8">Pra aprofundar no blog</h2>
+            <GradeCartoes itens={guiasDe(tipo, pagina.slug).map((g) => ({ titulo: g.h1, texto: g.descricao, href: `/blog/${g.slug}/` }))} />
           </div>
         </section>
       )}

@@ -9,7 +9,7 @@ export { servicos } from "./data/servicos";
 export { segmentos } from "./data/segmentos";
 export { home, quantoCusta, sobre, guia } from "./data/paginas";
 export { resultados } from "./data/resultados";
-export { guias } from "./data/guias";
+export { posts } from "./content/posts";
 
 export function render(url: string) {
   return renderToString(

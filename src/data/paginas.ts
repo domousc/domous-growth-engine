@@ -273,7 +273,7 @@ export const autor = {
     'Kairo Lucas é fundador e CEO da Domous, agência de tráfego pago e growth de João Pessoa. Trabalha com Meta Ads, Google Ads, e-commerce, processo comercial e automação com IA.',
   h1: 'Kairo Lucas',
   resposta:
-    'Kairo Lucas é fundador e CEO da Domous, agência de tráfego pago e crescimento de João Pessoa, na Paraíba. Trabalha direto na operação: estratégia e gestão de tráfego no Meta Ads e no Google Ads, e-commerce, funis, processo comercial e automações com inteligência artificial. É autor dos guias da Domous.',
+    'Kairo Lucas é fundador e CEO da Domous, agência de tráfego pago e crescimento de João Pessoa, na Paraíba. Trabalha direto na operação: estratégia e gestão de tráfego no Meta Ads e no Google Ads, e-commerce, funis, processo comercial e automações com inteligência artificial. Assina os artigos do blog da Domous.',
   secoes: [
     {
       titulo: 'O que faz na Domous',

@@ -5,7 +5,7 @@ import { site } from "@/data/site";
 import { categorias, servicos, type Pagina } from "@/data/servicos";
 import { segmentos } from "@/data/segmentos";
 import { autor, guia, home, indices, quantoCusta, resultadosPagina, sobre } from "@/data/paginas";
-import { guias } from "@/data/guias";
+import { posts } from "@/content/posts";
 
 export type Rota = {
   path: string;
@@ -213,51 +213,54 @@ export const rotas: Rota[] = [
   },
 ];
 
-// Central de guias e cada guia (Article + FAQ + trilha).
+// Blog e cada post (BlogPosting + FAQ + trilha).
 rotas.push(
   {
-    path: "/guias/",
-    titulo: "Guias de marketing e vendas pra empresários | Domous",
+    path: "/blog/",
+    titulo: "Blog da Domous | Marketing, tráfego pago e vendas pra empresários",
     descricao:
-      "Guias da Domous sobre tráfego pago, medição de retorno, IA no WhatsApp, Google Maps e vendas pra empresas de João Pessoa e de todo o Brasil.",
+      "Guias, estudos com dado de João Pessoa, Raio-X do marketing de empresas da Paraíba e opinião sobre tráfego pago, vendas pelo WhatsApp e IA.",
     jsonLd: [
       organizacao,
       {
         "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        name: "Guias da Domous",
-        url: url("/guias/"),
-        mainEntity: {
-          "@type": "ItemList",
-          itemListElement: guias.map((g, i) => ({ "@type": "ListItem", position: i + 1, url: url(`/guias/${g.slug}/`), name: g.h1 })),
-        },
+        "@type": "Blog",
+        name: "Blog da Domous",
+        url: url("/blog/"),
+        inLanguage: "pt-BR",
+        publisher: { "@id": ORG_ID },
+        blogPost: posts.map((p) => ({ "@type": "BlogPosting", headline: p.h1, url: url(`/blog/${p.slug}/`), datePublished: p.publicado })),
       },
-      trilhaLd([["Início", "/"], ["Guias", "/guias/"]]),
+      trilhaLd([["Início", "/"], ["Blog", "/blog/"]]),
     ],
   },
-  ...guias.map((g) => {
-    const path = `/guias/${g.slug}/`;
+  ...posts.map((p) => {
+    const path = `/blog/${p.slug}/`;
     return {
       path,
-      titulo: g.titulo,
-      descricao: g.descricao,
+      titulo: p.titulo,
+      descricao: p.descricao,
       jsonLd: [
         organizacao,
         {
           "@context": "https://schema.org",
-          "@type": "Article",
-          headline: g.h1,
-          description: g.descricao,
+          "@type": "BlogPosting",
+          headline: p.h1,
+          description: p.descricao,
+          keywords: p.palavraChave,
+          articleSection: p.tipo,
           inLanguage: "pt-BR",
           author: { "@id": KAIRO_ID },
           publisher: { "@id": ORG_ID },
-          datePublished: g.publicado,
-          dateModified: g.atualizado,
+          datePublished: p.publicado,
+          dateModified: p.atualizado,
           mainEntityOfPage: url(path),
-          about: g.servicos.map((s) => ({ "@id": `${url(`/servicos/${s}/`)}#servico` })),
+          image: `${site.url}/og-domous.jpg`,
+          about: p.servicos.map((s) => ({ "@id": `${url(`/servicos/${s}/`)}#servico` })),
+          ...(p.fontes?.length ? { citation: p.fontes.map((f) => f.url) } : {}),
         },
-        trilhaLd([["Início", "/"], ["Guias", "/guias/"], [g.h1, path]]),
-        faqLd(g.faq),
+        trilhaLd([["Início", "/"], ["Blog", "/blog/"], [p.h1, path]]),
+        ...(p.faq.length ? [faqLd(p.faq)] : []),
       ],
     };
   }),
