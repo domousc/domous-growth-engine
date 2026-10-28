@@ -155,7 +155,7 @@ export const Perguntas = ({ faq, titulo = "Perguntas frequentes" }: { faq: Pergu
   );
 };
 
-export type Cartao = { titulo: string; texto: string; href: string };
+export type Cartao = { titulo: string; texto: string; href: string; selo?: string };
 
 export const GradeCartoes = ({ itens, escuro = false }: { itens: Cartao[]; escuro?: boolean }) => (
   <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -167,6 +167,7 @@ export const GradeCartoes = ({ itens, escuro = false }: { itens: Cartao[]; escur
           escuro ? "card-dark hover:border-primary/60" : "bg-card border-border shadow-card hover:shadow-domous hover:border-primary/40"
         }`}
       >
+        {c.selo && <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">{c.selo}</p>}
         <h3 className={`text-lg font-bold mb-2 ${escuro ? "text-white" : ""}`}>{c.titulo}</h3>
         <p className={`text-sm leading-relaxed mb-4 ${escuro ? "text-dark-muted" : "text-muted-foreground"}`}>{c.texto}</p>
         <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">

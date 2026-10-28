@@ -13,7 +13,12 @@ import { guia as guiaAgencia } from "@/data/paginas";
 import { servicoPorSlug, type Pagina } from "@/data/servicos";
 import NotFound from "./NotFound";
 
-const cartao = (p: Post) => ({ titulo: `${rotuloTipo[p.tipo]} · ${p.h1}`, texto: p.descricao, href: caminhoPost(p) });
+const cartao = (p: Post) => ({
+  selo: ehNoticia(p) ? `${rotuloTipo[p.tipo]} · ${dataBR(p.publicado)}` : rotuloTipo[p.tipo],
+  titulo: p.h1,
+  texto: p.descricao,
+  href: caminhoPost(p),
+});
 const artigos = posts.filter((p) => !ehNoticia(p));
 const noticias = posts.filter(ehNoticia);
 
@@ -22,7 +27,7 @@ export const BlogIndice = () => {
   const tipos = (Object.keys(rotuloTipo) as TipoPost[]).filter((t) => artigos.some((p) => p.tipo === t));
   const lista = filtro === "todos" ? artigos : artigos.filter((p) => p.tipo === filtro);
   const itens = lista.map(cartao);
-  if (filtro === "todos" || filtro === "guia") itens.push({ titulo: `Guia · ${guiaAgencia.h1}`, texto: guiaAgencia.descricao, href: "/como-escolher-agencia-de-trafego-pago/" });
+  if (filtro === "todos" || filtro === "guia") itens.push({ selo: "Guia", titulo: guiaAgencia.h1, texto: guiaAgencia.descricao, href: "/como-escolher-agencia-de-trafego-pago/" });
 
   return (
     <Layout origem="blog">
