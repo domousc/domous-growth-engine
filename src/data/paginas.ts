@@ -139,6 +139,10 @@ export const quantoCusta = {
       r: 'No nome da tua empresa. Conta de anúncio, pixel e dados são do cliente; a Domous trabalha com acesso de parceiro. Se um dia a parceria acabar, o histórico e as campanhas continuam contigo.',
     },
     {
+      p: 'Dá pra começar com algo menor antes de fechar contrato?',
+      r: 'Dá. O Raio-X Domous é o primeiro passo: análise do marketing e do comercial com plano e meta de custo por cliente. É pago, e o valor é abatido da primeira mensalidade se a empresa seguir com a Domous.',
+    },
+    {
       p: 'Como pedir um orçamento?',
       r: 'Chamando a Domous no WhatsApp. A gente entende o momento da empresa e devolve o plano com o valor.',
     },
@@ -300,12 +304,12 @@ export const autor = {
 // Oferta de entrada. Sem valor e sem prazo no site (decisão do Kairo, 27/10/2026):
 // condições combinadas na conversa.
 export const raioX = {
-  titulo: 'Raio-X Domous: análise do marketing e do comercial da tua empresa | Domous',
+  titulo: 'Raio-X Domous: diagnóstico de marketing e vendas da tua empresa | Domous',
   descricao:
-    'O primeiro passo com a Domous: análise das contas de anúncio, da medição, do atendimento no WhatsApp, da página e da concorrência, com plano e meta de custo por cliente.',
+    'Diagnóstico de marketing e vendas feito na prática: contas de anúncio, medição, atendimento no WhatsApp, página e concorrência, com plano e meta de custo por cliente.',
   h1: 'Raio-X Domous: o retrato do teu marketing, do anúncio até a venda',
   resposta:
-    'O Raio-X Domous é o primeiro passo pra trabalhar com a Domous. A gente analisa as contas de anúncio, a medição, o atendimento no WhatsApp, a página e a concorrência da tua empresa e apresenta numa reunião o que está funcionando, o que trava e o plano com meta de custo por cliente. Depois, você decide se segue com a gente.',
+    'O Raio-X Domous é o primeiro passo pra trabalhar com a Domous. A gente analisa as contas de anúncio, a medição, o atendimento no WhatsApp, a página e a concorrência da tua empresa e apresenta numa reunião o que está funcionando, o que trava e o plano com meta de custo por cliente. O Raio-X é pago, e o valor é abatido da primeira mensalidade se você seguir com a Domous.',
   waTexto: 'Oi! Quero um Raio-X Domous da minha empresa.',
   frentes: [
     { titulo: 'Contas de anúncio', texto: 'Meta e Google: estrutura, criativos por ângulo, públicos, verba e custo por resultado dos últimos meses.' },
@@ -315,7 +319,7 @@ export const raioX = {
     { titulo: 'Concorrência', texto: 'O que os concorrentes anunciam hoje e como aparecem no Google e no Maps.' },
   ],
   entregas: [
-    'Reunião de apresentação, presencial em João Pessoa ou online',
+    'Reunião de apresentação com o Kairo Lucas, fundador da Domous, presencial em João Pessoa ou online',
     'O que está funcionando, o que trava e o tamanho da oportunidade',
     'Plano com estrutura de campanha, verba por canal, ângulos de criativo e meta de custo por cliente',
     'Lista de correções em ordem de prioridade, pra fazer com a Domous ou com quem já cuida da conta',
@@ -325,7 +329,7 @@ export const raioX = {
     { titulo: 'Conversa', texto: 'Pelo WhatsApp ou por chamada, pra entender o momento da empresa.' },
     { titulo: 'Acessos', texto: 'Acesso de leitura às contas de anúncio e ao GA4.' },
     { titulo: 'Análise', texto: 'A gente passa pelas cinco frentes, do anúncio até a venda.' },
-    { titulo: 'Apresentação', texto: 'Reunião com o que a gente encontrou em cada frente e o plano. Daí você decide.' },
+    { titulo: 'Apresentação', texto: 'Reunião com o Kairo Lucas: o que a gente encontrou em cada frente e o plano. Daí você decide.' },
   ],
   faq: [
     {
@@ -334,7 +338,11 @@ export const raioX = {
     },
     {
       p: 'Quanto custa o Raio-X?',
-      r: 'O valor e as condições a gente passa na conversa, de acordo com o tamanho da operação.',
+      r: 'O Raio-X é pago, e o valor é abatido da primeira mensalidade se a empresa seguir com a Domous. O valor depende do tamanho da operação e a gente passa na conversa.',
+    },
+    {
+      p: 'O Raio-X é um diagnóstico de marketing?',
+      r: 'É um diagnóstico de marketing e vendas feito na prática: em vez de questionário, a gente olha as contas de anúncio, a medição, o atendimento no WhatsApp, a página e a concorrência, e entrega o plano com meta de custo por cliente.',
     },
     {
       p: 'Depois do Raio-X eu sou obrigado a contratar a Domous?',

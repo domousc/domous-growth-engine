@@ -25,6 +25,7 @@ const RaioX = () => (
               O que a gente analisa
             </a>
           </div>
+          <p className="mt-4 text-sm text-dark-muted">Investimento abatido da primeira mensalidade se você seguir com a Domous.</p>
         </div>
         <div className="card-dark rounded-3xl border p-6 md:p-8">
           <p className="text-sm font-semibold text-accent mb-4">O que você recebe</p>
