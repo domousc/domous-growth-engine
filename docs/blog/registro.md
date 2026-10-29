@@ -11,3 +11,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-10-28 · opiniao · relatório de marketing · https://domous.com.br/blog/por-que-nao-aceito-relatorio-de-alcance/
 - 2026-10-28 · erro · edição extra não publicada: já havia 1 notícia hoje e nenhuma pauta das últimas 48h chegou a nota 20 com assunto diferente (product browsing da Meta foi noticiado em 14 a 19/10; parceria OpenAI e Oracle com pouco impacto pro leitor) · -
 - 2026-10-29 · noticia · anúncios no modo ia do google · https://domous.com.br/news/google-anuncios-no-modo-ia-chegam-ao-brasil/
+- 2026-10-29 · guia · quanto custa anunciar no instagram · https://domous.com.br/blog/quanto-custa-anunciar-no-instagram/
