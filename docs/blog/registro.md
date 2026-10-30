@@ -13,3 +13,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-10-29 · noticia · anúncios no modo ia do google · https://domous.com.br/news/google-anuncios-no-modo-ia-chegam-ao-brasil/
 - 2026-10-29 · guia · quanto custa anunciar no instagram · https://domous.com.br/blog/quanto-custa-anunciar-no-instagram/
 - 2026-10-29 · erro · edição extra não publicada: já havia 1 notícia hoje e nenhuma pauta das últimas 48h chegou a nota 20 com assunto diferente (calendário promocional do TikTok Shop saiu em 25 e 26/10; Smart Bidding Exploration no Performance Max em 24/10; balanço da Meta em 21/10; parceria OpenAI e ServiceNow com pouco impacto pro leitor) · -
+- 2026-10-30 · noticia · resultado do google terceiro trimestre 2026 · https://domous.com.br/news/google-busca-cresce-12-modo-ia-rende-menos/
