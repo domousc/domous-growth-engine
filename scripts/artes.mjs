@@ -7,6 +7,7 @@ import path from "node:path";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
 import { zipSync } from "fflate";
+import sharp from "sharp";
 
 const ROXO = "#8B00FF";
 const LILAS = "#B79CF7";
@@ -179,6 +180,10 @@ export async function gerarArtes(posts, { raiz, dist, logoPath, laminasCarrossel
       const svg = await satori(arte(p, formato, logo), { width, height, fonts: fontes });
       const png = new Resvg(svg, { fitTo: { mode: "width", value: width } }).render().asPng();
       fs.writeFileSync(path.join(pasta, `${p.slug}-${formato}.png`), png);
+      // Lightweight display previews; original downloads remain unchanged.
+      if (formato === "og") {
+        await sharp(png).resize({ width: 800 }).webp({ quality: 72 }).toFile(path.join(pasta, `${p.slug}-preview.webp`));
+      }
       total++;
     }
     // Carrossel: uma imagem por lâmina + .zip com todas.
