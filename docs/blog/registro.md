@@ -17,3 +17,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-10-30 · guia · marketing imobiliário · https://domous.com.br/blog/marketing-imobiliario-lead-qualificado/
 - 2026-10-30 · erro · edição extra não publicada: já havia 1 notícia hoje e nenhuma pauta das últimas 48h chegou a nota 20 com assunto diferente (expansão dos anúncios no Modo IA do Google pra 10 mercados em 28/10 sem o Brasil e no mesmo assunto da notícia de 29/10; product browsing da Meta já noticiado em 14 a 19/10; pesquisas de Black Friday de setembro e início de outubro; balanço do Mercado Livre só sai em 4/11) · -
 - 2026-10-31 · noticia · meta suspende novos termos comerciais · https://domous.com.br/news/meta-suspende-novos-termos-comerciais-investigacao-reino-unido/
+- 2026-10-31 · guia · whatsapp business api · https://domous.com.br/blog/whatsapp-business-api/
