@@ -1,5 +1,6 @@
-@import "@fontsource/poppins/600.css";
-@import "@fontsource/poppins/700.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
 @import "@fontsource/inter/400.css";
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
@@ -43,8 +44,10 @@ All colors MUST be HSL.
     --muted: 280 30% 96%;
     --muted-foreground: 240 5% 50%;
 
-    --accent: 285 80% 65%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 153 61% 42%;
+    --accent-foreground: 222 20% 8%;
+    --brand-label: 285 85% 76%;
+    --hero-shade: linear-gradient(0deg, hsl(222 20% 8%) 0%, transparent 42%);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -56,7 +59,7 @@ All colors MUST be HSL.
     --radius: 1.25rem;
     
     /* Dark Section Colors */
-    --dark-bg: 222 20% 8%;
+    --dark-bg: 228 15% 6.5%;
     --dark-card: 222 15% 12%;
     --dark-border: 222 10% 22%;
     --dark-foreground: 0 0% 95%;
@@ -90,8 +93,8 @@ All colors MUST be HSL.
     --muted: 240 10% 20%;
     --muted-foreground: 220 10% 65%;
 
-    --accent: 285 80% 65%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 153 61% 55%;
+    --accent-foreground: 222 20% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -118,8 +121,9 @@ All colors MUST be HSL.
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
-    font-family: 'Poppins', 'Inter', sans-serif;
+    @apply font-bold;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: 0;
   }
   
   h1 {
@@ -132,6 +136,29 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  .section-shell { max-width: 1240px; margin-inline: auto; padding-inline: 24px; }
+  .section-pad { padding-block: 80px; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0; }
+  .text-brand-label { color: hsl(var(--brand-label)); }
+  .hero-photo { background: hsl(var(--dark-bg)); }
+  .hero-photo::after { content: ''; position: absolute; inset: 0; background: var(--hero-shade); pointer-events: none; }
+  .editorial-title { font-size: 48px; line-height: 1.12; }
+  .news-headline { font-family: 'Lora', Georgia, serif; }
+  .editorial-thumb { background: hsl(var(--secondary)); }
+  .tool-details > summary { list-style: none; cursor: pointer; }
+  .tool-details > summary::-webkit-details-marker { display: none; }
+  .tool-details[open] > summary .expand-icon { transform: rotate(180deg); }
+  .article-body article { scroll-margin-top: 112px; }
+  .article-body p { max-width: 65ch; }
+  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 4px; }
+  @media (max-width: 767px) {
+    .section-shell { padding-inline: 20px; }
+    .section-pad { padding-block: 56px; }
+    .editorial-title { font-size: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
   .gradient-domous {
     background: var(--gradient-domous);
   }

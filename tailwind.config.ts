@@ -14,6 +14,14 @@ export default {
     },
     extend: {
       colors: {
+        dark: {
+          DEFAULT: "hsl(var(--dark-bg))",
+          foreground: "hsl(var(--dark-foreground))",
+          muted: "hsl(var(--dark-muted-foreground))",
+          border: "hsl(var(--dark-border))",
+          card: "hsl(var(--dark-card))",
+        },
+        "brand-label": "hsl(var(--brand-label))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
