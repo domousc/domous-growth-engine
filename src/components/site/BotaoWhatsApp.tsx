@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { wa } from "@/data/site";
 
@@ -19,7 +20,7 @@ const BotaoWhatsApp = ({
   variante = "primario",
   className,
 }: Props) => (
-  <a
+  <Button asChild className={cn("rounded-full h-12 max-w-full px-5 whitespace-normal text-center", className)}><a
     href={wa(texto, origem)}
     target="_blank"
     rel="noopener noreferrer"
@@ -32,14 +33,14 @@ const BotaoWhatsApp = ({
     className={cn(
       "inline-flex items-center justify-center gap-2 rounded-full px-6 h-12 text-base font-semibold transition-smooth",
       variante === "primario"
-        ? "gradient-domous text-white shadow-domous hover:opacity-90"
+        ? "gradient-domous text-primary-foreground shadow-domous hover:opacity-90"
         : "border-2 border-primary/60 text-current hover:bg-primary/10",
       className,
     )}
   >
     <MessageCircle className="w-5 h-5" aria-hidden />
     {label}
-  </a>
+  </a></Button>
 );
 
 export default BotaoWhatsApp;

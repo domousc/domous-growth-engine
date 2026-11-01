@@ -32,6 +32,7 @@ export const Topo = ({
   origem,
   waTexto,
   children,
+  editorial = false,
 }: {
   trilha: Migalha[];
   h1: string;
@@ -39,14 +40,15 @@ export const Topo = ({
   origem: string;
   waTexto?: string;
   children?: ReactNode;
+  editorial?: boolean;
 }) => (
-  <section className="section-dark purple-glow pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+  <section className={`section-dark pt-28 pb-10 md:pt-32 md:pb-14 relative overflow-hidden ${editorial ? "" : "purple-glow"}`} >
     <div className="container mx-auto px-4 lg:px-8 relative z-10">
       <div className="max-w-3xl">
         <Trilha itens={trilha} />
-        <h1 className="mb-6 text-white">{h1}</h1>
+        <h1 className={`mb-5 text-dark-foreground ${editorial ? "editorial-title" : ""}`}>{h1}</h1>
         <p className="text-lg md:text-xl text-dark-muted leading-relaxed mb-8">{resposta}</p>
-        <div className="flex flex-col sm:flex-row gap-3">
+        {!editorial && <div className="flex flex-col sm:flex-row gap-3">
           <BotaoWhatsApp origem={origem} texto={waTexto} />
           <a
             href="#conversa"
@@ -54,19 +56,19 @@ export const Topo = ({
           >
             Montar minha mensagem
           </a>
-        </div>
+        </div>}
         {children}
       </div>
     </div>
   </section>
 );
 
-export const Secoes = ({ secoes }: { secoes: Secao[] }) => (
+export const Secoes = ({ secoes, indice = false }: { secoes: Secao[]; indice?: boolean }) => (
   <section className="py-16 md:py-24">
     <div className="container mx-auto px-4 lg:px-8">
       <div className="max-w-3xl space-y-14">
-        {secoes.map((s) => (
-          <article key={s.titulo}>
+        {secoes.map((s, i) => (
+          <article key={s.titulo} id={indice ? `secao-${i + 1}` : undefined} className="scroll-mt-28">
             <h2 className="text-2xl md:text-3xl mb-5">{s.titulo}</h2>
             {s.paragrafos.map((p) => (
               <p key={p.slice(0, 40)} className="text-lg text-foreground/80 leading-relaxed mb-4">{p}</p>

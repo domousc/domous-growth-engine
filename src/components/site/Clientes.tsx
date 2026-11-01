@@ -38,19 +38,19 @@ const clientes = [
 
 // O logo vira máscara pintada com a cor do texto, então logo branco, preto ou
 // colorido aparece todo no mesmo tom.
-const Clientes = ({ titulo = "Empresas que já passaram pela Domous" }: { titulo?: string }) => (
-  <section className="py-16 md:py-20 bg-secondary/40">
+const Clientes = ({ titulo = "Empresas atendidas pela Domous" }: { titulo?: string }) => (
+  <section className="py-10 md:py-12 bg-secondary/40">
     <div className="container mx-auto px-4 lg:px-8">
       <h2 className="text-2xl md:text-3xl text-center mb-3">{titulo}</h2>
-      <p className="text-center text-muted-foreground mb-10">Mais de 70 empresas atendidas, de João Pessoa e de outros estados.</p>
-      <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+      <p className="text-center text-muted-foreground mb-6">Mais de 70 empresas atendidas, de João Pessoa e de outros estados.</p>
+      <ul className="grid grid-cols-3 md:grid-cols-8 gap-x-5 gap-y-4 max-w-5xl mx-auto">
         {clientes.map((c) => (
-          <li key={c.nome} className="flex items-center justify-center h-20 px-5 bg-card rounded-xl border border-border">
+          <li key={c.nome} className="flex items-center justify-center h-14 px-2">
             <span
               role="img"
               aria-label={c.nome}
               title={c.nome}
-              className="block w-full h-9 bg-foreground opacity-70"
+              className="block w-full h-8 bg-foreground opacity-80"
               style={{
                 maskImage: `url(${c.logo})`,
                 WebkitMaskImage: `url(${c.logo})`,
