@@ -19,3 +19,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-10-31 · noticia · meta suspende novos termos comerciais · https://domous.com.br/news/meta-suspende-novos-termos-comerciais-investigacao-reino-unido/
 - 2026-10-31 · guia · whatsapp business api · https://domous.com.br/blog/whatsapp-business-api/
 - 2026-10-31 · noticia · preço máximo mensagem de marketing whatsapp · https://domous.com.br/news/whatsapp-preco-maximo-mensagem-de-marketing/
+- 2026-11-01 · erro · notícia não publicada: `npx tsc --noEmit -p tsconfig.app.json` falha com erro anterior ao post (src/content/editorial.test.ts importa `bun:test`, sem tipos instalados; entrou no commit 4b194fa de 31/10). Build passa. Pauta pronta e conferida: sinal único `__usage_ai-training` no robots.txt contra treino de IA (Google, Microsoft e OpenAI, 30/10; fontes: blog do Bing, Google Search Central, Search Engine Journal, The Next Web, PPC Land) · -
