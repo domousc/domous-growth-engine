@@ -1,4 +1,5 @@
 // Artes prontas pra postar (geradas no build por scripts/artes.mjs) e legenda pra copiar.
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Check, Copy, Download, GalleryHorizontal } from "lucide-react";
 import { laminasCarrossel } from "@/content/carrossel";
@@ -32,7 +33,7 @@ const BaixarArtes = ({ p }: { p: Post }) => {
   const botao = "inline-flex items-center justify-center gap-2 rounded-full px-5 h-11 text-sm font-semibold transition-smooth";
 
   return (
-    <section className="py-12 md:py-16 bg-secondary/40" aria-labelledby="baixar-artes">
+    <section className="py-6 bg-secondary/40" aria-labelledby="baixar-artes"><details className="tool-details"><summary className="section-shell flex justify-between font-semibold py-3"><span>Compartilhar este conteúdo</span><span className="text-primary">↓</span></summary>
       <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center max-w-6xl">
         <div>
           <h2 id="baixar-artes" className="text-2xl md:text-3xl mb-4">{ehNoticia(p) ? "Leve essa notícia pro teu perfil" : "Leve esse conteúdo pro teu perfil"}</h2>
@@ -41,19 +42,19 @@ const BaixarArtes = ({ p }: { p: Post }) => {
             legenda e posta. Só mantém o crédito da Domous.
           </p>
           <div className="flex flex-wrap gap-3 mb-3">
-            <a href={`${base}-post.png`} download={`domous-${p.slug}-post.png`} className={`${botao} gradient-domous text-white shadow-domous hover:opacity-90`}>
+            <a href={`${base}-post.png`} download={`domous-${p.slug}-post.png`} className={`${botao} gradient-domous text-primary-foreground shadow-domous hover:opacity-90`}>
               <Download className="w-4 h-4" aria-hidden /> Post (1080×1350)
             </a>
-            <a href={`${base}-story.png`} download={`domous-${p.slug}-story.png`} className={`${botao} gradient-domous text-white shadow-domous hover:opacity-90`}>
+            <a href={`${base}-story.png`} download={`domous-${p.slug}-story.png`} className={`${botao} gradient-domous text-primary-foreground shadow-domous hover:opacity-90`}>
               <Download className="w-4 h-4" aria-hidden /> Story (1080×1920)
             </a>
-            <a href={`${base}-carrossel.zip`} download={`domous-${p.slug}-carrossel.zip`} className={`${botao} gradient-domous text-white shadow-domous hover:opacity-90`}>
+            <a href={`${base}-carrossel.zip`} download={`domous-${p.slug}-carrossel.zip`} className={`${botao} gradient-domous text-primary-foreground shadow-domous hover:opacity-90`}>
               <GalleryHorizontal className="w-4 h-4" aria-hidden /> Carrossel ({totalLaminas} lâminas, .zip)
             </a>
-            <button type="button" onClick={copiar} className={`${botao} border-2 border-primary/40 hover:bg-primary/10`}>
+            <Button variant="outline" type="button" onClick={copiar} className={`${botao} border-2 border-primary/40 hover:bg-primary/10`}>
               {copiou ? <Check className="w-4 h-4 text-primary" aria-hidden /> : <Copy className="w-4 h-4" aria-hidden />}
               {copiou ? "Legenda copiada" : "Copiar legenda"}
-            </button>
+            </Button>
           </div>
           <details className="text-sm">
             <summary className="cursor-pointer text-muted-foreground hover:text-foreground">Ver a legenda</summary>
@@ -80,7 +81,7 @@ const BaixarArtes = ({ p }: { p: Post }) => {
           })}
         </ul>
       </div>
-    </section>
+    </details></section>
   );
 };
 

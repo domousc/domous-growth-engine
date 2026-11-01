@@ -16,9 +16,9 @@ const Layout = ({ children, origem, cabecalhoSolido = false }: { children: React
       aria-label="Falar com a Domous no WhatsApp"
       data-cta="whatsapp"
       data-origem={`flutuante-${origem}`}
-      className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full gradient-domous text-white shadow-domous flex items-center justify-center hover:scale-110 transition-smooth"
+      className="fixed bottom-3 right-3 z-40 w-10 h-10 md:w-12 md:h-12 rounded-full gradient-domous text-primary-foreground shadow-domous flex items-center justify-center hover:scale-110 transition-smooth"
     >
-      <MessageCircle className="w-6 h-6" aria-hidden />
+      <MessageCircle className="w-5 h-5" aria-hidden />
     </a>
   </div>
 );
