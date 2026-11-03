@@ -66,7 +66,7 @@ const Cabecalho = ({ solido = false }: { solido?: boolean }) => {
                 {item.label}
               </a>
             ))}
-            <a href="/raio-x-domous/" className="mt-4 inline-flex items-center justify-center rounded-full h-12 font-semibold gradient-domous text-white">Pedir um Raio-X</a>
+            <Button asChild className="mt-4 rounded-full h-11"><a href="/raio-x-domous/">Conhecer o Raio-X</a></Button>
             <BotaoWhatsApp origem="menu-movel" label="Falar com a Domous" variante="contorno" className="mt-3 text-dark-foreground" />
           </nav>
         )}

@@ -5,3 +5,4 @@
 - Keep post URLs, sources and publishing automation intact; generated WebP previews accompany, never replace, downloadable PNG sharing assets.
 - Use an editorial variant of shared page headings to prioritize reading without changing commercial page CTAs.
 - Never attach an anonymous result to a named client; the client list is independent evidence of service history.
+- Existing editorial WebP previews are bundled through an asset glob; future automated posts use build-generated public previews, with a stable fallback if unavailable.
