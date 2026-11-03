@@ -26,3 +26,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-02 · guia · marketing para loja de móveis · https://domous.com.br/blog/marketing-para-loja-de-moveis/
 - 2026-11-02 · noticia · anúncios no chatgpt vale a pena · https://domous.com.br/news/estudo-anuncios-chatgpt-rendem-menos-que-google/
 - 2026-11-03 · noticia · performance max busca de marca · https://domous.com.br/news/google-performance-max-busca-de-marca-campanha-de-pesquisa/
+- 2026-11-03 · guia · remarketing · https://domous.com.br/blog/remarketing-quem-conversou-e-nao-comprou/
