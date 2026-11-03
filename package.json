@@ -8,6 +8,7 @@
     "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
+    "test": "bun test tests",
     "preview": "vite preview",
     "publicar": "npm run build && wrangler deploy && node scripts/indexnow.mjs"
   },

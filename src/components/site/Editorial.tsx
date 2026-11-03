@@ -6,10 +6,12 @@ import { posts } from "@/content/posts";
 import { selecionarEditorial } from "@/content/editorial";
 import { caminhoPost, dataBR, minutosLeitura, rotuloTipo, rotuloEditoria, type Post } from "@/content/tipos";
 
+const previews = import.meta.glob<string>("/src/assets/editorial/*-preview.webp", { eager: true, query: "?url", import: "default" });
+
 export const MiniaturaEditorial = ({ p, className = "" }: { p: Post; className?: string }) => {
   const [falhou, setFalhou] = useState(false);
   return <div className={`editorial-thumb relative aspect-[16/9] overflow-hidden rounded-2xl ${className}`}>
-    {!falhou ? <img src={`/img/posts/${p.slug}-preview.webp`} width={800} height={420} alt="" loading="lazy" onError={() => setFalhou(true)} className="h-full w-full object-cover" /> : <div className="absolute inset-0 section-dark p-6 flex flex-col justify-between"><span className="eyebrow text-brand-label">{rotuloTipo[p.tipo]}</span><Newspaper className="w-10 h-10 text-primary" aria-hidden /><span className="text-sm text-dark-muted">Domous · Marketing e vendas</span></div>}
+    {!falhou ? <img src={previews[`/src/assets/editorial/${p.slug}-preview.webp`] ?? `/img/posts/${p.slug}-preview.webp`} width={800} height={420} alt="" loading="lazy" onError={() => setFalhou(true)} className="h-full w-full object-cover" /> : <div className="absolute inset-0 section-dark p-6 flex flex-col justify-between"><span className="eyebrow text-brand-label">{rotuloTipo[p.tipo]}</span><Newspaper className="w-10 h-10 text-primary" aria-hidden /><span className="text-sm text-dark-muted">Domous · Marketing e vendas</span></div>}
   </div>;
 };
 

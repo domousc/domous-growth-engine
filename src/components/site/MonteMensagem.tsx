@@ -1,6 +1,7 @@
 // Monta a primeira mensagem do WhatsApp em três toques (setor, faturamento, dor).
 // O lead chega na conversa já dizendo quem é e o que precisa, e a Domous responde
 // sabendo com quem fala. Nada é guardado no site: o texto só vai pro link do WhatsApp.
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { wa } from "@/data/site";
@@ -50,20 +51,20 @@ const Grupo = ({
   aoEscolher: (id: string) => void;
 }) => (
   <fieldset className="mb-6">
-    <legend className="text-sm font-semibold text-white/90 mb-3">{titulo}</legend>
+    <legend className="text-sm font-semibold text-dark-foreground/90 mb-3">{titulo}</legend>
     <div className="flex flex-wrap gap-2">
       {opcoes.map((o) => (
-        <button
+        <Button variant="outline"
           key={o.id}
           type="button"
           aria-pressed={valor === o.id}
           onClick={() => aoEscolher(valor === o.id ? "" : o.id)}
-          className={`rounded-full px-4 py-2 text-sm font-medium border transition-smooth ${
-            valor === o.id ? "gradient-domous text-white border-transparent" : "border-white/15 text-white/80 hover:border-primary/60"
+          className={`rounded-full px-4 py-2 text-sm font-medium border bg-transparent h-auto whitespace-normal transition-smooth ${
+            valor === o.id ? "gradient-domous text-dark-foreground border-transparent" : "border-dark-border text-dark-foreground/80 hover:border-primary/60 hover:bg-primary/10 hover:text-dark-foreground"
           }`}
         >
           {o.rotulo}
-        </button>
+        </Button>
       ))}
     </div>
   </fieldset>
@@ -72,7 +73,7 @@ const Grupo = ({
 const MonteMensagem = ({
   origem,
   setorInicial,
-  titulo = "Monta tua mensagem e fala com a gente",
+  titulo = "Vamos conversar sobre sua empresa.",
 }: {
   origem: string;
   setorInicial?: string;
@@ -86,11 +87,11 @@ const MonteMensagem = ({
   const texto = montar(acha(setores, setor), acha(faturamentos, faturamento), acha(dores, dor));
 
   return (
-    <section id="conversa" className="section-dark purple-glow py-20 md:py-28 relative overflow-hidden scroll-mt-20">
+    <section id="conversa" className="section-dark py-20 md:py-28 relative overflow-hidden scroll-mt-20">
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-14 items-start max-w-6xl mx-auto">
           <div>
-            <h2 className="mb-4 text-white">{titulo}</h2>
+            <h2 className="mb-4 text-dark-foreground">{titulo}</h2>
             <p className="text-lg text-dark-muted mb-8">
               Três toques e a conversa já começa com o contexto da tua empresa. Sem formulário, sem cadastro.
             </p>
@@ -102,7 +103,7 @@ const MonteMensagem = ({
           <div className="lg:sticky lg:top-28">
             <p className="text-xs uppercase tracking-wide text-dark-muted mb-3">Tua mensagem</p>
             <div className="card-dark rounded-2xl border p-5 mb-5">
-              <p className="rounded-2xl rounded-tr-sm bg-primary/20 border border-primary/30 px-4 py-3 text-white leading-relaxed">{texto}</p>
+              <p className="rounded-2xl rounded-tr-sm bg-primary/20 border border-primary/30 px-4 py-3 text-dark-foreground leading-relaxed">{texto}</p>
             </div>
             <a
               href={wa(texto, origem)}
@@ -114,7 +115,7 @@ const MonteMensagem = ({
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({ event: "click_whatsapp", cta_label: "monte-mensagem", origem, setor, faturamento, dor });
               }}
-              className="flex w-full items-center justify-center gap-2 rounded-full h-14 text-base font-semibold gradient-domous text-white shadow-domous hover:opacity-90 transition-smooth"
+              className="flex w-full items-center justify-center gap-2 rounded-full h-14 text-base font-semibold gradient-domous text-dark-foreground shadow-domous hover:opacity-90 transition-smooth"
             >
               <MessageCircle className="w-5 h-5" aria-hidden />
               Abrir no WhatsApp

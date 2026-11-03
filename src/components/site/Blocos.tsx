@@ -14,9 +14,9 @@ export const Trilha = ({ itens }: { itens: Migalha[] }) => (
         <li key={m.href} className="flex items-center gap-1">
           {i > 0 && <ChevronRight className="w-3.5 h-3.5" aria-hidden />}
           {i < itens.length - 1 ? (
-            <a href={m.href} className="hover:text-white">{m.nome}</a>
+            <a href={m.href} className="hover:text-dark-foreground">{m.nome}</a>
           ) : (
-            <span className="text-white/90" aria-current="page">{m.nome}</span>
+            <span className="text-dark-foreground/90" aria-current="page">{m.nome}</span>
           )}
         </li>
       ))}
@@ -52,7 +52,7 @@ export const Topo = ({
           <BotaoWhatsApp origem={origem} texto={waTexto} />
           <a
             href="#conversa"
-            className="inline-flex items-center justify-center rounded-full px-6 h-12 font-semibold border-2 border-white/20 text-white hover:border-primary hover:bg-primary/10 transition-smooth"
+            className="inline-flex items-center justify-center rounded-full px-6 h-12 font-semibold border-2 border-dark-border text-dark-foreground hover:border-primary hover:bg-primary/10 transition-smooth"
           >
             Montar minha mensagem
           </a>
@@ -170,7 +170,7 @@ export const GradeCartoes = ({ itens, escuro = false }: { itens: Cartao[]; escur
         }`}
       >
         {c.selo && <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">{c.selo}</p>}
-        <h3 className={`text-lg font-bold mb-2 ${escuro ? "text-white" : ""}`}>{c.titulo}</h3>
+        <h3 className={`text-lg font-bold mb-2 ${escuro ? "text-dark-foreground" : ""}`}>{c.titulo}</h3>
         <p className={`text-sm leading-relaxed mb-4 ${escuro ? "text-dark-muted" : "text-muted-foreground"}`}>{c.texto}</p>
         <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
           Ver detalhes <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden />
@@ -227,7 +227,7 @@ export const Etapas = ({ etapas, titulo = "Como funciona" }: { etapas?: { titulo
         <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {etapas.map((e, i) => (
             <li key={e.titulo} className="bg-card rounded-2xl border border-border p-6 shadow-card">
-              <span className="inline-flex w-9 h-9 items-center justify-center rounded-full gradient-domous text-white text-sm font-bold mb-4">
+              <span className="inline-flex w-9 h-9 items-center justify-center rounded-full gradient-domous text-dark-foreground text-sm font-bold mb-4">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="text-lg font-bold mb-2">{e.titulo}</h3>

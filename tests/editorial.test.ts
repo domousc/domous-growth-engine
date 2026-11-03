@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { buscarArtigos, relacionados, selecionarEditorial } from "./editorial";
-import type { Post } from "./tipos";
+import { buscarArtigos, relacionados, selecionarEditorial } from "../src/content/editorial";
+import type { Post } from "../src/content/tipos";
 
 const post = (slug: string, tipo: Post["tipo"], publicado: string, servicos: string[] = []): Post => ({ slug, tipo, publicado, atualizado: publicado, servicos, nivel: "brasil", palavraChave: "marketing", titulo: slug, h1: slug, descricao: "Estratégia de marketing", resposta: "", secoes: [], faq: [] });
 const lista = [post("Anúncios no WhatsApp", "guia", "2026-10-28", ["meta"]), post("CRM e vendas", "guia", "2026-10-27", ["meta", "crm"]), post("notícia", "noticia", "2026-10-29"), post("opinião", "opiniao", "2026-10-26")];
