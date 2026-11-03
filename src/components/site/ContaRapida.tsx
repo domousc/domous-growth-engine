@@ -49,7 +49,7 @@ const ContaRapida = ({ origem }: { origem: string }) => {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-secondary/40">
+    <section className="py-16 md:py-24 bg-background text-foreground">
       <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-10 max-w-6xl">
         <div>
           <p className="inline-flex items-center gap-2 text-sm font-semibold text-primary mb-3">
@@ -78,7 +78,7 @@ const ContaRapida = ({ origem }: { origem: string }) => {
           )}
           {pronto && naoSei && (
             <div>
-              <p className="text-white text-xl font-bold mb-3">Esse é o primeiro problema a resolver.</p>
+              <p className="text-dark-foreground text-xl font-bold mb-3">Esse é o primeiro problema a resolver.</p>
               <p className="text-dark-muted leading-relaxed">
                 Sem saber quantas vendas vêm do anúncio, não dá pra saber se os {reais(v)} por mês se pagam. Medir isso (conversa real,
                 orçamento e venda por campanha) é a primeira coisa que a Domous organiza.
@@ -89,11 +89,11 @@ const ContaRapida = ({ origem }: { origem: string }) => {
             <ul className="grid grid-cols-2 gap-4">
               <li className="card-dark rounded-xl border p-4">
                 <p className="text-xs text-dark-muted mb-1">Custo por venda</p>
-                <p className="text-2xl font-bold text-white tabular-nums">{reais(custoVenda)}</p>
+                <p className="text-2xl font-bold text-dark-foreground tabular-nums">{reais(custoVenda)}</p>
               </li>
               <li className="card-dark rounded-xl border p-4">
                 <p className="text-xs text-dark-muted mb-1">Retorno por real investido</p>
-                <p className="text-2xl font-bold text-white tabular-nums">{retorno ? `${retorno.toFixed(1).replace(".", ",")}x` : "Informe o ticket"}</p>
+                <p className="text-2xl font-bold text-dark-foreground tabular-nums">{retorno ? `${retorno.toFixed(1).replace(".", ",")}x` : "Informe o ticket"}</p>
               </li>
               <li className="col-span-2 text-dark-muted text-sm leading-relaxed">
                 Esse número só vale se as vendas forem contadas certo. Em muita empresa, parte da venda do anúncio fecha no balcão ou
@@ -111,10 +111,10 @@ const ContaRapida = ({ origem }: { origem: string }) => {
               window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({ event: "click_whatsapp", cta_label: "conta-rapida", origem, nao_sei: naoSei });
             }}
-            className="mt-8 flex items-center justify-center gap-2 rounded-full h-12 font-semibold gradient-domous text-white shadow-domous hover:opacity-90 transition-smooth"
+            className="mt-8 flex items-center justify-center gap-2 rounded-full h-12 font-semibold gradient-domous text-dark-foreground shadow-domous hover:opacity-90 transition-smooth"
           >
             <MessageCircle className="w-5 h-5" aria-hidden />
-            {pronto ? "Levar esses números pra conversa" : "Falar com a Domous"}
+            {pronto ? "Conversar sobre os números" : "Falar com a Domous"}
           </a>
         </div>
       </div>

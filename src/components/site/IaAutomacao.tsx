@@ -10,7 +10,7 @@ const itens = [
 ];
 
 const IaAutomacao = () => (
-  <section className="py-16 md:py-24">
+  <section className="py-12 md:py-16 bg-background text-foreground">
     <div className="container mx-auto px-4 lg:px-8">
       <p className="text-sm font-semibold text-primary mb-2">IA e automação</p>
       <h2 className="mb-4 max-w-3xl">O trabalho repetitivo fica com a máquina. O vendedor fica com quem vai comprar.</h2>
@@ -22,7 +22,7 @@ const IaAutomacao = () => (
         {itens.map(({ icone: Icone, titulo, texto }) => (
           <li key={titulo} className="bg-card rounded-2xl border border-border p-6 shadow-card">
             <span className="inline-flex w-10 h-10 rounded-xl gradient-domous items-center justify-center mb-4">
-              <Icone className="w-5 h-5 text-white" aria-hidden />
+              <Icone className="w-5 h-5 text-primary-foreground" aria-hidden />
             </span>
             <h3 className="text-lg font-bold mb-2">{titulo}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">{texto}</p>

@@ -23,7 +23,7 @@ export const BlogIndice = () => {
   const destaque = filtro === "todos" && !termo.trim() ? lista[0] : undefined;
   const grade = destaque ? lista.slice(1) : lista;
   const noticias = selecionarEditorial(posts,true,2);
-  const guiaVisivel = (filtro === "todos" || filtro === "guia") && (!termo.trim() || `${guiaAgencia.h1} ${guiaAgencia.descricao}`.toLowerCase().includes(termo.trim().toLowerCase()));
+  const guiaVisivel = (filtro === "todos" || filtro === "guia") && (!termo.trim() || `${guiaAgencia.h1} ${guiaAgencia.descricao}`.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(termo.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()));
   return <Layout origem="blog" cabecalhoSolido>
     <section className="pt-28 pb-10 md:pt-32 md:pb-12 border-b border-border"><div className="section-shell"><p className="eyebrow text-primary mb-3">Ideias para quem decide</p><h1 className="editorial-title mb-4">Blog Domous<span className="text-primary">.</span></h1><p className="text-muted-foreground text-lg max-w-2xl">Guias e análises para decisões de marketing e vendas.</p></div></section>
     <section className="section-pad"><div className="section-shell">
