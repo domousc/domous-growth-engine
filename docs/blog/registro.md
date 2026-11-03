@@ -27,3 +27,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-02 · noticia · anúncios no chatgpt vale a pena · https://domous.com.br/news/estudo-anuncios-chatgpt-rendem-menos-que-google/
 - 2026-11-03 · noticia · performance max busca de marca · https://domous.com.br/news/google-performance-max-busca-de-marca-campanha-de-pesquisa/
 - 2026-11-03 · guia · remarketing · https://domous.com.br/blog/remarketing-quem-conversou-e-nao-comprou/
+- 2026-11-03 · noticia · novas regras do sac · https://domous.com.br/news/novo-decreto-do-sac-atendimento-humano-8h-as-20h/
