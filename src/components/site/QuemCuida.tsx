@@ -1,17 +1,8 @@
-import equipe from "@/assets/time-domous.webp";
 import { site } from "@/data/site";
 
 const QuemCuida = () => (
   <section className="py-16 md:py-24 bg-secondary/40">
-    <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-[1fr_1.1fr] gap-10 items-center max-w-6xl">
-      <img
-        src={equipe}
-        alt="Equipe Domous"
-        width={1200}
-        height={800}
-        loading="lazy"
-        className="w-full mx-auto rounded-2xl object-cover aspect-[3/2] shadow-card"
-      />
+    <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
       <div>
         <p className="text-sm font-semibold text-primary mb-2">Quem entrega</p>
         <h2 className="text-2xl md:text-3xl mb-5">Pessoas por trás da operação.</h2>
