@@ -29,3 +29,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-03 · guia · remarketing · https://domous.com.br/blog/remarketing-quem-conversou-e-nao-comprou/
 - 2026-11-03 · noticia · novas regras do sac · https://domous.com.br/news/novo-decreto-do-sac-atendimento-humano-8h-as-20h/
 - 2026-11-04 · noticia · liminar meta termos comerciais · https://domous.com.br/news/justica-sp-suspende-termos-da-meta-raspagem-de-sites/
+- 2026-11-04 · analise · projecta cabedelo material de construção · https://domous.com.br/blog/raio-x-projecta/
