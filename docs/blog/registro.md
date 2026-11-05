@@ -31,3 +31,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-04 · noticia · liminar meta termos comerciais · https://domous.com.br/news/justica-sp-suspende-termos-da-meta-raspagem-de-sites/
 - 2026-11-04 · analise · projecta cabedelo material de construção · https://domous.com.br/blog/raio-x-projecta/
 - 2026-11-04 · erro · edição extra não publicada: já havia 1 notícia hoje e nenhuma pauta das últimas 48h chegou a nota 20 com assunto diferente (contagem de conversões no dispositivo pelo Pixel da Meta a partir de 12/11 foi noticiada de 18 a 28/10; projeção do IEMI de queda de 2,5% no varejo em novembro, de 3 e 4/11, ficou abaixo da nota; revenda de inventário do ChatGPT por Magnite e PubMatic com pouco impacto pro leitor; decisão do Copom só sai hoje à noite) · -
+- 2026-11-05 · noticia · copom mantém selic 13,75 · https://domous.com.br/news/copom-mantem-selic-13-75-novembro-2026/
