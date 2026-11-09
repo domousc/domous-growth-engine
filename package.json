@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "test": "bun test tests",
     "preview": "vite preview",
-    "publicar": "npm run build && wrangler deploy && node scripts/indexnow.mjs"
+    "publicar": "node scripts/conferir-git.mjs antes && npm run build && wrangler deploy && node scripts/conferir-git.mjs depois && node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.3.0",
