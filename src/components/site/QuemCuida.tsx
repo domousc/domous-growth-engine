@@ -1,26 +1,54 @@
 import { site } from "@/data/site";
+import kairo from "@/assets/time/kairo.webp";
+import thais from "@/assets/time/thais.webp";
+import samara from "@/assets/time/samara.webp";
+import matheus from "@/assets/time/matheus.webp";
+import icaro from "@/assets/time/icaro.webp";
+import frank from "@/assets/time/frank.webp";
+
+// Seção "Time": quem faz a operação. Fotos recortadas sem fundo (mesmo enquadramento,
+// 720x900) pra ficarem iguais sobre o degradê do cartão.
+const time = [
+  { nome: "Kairo Lucas", cargo: "Fundador e CEO", texto: "Conduz a estratégia: tráfego no Meta e no Google, funil, processo comercial e IA.", foto: kairo, href: "/sobre/kairo-lucas/" },
+  { nome: "Thaís", cargo: "Diretora de marketing", texto: "Planeja o que vai ser comunicado, quando e com qual oferta.", foto: thais },
+  { nome: "Ícaro", cargo: "Social media", texto: "Toca o orgânico: pauta, publicação, comunidade e collabs.", foto: icaro },
+  { nome: "Samara", cargo: "Editora de vídeo", texto: "Edita os vídeos de anúncio, Reels e TikTok.", foto: samara },
+  { nome: "Matheus", cargo: "Designer gráfico", texto: "Cria as peças visuais de rede, anúncio e loja.", foto: matheus },
+  { nome: "Frank", cargo: "Designer gráfico", texto: "Faz artes de post, carrossel, banner e criativo estático.", foto: frank },
+];
 
 const QuemCuida = () => (
-  <section className="py-16 md:py-24 bg-secondary/40">
-    <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
-      <div>
-        <p className="text-sm font-semibold text-primary mb-2">Quem entrega</p>
-        <h2 className="text-2xl md:text-3xl mb-5">Pessoas por trás da operação.</h2>
-        <p className="text-lg text-foreground/80 leading-relaxed mb-4">
-          Kairo Lucas é fundador e CEO da Domous e trabalha na operação: estratégia e gestão de tráfego no Meta e no Google,
-          e-commerce, funil, processo comercial e automação com inteligência artificial. Samuel, Head de Operações, toca o dia a dia
-          das entregas.
-        </p>
-        <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-          Kairo conduz a estratégia. Samuel acompanha a operação e o dia a dia das entregas.
-        </p>
-        <div className="flex flex-wrap gap-4 text-sm font-semibold">
-          <a href="/sobre/kairo-lucas/" className="text-primary hover:underline">Quem é Kairo Lucas</a>
-          <a href="/sobre/" className="text-primary hover:underline">Conheça a Domous</a>
-          <a href={site.instagramKairo} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-            @kairolucas no Instagram
-          </a>
-        </div>
+  <section className="section-pad" id="time">
+    <div className="section-shell">
+      <p className="eyebrow mb-3">Time</p>
+      <h2 className="text-3xl md:text-4xl max-w-2xl mb-4">Quem faz a operação.</h2>
+      <p className="text-muted-foreground max-w-2xl mb-10 leading-relaxed">
+        Estratégia, anúncio, conteúdo, vídeo e design no mesmo time, falando entre si. Samuel, Head de Operações,
+        acompanha o dia a dia das entregas.
+      </p>
+      <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {time.map((p) => {
+          const Cartao = p.href ? "a" : "div";
+          return (
+            <li key={p.nome}>
+              <Cartao {...(p.href ? { href: p.href } : {})} className="time-cartao card-brilho bg-card group block h-full rounded-3xl border border-border overflow-hidden">
+                <div className="time-foto relative aspect-[4/5] overflow-hidden">
+                  <img src={p.foto} alt={`${p.nome}, ${p.cargo} da Domous`} width={720} height={900} loading="lazy" decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+                </div>
+                <div className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl leading-tight">{p.nome}</h3>
+                  <p className="text-sm font-semibold text-primary mt-1">{p.cargo}</p>
+                  <p className="hidden md:block text-sm text-muted-foreground leading-relaxed mt-3">{p.texto}</p>
+                </div>
+              </Cartao>
+            </li>
+          );
+        })}
+      </ul>
+      <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold mt-8">
+        <a href="/sobre/" className="text-primary hover:underline">Conheça a Domous</a>
+        <a href={site.instagramKairo} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@kairolucas no Instagram</a>
       </div>
     </div>
   </section>
