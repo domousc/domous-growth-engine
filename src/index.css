@@ -418,6 +418,5 @@ input:focus-visible, textarea:focus-visible, select:focus-visible { outline: non
   [data-rv="0"] { filter: none; }
 }
 
-/* Time (09/11/2026): foto recortada sobre degradê roxo suave, com luz por trás da cabeça. */
-.time-foto { background: radial-gradient(70% 55% at 50% 38%, hsl(280 90% 80% / .55), transparent 70%), linear-gradient(180deg, hsl(275 60% 94%), hsl(280 45% 86%)); }
-.time-foto::after { content: ""; position: absolute; inset: auto 0 0 0; height: 18%; background: linear-gradient(0deg, hsl(0 0% 100% / .35), transparent); pointer-events: none; }
+/* Time (09/11/2026): fotos originais, sem tratamento de fundo. */
+.time-foto { background: hsl(240 6% 90%); }
