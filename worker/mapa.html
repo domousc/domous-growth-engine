@@ -6,88 +6,181 @@
 <meta name="robots" content="noindex, nofollow" />
 <title>Mapa do formulário · Domous</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="/logo-domous.png" />
 <style>
+  /* Mesma identidade do domous.com.br: off-white quente, luzes pastel, vidro, roxo #AD2BEE,
+     Space Grotesk nos títulos e Inter no texto, blocos escuros #0B0B0E alternando. */
   :root {
-    --roxo: #8B00FF; --roxo-claro: #f3e6ff; --texto: #1A1A1A; --cinza: #6b6b76; --bloco: #f5f5f5; --borda: #e7e7ec; --fundo: #ffffff;
-    --verde: #12a150; --vermelho: #d93a3a; --amarelo: #c98a00;
+    --roxo: #AD2BEE; --roxo-escuro: #9B17E8; --roxo-vivo: #C23FEE; --roxo-claro: #F3E4FD;
+    --texto: #16161A; --cinza: #61616B; --borda: #E3E3E8; --fundo: #F9F8F6; --escuro: #0B0B0E;
+    --vidro: rgba(255,255,255,.62); --vidro-borda: rgba(255,255,255,.9);
+    --sombra: inset 0 0 0 1px rgba(22,22,26,.04), 0 1px 2px rgba(22,22,26,.04), 0 18px 40px -22px rgba(40,30,60,.22);
+    --degrade: linear-gradient(135deg, var(--roxo-escuro), var(--roxo-vivo));
+    --verde: #1F9D63; --vermelho: #D93A3A;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: Poppins, system-ui, sans-serif; color: var(--texto); background: var(--fundo); -webkit-font-smoothing: antialiased; }
-  header { border-bottom: 3px solid var(--roxo); padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  header .marca { font-weight: 700; letter-spacing: .14em; font-size: 14px; }
-  header .marca span { color: var(--roxo); font-weight: 500; letter-spacing: .04em; }
-  main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
-  h1 { font-size: 28px; margin: 0 0 4px; letter-spacing: -.02em; }
-  h2 { font-size: 19px; margin: 40px 0 6px; letter-spacing: -.01em; }
-  .sub { color: var(--cinza); margin: 0 0 20px; font-size: 14px; }
-  .filtros { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  [hidden] { display: none !important; }
+  :focus-visible { outline: 2px solid var(--roxo); outline-offset: 2px; }
+  input:focus { outline: none; border-color: var(--roxo); box-shadow: 0 0 0 4px rgba(173,43,238,.15); }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: Inter, -apple-system, "Segoe UI", sans-serif; color: var(--texto); background: var(--fundo); -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  h1, h2, h3, h4, .kpi b, .marca b { font-family: "Space Grotesk", Inter, sans-serif; }
+
+  /* Fundo com luzes, igual ao do site */
+  .fx-fundo { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; background: var(--fundo); }
+  .fx-luz { position: absolute; border-radius: 999px; filter: blur(90px); }
+  .fx-luz-1 { width: 720px; height: 720px; top: -260px; right: -120px; background: radial-gradient(circle, hsl(272 95% 82% / .55), transparent 65%); animation: flutua-1 28s ease-in-out infinite; }
+  .fx-luz-2 { width: 640px; height: 640px; top: 35%; left: -260px; background: radial-gradient(circle, hsl(205 95% 82% / .45), transparent 65%); animation: flutua-2 34s ease-in-out infinite; }
+  .fx-luz-3 { width: 560px; height: 560px; bottom: -260px; right: 10%; background: radial-gradient(circle, hsl(25 100% 84% / .45), transparent 65%); animation: flutua-1 40s ease-in-out infinite reverse; }
+  @keyframes flutua-1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-120px,80px) scale(1.1); } }
+  @keyframes flutua-2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(160px,-70px) scale(.92); } }
+  @media (prefers-reduced-motion: reduce) { .fx-luz { animation: none; } html { scroll-behavior: auto; } }
+
+  /* Cabeçalho em pílula de vidro escuro */
+  header { position: sticky; top: 0; z-index: 10; padding: 14px 16px 0; }
+  .pilula-topo { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 8px 8px 18px; border-radius: 999px;
+    background: rgba(11,11,14,.86); border: 1px solid rgba(255,255,255,.09); -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 16px 40px -20px rgba(20,16,30,.55); color: #F5F5F5; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+  .marca img { width: 28px; height: 28px; }
+  .marca b { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+  .marca span { font-size: 12px; color: #A6A6B0; padding-left: 10px; border-left: 1px solid rgba(255,255,255,.14); }
+  .sair { height: 36px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: #F5F5F5; cursor: pointer; font-size: 13px; }
+  .sair:hover { background: rgba(255,255,255,.12); }
+
+  main { max-width: 1280px; margin: 0 auto; padding: 36px 16px 90px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+    background: rgba(255,255,255,.7); border: 1px solid rgba(22,22,26,.08); color: #3A3A44; box-shadow: 0 1px 2px rgba(22,22,26,.05); }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--roxo); }
+  h1 { font-size: clamp(30px, 4vw, 44px); line-height: 1.05; margin: 14px 0 8px; letter-spacing: -.03em; font-weight: 700; }
+  h1 em { font-style: normal; background-image: linear-gradient(100deg, #9B17E8, #CF5CF5 45%, #9B17E8 70%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: brilho 6s ease-in-out infinite; }
+  @keyframes brilho { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+  h2 { font-size: 24px; margin: 56px 0 6px; letter-spacing: -.025em; font-weight: 600; }
+  .sub { color: var(--cinza); margin: 0 0 20px; font-size: 15px; line-height: 1.5; }
+
+  /* Filtros em barra de vidro */
+  .filtros { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; width: fit-content; max-width: 100%; margin: 0 0 30px; padding: 6px; border-radius: 999px;
+    background: var(--vidro); border: 1px solid var(--vidro-borda); -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%); box-shadow: var(--sombra); }
   select, input, button { font: inherit; font-size: 14px; }
-  select, input { height: 38px; border: 1px solid var(--borda); border-radius: 10px; padding: 0 12px; background: #fff; color: var(--texto); }
-  .pilula { height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--borda); background: #fff; cursor: pointer; color: var(--texto); }
-  .pilula[aria-pressed="true"] { background: var(--roxo); border-color: var(--roxo); color: #fff; }
-  .botao { height: 44px; padding: 0 20px; border-radius: 999px; border: 0; background: var(--roxo); color: #fff; font-weight: 600; cursor: pointer; }
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 20px; }
-  .kpi { background: var(--bloco); border-left: 4px solid var(--roxo); border-radius: 12px; padding: 14px 16px; }
-  .kpi b { display: block; font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; }
-  .kpi small { color: var(--cinza); font-size: 12px; }
-  .funil { display: grid; gap: 8px; margin-top: 12px; }
-  .funil-linha { display: grid; grid-template-columns: 230px 1fr 110px; gap: 12px; align-items: center; font-size: 14px; }
-  .barra { height: 26px; background: var(--bloco); border-radius: 8px; overflow: hidden; }
-  .barra i { display: block; height: 100%; background: linear-gradient(90deg, var(--roxo), #b54dff); border-radius: 8px; }
+  select, input { height: 38px; border: 1px solid var(--borda); border-radius: 999px; padding: 0 14px; background: rgba(255,255,255,.85); color: var(--texto); }
+  .pilula { height: 38px; padding: 0 16px; border-radius: 999px; border: 0; background: transparent; cursor: pointer; color: var(--cinza); font-weight: 500; transition: background .25s, color .25s; }
+  .pilula:hover { color: var(--texto); background: rgba(255,255,255,.8); }
+  .pilula[aria-pressed="true"] { background: var(--degrade); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 8px 22px -10px rgba(140,30,200,.6); }
+  .botao { height: 48px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--degrade); color: #fff; font-weight: 600; cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 8px 22px -10px rgba(140,30,200,.6); transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s; }
+  .botao:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 14px 30px -10px rgba(140,30,200,.7); }
+
+  /* Cartões de vidro claro */
+  .vidro, .no, .grade2 > div, .funil, .grafico-caixa, .login, .vazio {
+    background: var(--vidro); border: 1px solid var(--vidro-borda); border-radius: 20px;
+    -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%); box-shadow: var(--sombra); }
+
+  /* Números principais em bloco escuro, como as seções escuras do site */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 24px; padding: 14px; border-radius: 26px;
+    background: radial-gradient(600px circle at 0% 0%, hsl(280 85% 55% / .28), transparent 55%), radial-gradient(500px circle at 100% 100%, hsl(220 85% 55% / .16), transparent 55%), var(--escuro);
+    box-shadow: 0 30px 60px -30px rgba(11,11,14,.6); }
+  .kpi { border-radius: 18px; padding: 18px; background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.09); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
+  .kpi b { display: block; font-size: 34px; font-weight: 600; letter-spacing: -.03em; color: #fff; font-variant-numeric: tabular-nums; }
+  .kpi:nth-child(4) b { background: linear-gradient(135deg, #D58BFF, #fff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .kpi small { color: #A6A6B0; font-size: 12.5px; line-height: 1.4; display: block; margin-top: 4px; }
+
+  .funil { display: grid; gap: 10px; margin-top: 12px; padding: 20px; }
+  .funil-linha { display: grid; grid-template-columns: 230px 1fr 110px; gap: 14px; align-items: center; font-size: 14px; }
+  .barra { height: 26px; background: rgba(22,22,26,.05); border-radius: 999px; overflow: hidden; }
+  .barra i { display: block; height: 100%; background: var(--degrade); border-radius: 999px; transition: width .8s cubic-bezier(.2,.8,.2,1); }
   .num { text-align: right; font-variant-numeric: tabular-nums; color: var(--cinza); }
   .num b { color: var(--texto); }
-  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 4px; }
   th { text-align: left; font-size: 12px; color: var(--cinza); font-weight: 500; padding: 8px 10px; border-bottom: 1px solid var(--borda); }
-  td { padding: 10px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+  td { padding: 11px 10px; border-bottom: 1px solid rgba(22,22,26,.06); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
   td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; background: var(--roxo-claro); color: var(--roxo); }
-  .badge.alerta { background: #fdeaea; color: var(--vermelho); }
-  .badge.ok { background: #e6f6ec; color: var(--verde); }
-  .fase { margin-top: 28px; }
-  .fase-titulo { display: flex; align-items: baseline; gap: 10px; }
-  .fase-titulo h3 { margin: 0; font-size: 16px; }
+  td a { color: var(--texto); text-decoration: none; border-bottom: 1px solid rgba(173,43,238,.35); }
+  td a:hover { color: var(--roxo); }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; background: var(--roxo-claro); color: #8A1BC4; }
+  .badge.alerta { background: #FDEAEA; color: var(--vermelho); }
+  .badge.ok { background: #E4F5EC; color: var(--verde); }
+  .badge.ramifica { background: var(--escuro); color: #fff; }
+
+  .fase { margin-top: 32px; }
+  .fase-titulo { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .fase-titulo h3 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -.02em; }
   .fase-titulo span { color: var(--cinza); font-size: 13px; }
-  .raia { display: flex; gap: 14px; align-items: stretch; overflow-x: auto; padding: 12px 2px 14px; }
-  .raia-rotulo { flex: none; width: 190px; background: var(--roxo-claro); border-radius: 14px; padding: 14px; font-size: 13px; }
-  .raia-rotulo b { display: block; font-size: 14px; margin-bottom: 6px; }
+  .raia { display: flex; gap: 14px; align-items: stretch; overflow-x: auto; padding: 14px 4px 18px; scrollbar-width: thin; }
+  .raia-rotulo { flex: none; align-self: flex-start; position: sticky; left: 0; z-index: 1; width: 200px; border-radius: 20px; padding: 16px; font-size: 13px; color: #C9C9D1; line-height: 1.45;
+    background: radial-gradient(260px circle at 0% 0%, hsl(280 85% 55% / .35), transparent 60%), var(--escuro); }
+  .raia-rotulo b { display: block; font-family: "Space Grotesk", Inter, sans-serif; font-size: 15px; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+  .raia-rotulo small { color: #D58BFF; }
   .coluna { flex: none; display: flex; flex-direction: column; gap: 12px; width: 300px; }
-  .seta { flex: none; align-self: center; color: var(--roxo); font-size: 20px; }
-  .no { background: #fff; border: 1px solid var(--borda); border-left: 4px solid var(--roxo); border-radius: 14px; padding: 14px; scroll-margin: 90px; transition: box-shadow .2s, border-color .2s; }
-  .no.destaque { box-shadow: 0 0 0 3px var(--roxo); }
-  .no h4 { margin: 6px 0 10px; font-size: 14px; line-height: 1.35; font-weight: 600; }
+  .seta { flex: none; align-self: center; width: 30px; height: 30px; border-radius: 999px; display: grid; place-items: center; color: #fff; font-size: 15px; background: var(--degrade); box-shadow: 0 8px 18px -8px rgba(140,30,200,.6); }
+  .no { padding: 16px; scroll-margin: 110px; transition: box-shadow .3s, transform .45s cubic-bezier(.2,.8,.2,1); }
+  .no:hover { transform: translateY(-2px); }
+  .no.destaque { box-shadow: 0 0 0 3px var(--roxo), var(--sombra); }
+  .no h4 { margin: 8px 0 10px; font-size: 15px; line-height: 1.35; font-weight: 600; letter-spacing: -.01em; }
   .no .meta { display: flex; gap: 6px; flex-wrap: wrap; font-size: 12px; color: var(--cinza); }
-  .op { margin-top: 8px; font-size: 13px; }
+  .op { margin-top: 9px; font-size: 13px; }
   .op-topo { display: flex; justify-content: space-between; gap: 8px; }
   .op-topo span:last-child { color: var(--cinza); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .op .barra { height: 6px; margin-top: 4px; }
-  .op a { color: var(--roxo); font-size: 12px; text-decoration: none; cursor: pointer; }
+  .op .barra { height: 6px; margin-top: 5px; }
+  .op a { color: var(--roxo); font-size: 12px; font-weight: 500; text-decoration: none; cursor: pointer; }
   .op a:hover { text-decoration: underline; }
-  .especial { border-left-color: var(--texto); background: var(--bloco); }
-  .grade2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; }
-  .grafico svg { width: 100%; height: 180px; }
-  .legenda { display: flex; gap: 14px; font-size: 12px; color: var(--cinza); margin-top: 6px; }
-  .legenda i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
-  .login { max-width: 420px; margin: 60px auto; background: var(--bloco); border-left: 4px solid var(--roxo); border-radius: 14px; padding: 28px; }
-  .login input { width: 100%; margin: 14px 0; height: 44px; }
+  .especial { background: radial-gradient(260px circle at 100% 0%, hsl(280 85% 55% / .3), transparent 60%), var(--escuro); border-color: rgba(255,255,255,.09); color: #E6E6EA; }
+  .especial h4 { color: #fff; }
+  .especial .badge { background: rgba(255,255,255,.1); color: #fff; }
+  .especial .badge.alerta { background: rgba(217,58,58,.25); color: #FFB4B4; }
+
+  .grade2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+  .grade2 > div { padding: 4px 22px 18px; }
+  .grade2 h2 { margin-top: 18px; font-size: 20px; }
+  .grafico-caixa { padding: 20px 20px 14px; margin-top: 12px; }
+  .grafico svg { width: 100%; height: 180px; display: block; }
+  .legenda { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--cinza); margin-top: 10px; }
+  .legenda i { display: inline-block; width: 10px; height: 10px; border-radius: 999px; margin-right: 6px; vertical-align: -1px; }
+
+  .login { max-width: 440px; margin: 9vh auto 0; padding: 32px; text-align: left; }
+  .login h1 { font-size: 32px; margin-top: 12px; }
+  .login input { width: 100%; margin: 14px 0; height: 48px; }
+  .login .botao { width: 100%; }
   .erro { color: var(--vermelho); font-size: 13px; }
-  .vazio { background: var(--bloco); border-radius: 14px; padding: 18px; color: var(--cinza); margin-top: 16px; }
-  @media (max-width: 860px) { .grade2 { grid-template-columns: 1fr; } .funil-linha { grid-template-columns: 1fr 90px; } .funil-linha .barra { grid-column: 1 / -1; grid-row: 2; } }
+  .vazio { padding: 18px 20px; color: var(--cinza); margin-top: 16px; }
+
+  /* Entrada suave dos blocos */
+  #app > * { animation: subir .6s cubic-bezier(.2,.8,.2,1) both; }
+  #app > *:nth-child(2) { animation-delay: .05s; } #app > *:nth-child(3) { animation-delay: .1s; } #app > *:nth-child(4) { animation-delay: .15s; }
+  @keyframes subir { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+  @media (max-width: 860px) {
+    .grade2 { grid-template-columns: 1fr; }
+    .funil-linha { grid-template-columns: 1fr 90px; } .funil-linha .barra { grid-column: 1 / -1; grid-row: 2; }
+    .marca span { display: none; }
+    .filtros { border-radius: 22px; }
+    .kpis { grid-template-columns: 1fr 1fr; padding: 10px; gap: 10px; }
+    .kpi { padding: 14px; } .kpi b { font-size: 28px; }
+    .raia-rotulo { position: static; width: 170px; }
+  }
 </style>
 </head>
 <body>
+<div class="fx-fundo" aria-hidden="true"><div class="fx-luz fx-luz-1"></div><div class="fx-luz fx-luz-2"></div><div class="fx-luz fx-luz-3"></div></div>
 <header>
-  <div class="marca">DOMOUS · <span>Business Performance</span></div>
+  <div class="pilula-topo">
+    <a class="marca" href="/"><img src="/logo-domous.png" alt="" width="28" height="28" /><b>Domous</b><span>Mapa do formulário</span></a>
+    <button class="sair" id="sair" hidden>Sair</button>
+  </div>
+</header>
+<main>
   <div class="filtros" id="filtros" hidden>
     <button class="pilula" data-dias="7">7 dias</button>
     <button class="pilula" data-dias="30" aria-pressed="true">30 dias</button>
     <button class="pilula" data-dias="90">90 dias</button>
     <button class="pilula" data-dias="3650">Tudo</button>
     <select id="segmento"><option value="">Todos os segmentos</option></select>
-    <button class="pilula" id="sair">Sair</button>
   </div>
-</header>
-<main id="app"></main>
+  <div id="app"></div>
+</main>
 
 <script>
 (function () {
@@ -102,8 +195,8 @@
   var NOMES = { contato: "Contato (nome, empresa, WhatsApp)", implicacao: "Tela da conta (implicação)", fim: "Terminou", fora: "Saiu no corte (até R$ 30 mil)" };
 
   function login(erro) {
-    document.getElementById("filtros").hidden = true;
-    app.innerHTML = '<div class="login"><h1>Mapa do formulário</h1><p class="sub">Área restrita. Digite a senha.</p>' +
+    document.getElementById("filtros").hidden = true; document.getElementById("sair").hidden = true;
+    app.innerHTML = '<div class="login"><span class="eyebrow">Área restrita</span><h1>Mapa do <em>formulário</em></h1><p class="sub">Digite a senha pra ver os dados.</p>' +
       '<form id="f"><input id="senha" type="password" autocomplete="current-password" placeholder="Senha" autofocus />' +
       (erro ? '<p class="erro">' + esc(erro) + "</p>" : "") + '<button class="botao" type="submit">Entrar</button></form></div>';
     document.getElementById("f").onsubmit = function (e) {
@@ -128,7 +221,7 @@
   }
 
   function desenhar(d) {
-    document.getElementById("filtros").hidden = false;
+    document.getElementById("filtros").hidden = false; document.getElementById("sair").hidden = false;
     var porId = {}; d.mapa.forEach(function (p) { porId[p.id] = p; });
     var sel = document.getElementById("segmento");
     if (sel.options.length === 1 && porId.segmento) porId.segmento.opcoes.forEach(function (o) { sel.add(new Option(o.l, o.v)); });
@@ -143,7 +236,7 @@
     var iniciaram = vistas.segmento || 0, fora = tot.fora || 0, contato = tot.contato || 0, fim = tot.fim || 0;
     var problema = (vistas.trava || 0) + (vistas.trava_sem || 0);
 
-    var h = '<h1>Mapa do formulário /comecar</h1><p class="sub">Caminho de cada lead, pergunta por pergunta, e onde as pessoas desistem. Últimos ' +
+    var h = '<span class="eyebrow">domous.com.br/comecar</span><h1>Mapa do <em>formulário</em></h1><p class="sub">Caminho de cada lead, pergunta por pergunta, e onde as pessoas desistem. Últimos ' +
       (estado.dias >= 3650 ? "registros (tudo)" : estado.dias + " dias") + (estado.segmento ? " · " + esc((porId.segmento.opcoes.filter(function (o) { return o.v === estado.segmento; })[0] || {}).l) : "") + ".</p>";
 
     h += '<div class="kpis">' +
@@ -191,7 +284,7 @@
     h += "</div></div>";
 
     // Por dia
-    h += '<h2>Dia a dia</h2><div class="grafico">' + grafico(d.porDia) + '</div><div class="legenda"><span><i style="background:#d9c2f5"></i>Começaram</span><span><i style="background:#8B00FF"></i>Deixaram contato</span><span><i style="background:#1A1A1A"></i>Terminaram</span></div>';
+    h += '<h2>Dia a dia</h2><div class="grafico-caixa"><div class="grafico">' + grafico(d.porDia) + '</div><div class="legenda"><span><i style="background:#E3C9F7"></i>Começaram</span><span><i style="background:#AD2BEE"></i>Deixaram contato</span><span><i style="background:#0B0B0E"></i>Terminaram</span></div></div>';
 
     // Mapa
     h += '<h2>Mapa das perguntas</h2><p class="sub">Cada caixa é uma tela. Dentro, quanto cada resposta foi escolhida e pra onde ela leva. Clique na seta pra ir até a próxima pergunta.</p>';
@@ -229,7 +322,7 @@
         }
         colunas.push(["implicacao"]); colunas.push(["n_ganho_" + o.v]);
         var escolhas = (resp[id] || {})[o.v] || 0;
-        html += raia('<b>' + esc(o.l) + "</b>" + escolhas + " pessoa" + (escolhas === 1 ? "" : "s") + " · " + pct(escolhas, respTotal(id)) + "% de quem respondeu" + (o.so ? "<br><small>Só aparece pra e-commerce</small>" : ""), colunas);
+        html += raia('<b>' + esc(limpa(o.l)) + "</b>" + escolhas + " pessoa" + (escolhas === 1 ? "" : "s") + " · " + pct(escolhas, respTotal(id)) + "% de quem respondeu" + (o.so ? "<br><small>Só aparece pra e-commerce</small>" : ""), colunas);
       });
       return html;
     }
@@ -258,12 +351,12 @@
       p.opcoes.forEach(function (o) {
         var n = (resp[id] || {})[o.v] || 0;
         var destino = !ramifica || o.proxima === "fim" ? "" : o.proxima;
-        html += '<div class="op"><div class="op-topo"><span>' + esc(o.l) + "</span><span>" + n + " · " + pct(n, total) + '%</span></div><div class="barra"><i style="width:' + pct(n, total) + '%"></i></div>' +
+        html += '<div class="op"><div class="op-topo"><span>' + esc(limpa(o.l)) + "</span><span>" + n + " · " + pct(n, total) + '%</span></div><div class="barra"><i style="width:' + pct(n, total) + '%"></i></div>' +
           (destino && id !== "trava" && id !== "trava_sem" ? '<a class="ir" data-alvo="' + destino + '">→ ' + esc(NOMES[destino] || limpa((porId[destino] || {}).titulo) || destino) + "</a>" : "") + "</div>";
       });
       var unico = !ramifica && destinos[0] !== "fim" && id !== "trava" && id !== "trava_sem" ? destinos[0] : "";
       if (unico) html += '<div class="op" style="margin-top:12px"><a class="ir" data-alvo="' + unico + '">Todas as respostas → ' + esc(NOMES[unico] || limpa((porId[unico] || {}).titulo) || unico) + "</a></div>";
-      else if (ramifica && id !== "trava" && id !== "trava_sem") html = html.replace('<div class="meta">', '<div class="meta"><span class="badge" style="background:#1A1A1A;color:#fff">ramifica</span>');
+      else if (ramifica && id !== "trava" && id !== "trava_sem") html = html.replace('<div class="meta">', '<div class="meta"><span class="badge ramifica">ramifica</span>');
       return html + "</div>";
     }
   }
@@ -274,11 +367,11 @@
     var w = W / dias.length, s = '<svg viewBox="0 0 ' + W + " " + (H + 20) + '" preserveAspectRatio="none">';
     dias.forEach(function (d, i) {
       var x = i * w + w * 0.15, bw = w * 0.7;
-      [[d.iniciou, "#d9c2f5", 0], [d.contato, "#8B00FF", 0.2], [d.fim, "#1A1A1A", 0.4]].forEach(function (b) {
+      [[d.iniciou, "#E3C9F7", 0], [d.contato, "#AD2BEE", 0.2], [d.fim, "#0B0B0E", 0.4]].forEach(function (b) {
         var hh = (b[0] / max) * H;
         s += '<rect x="' + (x + bw * b[2] / 2) + '" y="' + (H - hh) + '" width="' + bw * (1 - b[2]) + '" height="' + hh + '" rx="3" fill="' + b[1] + '"><title>' + d.dia + ": " + b[0] + "</title></rect>";
       });
-      if (dias.length <= 31 && (i % Math.ceil(dias.length / 10) === 0)) s += '<text x="' + (x + bw / 2) + '" y="' + (H + 15) + '" font-size="11" text-anchor="middle" fill="#6b6b76">' + d.dia.slice(8, 10) + "/" + d.dia.slice(5, 7) + "</text>";
+      if (dias.length <= 31 && (i % Math.ceil(dias.length / 10) === 0)) s += '<text x="' + (x + bw / 2) + '" y="' + (H + 15) + '" font-size="11" text-anchor="middle" fill="#61616B">' + d.dia.slice(8, 10) + "/" + d.dia.slice(5, 7) + "</text>";
     });
     return s + "</svg>";
   }
