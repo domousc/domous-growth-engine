@@ -1,0 +1,19 @@
+// Prévia do site num endereço separado, sem tocar no domous.com.br.
+// Publicar: npm run build && npx wrangler deploy -c wrangler.previa.jsonc
+// Sem domínio próprio, sem banco e sem chave do CRM: lead enviado aqui não vai pra lugar nenhum.
+{
+  "name": "domous-site-previa",
+  "main": "worker/previa.js",
+  "compatibility_date": "2026-09-01",
+  // A página do mapa do formulário (worker/mapa.html) entra no worker como texto.
+  "rules": [{ "type": "Text", "globs": ["**/*.html"], "fallthrough": true }],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  },
+  "workers_dev": true,
+  "vars": { "MAPA_HASH": "666d0f3ecc98a58365ab919716c5669c" }
+}

@@ -350,6 +350,13 @@ rotas.push(
     jsonLd: [],
     noindex: true,
   },
+  {
+    path: "/comecar/",
+    titulo: "Vamos ver se faz sentido | Domous",
+    descricao: "Responda em 2 minutos e fale com a Domous no WhatsApp já com o seu caso resumido.",
+    jsonLd: [],
+    noindex: true,
+  },
 );
 
 export const rota404: Rota = {

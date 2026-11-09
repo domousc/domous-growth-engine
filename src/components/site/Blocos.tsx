@@ -91,14 +91,14 @@ export const Secoes = ({ secoes, indice = false }: { secoes: Secao[]; indice?: b
 );
 
 export const CartaoResultado = ({ r }: { r: Resultado }) => (
-  <article id={r.id} className="bg-card rounded-2xl border border-border border-l-4 border-l-primary p-6 shadow-card scroll-mt-28">
-    <p className="text-sm font-semibold text-primary mb-2">{r.segmento}</p>
-    <h3 className="text-xl font-bold mb-5 leading-snug">{r.titulo}</h3>
-    <dl className="grid grid-cols-2 gap-4">
+  <article id={r.id} className="card-brilho card-dark rounded-2xl border p-6 md:p-7 scroll-mt-28 transition-smooth hover:-translate-y-1 hover:border-primary/50">
+    <p className="inline-flex rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold text-brand-label mb-4">{r.segmento}</p>
+    <h3 className="text-xl font-bold mb-6 leading-snug">{r.titulo}</h3>
+    <dl className="grid grid-cols-2 gap-4 border-t border-dark-border pt-5">
       {r.metricas.map((m) => (
         <div key={m.rotulo}>
-          <dt className="text-xs uppercase tracking-wide text-muted-foreground mb-1">{m.rotulo}</dt>
-          <dd className="text-lg font-bold tabular-nums">{m.valor}</dd>
+          <dt className="text-xs uppercase tracking-wide text-dark-muted mb-1">{m.rotulo}</dt>
+          <dd className="text-2xl font-bold tabular-nums">{m.valor}</dd>
         </div>
       ))}
     </dl>
@@ -115,10 +115,11 @@ export const Resultados = ({
   const lista = ids ? ids.map(resultadoPorId).filter((r): r is Resultado => !!r) : todosResultados;
   if (!lista.length) return null;
   return (
-    <section className="py-16 md:py-24 bg-secondary/40">
-      <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-2xl md:text-3xl mb-3">{titulo}</h2>
-        <p className="text-muted-foreground mb-10 max-w-2xl">
+    <section className="section-dark py-16 md:py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-8 relative">
+        <p className="eyebrow text-brand-label mb-3">Resultados</p>
+        <h2 className="text-2xl md:text-4xl mb-3 max-w-3xl">{titulo}</h2>
+        <p className="text-dark-muted mb-10 max-w-2xl">
           Números reais de operações da Domous. Por confidencialidade, os resultados aparecem pelo segmento do cliente.
         </p>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -141,13 +142,13 @@ export const Perguntas = ({ faq, titulo = "Perguntas frequentes" }: { faq: Pergu
         <div className="max-w-3xl">
           <h2 className="text-2xl md:text-3xl mb-8">{titulo}</h2>
           <div className="space-y-3">
-            {faq.map((f) => (
-              <details key={f.p} className="group bg-card rounded-2xl border border-border shadow-card open:border-primary/40">
+            {faq.map((f, i) => (
+              <details key={f.p} className="group bg-card rounded-2xl border border-border shadow-card transition-smooth hover:border-primary/30 open:border-primary/40">
                 <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-left [&::-webkit-details-marker]:hidden">
-                  <h3 className="text-base md:text-lg font-semibold">{f.p}</h3>
+                  <span className="flex items-baseline gap-4"><span className="text-sm font-semibold text-primary tabular-nums shrink-0" aria-hidden>{String(i + 1).padStart(2, "0")}</span><h3 className="text-base md:text-lg font-semibold">{f.p}</h3></span>
                   <ChevronDown className="w-5 h-5 shrink-0 text-primary transition-transform group-open:rotate-180" aria-hidden />
                 </summary>
-                <p className="px-6 pb-6 text-foreground/80 leading-relaxed">{f.r}</p>
+                <p className="px-6 pb-6 md:pl-[3.75rem] text-foreground/80 leading-relaxed">{f.r}</p>
               </details>
             ))}
           </div>
@@ -224,9 +225,9 @@ export const Etapas = ({ etapas, titulo = "Como funciona" }: { etapas?: { titulo
     <section className="py-16 md:py-20">
       <div className="container mx-auto px-4 lg:px-8">
         <h2 className="text-2xl md:text-3xl mb-8">{titulo}</h2>
-        <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="passos-linha grid gap-5 lg:grid-cols-4">
           {etapas.map((e, i) => (
-            <li key={e.titulo} className="bg-card rounded-2xl border border-border p-6 shadow-card">
+            <li key={e.titulo} className="card-brilho bg-card rounded-2xl border border-border p-6 shadow-card">
               <span className="inline-flex w-9 h-9 items-center justify-center rounded-full gradient-domous text-dark-foreground text-sm font-bold mb-4">
                 {String(i + 1).padStart(2, "0")}
               </span>

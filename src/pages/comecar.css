@@ -1,0 +1,236 @@
+/* Visual da /comecar. Referências: Linear e Raycast (vidro, luz roxa de fundo,
+   bordas finas com brilho) e Typeform (uma pergunta por tela, atalho de teclado).
+   Tudo com prefixo cm- pra não vazar pro resto do site. */
+
+.cm {
+  --cm-bg: #07060b;
+  --cm-roxo: 280 85% 55%;
+  --cm-vidro: rgba(255, 255, 255, 0.035);
+  --cm-vidro-forte: rgba(255, 255, 255, 0.06);
+  --cm-borda: rgba(255, 255, 255, 0.08);
+  --cm-borda-forte: rgba(255, 255, 255, 0.16);
+  --cm-texto-2: rgba(236, 232, 245, 0.62);
+  --cm-curva: cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  min-height: 100vh;
+  background: var(--cm-bg);
+  color: #fff;
+  overflow-x: clip;
+  isolation: isolate;
+}
+
+/* Fundo: duas luzes roxas que respiram devagar + grade sumindo nas bordas + grão. */
+.cm-fundo { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.cm-luz {
+  position: absolute; border-radius: 999px; filter: blur(90px); opacity: 0.55;
+  will-change: transform;
+}
+.cm-luz-1 {
+  width: 620px; height: 620px; top: -260px; left: 50%; margin-left: -460px;
+  background: radial-gradient(circle, hsl(280 85% 50% / 0.75), transparent 65%);
+  animation: cm-flutua-1 22s ease-in-out infinite;
+}
+.cm-luz-2 {
+  width: 520px; height: 520px; bottom: -280px; right: -160px;
+  background: radial-gradient(circle, hsl(265 90% 55% / 0.5), transparent 65%);
+  animation: cm-flutua-2 28s ease-in-out infinite;
+}
+.cm-grade {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 75%);
+}
+.cm-grao {
+  position: absolute; inset: -50%; opacity: 0.06; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@keyframes cm-flutua-1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(120px,60px) scale(1.12); } }
+@keyframes cm-flutua-2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-140px,-80px) scale(0.9); } }
+
+/* Topo de vidro, preso no alto, com a barra de progresso brilhando embaixo. */
+.cm-topo {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(7, 6, 11, 0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid var(--cm-borda);
+}
+.cm-progresso { position: relative; height: 2px; background: rgba(255,255,255,0.06); }
+.cm-progresso-barra {
+  position: absolute; inset: 0 auto 0 0;
+  background: linear-gradient(90deg, hsl(280 85% 55%), hsl(290 95% 72%));
+  box-shadow: 0 0 12px hsl(285 90% 65% / 0.9), 0 0 2px #fff;
+  transition: width 0.7s var(--cm-curva);
+}
+.cm-progresso-barra::after {
+  content: ""; position: absolute; right: -1px; top: -3px; width: 8px; height: 8px; border-radius: 999px;
+  background: #fff; box-shadow: 0 0 14px 4px hsl(285 95% 70% / 0.9);
+}
+.cm-link-topo { color: var(--cm-texto-2); font-size: 14px; transition: color .2s; }
+.cm-link-topo:hover { color: #fff; }
+
+/* Contador e textos */
+.cm-contador {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13px; letter-spacing: 0.04em; color: var(--cm-texto-2);
+  font-variant-numeric: tabular-nums;
+}
+.cm-contador b { color: #fff; font-weight: 600; }
+.cm-contador::before {
+  content: ""; width: 6px; height: 6px; border-radius: 999px; background: hsl(285 95% 68%);
+  box-shadow: 0 0 10px hsl(285 95% 68%);
+  animation: cm-pulsa 2.4s ease-in-out infinite;
+}
+@keyframes cm-pulsa { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+.cm-titulo {
+  font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 600;
+  font-size: clamp(28px, 4.6vw, 44px); line-height: 1.08; letter-spacing: -0.025em;
+  background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.68));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-wrap: balance;
+}
+.cm-titulo-2 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 600; font-size: clamp(22px, 3vw, 28px); line-height: 1.15; letter-spacing: -0.02em; color: #fff; text-wrap: balance; }
+.cm-nota { color: var(--cm-texto-2); font-size: 17px; line-height: 1.6; max-width: 56ch; }
+.cm-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: hsl(285 100% 82%); background: hsl(280 85% 55% / 0.12); border: 1px solid hsl(280 85% 60% / 0.3);
+}
+
+/* Opções em vidro, com a luz seguindo o mouse (variáveis --x e --y). */
+.cm-opcao {
+  --x: 50%; --y: 50%;
+  position: relative; display: flex; align-items: center; gap: 16px; width: 100%;
+  text-align: left; padding: 18px 20px; min-height: 64px; border-radius: 18px;
+  background: var(--cm-vidro);
+  border: 1px solid var(--cm-borda);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 1px 2px rgba(0,0,0,0.3);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  transition: transform .35s var(--cm-curva), border-color .25s, background .25s, box-shadow .35s;
+  overflow: hidden; cursor: pointer;
+}
+@media (max-width: 639px) { .cm-opcao { padding: 14px 16px; gap: 14px; border-radius: 16px; } }
+.cm-opcao::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+  background: radial-gradient(260px circle at var(--x) var(--y), hsl(280 90% 65% / 0.16), transparent 60%);
+  transition: opacity .3s;
+}
+.cm-opcao:hover { border-color: var(--cm-borda-forte); background: var(--cm-vidro-forte); transform: translateY(-2px); }
+.cm-opcao:hover::before { opacity: 1; }
+.cm-opcao:active { transform: translateY(0) scale(0.99); }
+.cm-opcao:focus-visible { outline: none; border-color: hsl(285 90% 70%); box-shadow: 0 0 0 4px hsl(280 85% 55% / 0.25); }
+.cm-opcao[aria-checked="true"] {
+  border-color: hsl(285 90% 66% / 0.9);
+  background: linear-gradient(135deg, hsl(280 85% 55% / 0.22), hsl(280 85% 55% / 0.06));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 1px hsl(285 90% 66% / 0.35), 0 12px 40px -12px hsl(280 85% 55% / 0.7);
+}
+.cm-opcao[aria-checked="true"] .cm-tecla { background: #fff; color: #1a0b2e; border-color: #fff; }
+
+/* Letra do atalho de teclado (A, B, C...), como no Typeform. */
+.cm-tecla {
+  flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px;
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.75);
+  border: 1px solid var(--cm-borda-forte); background: rgba(255,255,255,0.04);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.cm-opcao-titulo { display: block; font-weight: 600; color: #fff; line-height: 1.3; }
+.cm-opcao-desc { display: block; font-size: 14px; color: var(--cm-texto-2); margin-top: 4px; line-height: 1.45; }
+.cm-check { margin-left: auto; flex: none; opacity: 0; transform: scale(0.5); transition: opacity .2s, transform .35s var(--cm-curva); color: hsl(285 100% 82%); }
+.cm-opcao[aria-checked="true"] .cm-check { opacity: 1; transform: scale(1); }
+.cm-opcao.cm-escolhida { animation: cm-escolhe .45s var(--cm-curva); }
+@keyframes cm-escolhe { 0% { transform: scale(1); } 35% { transform: scale(0.975); } 100% { transform: scale(1); } }
+
+/* Entrada de cada tela: sobe e aparece em cascata. Saída: some pra cima. */
+.cm-entra { opacity: 0; animation: cm-sobe .6s var(--cm-curva) forwards; }
+@keyframes cm-sobe { from { opacity: 0; transform: translateY(14px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+.cm-tela { transition: opacity .28s ease, transform .28s ease, filter .28s ease; }
+.cm-tela.cm-sai { opacity: 0; transform: translateY(-10px); filter: blur(4px); }
+
+/* Painel de vidro maior (tela da conta e formulário), com borda em degradê. */
+.cm-painel {
+  position: relative; border-radius: 26px; padding: 28px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015));
+  backdrop-filter: blur(20px) saturate(130%); -webkit-backdrop-filter: blur(20px) saturate(130%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 30px 80px -30px rgba(0,0,0,0.8);
+}
+.cm-painel::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: linear-gradient(140deg, hsl(285 95% 70% / 0.7), rgba(255,255,255,0.08) 35%, rgba(255,255,255,0.04) 65%, hsl(280 85% 55% / 0.5));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+@media (min-width: 768px) { .cm-painel { padding: 40px; } }
+.cm-destaque { color: hsl(285 100% 82%); font-weight: 600; }
+
+/* Campos do formulário */
+.cm-campo {
+  width: 100%; height: 56px; border-radius: 14px; padding: 0 16px; font-size: 16px; color: #fff;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--cm-borda-forte); outline: none;
+  transition: border-color .2s, box-shadow .25s, background .2s;
+}
+.cm-campo::placeholder { color: rgba(255,255,255,0.3); }
+.cm-campo:hover { border-color: rgba(255,255,255,0.24); }
+.cm-campo:focus { border-color: hsl(285 90% 68%); background: rgba(255,255,255,0.06); box-shadow: 0 0 0 4px hsl(280 85% 55% / 0.2), 0 0 24px -6px hsl(280 85% 55% / 0.6); }
+
+/* Botão principal: degradê roxo com brilho que passa no hover. */
+.cm-botao {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: 56px; padding: 0 28px; border-radius: 999px; font-weight: 600; font-size: 17px; color: #fff;
+  background: linear-gradient(135deg, hsl(280 85% 52%), hsl(288 90% 62%));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 10px 30px -8px hsl(280 85% 55% / 0.8), 0 0 0 1px hsl(285 90% 70% / 0.5);
+  overflow: hidden; transition: transform .3s var(--cm-curva), box-shadow .3s;
+}
+.cm-botao::after {
+  content: ""; position: absolute; inset: 0; transform: translateX(-120%);
+  background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+  transition: transform .8s var(--cm-curva);
+}
+.cm-botao:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 16px 40px -8px hsl(280 85% 55% / 0.95), 0 0 0 1px hsl(285 90% 75% / 0.7); }
+.cm-botao:hover::after { transform: translateX(120%); }
+.cm-botao:disabled { opacity: .6; transform: none; }
+.cm-botao svg { transition: transform .3s var(--cm-curva); }
+.cm-botao:hover svg { transform: translateX(3px); }
+.cm-botao-2 {
+  display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 26px; border-radius: 999px;
+  font-weight: 600; color: #fff; background: var(--cm-vidro); border: 1px solid var(--cm-borda-forte);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: background .2s, border-color .2s;
+}
+.cm-botao-2:hover { background: var(--cm-vidro-forte); border-color: rgba(255,255,255,0.3); }
+.cm-voltar { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--cm-texto-2); transition: color .2s; }
+.cm-voltar:hover { color: #fff; }
+.cm-dica { font-size: 12px; color: rgba(255,255,255,0.35); }
+.cm-dica kbd { font: inherit; padding: 1px 6px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.6); }
+
+/* Selo de sucesso: círculo e check se desenhando. */
+.cm-selo { width: 72px; height: 72px; }
+.cm-selo circle { stroke-dasharray: 202; stroke-dashoffset: 202; animation: cm-desenha .8s var(--cm-curva) .1s forwards; }
+.cm-selo path { stroke-dasharray: 40; stroke-dashoffset: 40; animation: cm-desenha .45s var(--cm-curva) .75s forwards; }
+@keyframes cm-desenha { to { stroke-dashoffset: 0; } }
+.cm-selo-luz { filter: drop-shadow(0 0 18px hsl(285 95% 65% / 0.8)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cm *, .cm *::before, .cm *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .cm-entra { opacity: 1; }
+}
+
+/* Papel na empresa (dentro do formulário de contato) */
+.cm-chip {
+  height: 48px; padding: 0 14px; border-radius: 12px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.04); border: 1px solid var(--cm-borda-forte); transition: border-color .2s, background .2s, color .2s;
+}
+.cm-chip:hover { border-color: rgba(255,255,255,0.3); }
+.cm-chip[aria-pressed="true"] { color: #fff; border-color: hsl(285 90% 66% / 0.9); background: hsl(280 85% 55% / 0.2); box-shadow: 0 0 0 1px hsl(285 90% 66% / 0.35); }
+
+/* Aviso na tela da conta: deixa claro que o formulário continua embaixo. */
+.cm-continua {
+  display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 18px; border-radius: 14px;
+  font-weight: 600; font-size: 16px; color: #fff; text-align: center;
+  background: hsl(280 85% 55% / 0.16); border: 1px dashed hsl(285 90% 70% / 0.55);
+}
+.cm-continua svg { flex: none; color: hsl(285 100% 82%); animation: cm-seta 1.4s ease-in-out infinite; }
+@keyframes cm-seta { 0%,100% { transform: translateY(-2px); } 50% { transform: translateY(4px); } }

@@ -39,32 +39,32 @@ const clientes = [
 // O logo vira máscara pintada com a cor do texto, então logo branco, preto ou
 // colorido aparece todo no mesmo tom.
 const Clientes = ({ titulo = "Empresas atendidas pela Domous" }: { titulo?: string }) => (
-  <section className="py-10 md:py-12 bg-secondary/40">
+  <section className="py-12 md:py-16">
     <div className="container mx-auto px-4 lg:px-8">
       <h2 className="text-2xl md:text-3xl text-center mb-3">{titulo}</h2>
-      <p className="text-center text-muted-foreground mb-6">Mais de 70 empresas atendidas, de João Pessoa e de outros estados.</p>
-      <ul className="grid grid-cols-3 md:grid-cols-8 gap-x-5 gap-y-4 max-w-5xl mx-auto">
-        {clientes.map((c) => (
-          <li key={c.nome} className="flex items-center justify-center h-14 px-2">
-            <span
-              role="img"
-              aria-label={c.nome}
-              title={c.nome}
-              className="block w-full h-8 bg-foreground opacity-80"
-              style={{
-                maskImage: `url(${c.logo})`,
-                WebkitMaskImage: `url(${c.logo})`,
-                maskRepeat: "no-repeat",
-                WebkitMaskRepeat: "no-repeat",
-                maskPosition: "center",
-                WebkitMaskPosition: "center",
-                maskSize: "contain",
-                WebkitMaskSize: "contain",
-              }}
-            />
-          </li>
-        ))}
-      </ul>
+      <p className="text-center text-muted-foreground mb-10">Mais de 70 empresas atendidas, de João Pessoa e de outros estados.</p>
+      <div className="fx-faixa max-w-6xl mx-auto" aria-hidden>
+        <ul className="fx-faixa-trilho">
+          {[...clientes, ...clientes].map((c, i) => (
+            <li key={c.nome + i} className="flex items-center justify-center h-14 w-36 md:w-44 px-5 shrink-0">
+              <span
+                title={c.nome}
+                className="block w-full h-8 bg-foreground opacity-60 hover:opacity-100 transition-opacity"
+                style={{
+                  maskImage: `url(${c.logo})`,
+                  WebkitMaskImage: `url(${c.logo})`,
+                  maskRepeat: "no-repeat",
+                  WebkitMaskRepeat: "no-repeat",
+                  maskPosition: "center",
+                  WebkitMaskPosition: "center",
+                  maskSize: "contain",
+                  WebkitMaskSize: "contain",
+                }}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
       <p className="sr-only">Clientes: {clientes.map((c) => c.nome).join(", ")}.</p>
     </div>
   </section>

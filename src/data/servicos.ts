@@ -100,7 +100,7 @@ export const servicos: Pagina[] = [
     metricas: ['Custo por cliente (CAC)', 'Receita atribuída e retorno sobre o investimento', 'Custo por conversa real', 'Taxa de conversa que vira venda', 'Custo e venda por criativo', 'Custo e venda por público'],
     ferramentas: ['Meta Ads', 'Google Ads', 'TikTok Ads', 'Google Merchant Center', 'GA4', 'Google Tag Manager', 'API de Conversões', 'WhatsApp Business API', 'Microsoft Clarity'],
     mostrarPainel: true,
-    resultados: ['loja-de-moveis', 'imoveis-6-vendas', 'clinica-de-estetica'],
+    resultados: ['ecommerce-de-brinquedos', 'loja-de-moveis', 'imoveis-6-vendas'],
     faq: [
       {
         p: 'O que faz uma agência de tráfego pago?',
@@ -637,7 +637,7 @@ export const servicos: Pagina[] = [
     ],
     metricas: ['Taxa de conversão', 'Ticket médio', 'Abandono de carrinho', 'Retorno por canal'],
     ferramentas: ['Tray', 'Shopify', 'Google Merchant Center', 'Catálogo do Meta', 'GA4', 'ERPs e marketplaces'],
-    resultados: ['loja-de-moda'],
+    resultados: ['ecommerce-de-brinquedos', 'loja-de-moda'],
     faq: [
       {
         p: 'Tray ou Shopify: qual escolher?',
@@ -695,7 +695,7 @@ export const servicos: Pagina[] = [
     metricas: ['Taxa de conversão', 'Ticket médio', 'Retorno por produto', 'Custo por pedido'],
     ferramentas: ['Tray', 'Shopify', 'Google Merchant Center', 'Google Ads', 'Meta Ads', 'GA4', 'Microsoft Clarity'],
     mostrarPainel: true,
-    resultados: ['loja-de-moda', 'loja-de-moveis'],
+    resultados: ['ecommerce-de-brinquedos', 'loja-de-moda', 'loja-de-moveis'],
     faq: [
       {
         p: 'Como aumentar a conversão de uma loja virtual?',

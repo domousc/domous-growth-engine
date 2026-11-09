@@ -33,7 +33,7 @@ const BotaoWhatsApp = ({
     className={cn(
       "inline-flex items-center justify-center gap-2 rounded-full px-6 h-12 text-base font-semibold transition-smooth",
       variante === "primario"
-        ? "gradient-domous text-primary-foreground shadow-domous hover:opacity-90"
+        ? "gradient-domous botao-reflexo text-primary-foreground shadow-domous hover:shadow-[0_14px_44px_-10px_hsl(280_85%_55%/0.55)]"
         : "border-2 border-primary/60 text-current hover:bg-primary/10",
       className,
     )}

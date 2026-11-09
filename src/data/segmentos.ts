@@ -303,7 +303,7 @@ export const segmentos: Pagina[] = [
         ],
       },
     ],
-    resultados: ['loja-de-moda'],
+    resultados: ['ecommerce-de-brinquedos', 'loja-de-moda'],
     faq: [
       {
         p: 'Qual a diferença entre Google Shopping e Performance Max?',

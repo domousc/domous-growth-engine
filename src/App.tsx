@@ -13,6 +13,7 @@ import NewsIndice from "./pages/News";
 import LandingAnuncio from "./pages/LandingAnuncio";
 import Autor from "./pages/Autor";
 import RaioX from "./pages/RaioX";
+import Comecar from "./pages/Comecar";
 import NotFound from "./pages/NotFound";
 import { rotaPorPath } from "./seo/rotas";
 
@@ -51,6 +52,7 @@ export const Rotas = () => (
       <Route path="/news/" element={<NewsIndice />} />
       <Route path="/news/:slug/" element={<PostPagina />} />
       <Route path="/lp/:slug/" element={<LandingAnuncio />} />
+      <Route path="/comecar/" element={<Comecar />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>

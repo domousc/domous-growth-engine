@@ -268,7 +268,7 @@ export const resultadosPagina = {
     "Resultados reais de operações da Domous: lojas de móveis, clínicas de estética, consultórios, corretores, moda e restaurantes. +70 empresas atendidas.",
   h1: "Resultados de clientes da Domous",
   resposta:
-    "A Domous já atendeu mais de 70 empresas e gerou mais de R$ 50 milhões em vendas pros clientes. Abaixo estão resultados de operações reais, por segmento: de uma loja de móveis que passou a faturar R$ 300 mil a mais por mês em 3 meses a uma operação imobiliária que vendeu 6 imóveis em um mês com R$ 2.900 de verba.",
+    "A Domous já atendeu mais de 70 empresas e gerou mais de R$ 50 milhões em vendas pros clientes. Abaixo estão resultados de operações reais, por segmento: de um e-commerce de brinquedos que saiu do zero e chegou a R$ 20 milhões de faturamento por ano em 4 anos, a uma loja de móveis que passou a faturar R$ 300 mil a mais por mês em 3 meses e uma operação imobiliária que vendeu 6 imóveis em um mês com R$ 2.900 de verba.",
 };
 
 export const autor = {

@@ -20,8 +20,18 @@ const modelo = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
 // Rastreio (rastreio.json). Só entra o script do ID preenchido. O clique em qualquer
 // link de WhatsApp (data-cta="whatsapp") vira evento de lead no GA4 e no pixel.
 const ids = JSON.parse(fs.readFileSync(path.join(raiz, "rastreio.json"), "utf-8"));
+// Tag do Google no formato oficial, logo depois do <head> (é o que o Tag Assistant
+// confere; versão minificada ou no fim do head aparece como "snippet alterado").
+const tagGoogle = ids.ga4 ? `<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${ids.ga4}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '${ids.ga4}');
+    </script>` : "";
 const rastreio = [
-  ids.ga4 && `<script async src="https://www.googletagmanager.com/gtag/js?id=${ids.ga4}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${ids.ga4}");</script>`,
   ids.clarity && `<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","${ids.clarity}");</script>`,
   ids.metaPixel && `<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","${ids.metaPixel}");fbq("track","PageView");</script>`,
   (ids.ga4 || ids.metaPixel) &&
@@ -60,6 +70,8 @@ function pagina(rota, urlRender) {
   const corpo = render(urlRender);
   // Substituição por função: o texto tem "R$", e "$" numa string de troca vira padrão especial.
   const html = modelo
+    .replace(/<head>/, (m) => (tagGoogle ? `${m}
+    ${tagGoogle}` : m))
     .replace(/<!-- seo:inicio[\s\S]*?<!-- seo:fim -->/, () => cabecalho(rota))
     .replace('<div id="root"></div>', () => `<div id="root">${corpo}</div>`);
   if (html === modelo || !html.includes(corpo)) throw new Error(`Modelo sem marcadores esperados (${rota.path})`);

@@ -3,6 +3,8 @@
   "name": "domous-site",
   "main": "worker/index.js",
   "compatibility_date": "2026-09-01",
+  // A página do mapa do formulário (worker/mapa.html) entra no worker como texto.
+  "rules": [{ "type": "Text", "globs": ["**/*.html"], "fallthrough": true }],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
@@ -14,5 +16,19 @@
     { "pattern": "domous.com.br", "custom_domain": true },
     { "pattern": "www.domous.com.br", "custom_domain": true }
   ],
-  "workers_dev": true
+  "workers_dev": true,
+  // Backup dos leads da /comecar (tabela leads_site). O funil de verdade é o do Sistema Domous (Supabase).
+  "d1_databases": [
+    { "binding": "DB", "database_name": "domous-sistema", "database_id": "6f18e102-f332-420b-9ae6-16bcf7099d61" }
+  ],
+  // A chave anon do Supabase é pública por desenho (a mesma do marca.json do Sistema).
+  // O que protege a entrada de lead é a SITE_LEAD_CHAVE, guardada como secret:
+  //   npx wrangler secret put SITE_LEAD_CHAVE
+  // MAPA_HASH: impressão digital da senha do mapa do formulário (/comecar/mapa/).
+  // A senha mesmo não fica no código; sem ela, o hash não serve pra nada.
+  "vars": {
+    "MAPA_HASH": "666d0f3ecc98a58365ab919716c5669c",
+    "SUPABASE_URL": "https://gibrdpuoonclalfqsflc.supabase.co",
+    "SUPABASE_ANON": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpYnJkcHVvb25jbGFsZnFzZmxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyNjE3NzMsImV4cCI6MjEwNTgzNzc3M30.ZGVL_lN_rySk4GV4skLib5lGYFDerfl14trTK8Cw-XM"
+  }
 }

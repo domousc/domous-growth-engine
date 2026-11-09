@@ -23,26 +23,26 @@ All colors MUST be HSL.
     /* Gradients */
     --gradient-domous: linear-gradient(135deg, hsl(280 85% 55%), hsl(285 80% 65%));
     --gradient-domous-reverse: linear-gradient(135deg, hsl(285 80% 65%), hsl(280 85% 55%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(280 40% 98%));
+    --gradient-subtle: linear-gradient(180deg, hsl(40 23% 97%), hsl(270 30% 97%));
     
-    /* Core */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 10%;
+    /* Core: off-white quente nas seções claras; o escuro fica nas .section-dark. */
+    --background: 40 23% 97%;
+    --foreground: 240 10% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card-foreground: 240 10% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
+    --popover-foreground: 240 10% 9%;
 
     --primary: 280 85% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 280 40% 96%;
-    --secondary-foreground: 240 10% 10%;
+    --secondary: 40 15% 93%;
+    --secondary-foreground: 240 10% 9%;
 
-    --muted: 280 30% 96%;
-    --muted-foreground: 240 5% 50%;
+    --muted: 40 15% 93%;
+    --muted-foreground: 240 5% 40%;
 
     --accent: 153 61% 42%;
     --accent-foreground: 222 20% 8%;
@@ -52,22 +52,22 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 280 20% 90%;
-    --input: 280 20% 90%;
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
     --ring: 280 85% 55%;
 
     --radius: 1.25rem;
     
     /* Dark Section Colors */
-    --dark-bg: 228 15% 6.5%;
-    --dark-card: 222 15% 12%;
-    --dark-border: 222 10% 22%;
-    --dark-foreground: 0 0% 95%;
-    --dark-muted-foreground: 220 10% 65%;
+    --dark-bg: 240 10% 5%;
+    --dark-card: 240 8% 9%;
+    --dark-border: 240 6% 18%;
+    --dark-foreground: 0 0% 96%;
+    --dark-muted-foreground: 240 5% 66%;
     
     /* Shadows */
     --shadow-domous: 0 10px 40px -10px hsl(280 85% 55% / 0.25);
-    --shadow-card: 0 2px 8px hsl(240 10% 10% / 0.05);
+    --shadow-card: 0 1px 2px hsl(240 10% 10% / 0.04), 0 12px 32px -16px hsl(240 10% 10% / 0.12);
     --shadow-dark: 0 4px 16px hsl(0 0% 0% / 0.3);
     
     /* Transitions */
@@ -230,4 +230,190 @@ All colors MUST be HSL.
       transform: perspective(1000px) rotateX(3deg) rotateY(4deg);
     }
   }
+}
+
+/* ── Movimento e acabamento (fora do @layer: classes e atributos ligados por JS não podem ser purgados) ── */
+
+/* Entrada na rolagem. O JS (useRevelar) marca data-rv="0" só no que está abaixo da dobra
+   e troca pra "1" quando entra na tela. Sem JS, nada fica escondido. */
+[data-rv] { transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--rv-atraso, 0ms); }
+[data-rv="0"] { opacity: 0; transform: translateY(28px); }
+[data-rv="1"] { opacity: 1; transform: none; }
+
+/* Entrada do topo da home, linha a linha (CSS puro, roda no HTML pré-renderizado). */
+@keyframes domous-subir { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.hero-entrada > * { animation: domous-subir .8s cubic-bezier(.2,.7,.2,1) both; }
+.hero-entrada > *:nth-child(2) { animation-delay: .08s; }
+.hero-entrada > *:nth-child(3) { animation-delay: .16s; }
+.hero-entrada > *:nth-child(4) { animation-delay: .24s; }
+.hero-entrada > *:nth-child(5) { animation-delay: .32s; }
+.hero-entrada > *:nth-child(6) { animation-delay: .40s; }
+.hero-entrada > *:nth-child(n+7) { animation-delay: .48s; }
+
+/* Halo roxo atrás da foto do topo. */
+.hero-photo::before { content: ''; position: absolute; inset: -20% -30% auto auto; width: 90%; aspect-ratio: 1; background: radial-gradient(circle, hsl(280 85% 55% / .35), transparent 65%); filter: blur(10px); z-index: 0; pointer-events: none; }
+.hero-photo img { z-index: 1; }
+.hero-photo::after { z-index: 2; }
+
+/* Card com luz roxa vindo do canto e filete de luz na borda de cima. */
+.card-brilho { position: relative; overflow: hidden; isolation: isolate; }
+.card-brilho::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(110% 80% at 100% 0%, hsl(280 85% 55% / .28), transparent 60%); opacity: .75; transition: opacity .5s ease; }
+.card-brilho::after { content: ''; position: absolute; inset: 0 0 auto 0; height: 1px; pointer-events: none; background: linear-gradient(90deg, transparent, hsl(285 80% 70% / .7), transparent); }
+.card-brilho:hover::before { opacity: 1; }
+
+/* Reflexo que atravessa o botão principal no hover. */
+.botao-reflexo { position: relative; overflow: hidden; isolation: isolate; }
+.botao-reflexo::after { content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; z-index: -1; pointer-events: none; background: linear-gradient(100deg, transparent, hsl(0 0% 100% / .35), transparent); transform: skewX(-20deg); transition: left .7s cubic-bezier(.2,.7,.2,1); }
+.botao-reflexo:hover::after { left: 130%; }
+
+/* Linha que liga os passos e se preenche quando a seção aparece.
+   Horizontal no desktop, vertical no celular. Sem JS a linha já aparece cheia. */
+.passos-linha { position: relative; --linha-fundo: hsl(var(--border)); }
+.section-dark .passos-linha { --linha-fundo: hsl(var(--dark-border)); }
+.passos-linha::before, .passos-linha::after { content: ''; position: absolute; pointer-events: none; }
+.passos-linha::before { background: var(--linha-fundo); }
+.passos-linha::after { background: var(--gradient-domous); transition: transform 1.4s cubic-bezier(.2,.7,.2,1) .15s; }
+.passos-linha > li { position: relative; }
+.passos-linha > li::before { content: ''; position: absolute; width: 11px; height: 11px; border-radius: 999px; background: hsl(var(--background)); border: 2px solid hsl(var(--primary)); z-index: 1; }
+.section-dark .passos-linha > li::before { background: hsl(var(--dark-bg)); }
+@media (min-width: 1024px) {
+  .passos-linha { padding-top: 28px; }
+  .passos-linha::before, .passos-linha::after { top: 5px; left: 0; right: 0; height: 2px; }
+  .passos-linha::after { transform-origin: left; }
+  .passos-linha[data-linha="0"]::after { transform: scaleX(0); }
+  .passos-linha > li::before { top: -28px; left: 0; }
+}
+@media (max-width: 1023px) {
+  .passos-linha { padding-left: 30px; }
+  .passos-linha::before, .passos-linha::after { top: 6px; bottom: 6px; left: 5px; width: 2px; }
+  .passos-linha::after { transform-origin: top; }
+  .passos-linha[data-linha="0"]::after { transform: scaleY(0); }
+  .passos-linha > li::before { top: 6px; left: -30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-rv="0"] { opacity: 1; transform: none; }
+  .passos-linha[data-linha="0"]::after { transform: none; }
+}
+
+/* Números do topo da home: entram depois do texto, com um halo roxo atrás. */
+.hero-numeros { isolation: isolate; }
+.hero-numeros::before { content: ''; position: absolute; inset: -25% -20%; z-index: -1; pointer-events: none; background: radial-gradient(closest-side, hsl(280 85% 55% / .22), transparent); }
+.hero-numeros > :nth-child(1) { animation-delay: .35s; }
+.hero-numeros > :nth-child(2) { animation-delay: .47s; }
+
+/* Quiz da mensagem: cada etapa entra deslizando e o balão "pisca" quando o texto muda. */
+@keyframes quiz-entra { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+@keyframes quiz-balao { from { opacity: .4; transform: scale(.98); } to { opacity: 1; transform: none; } }
+.quiz-etapa { animation: quiz-entra .45s cubic-bezier(.2,.7,.2,1) both; }
+.quiz-balao { animation: quiz-balao .35s ease-out both; transform-origin: top right; }
+
+
+/* ══ Vidro e luz (06/11/2026, v2) ══════════════════════════════════════════
+   Referências: Stripe e Linear. Seções claras em off-white quente com manchas de
+   cor suaves (lilás, azul, pêssego) atrás de cards de vidro branco fosco. As
+   .section-dark são grafite neutro com um brilho discreto, não roxo chapado.
+   Roxo vira detalhe: botão, etiqueta, número em destaque.
+   A luz que segue o mouse nos cards usa --mx/--my (hook useLuzNoCard). */
+
+/* Fundo fixo das seções claras: manchas de cor que respiram devagar + grão. */
+.fx-fundo { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; background: hsl(var(--background)); }
+.fx-luz { position: absolute; border-radius: 999px; filter: blur(90px); will-change: transform; }
+.fx-luz-1 { width: 720px; height: 720px; top: -260px; right: -120px; background: radial-gradient(circle, hsl(272 95% 82% / .55), transparent 65%); animation: fx-flutua-1 28s ease-in-out infinite; }
+.fx-luz-2 { width: 640px; height: 640px; top: 35%; left: -260px; background: radial-gradient(circle, hsl(205 95% 82% / .45), transparent 65%); animation: fx-flutua-2 34s ease-in-out infinite; }
+.fx-luz-3 { width: 560px; height: 560px; bottom: -260px; right: 10%; background: radial-gradient(circle, hsl(25 100% 84% / .45), transparent 65%); animation: fx-flutua-1 40s ease-in-out infinite reverse; }
+.fx-grade { display: none; }
+.fx-grao { position: absolute; inset: -50%; opacity: .035; mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+@keyframes fx-flutua-1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-120px,80px) scale(1.1); } }
+@keyframes fx-flutua-2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(160px,-70px) scale(.92); } }
+body { background: transparent; }
+
+/* Seções escuras: grafite neutro com um brilho frio e outro lilás, bem discretos. */
+.section-dark {
+  position: relative; isolation: isolate;
+  background:
+    radial-gradient(55% 60% at 15% 0%, hsl(268 70% 55% / .16), transparent 70%),
+    radial-gradient(45% 55% at 95% 100%, hsl(215 80% 55% / .10), transparent 70%),
+    hsl(var(--dark-bg));
+}
+.bg-secondary\/40, .bg-secondary\/30, .bg-secondary\/50 { background: hsl(0 0% 100% / .35) !important; }
+
+/* Títulos: mais justos, tinta escura no claro e branco-pro-cinza no escuro. */
+h1, h2 { letter-spacing: -0.025em; text-wrap: balance; }
+h3 { letter-spacing: -0.015em; }
+main h1, main h2 { background-image: linear-gradient(180deg, hsl(240 12% 8%) 40%, hsl(240 8% 30%)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+main .section-dark h1, main .section-dark h2 { background-image: linear-gradient(180deg, #fff 40%, hsl(240 8% 72%)); }
+main h1 .text-primary, main h2 .text-primary { -webkit-text-fill-color: hsl(var(--primary)); }
+
+/* Vidro claro: branco fosco, borda fina, sombra macia. */
+.bg-card {
+  background:
+    radial-gradient(380px circle at var(--mx, -999px) var(--my, -999px), hsl(272 90% 70% / .10), transparent 45%),
+    hsl(0 0% 100% / .62) !important;
+  border-color: hsl(0 0% 100% / .9) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: inset 0 0 0 1px hsl(240 10% 10% / .04), 0 1px 2px hsl(240 10% 10% / .04), 0 18px 40px -22px hsl(240 20% 20% / .22);
+  transition: border-color .3s ease, transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease;
+}
+/* Vidro escuro (dentro de .section-dark). */
+.card-dark, .bg-dark-card, .section-dark .bg-card {
+  background:
+    radial-gradient(380px circle at var(--mx, -999px) var(--my, -999px), hsl(272 90% 70% / .10), transparent 45%),
+    linear-gradient(160deg, hsl(0 0% 100% / .06), hsl(0 0% 100% / .02)) !important;
+  border-color: hsl(0 0% 100% / .09) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%); backdrop-filter: blur(16px) saturate(130%);
+  box-shadow: inset 0 1px 0 hsl(0 0% 100% / .06), 0 24px 60px -30px hsl(0 0% 0% / .8);
+  transition: border-color .3s ease, transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease;
+}
+a.bg-card:hover, a.card-dark:hover, .card-brilho:hover { transform: translateY(-3px); }
+a.bg-card:hover, .bg-card.card-brilho:hover { box-shadow: inset 0 0 0 1px hsl(272 60% 60% / .18), 0 26px 50px -24px hsl(260 30% 25% / .3); }
+/* O brilho roxo de canto dos cards fica bem mais leve. */
+.card-brilho::before { opacity: .35; }
+.card-brilho:hover::before { opacity: .6; }
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline: none; border-color: hsl(var(--primary)) !important; box-shadow: 0 0 0 4px hsl(280 85% 55% / .15); }
+
+/* Botão roxo: brilho interno e sombra mais contida. */
+:is(a, button).gradient-domous {
+  background: linear-gradient(135deg, hsl(278 82% 50%), hsl(286 85% 60%));
+  box-shadow: inset 0 1px 0 hsl(0 0% 100% / .28), 0 8px 22px -10px hsl(280 85% 45% / .6);
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;
+}
+:is(a, button).gradient-domous:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 hsl(0 0% 100% / .28), 0 14px 30px -10px hsl(280 85% 45% / .7); }
+
+/* Texto em degradê roxo com brilho passando devagar. */
+.gradient-domous-text { background-image: linear-gradient(100deg, hsl(278 82% 52%), hsl(292 90% 68%) 45%, hsl(278 82% 52%) 70%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: fx-brilho-texto 6s ease-in-out infinite; }
+.section-dark .gradient-domous-text { background-image: linear-gradient(100deg, hsl(280 85% 66%), hsl(292 100% 82%) 45%, hsl(280 85% 66%) 70%); }
+@keyframes fx-brilho-texto { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* Entrada na rolagem com desfoque. */
+[data-rv] { transition-property: opacity, transform, filter; }
+[data-rv="0"] { filter: blur(8px); }
+[data-rv="1"] { filter: none; }
+
+/* Faixa de logos rolando sem parar. */
+.fx-faixa { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.fx-faixa-trilho { display: flex; width: max-content; animation: fx-rola 50s linear infinite; }
+.fx-faixa:hover .fx-faixa-trilho { animation-play-state: paused; }
+@keyframes fx-rola { to { transform: translateX(-50%); } }
+
+/* Cabeçalho em pílula de vidro escuro. */
+.fx-pilula { background: hsl(240 10% 7% / .72); border: 1px solid hsl(0 0% 100% / .09); -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%); box-shadow: inset 0 1px 0 hsl(0 0% 100% / .06), 0 16px 40px -20px hsl(240 20% 10% / .55); transition: background .3s ease; }
+.fx-pilula.rolou { background: hsl(240 10% 7% / .85); }
+.fx-menu-link { padding: 8px 12px; border-radius: 999px; transition: background .2s, color .2s; }
+.fx-menu-link:hover { background: hsl(0 0% 100% / .08); color: #fff; }
+
+/* Etiqueta acima dos títulos: pílula discreta. */
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 5px 12px; border-radius: 999px; letter-spacing: .08em; background: hsl(0 0% 100% / .7); border: 1px solid hsl(240 10% 10% / .08); color: hsl(240 8% 25%) !important; box-shadow: 0 1px 2px hsl(240 10% 10% / .05); }
+.eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 999px; background: hsl(var(--primary)); }
+.section-dark .eyebrow { background: hsl(0 0% 100% / .06); border-color: hsl(0 0% 100% / .12); color: hsl(240 5% 85%) !important; box-shadow: none; }
+.section-dark .eyebrow::before { background: hsl(285 95% 70%); box-shadow: 0 0 8px hsl(285 95% 70%); }
+
+/* Acordeões */
+.tool-details > summary { transition: color .2s; }
+.tool-details > summary:hover { color: hsl(var(--primary)); }
+.tool-details .expand-icon { transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-luz, .fx-faixa-trilho, .gradient-domous-text { animation: none !important; }
+  [data-rv="0"] { filter: none; }
 }

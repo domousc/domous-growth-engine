@@ -11,6 +11,17 @@ export type Resultado = {
 
 export const resultados: Resultado[] = [
   {
+    id: 'ecommerce-de-brinquedos',
+    segmento: 'E-commerce de brinquedos',
+    titulo: 'De zero a R$ 20 milhões por ano em 4 anos',
+    metricas: [
+      { rotulo: 'Faturamento anual', valor: 'R$ 20 mi' },
+      { rotulo: 'Prazo', valor: '4 anos' },
+      { rotulo: 'Ponto de partida', valor: 'R$ 0' },
+      { rotulo: 'Entrega', valor: 'Todo o Brasil' },
+    ],
+  },
+  {
     id: 'imoveis-6-vendas',
     segmento: 'Imobiliário',
     titulo: '6 imóveis vendidos em 1 mês com R$ 2.900 de verba',

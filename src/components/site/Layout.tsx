@@ -3,9 +3,21 @@ import { MessageCircle } from "lucide-react";
 import Cabecalho from "./Cabecalho";
 import Rodape from "./Rodape";
 import { wa } from "@/data/site";
+import { useRevelar } from "@/hooks/useRevelar";
+import { useLuzNoCard } from "@/hooks/useLuzNoCard";
 
-const Layout = ({ children, origem, cabecalhoSolido = false }: { children: ReactNode; origem: string; cabecalhoSolido?: boolean }) => (
-  <div className="min-h-screen overflow-x-hidden">
+const Layout = ({ children, origem, cabecalhoSolido = false }: { children: ReactNode; origem: string; cabecalhoSolido?: boolean }) => {
+  useRevelar(origem);
+  useLuzNoCard();
+  return (
+  <div className="relative isolate min-h-screen overflow-x-hidden">
+    <div className="fx-fundo" aria-hidden>
+      <div className="fx-luz fx-luz-1" />
+      <div className="fx-luz fx-luz-2" />
+      <div className="fx-luz fx-luz-3" />
+      <div className="fx-grade" />
+      <div className="fx-grao" />
+    </div>
     <Cabecalho solido={cabecalhoSolido} />
     <main>{children}</main>
     <Rodape />
@@ -22,6 +34,7 @@ const Layout = ({ children, origem, cabecalhoSolido = false }: { children: React
       <MessageCircle className="w-5 h-5" aria-hidden />
     </a>
   </div>
-);
+  );
+};
 
 export default Layout;
