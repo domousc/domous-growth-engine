@@ -291,8 +291,8 @@ const Comecar = () => {
               <h1 className="cm-titulo mt-5 mb-6 cm-entra" style={atraso(1)}>Por enquanto, a Domous não é o melhor investimento pro seu momento.</h1>
               <div className="cm-painel cm-entra" style={atraso(2)}>
                 <p className="cm-nota mb-4">
-                  A gestão da Domous começa em <span className="cm-destaque">R$ 1.200 por mês</span>, fora a verba de anúncio. Faturando até
-                  R$ 30 mil, esse dinheiro rende mais direto na operação do que pagando agência.
+                  Faturando até <span className="cm-destaque">R$ 30 mil por mês</span>, o dinheiro que iria pra gestão de agência rende
+                  mais direto na operação.
                 </p>
                 <p className="cm-nota mb-8">
                   O que a gente sabe tá aberto no blog e no Instagram do Kairo, de graça. Quando a empresa passar desse ponto, volta aqui.
