@@ -5,12 +5,16 @@ import samara from "@/assets/time/samara.webp";
 import matheus from "@/assets/time/matheus.webp";
 import icaro from "@/assets/time/icaro.webp";
 import frank from "@/assets/time/frank.webp";
+import gustavo from "@/assets/time/gustavo.webp";
+import luciano from "@/assets/time/luciano.webp";
 
 // Seção "Time": quem faz a operação. Fotos recortadas sem fundo (mesmo enquadramento,
 // 720x900) pra ficarem iguais sobre o degradê do cartão.
 const time = [
   { nome: "Kairo Lucas", cargo: "Fundador e CEO", texto: "Conduz a estratégia: tráfego no Meta e no Google, funil, processo comercial e IA.", foto: kairo, href: "/sobre/kairo-lucas/" },
+  { nome: "Gustavo Mattos", cargo: "Estrategista e sócio", texto: "Define com o Kairo a estratégia de crescimento de cada conta.", foto: gustavo },
   { nome: "Thaís", cargo: "Diretora de marketing", texto: "Planeja o que vai ser comunicado, quando e com qual oferta.", foto: thais },
+  { nome: "Luciano", cargo: "Gestor de tráfego", texto: "Sobe, otimiza e acompanha as campanhas pagas em todas as plataformas.", foto: luciano },
   { nome: "Ícaro", cargo: "Social media", texto: "Toca o orgânico: pauta, publicação, comunidade e collabs.", foto: icaro },
   { nome: "Samara", cargo: "Editora de vídeo", texto: "Edita os vídeos de anúncio, Reels e TikTok.", foto: samara },
   { nome: "Matheus", cargo: "Designer gráfico", texto: "Cria as peças visuais de rede, anúncio e loja.", foto: matheus },
@@ -26,7 +30,7 @@ const QuemCuida = () => (
         Estratégia, anúncio, conteúdo, vídeo e design no mesmo time, falando entre si. Samuel, Head de Operações,
         acompanha o dia a dia das entregas.
       </p>
-      <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
         {time.map((p) => {
           const Cartao = p.href ? "a" : "div";
           return (
@@ -36,7 +40,7 @@ const QuemCuida = () => (
                   <img src={p.foto} alt={`${p.nome}, ${p.cargo} da Domous`} width={720} height={900} loading="lazy" decoding="async"
                     className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
                 </div>
-                <div className="p-4 md:p-6">
+                <div className="p-4 md:p-5">
                   <h3 className="text-lg md:text-xl leading-tight">{p.nome}</h3>
                   <p className="text-sm font-semibold text-primary mt-1">{p.cargo}</p>
                   <p className="hidden md:block text-sm text-muted-foreground leading-relaxed mt-3">{p.texto}</p>
