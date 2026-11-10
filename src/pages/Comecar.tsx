@@ -338,9 +338,6 @@ const Comecar = () => {
 
           {!fim && pergunta && (
             <section>
-              <p className="cm-contador mb-5 cm-entra" style={atraso(0)}>
-                <span>Pergunta <b>{passo + 1}</b> de {total}</span>
-              </p>
               <h1 className="cm-titulo mb-4 cm-entra" style={atraso(1)}>{texto(pergunta.titulo, r)}</h1>
               {texto(pergunta.nota, r) && <p className="cm-nota mb-8 cm-entra" style={atraso(2)}>{texto(pergunta.nota, r)}</p>}
               <div className={texto(pergunta.nota, r) ? "" : "mt-8"}>
@@ -351,18 +348,15 @@ const Comecar = () => {
 
           {!fim && imp && atual === "implicacao" && (
             <section>
-              {/* Essa tela não pode parecer o fim: contador no topo, aviso de que
+              {/* Essa tela não pode parecer o fim: aviso de que
                   ainda tem pergunta e seta apontando pra ela. */}
-              <p className="cm-contador mb-5 cm-entra" style={atraso(0)}>
-                <span>Pergunta <b>{passo + 1}</b> de {total}</span>
-              </p>
               <div className="cm-painel mb-8 cm-entra" style={atraso(1)}>
                 <span className="cm-eyebrow mb-5">Uma conta rápida com o que você respondeu</span>
                 <h2 className="cm-titulo mt-5 mb-5" style={{ fontSize: "clamp(24px, 3.4vw, 34px)" }}>{imp.titulo}</h2>
                 {imp.paragrafos.map((t) => <p key={t} className="cm-nota mb-3 last:mb-0" style={{ color: "rgba(255,255,255,0.82)" }}>{t}</p>)}
               </div>
               <div className="cm-continua cm-entra" style={atraso(2)}>
-                <span>Ainda não acabou: {total - passo === 1 ? "falta só mais 1 pergunta" : `faltam ${total - passo} perguntas`}</span>
+                <span>Ainda não acabou: {total - passo === 1 ? "falta só mais 1 pergunta" : "falta pouco"}</span>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </div>
               <h1 className="cm-titulo-2 mt-8 mb-6 cm-entra" style={atraso(3)}>{texto(PERGUNTAS[ganhoId]?.titulo, r)}</h1>

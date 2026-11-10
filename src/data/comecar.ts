@@ -34,7 +34,7 @@ export const PERGUNTAS: Record<string, Pergunta> = {
   segmento: P({
     id: "segmento",
     titulo: "Pra começar: qual é o negócio?",
-    nota: "Leva uns 3 minutos. As respostas chegam com você no WhatsApp, então ninguém vai te perguntar tudo de novo.",
+    nota: "Leva menos de 3 minutos. As respostas chegam com você no WhatsApp, então ninguém vai te perguntar tudo de novo.",
     cards: true,
     opcoes: [
       { v: "industria", l: "Indústria ou fábrica", d: "Móveis, alimentos, confecção, cosméticos" },
