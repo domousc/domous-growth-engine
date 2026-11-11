@@ -50,3 +50,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-10 · guia · marketing para loja de material de construção · https://domous.com.br/blog/marketing-para-material-de-construcao/
 - 2026-11-10 · noticia · pesquisa black friday 2026 · https://domous.com.br/news/pesquisa-cndl-black-friday-2026-intencao-de-compra/
 - 2026-11-11 · noticia · perfil de empresa no chatgpt · https://domous.com.br/news/openai-lanca-perfis-de-empresas-no-chatgpt/
+- 2026-11-11 · analise · são braz marketing · https://domous.com.br/blog/raio-x-sao-braz/
