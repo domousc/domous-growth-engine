@@ -22,35 +22,44 @@ const time = [
   { nome: "Frank", cargo: "Designer gráfico", texto: "Faz artes de post, carrossel, banner e criativo estático.", foto: frank },
 ];
 
+// Grade compacta: 5 por linha no computador, 3 no celular. Foto em preto e branco
+// (iguala os fundos diferentes) que ganha cor no hover; nome e cargo sobre a foto.
 const QuemCuida = () => (
   <section className="section-pad" id="time">
     <div className="section-shell">
-      <p className="eyebrow mb-3">Time</p>
-      <h2 className="text-3xl md:text-4xl max-w-2xl mb-4">Quem faz a operação.</h2>
-      <p className="text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-        Estratégia, anúncio, conteúdo, vídeo e design no mesmo time, falando entre si.
-      </p>
-      <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+      <div className="md:flex md:items-end md:justify-between gap-10 mb-8 md:mb-10">
+        <div>
+          <p className="eyebrow mb-3">Time</p>
+          <h2 className="text-3xl md:text-4xl">Quem faz a operação.</h2>
+        </div>
+        <p className="text-muted-foreground max-w-md leading-relaxed mt-4 md:mt-0">
+          Estratégia, anúncio, conteúdo, vídeo e design no mesmo time, falando entre si.
+        </p>
+      </div>
+      <ul className="flex flex-wrap justify-center gap-x-3 gap-y-5 md:gap-4">
         {time.map((p) => {
           const Cartao = p.href ? "a" : "div";
           return (
-            <li key={p.nome}>
-              <Cartao {...(p.href ? { href: p.href } : {})} className="time-cartao card-brilho bg-card group block h-full rounded-3xl border border-border overflow-hidden">
-                <div className="time-foto relative aspect-[4/5] overflow-hidden">
+            <li key={p.nome} className="w-[calc((100%-1.5rem)/3)] md:w-[calc((100%-4rem)/5)]">
+              <Cartao {...(p.href ? { href: p.href } : {})} title={p.texto} className="time-cartao group block">
+                <div className="time-quadro relative aspect-[4/5] overflow-hidden rounded-2xl md:rounded-3xl">
                   <img src={p.foto} alt={`${p.nome}, ${p.cargo} da Domous`} width={720} height={900} loading="lazy" decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+                    className="time-img absolute inset-0 h-full w-full object-cover object-top" />
+                  <div className="hidden md:block absolute inset-x-0 bottom-0 p-4 pt-16 bg-gradient-to-t from-black/85 via-black/40 to-transparent">
+                    <p className="text-white font-semibold text-base leading-tight">{p.nome}</p>
+                    <p className="text-white/70 text-xs leading-snug mt-0.5">{p.cargo}</p>
+                  </div>
                 </div>
-                <div className="p-4 md:p-5">
-                  <h3 className="text-lg md:text-xl leading-tight">{p.nome}</h3>
-                  <p className="text-sm font-semibold text-primary mt-1">{p.cargo}</p>
-                  <p className="hidden md:block text-sm text-muted-foreground leading-relaxed mt-3">{p.texto}</p>
+                <div className="md:hidden mt-2 px-0.5">
+                  <p className="font-semibold text-[13px] leading-tight text-foreground">{p.nome}</p>
+                  <p className="text-[11px] leading-snug text-muted-foreground mt-0.5">{p.cargo}</p>
                 </div>
               </Cartao>
             </li>
           );
         })}
       </ul>
-      <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold mt-8">
+      <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold mt-8">
         <a href="/sobre/" className="text-primary hover:underline">Conheça a Domous</a>
         <a href={site.instagramKairo} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@kairolucas no Instagram</a>
       </div>
