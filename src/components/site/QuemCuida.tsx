@@ -7,12 +7,13 @@ import icaro from "@/assets/time/icaro.webp";
 import frank from "@/assets/time/frank.webp";
 import gustavo from "@/assets/time/gustavo.webp";
 import luciano from "@/assets/time/luciano.webp";
+import samuel from "@/assets/time/samuel.webp";
 
-// Seção "Time": quem faz a operação. Fotos recortadas sem fundo (mesmo enquadramento,
-// 720x900) pra ficarem iguais sobre o degradê do cartão.
+// Seção "Time": quem faz a operação. Fotos originais com o mesmo enquadramento (720x900).
 const time = [
   { nome: "Kairo Lucas", cargo: "Fundador e CEO", texto: "Conduz a estratégia: tráfego no Meta e no Google, funil, processo comercial e IA.", foto: kairo, href: "/sobre/kairo-lucas/" },
   { nome: "Gustavo Mattos", cargo: "Estrategista e sócio", texto: "Define com o Kairo a estratégia de crescimento de cada conta.", foto: gustavo },
+  { nome: "Samuel", cargo: "Head de Operações (CDM)", texto: "Acompanha o dia a dia das entregas e garante que cada cliente receba o que foi combinado.", foto: samuel },
   { nome: "Thaís", cargo: "Diretora de marketing", texto: "Planeja o que vai ser comunicado, quando e com qual oferta.", foto: thais },
   { nome: "Luciano", cargo: "Gestor de tráfego", texto: "Sobe, otimiza e acompanha as campanhas pagas em todas as plataformas.", foto: luciano },
   { nome: "Ícaro", cargo: "Social media", texto: "Toca o orgânico: pauta, publicação, comunidade e collabs.", foto: icaro },
@@ -27,10 +28,9 @@ const QuemCuida = () => (
       <p className="eyebrow mb-3">Time</p>
       <h2 className="text-3xl md:text-4xl max-w-2xl mb-4">Quem faz a operação.</h2>
       <p className="text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-        Estratégia, anúncio, conteúdo, vídeo e design no mesmo time, falando entre si. Samuel, Head de Operações,
-        acompanha o dia a dia das entregas.
+        Estratégia, anúncio, conteúdo, vídeo e design no mesmo time, falando entre si.
       </p>
-      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+      <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
         {time.map((p) => {
           const Cartao = p.href ? "a" : "div";
           return (
