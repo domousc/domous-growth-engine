@@ -51,3 +51,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-10 · noticia · pesquisa black friday 2026 · https://domous.com.br/news/pesquisa-cndl-black-friday-2026-intencao-de-compra/
 - 2026-11-11 · noticia · perfil de empresa no chatgpt · https://domous.com.br/news/openai-lanca-perfis-de-empresas-no-chatgpt/
 - 2026-11-11 · analise · são braz marketing · https://domous.com.br/blog/raio-x-sao-braz/
+- 2026-11-11 · noticia · core update novembro 2026 · https://domous.com.br/news/google-core-update-novembro-2026-black-friday/
