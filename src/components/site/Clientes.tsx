@@ -14,14 +14,22 @@ import logoManaPoke from "@/assets/logo-mana-poke.png";
 import logoBotoHarmony from "@/assets/logo-boto-harmony.png";
 import logoRenoveCasa from "@/assets/logo-renove-casa.png";
 import logoKallas from "@/assets/logo-kallas.png";
+import logoEmpresaFora from "@/assets/logo-empresa-fora.png";
+import logoCheckoutTransparent from "@/assets/logo-checkout-transparent.png";
+import logoCliqueBrinque from "@/assets/logo-clique-brinque.png";
+import logoBricksFans from "@/assets/logo-bricks-fans.png";
 
 // Regra do Kairo (26/10/2026): pode listar cliente, mas nenhum resultado do site
 // é ligado a um cliente. Esta lista fica sempre separada dos resultados.
 const clientes = [
   { nome: "Renove Casa", logo: logoRenoveCasa },
+  { nome: "Empresa Fora", logo: logoEmpresaFora },
   { nome: "Nordife", logo: logoNordife },
+  { nome: "Bricks Fans", logo: logoBricksFans },
   { nome: "BotoHarmony", logo: logoBotoHarmony },
   { nome: "BLC Motors", logo: logoBlcMotors },
+  { nome: "Checkout Transparent", logo: logoCheckoutTransparent },
+  { nome: "Clique Brinque", logo: logoCliqueBrinque },
   { nome: "Dra. Natália Fernandes", logo: logoNataliaFernandes },
   { nome: "Clínica Bethânia Luna", logo: logoBethaniaLuna },
   { nome: "Casatudo", logo: logoCasatudo },
