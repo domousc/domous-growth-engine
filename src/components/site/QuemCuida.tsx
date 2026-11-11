@@ -22,8 +22,8 @@ const time = [
   { nome: "Frank", cargo: "Designer gráfico", texto: "Faz artes de post, carrossel, banner e criativo estático.", foto: frank },
 ];
 
-// Grade compacta: 5 por linha no computador, 3 no celular. Foto em preto e branco
-// (iguala os fundos diferentes) que ganha cor no hover; nome e cargo sobre a foto.
+// Grade compacta: 5 por linha no computador, 3 no celular. Nome e cargo sobre a foto
+// no computador e embaixo dela no celular.
 const QuemCuida = () => (
   <section className="section-pad" id="time">
     <div className="section-shell">
