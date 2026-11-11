@@ -18,6 +18,7 @@ import logoEmpresaFora from "@/assets/logo-empresa-fora.png";
 import logoCheckoutTransparent from "@/assets/logo-checkout-transparent.png";
 import logoCliqueBrinque from "@/assets/logo-clique-brinque.png";
 import logoBricksFans from "@/assets/logo-bricks-fans.png";
+import logoBricsCraft from "@/assets/logo-brics-craft.png";
 
 // Regra do Kairo (26/10/2026): pode listar cliente, mas nenhum resultado do site
 // é ligado a um cliente. Esta lista fica sempre separada dos resultados.
@@ -32,6 +33,7 @@ const clientes = [
   { nome: "Clique Brinque", logo: logoCliqueBrinque },
   { nome: "Dra. Natália Fernandes", logo: logoNataliaFernandes },
   { nome: "Clínica Bethânia Luna", logo: logoBethaniaLuna },
+  { nome: "Brics Craft", logo: logoBricsCraft },
   { nome: "Casatudo", logo: logoCasatudo },
   { nome: "Mana Poke", logo: logoManaPoke },
   { nome: "Eletropolo", logo: logoEletropolo },
