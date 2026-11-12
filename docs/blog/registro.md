@@ -53,3 +53,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-11 · analise · são braz marketing · https://domous.com.br/blog/raio-x-sao-braz/
 - 2026-11-11 · noticia · core update novembro 2026 · https://domous.com.br/news/google-core-update-novembro-2026-black-friday/
 - 2026-11-12 · noticia · cbs 2027 · https://domous.com.br/news/receita-mantem-cbs-janeiro-2027-reforma-tributaria/
+- 2026-11-12 · opiniao · tráfego pago não funciona · https://domous.com.br/blog/trafego-pago-nao-funciona/
