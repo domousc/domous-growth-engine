@@ -18,7 +18,7 @@ const time = [
   { nome: "Luciano", cargo: "Gestor de tráfego", texto: "Sobe, otimiza e acompanha as campanhas pagas em todas as plataformas.", foto: luciano },
   { nome: "Ícaro", cargo: "Social media", texto: "Toca o orgânico: pauta, publicação, comunidade e collabs.", foto: icaro },
   { nome: "Samara", cargo: "Editora de vídeo", texto: "Edita os vídeos de anúncio, Reels e TikTok.", foto: samara },
-  { nome: "Matheus", cargo: "Designer gráfico", texto: "Cria as peças visuais de rede, anúncio e loja.", foto: matheus },
+  { nome: "Matheus", cargo: "Gestor de e-commerce", texto: "Cria e otimiza as lojas na Shopify: produtos, páginas e ofertas.", foto: matheus },
   { nome: "Frank", cargo: "Designer gráfico", texto: "Faz artes de post, carrossel, banner e criativo estático.", foto: frank },
 ];
 
