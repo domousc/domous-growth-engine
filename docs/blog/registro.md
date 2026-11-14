@@ -58,3 +58,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-13 · guia · vso imobiliário · https://domous.com.br/blog/vso-lancamento-imobiliario/
 - 2026-11-13 · noticia · gemini 4 hydrogen google busca · https://domous.com.br/news/google-gemini-4-hydrogen-busca-modo-ia/
 - 2026-11-14 · noticia · vendas do varejo setembro 2026 · https://domous.com.br/news/ibge-varejo-setembro-2026-estabilidade-moveis-black-friday/
+- 2026-11-14 · guia · atendimento no whatsapp vendas · https://domous.com.br/blog/atendimento-no-whatsapp-que-vende/
