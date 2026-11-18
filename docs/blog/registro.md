@@ -70,3 +70,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-17 · guia · como conseguir avaliações no google · https://domous.com.br/blog/como-conseguir-avaliacoes-no-google/
 - 2026-11-17 · noticia · search journey awareness google ads · https://domous.com.br/news/google-ads-search-journey-awareness-lances-jornada/
 - 2026-11-18 · noticia · google tag manager unificação · https://domous.com.br/news/google-tag-vira-container-tag-manager-janeiro-2027/
+- 2026-11-18 · analise · manaíra shopping marketing · https://domous.com.br/blog/raio-x-manaira-shopping/
