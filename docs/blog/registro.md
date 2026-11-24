@@ -88,3 +88,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-23 · guia · follow up whatsapp · https://domous.com.br/blog/cliente-sumiu-no-whatsapp-follow-up/
 - 2026-11-23 · noticia · boletim focus selic 2027 · https://domous.com.br/news/focus-eleva-selic-2027-inflacao-dolar-planejamento/
 - 2026-11-24 · guia · como anunciar imóvel no instagram · https://domous.com.br/blog/como-anunciar-imovel-no-instagram/
+- 2026-11-24 · noticia · confiança do consumidor novembro 2026 · https://domous.com.br/news/confianca-do-consumidor-novembro-2026-alta-renda/ (sem foto: a rotina agendada só pode alterar src/content/posts/ e docs/blog/registro.md, então a capa em public/img/news/ não foi gerada)
