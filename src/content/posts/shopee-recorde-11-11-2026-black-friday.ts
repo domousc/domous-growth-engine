@@ -4,6 +4,7 @@ const post: Post = {
   slug: "shopee-recorde-11-11-2026-black-friday",
   tipo: "noticia",
   editoria: "varejo",
+  foto: { arquivo: "/img/news/shopee-recorde-11-11-2026-black-friday.webp", alt: "Caminhão de entregas da Shopee Xpress na rua", credito: "Foto: FBenjr123 / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Shopee_Xpress_Delivery_01.jpg" },
   nivel: "brasil",
   palavraChave: "shopee 11.11 2026",
   titulo: "Shopee diz que vendeu mais no 11.11 do que na Black Friday de 2025: o que muda pra quem vende no varejo | Domous News",

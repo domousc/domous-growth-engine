@@ -32,7 +32,7 @@ function resumo(texto, max) {
 // Tamanho da manchete pelo comprimento, pra caber sem cortar.
 const tamanhoTitulo = (t, grande, medio, pequeno) => (t.length <= 55 ? grande : t.length <= 85 ? medio : pequeno);
 
-function arte(p, formato, logo) {
+function arte(p, formato, logo, fundoFoto) {
   const noticia = p.tipo === "noticia";
   const secao = noticia ? "domous.com.br/news" : "domous.com.br/blog";
   const story = formato === "story";
@@ -59,7 +59,7 @@ function arte(p, formato, logo) {
       justifyContent: "space-between",
       padding: `${padTopo}px ${pad}px ${padBase}px`,
       backgroundColor: "#0F0F14",
-      backgroundImage: `radial-gradient(circle at 85% 0%, rgba(139,0,255,0.45) 0%, rgba(139,0,255,0) 55%), radial-gradient(circle at 0% 100%, rgba(91,18,184,0.35) 0%, rgba(91,18,184,0) 50%)`,
+      ...(fundoFoto ? { backgroundImage: `url(${fundoFoto})`, backgroundSize: `${W}px ${H}px` } : { backgroundImage: `radial-gradient(circle at 85% 0%, rgba(139,0,255,0.45) 0%, rgba(139,0,255,0) 55%), radial-gradient(circle at 0% 100%, rgba(91,18,184,0.35) 0%, rgba(91,18,184,0) 50%)` }),
       color: "#F2F2F5",
       fontFamily: "Inter",
     },
@@ -176,12 +176,20 @@ export async function gerarArtes(posts, { raiz, dist, logoPath, laminasCarrossel
   const formatos = { post: [1080, 1350], story: [1080, 1920], og: [1200, 630] };
   let total = 0;
   for (const p of posts) {
+    // Fundo de foto pra imagem de compartilhamento: foto cortada + degradê escuro pra ler a manchete.
+    let fundoFoto;
+    const arqFoto = p.foto && path.join(raiz, "public", p.foto.arquivo);
+    if (arqFoto && fs.existsSync(arqFoto)) {
+      const veu = Buffer.from(`<svg width="1200" height="630"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0F0F14" stop-opacity="0.55"/><stop offset="0.45" stop-color="#0F0F14" stop-opacity="0.55"/><stop offset="1" stop-color="#0F0F14" stop-opacity="0.94"/></linearGradient></defs><rect width="1200" height="630" fill="url(#g)"/></svg>`);
+      const jpg = await sharp(arqFoto).resize(1200, 630, { fit: "cover" }).composite([{ input: veu }]).jpeg({ quality: 82 }).toBuffer();
+      fundoFoto = `data:image/jpeg;base64,${jpg.toString("base64")}`;
+    }
     for (const [formato, [width, height]] of Object.entries(formatos)) {
-      const svg = await satori(arte(p, formato, logo), { width, height, fonts: fontes });
+      const svg = await satori(arte(p, formato, logo, formato === "og" ? fundoFoto : undefined), { width, height, fonts: fontes });
       const png = new Resvg(svg, { fitTo: { mode: "width", value: width } }).render().asPng();
       fs.writeFileSync(path.join(pasta, `${p.slug}-${formato}.png`), png);
       // Lightweight display previews; original downloads remain unchanged.
-      if (formato === "og") {
+      if (formato === "og" && !fundoFoto) {
         await sharp(png).resize({ width: 800 }).webp({ quality: 72 }).toFile(path.join(pasta, `${p.slug}-preview.webp`));
       }
       total++;

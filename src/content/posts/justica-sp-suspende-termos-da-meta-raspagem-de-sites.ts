@@ -4,6 +4,7 @@ const post: Post = {
   slug: "justica-sp-suspende-termos-da-meta-raspagem-de-sites",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/justica-sp-suspende-termos-da-meta-raspagem-de-sites.webp", alt: "Fachada do Palácio da Justiça, sede do Tribunal de Justiça de São Paulo", credito: "Foto: Catherine Gaspar / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_da_Justi%C3%A7a_de_S%C3%A3o_Paulo_01.jpg" },
   nivel: "brasil",
   palavraChave: "liminar meta termos comerciais",
   titulo: "Justiça de SP suspende cláusula da Meta que libera coleta de sites pra IA: o que muda pra quem tem conta comercial | Domous News",

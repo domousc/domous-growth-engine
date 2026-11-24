@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-performance-max-busca-de-marca-campanha-de-pesquisa",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-performance-max-busca-de-marca-campanha-de-pesquisa.webp", alt: "Sundar Pichai, CEO do Google, no palco do Google I/O", credito: "Foto: Steven Zimmerman / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Sundar_Pichai_at_Google_IO_2017_Keynote.jpg" },
   nivel: "brasil",
   palavraChave: "performance max busca de marca",
   titulo: "Google diz que o Performance Max pode deixar buscas de marca pra campanha de pesquisa: o que muda pra quem anuncia | Domous News",

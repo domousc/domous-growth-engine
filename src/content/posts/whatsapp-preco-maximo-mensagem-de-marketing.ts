@@ -4,6 +4,7 @@ const post: Post = {
   slug: "whatsapp-preco-maximo-mensagem-de-marketing",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/whatsapp-preco-maximo-mensagem-de-marketing.webp", alt: "Ícone do WhatsApp na tela de um celular", credito: "Foto: Yuri Samoilov / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Whatsapp_app_icon_on_smartphone_screen_(perspective_render)_(49897226177).jpg" },
   nivel: "brasil",
   palavraChave: "preço máximo mensagem de marketing whatsapp",
   titulo: "WhatsApp testa preço máximo por mensagem de marketing no Brasil: o que muda pra quem dispara campanha | Domous News",

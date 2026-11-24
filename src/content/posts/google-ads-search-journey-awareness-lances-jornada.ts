@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-ads-search-journey-awareness-lances-jornada",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-ads-search-journey-awareness-lances-jornada.webp", alt: "Campus do Google em Mountain View, na Califórnia", credito: "Foto: Sebastian Bergmann / Wikimedia Commons (CC BY-SA 2.0)", url: "https://commons.wikimedia.org/wiki/File:Google_Campus2_cropped.jpg" },
   nivel: "brasil",
   palavraChave: "search journey awareness google ads",
   titulo: "Google Ads passa a usar a jornada inteira do cliente nos lances automáticos: o que muda pra quem vende com ciclo longo | Domous News",

@@ -282,7 +282,7 @@ rotas.push(
           datePublished: p.publicado,
           dateModified: p.atualizado,
           mainEntityOfPage: url(path),
-          image: [`${site.url}/img/posts/${p.slug}-og.png`, `${site.url}/img/posts/${p.slug}-post.png`],
+          image: [...(p.foto ? [`${site.url}${p.foto.arquivo}`] : []), `${site.url}/img/posts/${p.slug}-og.png`, `${site.url}/img/posts/${p.slug}-post.png`],
           about: p.servicos.map((s) => ({ "@id": `${url(`/servicos/${s}/`)}#servico` })),
           ...(p.fontes?.length ? { citation: p.fontes.map((f) => f.url) } : {}),
         },

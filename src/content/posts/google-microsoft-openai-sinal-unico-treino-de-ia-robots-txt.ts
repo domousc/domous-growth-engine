@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-microsoft-openai-sinal-unico-treino-de-ia-robots-txt",
   tipo: "noticia",
   editoria: "ia",
+  foto: { arquivo: "/img/news/google-microsoft-openai-sinal-unico-treino-de-ia-robots-txt.webp", alt: "Fileiras de servidores num data center", credito: "Foto: BalticServers.com / Wikimedia Commons (CC BY-SA 3.0)", url: "https://commons.wikimedia.org/wiki/File:BalticServers_data_center.jpg" },
   nivel: "brasil",
   palavraChave: "bloquear treino de ia robots.txt",
   titulo: "Google, Microsoft e OpenAI vão aceitar um sinal único contra treino de IA: o que muda pro site da tua empresa | Domous News",

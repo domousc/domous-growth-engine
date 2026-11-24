@@ -4,6 +4,7 @@ const post: Post = {
   slug: "pesquisa-cndl-black-friday-2026-intencao-de-compra",
   tipo: "noticia",
   editoria: "varejo",
+  foto: { arquivo: "/img/news/pesquisa-cndl-black-friday-2026-intencao-de-compra.webp", alt: "Pessoas com sacolas de compras no corredor de um shopping", credito: "Imagem ilustrativa gerada por IA" },
   nivel: "brasil",
   palavraChave: "pesquisa black friday 2026",
   titulo: "Pesquisa da CNDL mostra intenção de compra menor na Black Friday 2026: o que muda pra quem vende | Domous News",

@@ -4,6 +4,7 @@ const post: Post = {
   slug: "instagram-testa-videos-de-90-minutos-features",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/instagram-testa-videos-de-90-minutos-features.webp", alt: "Mão segurando celular com o Instagram aberto", credito: "Foto: Santeri Viinamäki / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Instagram_app_on_smartphone.jpg" },
   nivel: "brasil",
   palavraChave: "instagram features vídeos longos",
   titulo: "Instagram testa vídeos horizontais de até 90 minutos: o que muda pra marcas | Domous News",

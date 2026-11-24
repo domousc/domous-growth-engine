@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-anuncios-no-modo-ia-chegam-ao-brasil",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-anuncios-no-modo-ia-chegam-ao-brasil.webp", alt: "Logotipo colorido do Google na fachada da sede em Mountain View", credito: "Foto: Gregory Varnum / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Googleplex_-_June_2019_(5849).jpg" },
   nivel: "brasil",
   palavraChave: "anúncios no modo ia do google",
   titulo: "Google confirma anúncios no Modo IA no Brasil ainda em 2026: o que muda pra quem anuncia | Domous News",

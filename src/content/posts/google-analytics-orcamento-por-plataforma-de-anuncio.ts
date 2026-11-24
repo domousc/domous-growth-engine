@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-analytics-orcamento-por-plataforma-de-anuncio",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-analytics-orcamento-por-plataforma-de-anuncio.webp", alt: "Homem usando a busca do Google num notebook", credito: "Foto: Panelxf / Wikimedia Commons (CC0)", url: "https://commons.wikimedia.org/wiki/File:Laptop_Google_Search.jpg" },
   nivel: "brasil",
   palavraChave: "orçamento de mídia google analytics",
   titulo: "Google Analytics passa a comparar o orçamento de mídia por plataforma de anúncio: o que muda pra quem divide verba entre Google e Meta | Domous News",

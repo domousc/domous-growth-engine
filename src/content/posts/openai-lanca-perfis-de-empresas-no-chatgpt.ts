@@ -4,6 +4,7 @@ const post: Post = {
   slug: "openai-lanca-perfis-de-empresas-no-chatgpt",
   tipo: "noticia",
   editoria: "ia",
+  foto: { arquivo: "/img/news/openai-lanca-perfis-de-empresas-no-chatgpt.webp", alt: "Celular com o ChatGPT aberto sobre um teclado", credito: "Foto: Jernej Furman from Slovenia / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Smartphone_with_ChatGPT_on_keyboard_(52917311050).jpg" },
   nivel: "brasil",
   palavraChave: "perfil de empresa no chatgpt",
   titulo: "OpenAI lança perfis de empresas no ChatGPT: o que muda pra quem quer ser recomendado pela IA | Domous News",

@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-ads-shorts-curtida-conta-como-conversao",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-ads-shorts-curtida-conta-como-conversao.webp", alt: "Celular abrindo o aplicativo do YouTube", credito: "Foto: SCBY / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Youtube_App_Startup.JPG" },
   nivel: "brasil",
   palavraChave: "conversão de visualização engajada shorts",
   titulo: "Google passa a contar curtida em anúncio do Shorts como visualização engajada: o que muda pra quem mede conversão no YouTube | Domous News",

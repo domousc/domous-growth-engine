@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-ads-conversoes-offline-conta-errada",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-ads-conversoes-offline-conta-errada.webp", alt: "Prédio do Google com o logotipo na fachada, na sede em Mountain View", credito: "Foto: Asoundd / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Googleplex_HQ_(cropped).jpg" },
   nivel: "brasil",
   palavraChave: "conversões offline google ads",
   titulo: "Google Ads pode contar conversões offline na conta errada: o que muda pra quem importa vendas do CRM | Domous News",

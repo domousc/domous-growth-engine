@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-core-update-novembro-2026-black-friday",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-core-update-novembro-2026-black-friday.webp", alt: "Fachada da sede do Google em Mountain View", credito: "Foto: Grendelkhan / Wikimedia Commons (CC BY-SA 3.0)", url: "https://commons.wikimedia.org/wiki/File:Googleplex_with_Pride_colors_2015.gk.jpg" },
   nivel: "brasil",
   palavraChave: "core update novembro 2026",
   titulo: "Google solta atualização principal da busca às vésperas da Black Friday: o que muda pra quem depende do orgânico | Domous News",

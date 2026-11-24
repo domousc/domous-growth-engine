@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-tag-vira-container-tag-manager-janeiro-2027",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-tag-vira-container-tag-manager-janeiro-2027.webp", alt: "Prédio do campus do Google em Mountain View", credito: "Foto: Gregory Varnum / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Googleplex_-_June_2019_(5872).jpg" },
   nivel: "brasil",
   palavraChave: "google tag manager unificação",
   titulo: "Google junta a tag do Google e o Tag Manager: o que muda na medição de quem anuncia | Domous News",

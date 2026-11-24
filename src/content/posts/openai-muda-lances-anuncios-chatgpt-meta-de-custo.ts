@@ -4,6 +4,7 @@ const post: Post = {
   slug: "openai-muda-lances-anuncios-chatgpt-meta-de-custo",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/openai-muda-lances-anuncios-chatgpt-meta-de-custo.webp", alt: "Mão segurando celular com o nome ChatGPT na tela", credito: "Foto: Jernej Furman from Slovenia / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Hand_holding_smartphone_with_ChatGPT_(52917076309).jpg" },
   nivel: "brasil",
   palavraChave: "lance anúncios chatgpt",
   titulo: "OpenAI troca o lance máximo por meta de custo nos anúncios do ChatGPT: o que muda pra quem anuncia | Domous News",

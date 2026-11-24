@@ -23,6 +23,10 @@ export type Post = {
   fontes?: { nome: string; url: string }[];
   // Só notícias (Domous News).
   editoria?: Editoria;
+  // Foto de capa salva em public/img/news/<slug>.webp (1600x900). Foto real com
+  // licença livre e crédito; sem foto livre, imagem gerada por IA (credito diz isso).
+  // Ver scripts/foto-noticia.mjs.
+  foto?: { arquivo: string; alt: string; credito: string; url?: string };
 };
 
 export const rotuloEditoria: Record<Editoria, string> = {

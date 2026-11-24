@@ -4,6 +4,7 @@ const post: Post = {
   slug: "meta-suspende-novos-termos-comerciais-investigacao-reino-unido",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/meta-suspende-novos-termos-comerciais-investigacao-reino-unido.webp", alt: "Vista aérea da sede da Meta em Menlo Park, na Califórnia", credito: "Foto: InvadingInvader / Wikimedia Commons (CC BY-SA 4.0)", url: "https://commons.wikimedia.org/wiki/File:Meta_HQ_2023.png" },
   nivel: "brasil",
   palavraChave: "meta suspende novos termos comerciais",
   titulo: "Meta suspende novos termos comerciais e vira alvo de investigação no Reino Unido: o que muda pra quem anuncia | Domous News",

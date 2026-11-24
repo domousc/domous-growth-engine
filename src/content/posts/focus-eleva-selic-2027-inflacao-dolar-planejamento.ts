@@ -4,6 +4,7 @@ const post: Post = {
   slug: "focus-eleva-selic-2027-inflacao-dolar-planejamento",
   tipo: "noticia",
   editoria: "negocios",
+  foto: { arquivo: "/img/news/focus-eleva-selic-2027-inflacao-dolar-planejamento.webp", alt: "Fachada do edifício-sede do Banco Central do Brasil, em Brasília", credito: "Foto: Senado Federal / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Edif%C3%ADcio_sede_do_Banco_Central_do_Brasil_(16011634694).jpg" },
   nivel: "brasil",
   palavraChave: "boletim focus selic 2027",
   titulo: "Focus passa a ver Selic de 13% no fim de 2027: o que muda no plano comercial do ano que vem | Domous News",

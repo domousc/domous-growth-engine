@@ -4,6 +4,7 @@ const post: Post = {
   slug: "ibc-br-setembro-2026-atividade-recua-terceiro-trimestre",
   tipo: "noticia",
   editoria: "negocios",
+  foto: { arquivo: "/img/news/ibc-br-setembro-2026-atividade-recua-terceiro-trimestre.webp", alt: "Vista de Brasília com o edifício do Banco Central à esquerda", credito: "Foto: Arquivo/Agência Brasil / Wikimedia Commons (CC BY 3.0 br)", url: "https://commons.wikimedia.org/wiki/File:Arquivo_da_Ag%C3%AAncia_Brasil_-_Bras%C3%ADlia_01.jpg" },
   nivel: "brasil",
   palavraChave: "ibc-br setembro 2026",
   titulo: "IBC-Br cai em setembro e economia recua 0,9% no trimestre: o que muda pra quem planeja vendas | Domous News",

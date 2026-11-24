@@ -4,6 +4,7 @@ const post: Post = {
   slug: "novo-decreto-do-sac-atendimento-humano-8h-as-20h",
   tipo: "noticia",
   editoria: "negocios",
+  foto: { arquivo: "/img/news/novo-decreto-do-sac-atendimento-humano-8h-as-20h.webp", alt: "Atendente com fone de ouvido numa central de atendimento", credito: "Imagem ilustrativa gerada por IA" },
   nivel: "brasil",
   palavraChave: "novas regras do sac",
   titulo: "Novas regras do SAC exigem atendimento humano das 8h às 20h: o que muda pra quem atende cliente com robô | Domous News",

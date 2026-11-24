@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-analytics-data-manager-conversoes-em-dobro",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-analytics-data-manager-conversoes-em-dobro.webp", alt: "Celular com a busca do Google mostrando o Google Analytics", credito: "Foto: Edho Pratama edhoradic / Wikimedia Commons (CC0)", url: "https://commons.wikimedia.org/wiki/File:Google_analytics_phone_(Unsplash).jpg" },
   nivel: "brasil",
   palavraChave: "data manager google analytics",
   titulo: "Google lança Data Manager no Analytics e alerta pra conversões em dobro: o que muda pra quem importa dados do CRM | Domous News",

@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-busca-cresce-12-modo-ia-rende-menos",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-busca-cresce-12-modo-ia-rende-menos.webp", alt: "Sundar Pichai no palco de um evento com o logotipo do Google ao fundo", credito: "Foto: Maurizio Pesce / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Sundar_Pichai_-_SVP,_Android,_Chrome_and_Apps,_Google.jpg" },
   nivel: "brasil",
   palavraChave: "resultado do google terceiro trimestre 2026",
   titulo: "Receita da busca do Google desacelera e Modo IA rende menos por pesquisa: o que muda pra quem anuncia | Domous News",

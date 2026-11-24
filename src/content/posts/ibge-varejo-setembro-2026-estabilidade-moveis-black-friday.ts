@@ -4,6 +4,7 @@ const post: Post = {
   slug: "ibge-varejo-setembro-2026-estabilidade-moveis-black-friday",
   tipo: "noticia",
   editoria: "varejo",
+  foto: { arquivo: "/img/news/ibge-varejo-setembro-2026-estabilidade-moveis-black-friday.webp", alt: "Vendedor mostrando um sofá a um casal numa loja de móveis", credito: "Imagem ilustrativa gerada por IA" },
   nivel: "brasil",
   palavraChave: "vendas do varejo setembro 2026",
   titulo: "Varejo fica estável em setembro e móveis caem 2,6%, diz IBGE: o que muda pra quem planeja a Black Friday | Domous News",

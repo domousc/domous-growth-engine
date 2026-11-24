@@ -4,6 +4,7 @@ const post: Post = {
   slug: "receita-mantem-cbs-janeiro-2027-reforma-tributaria",
   tipo: "noticia",
   editoria: "negocios",
+  foto: { arquivo: "/img/news/receita-mantem-cbs-janeiro-2027-reforma-tributaria.webp", alt: "Agência da Receita Federal em Sousa, na Paraíba", credito: "Foto: Marcos Elias de Oliveira Júnior / Wikimedia Commons (Public domain)", url: "https://commons.wikimedia.org/wiki/File:Ag%C3%AAncia_da_Receita_Federal_de_Sousa_(PB).jpg" },
   nivel: "brasil",
   palavraChave: "cbs 2027",
   titulo: "Receita mantém a CBS em janeiro de 2027: o que muda pra quem vende | Domous News",

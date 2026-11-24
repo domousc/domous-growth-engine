@@ -4,6 +4,7 @@ const post: Post = {
   slug: "google-gemini-4-hydrogen-busca-modo-ia",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/google-gemini-4-hydrogen-busca-modo-ia.webp", alt: "Plateia na abertura do Google I/O, evento anual do Google", credito: "Foto: btwashburn from Belmont / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Google_IO_2016_Keynote_(26533672104).jpg" },
   nivel: "brasil",
   palavraChave: "gemini 4 hydrogen google busca",
   titulo: "Google leva o Gemini 4 Hydrogen pra busca: o que muda pra quem quer aparecer nas respostas de IA | Domous News",

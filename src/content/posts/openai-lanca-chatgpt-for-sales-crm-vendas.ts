@@ -4,6 +4,7 @@ const post: Post = {
   slug: "openai-lanca-chatgpt-for-sales-crm-vendas",
   tipo: "noticia",
   editoria: "vendas",
+  foto: { arquivo: "/img/news/openai-lanca-chatgpt-for-sales-crm-vendas.webp", alt: "Mão segurando celular com o ChatGPT aberto em frente a um notebook", credito: "Foto: Jernej Furman from Slovenia / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Smartphone_with_ChatGPT_app_and_laptop_(52917381683).jpg" },
   nivel: "brasil",
   palavraChave: "chatgpt for sales",
   titulo: "OpenAI lança o ChatGPT for Sales: o que muda pra equipe comercial que usa CRM | Domous News",

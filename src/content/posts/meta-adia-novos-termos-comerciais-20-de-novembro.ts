@@ -4,6 +4,7 @@ const post: Post = {
   slug: "meta-adia-novos-termos-comerciais-20-de-novembro",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/meta-adia-novos-termos-comerciais-20-de-novembro.webp", alt: "Entrada da sede da Meta em Menlo Park, na Califórnia", credito: "Foto: LPS.1 / Wikimedia Commons (CC0)", url: "https://commons.wikimedia.org/wiki/File:Meta_Platforms_Headquarters_Menlo_Park_California.jpg" },
   nivel: "brasil",
   palavraChave: "novos termos comerciais meta",
   titulo: "Meta adia novos termos comerciais pra 20 de novembro: o que muda pra quem anuncia | Domous News",

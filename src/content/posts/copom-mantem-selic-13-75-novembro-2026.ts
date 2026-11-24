@@ -4,6 +4,7 @@ const post: Post = {
   slug: "copom-mantem-selic-13-75-novembro-2026",
   tipo: "noticia",
   editoria: "negocios",
+  foto: { arquivo: "/img/news/copom-mantem-selic-13-75-novembro-2026.webp", alt: "Edifício-sede do Banco Central do Brasil, em Brasília", credito: "Foto: Senado Federal / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Edif%C3%ADcio_sede_do_Banco_Central_do_Brasil_(16607833736).jpg" },
   nivel: "brasil",
   palavraChave: "copom mantém selic 13,75",
   titulo: "Copom mantém a Selic em 13,75% e pausa os cortes: o que muda pra quem vende a prazo | Domous News",

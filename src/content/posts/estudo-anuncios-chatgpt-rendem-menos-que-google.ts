@@ -4,6 +4,7 @@ const post: Post = {
   slug: "estudo-anuncios-chatgpt-rendem-menos-que-google",
   tipo: "noticia",
   editoria: "marketing",
+  foto: { arquivo: "/img/news/estudo-anuncios-chatgpt-rendem-menos-que-google.webp", alt: "Celular com o ChatGPT aberto sobre notas de dólar", credito: "Foto: Jernej Furman from Slovenia / Wikimedia Commons (CC BY 2.0)", url: "https://commons.wikimedia.org/wiki/File:Smartphone_with_ChatGPT_on_the_US_dollar_banknotes_background_(52917311070).jpg" },
   nivel: "brasil",
   palavraChave: "anúncios no chatgpt vale a pena",
   titulo: "Estudo mostra que visita de anúncio no ChatGPT rende US$ 0,89 contra US$ 2,45 no Google: o que muda pra quem anuncia | Domous News",

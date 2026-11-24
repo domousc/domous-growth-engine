@@ -48,6 +48,11 @@ Arquivo `src/content/posts/<slug>.ts`, formato de `src/content/posts/meta-adia-n
 - `faq`: 2 ou 3 perguntas que alguém faria ao ler a manchete.
 - `fontes`: no mínimo 2, com veículo, data e link.
 - `servicos`: 1 a 3 slugs válidos de `src/data/servicos.ts`.
+- `foto`: capa da notícia, obrigatória. Ordem:
+  1. **Foto real com licença livre** do Wikimedia Commons (inclui o acervo da Agência Brasil): `node scripts/foto-noticia.mjs buscar "<termo curto>"` (ex.: "Googleplex", "Banco Central do Brasil", "Meta Platforms headquarters"). Escolha uma que mostre a empresa, o órgão ou o lugar da notícia; baixe a miniatura com `curl -sL -o /tmp/c.jpg "<link>"` e abra com Read pra conferir. Depois `node scripts/foto-noticia.mjs baixar <slug> "File:..." "<alt descrevendo a foto>"` e cole o campo `foto` que ele imprime. O crédito sai pronto, não edite.
+  2. **Sem foto livre que sirva**: se houver `OPENAI_API_KEY` no ambiente, `node scripts/foto-noticia.mjs gerar <slug> "<cena em inglês>" "<alt>"`. Só cena genérica (loja, escritório, celular, atendimento), nunca logo, marca, prédio de empresa ou pessoa real. O crédito sai como "Imagem ilustrativa gerada por IA".
+  3. **Sem chave**: publique sem `foto` (o site usa a arte da Domous) e anote no registro `sem foto`.
+  Nunca use foto de matéria de jornal, de agência (Reuters, Getty, AFP, Folhapress) ou de banco pago, mesmo com crédito.
 - Tamanho: 450 a 800 palavras.
 
 ## 6. Regras de texto
@@ -56,7 +61,7 @@ As mesmas de `docs/blog/ROTINA.md` (sem travessão, sem contraste "não é X, é
 ## 7. Conferir, publicar e registrar
 - `grep -c "—" src/content/posts/<slug>.ts` = 0; `npx tsc --noEmit -p tsconfig.app.json` limpo; `npm run build` gerando `dist/news/<slug>/index.html`.
 - Linha em `docs/blog/registro.md`: `- <data> · noticia · <palavra-chave> · https://domous.com.br/news/<slug>/`
-- `git add src/content/posts/<slug>.ts docs/blog/registro.md`, commit `News: <h1>` com `Co-Authored-By: Claude <noreply@anthropic.com>` na última linha, `git push origin main`. O Cloudflare publica sozinho. Não rode `wrangler` nem `scripts/indexnow.mjs`.
+- `git add src/content/posts/<slug>.ts public/img/news/<slug>.webp docs/blog/registro.md`, commit `News: <h1>` com `Co-Authored-By: Claude <noreply@anthropic.com>` na última linha, `git push origin main`. O Cloudflare publica sozinho. Não rode `wrangler` nem `scripts/indexnow.mjs`.
 - Conflito no push: `git pull --rebase` e tente uma vez; se falhar, registre e pare.
 
 ## 8. Resumo

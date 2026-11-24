@@ -11,11 +11,12 @@ const previews = import.meta.glob<string>("/src/assets/editorial/*-preview.webp"
 export const MiniaturaEditorial = ({ p, className = "" }: { p: Post; className?: string }) => {
   const [falhou, setFalhou] = useState(false);
   return <div className={`editorial-thumb relative aspect-[16/9] overflow-hidden rounded-2xl ${className}`}>
-    {!falhou ? <img src={previews[`/src/assets/editorial/${p.slug}-preview.webp`] ?? `/img/posts/${p.slug}-preview.webp`} width={800} height={420} alt="" loading="lazy" onError={() => setFalhou(true)} className="h-full w-full object-cover" /> : <div className="absolute inset-0 section-dark p-6 flex flex-col justify-between"><span className="eyebrow text-brand-label">{rotuloTipo[p.tipo]}</span><Newspaper className="w-10 h-10 text-primary" aria-hidden /><span className="text-sm text-dark-muted">Domous · Marketing e vendas</span></div>}
+    {!falhou ? <img src={p.foto?.arquivo ?? previews[`/src/assets/editorial/${p.slug}-preview.webp`] ?? `/img/posts/${p.slug}-preview.webp`} width={800} height={420} alt="" loading="lazy" onError={() => setFalhou(true)} className="h-full w-full object-cover" /> : <div className="absolute inset-0 section-dark p-6 flex flex-col justify-between"><span className="eyebrow text-brand-label">{rotuloTipo[p.tipo]}</span><Newspaper className="w-10 h-10 text-primary" aria-hidden /><span className="text-sm text-dark-muted">Domous · Marketing e vendas</span></div>}
   </div>;
 };
 
-export const CartaoEditorial = ({ p, imagem = false }: { p: Post; imagem?: boolean }) => <article className="group border-b border-border pb-6 flex flex-col">
+// Notícia com foto aparece sempre com a foto no card.
+export const CartaoEditorial = ({ p, imagem = !!p.foto }: { p: Post; imagem?: boolean }) => <article className="group border-b border-border pb-6 flex flex-col">
   <a href={caminhoPost(p)} className="block">
     {imagem && <MiniaturaEditorial p={p} className="mb-5" />}
     <p className="eyebrow text-primary mb-3">{p.editoria ? rotuloEditoria[p.editoria] : rotuloTipo[p.tipo]}</p>
