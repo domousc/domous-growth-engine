@@ -100,3 +100,4 @@ Uma linha por post publicado (ou por erro da rotina). Mais recente embaixo.
 - 2026-11-27 · guia · como aumentar o ticket médio · https://domous.com.br/blog/como-aumentar-o-ticket-medio/
 - 2026-11-27 · noticia · pof 2024-2025 · https://domous.com.br/news/ibge-pof-2024-2025-gastos-familias-alimentacao-saude/ (sem foto: a rotina agendada só pode alterar src/content/posts/ e docs/blog/registro.md, então a capa em public/img/news/ não foi gerada)
 - 2026-11-28 · noticia · taxa de desemprego outubro 2026 · https://domous.com.br/news/pnad-outubro-2026-desemprego-5-1-renda-consumo/ (sem foto: a rotina agendada só pode alterar src/content/posts/ e docs/blog/registro.md, então a capa em public/img/news/ não foi gerada)
+- 2026-11-28 · guia · impulsionar ou gerenciador de anúncios · https://domous.com.br/blog/impulsionar-ou-gerenciador-de-anuncios/
